@@ -2,48 +2,82 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="title" content="Nome della pizzeria" />
+    <meta name="title" content="Pizzeria Ai 4 Laureandi - Padova" />
     <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="Orlandi Giacomo, Masetto Michele, Vignaga Matteo, Zheng Zhen Wei" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
+    <meta name="author" content="Michele Masetto" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nome della pizzeria</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
     <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
-    <link rel="shortcut icon" type="image/png" href="../images/icons/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <script src="../JS/custom.js"></script>
   </head>
   <body>
     <header>
-      <a href="index.html">
-        <img src="../images/logo.png" alt="Nome della pizzeria" />
-      </a>
-      <a class="sr-only" href="#breadcrumb">Salta la navigazione</a>
-      <nav role="navigation">
-        <ul>
+      <div id="navbar" class="container row">
+        <div id="logo">
+            <a href="index.html">
+              <h1>Pizzeria Ai 4 Laureandi</h1>
+            </a>
+        </div>
+        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+        <nav id="nav-main" role="navigation">
+          <ul id="menu-nav" class="menu">
+            <li><a href="storia.html">Storia</a></li>
+            <li><a href="menu.html">Menù</a></li>
+            <li><a href="ordinazione.html">Ordina online</a></li>
+            <li><a href="prenotazione.html">Prenota un tavolo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li>ITA</li>
+            <li>ENG</li>
+            <li><a href="login.html">Accedi</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container">
+        <ul class="menu menu-small-screens">
           <li><a href="storia.html">Storia</a></li>
           <li><a href="menu.html">Menù</a></li>
           <li><a href="ordinazione.html">Ordina online</a></li>
           <li><a href="prenotazione.html">Prenota un tavolo</a></li>
           <li><a href="contatti.html">Contatti</a></li>
+          <li>ITA</li>
+          <li>ENG</li>
           <li><a href="login.html">Accedi</a></li>
         </ul>
-      </nav>
+      </div>
     </header>
-    <div id="breadcrumb">
-      <p>Ti trovi in: <span lang="en">Home</span></p>
-    </div>
-    <!-- ultime offerte, piatti del giorno, ... -->
-    <div id="news">
+    <main id="content-wrapper" class="container">
+      <div id="breadcrumb">
+        <p>Ti trovi in: <span lang="en">Home</span></p>
+      </div>
+      <!-- ultime offerte, piatti del giorno, ... -->
+      <div id="news">
 
-    </div>
-    <!-- mostra i voti migliori degli utenti -->
-    <div id="recensioni">
-      <p>Ecco cosa dicono di noi:</p>
-    </div>
-    <footer>
-
+      </div>
+      <!-- mostra i voti migliori degli utenti -->
+      <div id="recensioni">
+        <p>Ecco cosa dicono di noi:</p>
+      </div>
+    </main>
+    <footer class="container">
+      <div id="site-map">
+        <ul class="menu menu-mobile">
+          <li><a href="storia.html">Storia</a></li>
+          <li><a href="menu.html">Menù</a></li>
+          <li><a href="ordinazione.html">Ordina online</a></li>
+          <li><a href="prenotazione.html">Prenota un tavolo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li>ITA</li>
+          <li>ENG</li>
+          <li><a href="login.html">Accedi</a></li>
+        </ul>
+      </div>
+      <div id="copyright">
+        &copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
+      </div>
     </footer>
   </body>
 </html>
