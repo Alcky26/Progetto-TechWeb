@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="title" content="Nome della pizzeria" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="Orlandi Giacomo, Masetto Michele, Vignaga Matteo, Zheng Zhen Wei" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Nome della pizzeria</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
+		<link rel="shortcut icon" type="image/png" href="../images/icons/favicon.ico" />
+		<script src="../JS/custom.js"></script>
+	</head>
+	<body>
+	<h1>prova input</h1>
+		<form action="inserimento_dati.php" method="POST">
+			<fieldset>
+				<legend>Dati Anagrafici</legend>
+				<label for="nome">Nome</label>
+				<input type="text" name="nome" readonly required><br><br>
+				<label for="cognome">Cognome</label>
+				<input type="text" cognome="cognome" disable><br><br>
+				<label for="codiceFiscale">Codice_Fiscale</label>
+				<input type="text" name="codiceFiscale" maxlength="16" placeholder="inserire codice fiscale" required><br><br>
+				<label for="provinciaNascità">Provincia Di Nascità</label>
+				<select name="provinciaNascità">
+					<option value="">Seleziona</option>
+					<option value="VE">VE</option>
+					<option value="TV">TV</option>
+					<option value="BL">BL</option>
+				</select><br><br>
+					<label for="email">Email</label>
+					<input type="email"><br><br>
+			</fieldset><br><br>
+			<input type="submit" value="Invia">
+			<input type="submit" value="Resetta">
+		</form>
+	</body>
+</html>
