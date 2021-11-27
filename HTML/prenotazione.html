@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="title" content="Pizzeria Ai 4 Laureandi - Padova" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
+    <meta name="author" content="Michele Masetto" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome della pizzeria</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+    <script src="../JS/custom.js"></script>
+  </head>
+  <body>
+	<div id="prenotazione">
+		<form action="php per inserimento nella database">
+		<fieldset><legend>Prenota il tuo posto</legend>
+			<div>
+			<label for="numeroPersone">Persone  </label>
+			<select id="numeroPersone" name="numeroPersone">
+				<option value="seleziona">Seleziona</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+			</select>
+			</div>
+			<div>
+				<label for="prenotazioneGiorno">Giorno </label>
+				<input type="date" name="prenotazioneGiorno" min="2021-11-01" required>
+			</div>
+			<div>
+				<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
+  				<label for="pranzoCena">Pranzo</label>
+			</div>
+			<div>
+				<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
+  				<label for="pranzoCena">Cena</label>
+			</div>
+			<div>
+			<label for="orario">Ora  </label>
+			<select id="orario" name="orario">
+				<option value="seleziona">Seleziona</option>
+				<!--definire orari in base all scelta pranzo o cena -->
+			</select>
+			</div>
+			<input type="submit" value="Invia">
+			<input type="reset" value="Resetta">
+		</fieldset>
+		</form>
+	</div>
+  </body>
+</html>
