@@ -1,0 +1,16 @@
+\fancypagestyle{section_style}{
+	\thispagestyle{empty}
+	\thispagestyle{fancy}
+	\pagestyle{fancy}
+	\fancyhf{}
+	% HEADER
+	\fancyhead[L]{\textit{Progetto di Tecnologie Web}}
+	\fancyhead[R]{\uppercase{\textbf{\leftmark}}}
+	% FOOTER
+	\fancyfoot[L]{Pizzeria Ai 4 Laureandi}
+	\fancyfoot[R]{Pagina \thepage~di~\pageref{LastPage}}
+	\setcounter{page}{0}
+	\pagenumbering{arabic}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+}
