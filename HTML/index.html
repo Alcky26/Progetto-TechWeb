@@ -15,63 +15,59 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-    <header>
-      <div id="navbar" class="container row">
-        <div id="logo">
+    <header id="top-header">
+      <div id="navbar">
+        <div id="logo" class="navbar-element">
             <a href="index.html">
-              <h1>Pizzeria Ai 4 Laureandi</h1>
+              <h1 aria-label="Vai alla home">PIZZERIA AI 4 LAUREANDI</h1>
             </a>
         </div>
-        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-        <nav id="nav-main" role="navigation">
+        <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
+        <div id="menu-button" class="navbar-element mobile-only"></div>
+        <nav class="navbar-element" role="navigation">
           <ul id="menu-nav" class="menu">
-            <li><a href="storia.html">Storia</a></li>
-            <li><a href="menu.html">Menù</a></li>
-            <li><a href="ordinazione.html">Ordina online</a></li>
-            <li><a href="prenotazione.html">Prenota un tavolo</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li>ITA</li>
-            <li>ENG</li>
-            <li><a href="login.html">Accedi</a></li>
+            <li><a href="storia.html">STORIA</a></li>
+            <li><a href="menu.html">MENÙ</a></li>
+            <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
+            <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
+            <li><a href="contatti.html">CONTATTI</a></li>
+            <li>ITA / ENG</li>
+            <li><a href="login.html">ACCEDI</a></li>
           </ul>
         </nav>
       </div>
-      <div class="container">
-        <ul class="menu menu-small-screens">
-          <li><a href="storia.html">Storia</a></li>
-          <li><a href="menu.html">Menù</a></li>
-          <li><a href="ordinazione.html">Ordina online</a></li>
-          <li><a href="prenotazione.html">Prenota un tavolo</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
-          <li>ITA</li>
-          <li>ENG</li>
-          <li><a href="login.html">Accedi</a></li>
-        </ul>
-      </div>
     </header>
-    <main id="content-wrapper" class="container">
-      <div id="breadcrumb">
+    <main id="content-wrapper">
+      <div id="breadcrumb" class="container">
         <p>Ti trovi in: <span lang="en">Home</span></p>
       </div>
-      <!-- ultime offerte, piatti del giorno, ... -->
-      <div id="news">
-
+      <div id="news" class="container">
+        <p>Solo per questo mese! Prova le nostre pizze di stagione:
+          <ul>
+            <li>Pizza n. 1: ...;</li>
+            <li>Pizza n. 2: ...;</li>
+          </ul>
+        </p>
       </div>
       <!-- mostra i voti migliori degli utenti -->
-      <div id="recensioni">
+      <div id="reviews" class="container">
+        <h2>Recensioni</h2>
         <p>Ecco cosa dicono di noi:</p>
+        <div class="review">
+          <p class="review-user">Maria Emilia Maietti (marymaietti@gmail.com):</p>
+          <p class="review-vote">DIESCI/DIESCI</p>
+          <p class="review-description">ADOROOOOOOO</p>
+        </div>
       </div>
     </main>
-    <footer class="container">
+    <footer>
       <div id="site-map">
-        <ul class="menu menu-mobile">
+        <ul class="menu">
           <li><a href="storia.html">Storia</a></li>
           <li><a href="menu.html">Menù</a></li>
-          <li><a href="ordinazione.html">Ordina online</a></li>
-          <li><a href="prenotazione.html">Prenota un tavolo</a></li>
+          <li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li>
+          <li><a href="prenotazione.html">Prenota tavolo</a></li>
           <li><a href="contatti.html">Contatti</a></li>
-          <li>ITA</li>
-          <li>ENG</li>
           <li><a href="login.html">Accedi</a></li>
         </ul>
       </div>

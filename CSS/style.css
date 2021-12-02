@@ -1,32 +1,9 @@
-.container {
-
+* {
+  font-size: 1em;
 }
 
-.row {
-  display: flex;
-  align-items: stretch;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-#navbar {
-  margin: 0 auto;
-  left: 50%;
-  height: 80px;
-  justify-content: space-between;
-}
-
-#logo {
-  width: 400px;
-  text-indent: -999em;
-  background-image: url("../images/logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-#nav-main {
-
+body {
+  background-color: rgb(31, 31, 31);
 }
 
 .sr-only {
@@ -39,18 +16,85 @@
   width: 1px;
 }
 
-.menu {
-  list-style: none;
+.mobile-only {
+  display: none;
 }
 
-.menu-nav {
+.menu {
+  list-style: none;
+  padding-left: 0px;
+}
 
+#top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(101, 67, 33, 0.90);
+  border-bottom: 5px solid #2E1503;
+}
+
+#navbar {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#logo {
+  width: 275px;
+  text-indent: -999em;
+  font-size: 40px;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-left: 5px;
+}
+
+#menu-nav {
+  position: relative;
+  top: 35%;
 }
 
 #menu-nav li {
-  display: inline-block;
+  display: inline;
+  margin: 0px 5px 0px 5px;
 }
 
-.menu-small-screens {
+#menu-button {
+  background: url("../images/hamburger_icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: inherit;
+  margin-right: 5px;
+}
 
+main {
+  margin-top: 115px;
+}
+
+.container {
+  margin: 10px 0px;
+  padding-left: 5px;
+  background-color: rgb(101, 67, 33);
+  border: 2px solid #2E1503;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+.container p {
+  width: 400px;
+}
+
+#news {
+  background: url("../images/pizza_home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 600px;
+  font-size: 2em;
 }
