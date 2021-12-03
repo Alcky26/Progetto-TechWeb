@@ -2,12 +2,12 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="title" content="Pizzeria Ai 4 Laureandi - Padova" />
+    <meta name="title" content="Prenotazione - Pizzeria Ai 4 Laureandi" />
     <meta name="keywords" content="" />
     <meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
-    <meta name="author" content="Michele Masetto" />
+    <meta name="author" content="Zhen Wei Zheng" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nome della pizzeria</title>
+    <title>Prenotazione - Pizzeria Ai 4 Laureandi</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
     <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
@@ -15,52 +15,84 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-	<div id="prenotazione">
-		<form action="php per inserimento nella database">
-		<fieldset><legend>Prenota il tuo posto</legend>
-			<div>
-			<label for="numeroPersone">Persone  </label>
-			<select id="numeroPersone" name="numeroPersone">
-				<option value="seleziona">Seleziona</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-			</select>
-			</div>
-			<div>
-				<label for="prenotazioneGiorno">Giorno </label>
-				<input type="date" name="prenotazioneGiorno" min="2021-11-01" required>
-			</div>
-			<div>
-				<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
-  				<label for="pranzoCena">Pranzo</label>
-			</div>
-			<div>
-				<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
-  				<label for="pranzoCena">Cena</label>
-			</div>
-			<div>
-			<label for="orario">Ora  </label>
-			<select id="orario" name="orario">
-				<option value="seleziona">Seleziona</option>
-				<!--definire orari in base all scelta pranzo o cena -->
-			</select>
-			</div>
-			<input type="submit" value="Invia">
-			<input type="reset" value="Resetta">
-		</fieldset>
-		<div>
-			Vuoi prenotare via telefono?
-		</div>
-		<div id="nTelefono">
-			049 111 1111
-		</div>
-		</form>
-	</div>
+    <header id="top-header" class="flex row">
+      <div id="logo" class="navbar-element">
+          <a href="index.html">
+            <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+          </a>
+      </div>
+      <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
+      <div id="menu-button" class="navbar-element mobile-only"></div>
+      <nav class="navbar-element">
+        <ul id="menu-nav" class="menu">
+          <li><a href="chisiamo.html">CHI SIAMO</a></li>
+          <li><a href="menu.html">MENÙ</a></li>
+          <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
+          <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
+          <li><a href="contatti.html">CONTATTI</a></li>
+          <li><a href="">ITA</a> / <a href="">ENG</a></li>
+          <li><a href="login.html">ACCEDI</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="content-wrapper">
+      <div id="breadcrumb" class="container">
+        <p>Ti trovi in: <span lang="en">Home</span></p>
+      </div>
+      <div id="prenotazione" class="container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Prenotazione</h2>
+        </div>
+        <div class="subcontainers skip-navbar">
+          <div class="subcontainer">
+          	<form action="php per inserimento nella database">
+            	<fieldset><legend>Prenota il tuo posto</legend>
+            		<div>
+              		<label for="numeroPersone">Persone  </label>
+              		<select id="numeroPersone" name="numeroPersone">
+              			<option value="seleziona">Seleziona</option>
+              			<option value="1">1</option>
+              			<option value="2">2</option>
+              			<option value="3">3</option>
+              			<option value="4">4</option>
+              			<option value="5">5</option>
+              			<option value="6">6</option>
+              			<option value="7">7</option>
+              			<option value="8">8</option>
+              		</select>
+            		</div>
+            		<div>
+            			<label for="prenotazioneGiorno">Giorno </label>
+            			<input type="date" name="prenotazioneGiorno" min="2021-11-01" required>
+            		</div>
+            		<div>
+            			<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
+              		<label for="pranzoCena">Pranzo</label>
+            		</div>
+            		<div>
+            			<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
+              		<label for="pranzoCena">Cena</label>
+            		</div>
+            		<div>
+              		<label for="orario">Ora  </label>
+              		<select id="orario" name="orario">
+              			<option value="seleziona">Seleziona</option>
+              			<!--definire orari in base all scelta pranzo o cena -->
+              		</select>
+            		</div>
+            		<input type="submit" value="Invia">
+            		<input type="reset" value="Resetta">
+            	</fieldset>
+            	<div>
+            		Vuoi prenotare via telefono?
+            	</div>
+            	<div id="nTelefono">
+            		049 111 1111
+            	</div>
+          	</form>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

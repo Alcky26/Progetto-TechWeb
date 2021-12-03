@@ -1,9 +1,21 @@
 * {
-  font-size: 1em;
+  margin: 0;
+  border-width: 0px;
 }
 
 body {
-  background-color: rgb(31, 31, 31);
+  background-color: #FFAE42;
+  font-family: Helvetica, sans-serif;
+}
+
+header, .container, .subcontainer, .subtitle-panel {
+  border-color: #80471C;
+  border-style: solid;
+}
+
+footer {
+  background-color: #3F3F3F;
+  color: #BFBFBF;
 }
 
 .sr-only {
@@ -20,81 +32,128 @@ body {
   display: none;
 }
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
 .menu {
-  list-style: none;
   padding-left: 0px;
+  list-style: none;
 }
 
 #top-header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(101, 67, 33, 0.90);
-  border-bottom: 5px solid #2E1503;
-}
-
-#navbar {
-  height: 100px;
-  display: flex;
+  right:0;
+  left:0;
+  z-index: 1;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  border-bottom-width: 5px;
+  background-color: #FFAE42;
 }
 
 #logo {
   width: 275px;
-  text-indent: -999em;
-  font-size: 40px;
+  height: 80px;
+  margin-left: 5px;
   background-image: url("../images/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  margin-left: 5px;
+  text-indent: -999em;
+  font-size: 25px;
 }
 
 #menu-nav {
-  position: relative;
-  top: 35%;
+  margin-right: 5px;
+  font-family: DejaVu Sans Mono, monospace;
 }
 
 #menu-nav li {
   display: inline;
-  margin: 0px 5px 0px 5px;
+}
+
+#menu-nav a, #menu-nav a span {
+  color: #1C2833;
+}
+
+#menu-nav a:visited, #menu-nav a:visited span {
+  color: #360000;
 }
 
 #menu-button {
+  width: 50px;
+  height: 80px;
+  margin-right: 5px;
   background: url("../images/hamburger_icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 50px;
-  height: inherit;
-  margin-right: 5px;
-}
-
-main {
-  margin-top: 115px;
 }
 
 .container {
-  margin: 10px 0px;
-  padding-left: 5px;
-  background-color: rgb(101, 67, 33);
-  border: 2px solid #2E1503;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  height: 100vh;
+  border-bottom-width: 1px;
 }
 
-.container p {
-  width: 400px;
+@media only screen and (max-height: 400px) {
+  .container {
+    height: 400px;
+  }
+}
+
+.subcontainer {
+  margin: 10px;
+  padding: 1em;
+  border-width: 1px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.subcontainers {
+  width: 70%;
+}
+
+.subtitle-panel {
+  float: right;
+  width: 30%;
+  height: inherit;
+  border-left-width: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.subtitle {
+  position: relative;
+  top: 30%;
+}
+
+.next-container {
+  position: relative;
+  top: 70%;
+}
+
+.skip-navbar {
+  padding-top: 85px;
+}
+
+#breadcrumb {
+  display: none;
 }
 
 #news {
   background: url("../images/pizza_home.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left;
-  height: 600px;
-  font-size: 2em;
+  background-position: center;
 }

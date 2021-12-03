@@ -2,12 +2,12 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="title" content="Pizzeria Ai 4 Laureandi - Padova" />
+    <meta name="title" content="Chi siamo - Pizzeria Ai 4 Laureandi" />
     <meta name="keywords" content="" />
     <meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
-    <meta name="author" content="Matteo Vignaga" />
+    <meta name="author" content="Michele Masetto" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizzeria Ai 4 Laureandi</title>
+    <title>Chi siamo - Pizzeria Ai 4 Laureandi</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
     <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
@@ -15,57 +15,83 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-    <header id="top-header">
-      <div id="navbar">
-        <div id="logo" class="navbar-element">
-            <a href="index.html">
-              <h1 aria-label="Vai alla home">PIZZERIA AI 4 LAUREANDI</h1>
-            </a>
-        </div>
-        <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
-        <div id="menu-button" class="navbar-element mobile-only"></div>
-        <nav class="navbar-element" role="navigation">
-          <ul id="menu-nav" class="menu">
-            <li><a href="chisiamo.html">STORIA</a></li>
-            <li><a href="menu.html">MENÙ</a></li>
-            <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
-            <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
-            <li><a href="contatti.html">CONTATTI</a></li>
-            <li>ITA / ENG</li>
-            <li><a href="login.html">ACCEDI</a></li>
-          </ul>
-        </nav>
+    <header id="top-header" class="flex row">
+      <div id="logo" class="navbar-element">
+          <a href="index.html">
+            <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+          </a>
       </div>
+      <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
+      <div id="menu-button" class="navbar-element mobile-only"></div>
+      <nav class="navbar-element">
+        <ul id="menu-nav" class="menu">
+          <li><a href="chisiamo.html">CHI SIAMO</a></li>
+          <li><a href="menu.html">MENÙ</a></li>
+          <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
+          <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
+          <li><a href="contatti.html">CONTATTI</a></li>
+          <li><a href="">ITA</a> / <a href="">ENG</a></li>
+          <li><a href="login.html">ACCEDI</a></li>
+        </ul>
+      </nav>
     </header>
-    <div id="storia">
-      <fieldset>
-				<legend>La Nostra Storia</legend>
-        <h1>Locale giovane e per giovani</h1>
-        <p class="parag_storia">Il locale è nato ..................... cose cose csoe<br>
-          ............. altre cose....<br>
-          ..... si.</p>
-      </fieldset><br><br>
-      <fieldset>
-				<legend>Il nostro sogno</legend>
-        <h1>Pizze, Bibite e Dolci</h1>
-        <p class="parag_storia">Come obbiettivo ci siamo prefissati .................<br>
-          .... cose cose csoe<br>
-          ............. altre cose....<br>
-          ..... si.</p>
-      </fieldset><br><br>
-      <fieldset>
-				<legend>Ingredienti di qualità</legend>
-        <h1>Kilometro zero</h1>
-        <p class="parag_storia">cibo cibo cibo cibo .................<br>
-          .... cose cose csoe<br>
-          ............. altre cose....<br>
-          ..... si.</p>
-      </fieldset><br><br>
-    </div>
+    <main id="content-wrapper">
+      <div id="breadcrumb" class="container">
+        <p>Ti trovi in: <span lang="en">Home</span></p>
+      </div>
+      <div id="storia" class="container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Locale giovane e per giovani</h2>
+          <a class="next-container" href="#sogno">Vai giù</a>
+        </div>
+        <div class="subcontainers skip-navbar">
+          <div class="subcontainer">
+            <p class="parag_storia">
+              Il locale è nato ..................... cose cose csoe<br>
+              ............. altre cose....<br>
+              ..... si.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="sogno" class="container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Il nostro sogno</h2>
+          <a class="next-container" href="#qualità">Vai giù</a>
+        </div>
+        <div class="subcontainers skip-navbar">
+          <div class="subcontainer">
+            <h3>Pizze, bibite e dolci</h3>
+            <p class="parag_storia">
+              Come obbiettivo ci siamo prefissati .................<br>
+              .... cose cose csoe<br>
+              ............. altre cose....<br>
+              ..... si.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="qualità" class="container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Ingredienti di qualità</h2>
+        </div>
+        <div class="subcontainers skip-navbar">
+          <div class="subcontainer">
+            <h3>Chilometro 0</h3>
+            <p class="parag_storia">
+              cibo cibo cibo cibo .................<br>
+              .... cose cose csoe<br>
+              ............. altre cose....<br>
+              ..... si.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer>
       <div id="site-map">
         <ul class="menu">
-          <li><a href="chisiamo.html">Storia</a></li>
+          <li><a href="chisiamo.html">Chi siamo</a></li>
           <li><a href="menu.html">Menù</a></li>
           <li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li>
           <li><a href="prenotazione.html">Prenota tavolo</a></li>
