@@ -157,3 +157,69 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/*parte prenotazione tavolo*/
+.calendarioIntero{
+	position: relative;
+	height: 75%;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.calendarioSinistra, .calendarioDestra {
+	background-color: white;
+	width: 50%;
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center
+}
+
+.calendarioDestra{
+	background-color: red;
+	color: white;
+}
+
+.intestazioneCalendario{
+	display: flex;
+	justify-content: space-between;
+	width: 100%
+}
+
+.intestazioneCalendario span{
+	font-weight: 700;
+}
+
+#giorniSettimana{
+	color: red;
+	font-size: 1em;
+}
+
+.calendarioIntero table{
+	text-align: center;
+	width: 100%;
+	margin-top: 1em;
+	table-layout: fixed;
+}
+
+.calendarioSinistra .giorni td:hover{
+	background: red;
+	color: white;
+}
+
+.calendarioDestra .intestazioneCalendario{
+	justify-content: center;
+}
+
+.calendarioDestra .Giorni{
+	font-size: 12em;
+	
+}
+
+.calendarioDestra .mese{
+	font-size: 2.5em;
+}
