@@ -15,161 +15,172 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-    <header id="top-header" class="flex row">
-      <div id="logo" class="navbar-element">
-          <a href="index.html">
-            <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-          </a>
+    <header id="top-header">
+      <div id="navigation" class="flex row">
+        <div id="logo" class="logo-icon">
+            <a href="index.html">
+              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+            </a>
+        </div>
+        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+        <div id="menu-button" class="mobile-only"></div>
+        <nav>
+          <ul class="menu list">
+            <li class="first-item"><a href="chisiamo.html">CHI SIAMO</a></li
+            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
+            ><li><a href="contatti.html">CONTATTI</a></li>
+          </ul>
+        </nav>
       </div>
-      <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
-      <div id="menu-button" class="navbar-element mobile-only"></div>
-      <nav class="navbar-element">
-        <ul id="menu-nav" class="menu">
-          <li><a href="chisiamo.html">CHI SIAMO</a></li>
-          <li><a href="menu.html">MENÙ</a></li>
-          <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
-          <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
-          <li><a href="contatti.html">CONTATTI</a></li>
-          <li><a href="">ITA</a> / <a href="">ENG</a></li>
-          <li><a href="login.html">ACCEDI</a></li>
-        </ul>
-      </nav>
+      <div id="language-login" class="flex row">
+        <div id="language" aria-label="Seleziona lingua:">
+          <ul class="menu list">
+            <li class="first-item">ITA</li>
+            <li>ENG</li>
+          </ul>
+        </div>
+        <a class="text-button" href="login.html">ACCEDI</a>
+      </div>
     </header>
     <main id="content-wrapper">
-      <div id="breadcrumb" class="container">
+      <div id="breadcrumb">
         <p>Ti trovi in: <span lang="en">Home</span></p>
       </div>
       <div id="prenotazione" class="container">
         <div class="subtitle-panel">
           <h2 class="subtitle">Prenotazione</h2>
         </div>
-        <div class="subcontainers skip-navbar">
-          <div class="subcontainer">
-          	<form action="php per inserimento nella database">
-            	<fieldset><legend>Prenota il tuo posto</legend>
-            		<div>
-              		<label for="numeroPersone">Persone  </label>
-              		<select id="numeroPersone" name="numeroPersone">
-              			<option value="seleziona">Seleziona</option>
-              			<option value="1">1</option>
-              			<option value="2">2</option>
-              			<option value="3">3</option>
-              			<option value="4">4</option>
-              			<option value="5">5</option>
-              			<option value="6">6</option>
-              			<option value="7">7</option>
-              			<option value="8">8</option>
-              		</select>
-            		</div>
-            		<div class="calendarioIntero">
-							<div class="calendarioSinistra">
-								<div class="intestazioneCalendario">
-									<i class="precedente">&#10094;</i>
-									<span class="mese">agosto</span>
-									<span class="anno">2021</span>
-									<i class="prossimo">&#10095;</i>
-								</div>
-								<table>
-									<thead>
-										<tr id="giorniSettimana">
-											<th>Lun</th>
-											<th>Mar</th>
-											<th>Mer</th>
-											<th>Gio</th>
-											<th>Ven</th>
-											<th>Sab</th>
-											<th>Dom</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-										<tr class="Giorni">
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-											<td>1</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="calendarioDestra">
-								<div class="intestazioneCalendario"><span>Dom</span></div>
-								<span class="Giorni">1</span>
-								<span class="mese">agosto</span>
-							</div>
-						</div>
-            		<div>
-            			<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
-              		<label for="pranzoCena">Pranzo</label>
-            		</div>
-            		<div>
-            			<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
-              		<label for="pranzoCena">Cena</label>
-            		</div>
-            		<div>
-              		<label for="orario">Ora  </label>
-              		<select id="orario" name="orario">
-              			<option value="seleziona">Seleziona</option>
-              			<!--definire orari in base all scelta pranzo o cena -->
-              		</select>
-            		</div>
-            		<input type="submit" value="Invia">
-            		<input type="reset" value="Resetta">
-            	</fieldset>
-            	<div>
-            		Vuoi prenotare via telefono?
-            	</div>
-            	<div id="nTelefono">
-            		049 111 1111
-            	</div>
-          	</form>
+        <div class="subcontainers">
+          <div class="first">
+            <div class="subcontainer">
+            	<form action="php per inserimento nella database">
+              	<fieldset><legend>Prenota il tuo posto</legend>
+              		<div>
+                		<label for="numeroPersone">Persone  </label>
+                		<select id="numeroPersone" name="numeroPersone">
+                			<option value="seleziona">Seleziona</option>
+                			<option value="1">1</option>
+                			<option value="2">2</option>
+                			<option value="3">3</option>
+                			<option value="4">4</option>
+                			<option value="5">5</option>
+                			<option value="6">6</option>
+                			<option value="7">7</option>
+                			<option value="8">8</option>
+                		</select>
+              		</div>
+              		<div class="calendarioIntero">
+  							<div class="calendarioSinistra">
+  								<div class="intestazioneCalendario">
+  									<i class="precedente">&#10094;</i>
+  									<span class="mese">agosto</span>
+  									<span class="anno">2021</span>
+  									<i class="prossimo">&#10095;</i>
+  								</div>
+  								<table>
+  									<thead>
+  										<tr id="giorniSettimana">
+  											<th>Lun</th>
+  											<th>Mar</th>
+  											<th>Mer</th>
+  											<th>Gio</th>
+  											<th>Ven</th>
+  											<th>Sab</th>
+  											<th>Dom</th>
+  										</tr>
+  									</thead>
+  									<tbody>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  										<tr class="Giorni">
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  											<td>1</td>
+  										</tr>
+  									</tbody>
+  								</table>
+  							</div>
+  							<div class="calendarioDestra">
+  								<div class="intestazioneCalendario"><span>Dom</span></div>
+  								<span class="Giorni">1</span>
+  								<span class="mese">agosto</span>
+  							</div>
+  						</div>
+              		<div>
+              			<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
+                		<label for="pranzoCena">Pranzo</label>
+              		</div>
+              		<div>
+              			<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
+                		<label for="pranzoCena">Cena</label>
+              		</div>
+              		<div>
+                		<label for="orario">Ora  </label>
+                		<select id="orario" name="orario">
+                			<option value="seleziona">Seleziona</option>
+                			<!--definire orari in base all scelta pranzo o cena -->
+                		</select>
+              		</div>
+              		<input type="submit" value="Invia">
+              		<input type="reset" value="Resetta">
+              	</fieldset>
+              	<div>
+              		Vuoi prenotare via telefono?
+              	</div>
+              	<div id="nTelefono">
+              		049 111 1111
+              	</div>
+            	</form>
+            </div>
           </div>
         </div>
       </div>

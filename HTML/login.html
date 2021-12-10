@@ -15,52 +15,66 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-    <header id="top-header" class="flex row">
-      <div id="logo" class="navbar-element">
-          <a href="index.html">
-            <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-          </a>
+    <header id="top-header">
+      <div id="navigation" class="flex row">
+        <div id="logo" class="logo-icon">
+            <a href="index.html">
+              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+            </a>
+        </div>
+        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+        <div id="menu-button" class="mobile-only"></div>
+        <nav>
+          <ul class="menu list">
+            <li class="first-item"><a href="chisiamo.html">CHI SIAMO</a></li
+            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
+            ><li><a href="contatti.html">CONTATTI</a></li>
+          </ul>
+        </nav>
       </div>
-      <a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
-      <div id="menu-button" class="navbar-element mobile-only"></div>
-      <nav class="navbar-element">
-        <ul id="menu-nav" class="menu">
-          <li><a href="chisiamo.html">CHI SIAMO</a></li>
-          <li><a href="menu.html">MENÙ</a></li>
-          <li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
-          <li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
-          <li><a href="contatti.html">CONTATTI</a></li>
-          <li><a href="">ITA</a> / <a href="">ENG</a></li>
-          <li><a href="login.html">ACCEDI</a></li>
-        </ul>
-      </nav>
+      <div id="language-login" class="flex row">
+        <div id="language" aria-label="Seleziona lingua:">
+          <ul class="menu list">
+            <li class="first-item">ITA</li>
+            <li>ENG</li>
+          </ul>
+        </div>
+        <a class="text-button" href="login.html">ACCEDI</a>
+      </div>
     </header>
     <main id="content-wrapper">
-      <div class="container">
-        <div class="subcontainers skip-navbar">
-    			<h1>prova input</h1>
-    			<form action="inserimento_dati.php" method="POST">
-    				<fieldset>
-    					<legend>Dati Anagrafici</legend>
-    					<label for="nome">Nome</label>
-    					<input type="text" name="nome" readonly required><br><br>
-    					<label for="cognome">Cognome</label>
-    					<input type="text" cognome="cognome" disable><br><br>
-    					<label for="codiceFiscale">Codice_Fiscale</label>
-    					<input type="text" name="codiceFiscale" maxlength="16" placeholder="inserire codice fiscale" required><br><br>
-    					<label for="provinciaNascità">Provincia Di Nascità</label>
-    					<select name="provinciaNascità">
-    						<option value="">Seleziona</option>
-    						<option value="VE">VE</option>
-    						<option value="TV">TV</option>
-    						<option value="BL">BL</option>
-    					</select><br><br>
-    						<label for="email">Email</label>
-    						<input type="email"><br><br>
-    				</fieldset><br><br>
-    				<input type="submit" value="Invia">
-    				<input type="submit" value="Resetta">
-    			</form>
+      <div id="breadcrumb">
+        <p>Ti trovi in: Accedi</p>
+      </div>
+      <div class="viewport container">
+        <div class="first">
+          <div class="subcontainer">
+      			<h1>prova input</h1>
+      			<form action="inserimento_dati.php" method="POST">
+      				<fieldset>
+      					<legend>Dati Anagrafici</legend>
+      					<label for="nome">Nome</label>
+      					<input type="text" name="nome" readonly required><br><br>
+      					<label for="cognome">Cognome</label>
+      					<input type="text" cognome="cognome" disable><br><br>
+      					<label for="codiceFiscale">Codice_Fiscale</label>
+      					<input type="text" name="codiceFiscale" maxlength="16" placeholder="inserire codice fiscale" required><br><br>
+      					<label for="provinciaNascità">Provincia Di Nascità</label>
+      					<select name="provinciaNascità">
+      						<option value="">Seleziona</option>
+      						<option value="VE">VE</option>
+      						<option value="TV">TV</option>
+      						<option value="BL">BL</option>
+      					</select><br><br>
+      						<label for="email">Email</label>
+      						<input type="email"><br><br>
+      				</fieldset><br><br>
+      				<input type="submit" value="Invia">
+      				<input type="submit" value="Resetta">
+      			</form>
+          </div>
         </div>
       </div>
 		</main>

@@ -16,55 +16,54 @@
 		<script src="../JS/custom.js"></script>
 	</head>
 	<body>
-		<header id="top-header" class="flex row">
-			<div id="logo" class="navbar-element">
-					<a href="index.html">
-						<h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-					</a>
-			</div>
-			<a class="sr-only navbar-element" href="#content-wrapper">Vai al contenuto</a>
-			<div id="menu-button" class="navbar-element mobile-only"></div>
-			<nav class="navbar-element">
-				<ul id="menu-nav" class="menu">
-					<li><a href="chisiamo.html">CHI SIAMO</a></li>
-					<li><a href="menu.html">MENÙ</a></li>
-					<li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li>
-					<li><a href="prenotazione.html">PRENOTA TAVOLO</a></li>
-					<li><a href="contatti.html">CONTATTI</a></li>
-					<li><a href="">ITA</a> / <a href="">ENG</a></li>
-					<li><a href="login.html">ACCEDI</a></li>
-				</ul>
-			</nav>
-		</header>
+		<header id="top-header">
+      <div id="navigation" class="flex row">
+        <div id="logo" class="logo-icon">
+            <a href="index.html">
+              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+            </a>
+        </div>
+        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+        <div id="menu-button" class="mobile-only"></div>
+        <nav>
+          <ul class="menu list">
+            <li class="first-item"><a href="chisiamo.html">CHI SIAMO</a></li
+            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
+            ><li><a href="contatti.html">CONTATTI</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="language-login" class="flex row">
+        <div id="language" aria-label="Seleziona lingua:">
+          <ul class="menu list">
+            <li class="first-item">ITA</li>
+            <li>ENG</li>
+          </ul>
+        </div>
+        <a class="text-button" href="login.html">ACCEDI</a>
+      </div>
+    </header>
 		<main id="content-wrapper">
-			<div id="contacts" class="container">
+			<div id="breadcrumb">
+				<p>Ti trovi in: Contatti</p>
+			</div>
+			<div id="contacts" class="viewport container">
 				<div class="subtitle-panel">
 					<h2 class="subtitle">Contatti</h2>
 				</div>
-				<div class="subcontainers skip-navbar">
-					<div class="subcontainer">
-						<ul>
-							<li><a href="tel:+390423372651">0423372651</a></li>
-							<li><a href="mailto:ai4laureandi@gmail.com">ai4laureandi@gmail.com</a></li>
-						</ul>
+				<div class="subcontainers">
+					<div class="first">
+						<div class="subcontainer">
+							<ul>
+								<li><a href="tel:+390423372651">0423372651</a></li>
+								<li><a href="mailto:ai4laureandi@gmail.com">ai4laureandi@gmail.com</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-		<footer>
-			<div id="site-map">
-				<ul class="menu">
-					<li><a href="chisiamo.html">Chi siamo</a></li>
-					<li><a href="menu.html">Menù</a></li>
-					<li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li>
-					<li><a href="prenotazione.html">Prenota tavolo</a></li>
-					<li><a href="contatti.html">Contatti</a></li>
-					<li><a href="login.html">Accedi</a></li>
-				</ul>
-			</div>
-			<div id="copyright">
-				&copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
-			</div>
-		</footer>
 	</body>
   </html>
