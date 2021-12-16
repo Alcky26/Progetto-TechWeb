@@ -74,6 +74,21 @@
       				<input type="submit" value="Invia">
       				<input type="submit" value="Resetta">
       			</form>
+
+            <form action="../PHP/loginHandler.php" method="post" id="accesso">
+              <msgErrore/>
+              <label for="email" lang="en">Email:</label>
+              <input type="text" name="eml" id="email" autocomplete="email" required/>
+              <label for="pwd" lang="en">Password:</label>
+              <input type="password" name="pwd" id="pwd" autocomplete="current-password" required/>
+              <span>
+                  <input type="submit" name="accesso" value="Accedi" id="login" />
+                  <input type="submit" name="registrazione" value="Registrati" id="registrati"/>
+              </span>
+          </form>
+
+
+
           </div>
         </div>
       </div>
