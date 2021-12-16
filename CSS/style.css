@@ -9,13 +9,12 @@
   --link_visited: #360000;
 }
 
-#footer{
+#footer {
   background-color:#FFF68F;
   color:var(--link_color);
 }
 
-#copyright{
-  
+#copyright {
   text-align:center;
 }
 
@@ -27,8 +26,12 @@
   border-style: solid;
 }
 
-p, ul, h2, h3 {
+p, h2, h3 {
   margin: 1em;
+}
+
+ul {
+  margin: 1em 0em;
 }
 
 a {
@@ -71,11 +74,6 @@ body {
   flex-direction: column;
 }
 
-.list {
-  padding-left: 0px;
-  list-style: none;
-}
-
 .text-button {
   padding: 1em 2em;
   border-radius: 2em;
@@ -88,13 +86,14 @@ body {
   background-repeat: no-repeat;
 }
 
-.menu li {
-  display: inline;
-  margin-left: 1em;
+.menu {
+  margin: 0em 1em;
+  padding: 1em 0em;
 }
 
-.menu .first-item {
-  margin-left: 0;
+.menu > li {
+  display: inline;
+  margin-right: 1em;
 }
 
 #top-header {
