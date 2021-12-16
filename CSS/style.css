@@ -9,6 +9,16 @@
   --link_visited: #360000;
 }
 
+#footer{
+  background-color:#FFF68F;
+  color:var(--link_color);
+}
+
+#copyright{
+  
+  text-align:center;
+}
+
 * {
   margin: 0;
   border-width: 0px;
