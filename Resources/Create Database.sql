@@ -65,7 +65,8 @@ INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
 
 CREATE TABLE `BEVANDA` (
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `gradiAlcolici` tinyint(1) NOT NULL
+  `categoria` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `gradiAlcolici` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -83,8 +84,20 @@ TRUNCATE TABLE `BEVANDA`;
 -- Dump dei dati per la tabella `BEVANDA`
 --
 
-INSERT INTO `BEVANDA` (`nome`, `gradiAlcolici`) VALUES
-('CocaCola', 0);
+INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici`) VALUES
+('Acqua naturale 0.5l', 'bevande analcoliche', 0),
+('Acqua frizzante 0.5l', 'bevande analcoliche', 0),
+('Acqua naturale 1l', 'bevande analcoliche', 0),
+('Acqua frizzante 1l', 'bevande analcoliche', 0),
+('Coca Cola 0.5l', 'bevande analcoliche', 0),
+('Fanta 0.5l', 'bevande analcoliche', 0),
+('The al limone', 'bevande analcoliche', 0),
+('The alla pesca', 'bevande analcoliche', 0),
+('Glossner Gold', 'birre', 5),
+('La Chouffe', 'birre', 8),
+('Namur Blache', 'birre', 4.5),
+('Pilsner Urquell', 'birre', 4.4),
+('Tennent\'s Super', 'birre', 9);
 
 -- --------------------------------------------------------
 
@@ -157,12 +170,71 @@ TRUNCATE TABLE `COMPOSIZIONE`;
 -- Dump dei dati per la tabella `COMPOSIZIONE`
 --
 
-INSERT INTO `COMPOSIZIONE` (`nome_ingr`, `nome`) VALUES
-('Farina 00', 'Tedesca'),
-('Mozzarella', 'Tedesca'),
-('Passata Pomodoro', 'Tedesca'),
-('Patatine Fritte', 'Tedesca'),
-('Wurstel', 'Tedesca');
+INSERT INTO `COMPOSIZIONE` (`nome`, `nome_ingr`) VALUES
+('4 formaggi', 'pomodoro'),
+('4 formaggi', 'mozzarella'),
+('4 formaggi', 'asiago'),
+('4 formaggi', 'emmenthal'),
+('4 formaggi', 'gorgonzola'),
+('4 formaggi', 'grana'),
+('4 stagioni', 'pomodoro'),
+('4 stagioni', 'mozzarella'),
+('4 stagioni', 'prosciutto cotto'),
+('4 stagioni', 'funghi'),
+('4 stagioni', 'salamino piccante'),
+('4 stagioni', 'carciofi'),
+('Capricciosa', 'pomodoro'),
+('Capricciosa', 'mozzarella'),
+('Capricciosa', 'prosciutto cotto'),
+('Capricciosa', 'funghi'),
+('Capricciosa', 'carciofi'),
+('Carbonara', 'pomodoro'),
+('Carbonara', 'mozzarella'),
+('Carbonara', 'pancetta'),
+('Carbonara', 'uova'),
+('Carbonara', 'grana'),
+('Diavola', 'pomodoro'),
+('Diavola', 'mozzarella'),
+('Diavola', 'salamino piccante'),
+('Margherita', 'pomodoro'),
+('Margherita', 'mozzarella'),
+('Marinara', 'pomodoro'),
+('Marinara', 'aglio'),
+('Parigina', 'pomodoro'),
+('Parigina', 'mozzarella'),
+('Parigina', 'prosciutto crudo'),
+('Parmigiana', 'pomodoro'),
+('Parmigiana', 'mozzarella'),
+('Parmigiana', 'melanzane grigliate'),
+('Parmigiana', 'grana'),
+('Patatosa', 'pomodoro'),
+('Patatosa', 'mozzarella'),
+('Patatosa', 'patatine fritte'),
+('Prosciutto e funghi', 'pomodoro'),
+('Prosciutto e funghi', 'mozzarella'),
+('Prosciutto e funghi', 'prosciutto cotto'),
+('Prosciutto e funghi', 'funghi'),
+('Romana', 'pomodoro'),
+('Romana', 'mozzarella'),
+('Romana', 'acciughe'),
+('Romana', 'capperi'),
+('Romana', 'origano'),
+('Tedesca', 'pomodoro'),
+('Tedesca', 'mozzarella'),
+('Tedesca', 'wurstel'),
+('Tedesca', 'patatine fritte'),
+('Tonno e cipolla', 'pomodoro'),
+('Tonno e cipolla', 'mozzarella'),
+('Tonno e cipolla', 'tonno'),
+('Tonno e cipolla', 'cipolla'),
+('Vegetariana', 'pomodoro'),
+('Vegetariana', 'mozzarella'),
+('Vegetariana', 'melanzane grigliate'),
+('Vegetariana', 'peperoni grigliati'),
+('Vegetariana', 'zucchine grigliate'),
+('Viennese', 'pomodoro'),
+('Viennese', 'mozzarella'),
+('Viennese', 'wurstel');
 
 -- --------------------------------------------------------
 
@@ -190,7 +262,14 @@ TRUNCATE TABLE `DOLCE`;
 --
 
 INSERT INTO `DOLCE` (`nome`) VALUES
-('Tiramisù');
+('Panna cotta al caramello'),
+('Panna cotta al cioccolato'),
+('Panna cotta ai frutti di bosco'),
+('Propfiterole'),
+('Sorbetto al limone'),
+('Sorbetto alla liquirizia'),
+('Tiramisù'),
+('Torta della nonna');
 
 -- --------------------------------------------------------
 
@@ -201,7 +280,7 @@ INSERT INTO `DOLCE` (`nome`) VALUES
 CREATE TABLE `ELEMENTO_LISTINO` (
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `prezzo` float NOT NULL,
-  `descrizione` longtext COLLATE utf8_unicode_ci NOT NULL
+  `descrizione` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -217,13 +296,46 @@ TRUNCATE TABLE `ELEMENTO_LISTINO`;
 -- Dump dei dati per la tabella `ELEMENTO_LISTINO`
 --
 
+INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`) VALUES
+('4 formaggi', 6.5),
+('4 stagioni', 7),
+('Capricciosa', 7),
+('Carbonara', 6),
+('Diavola', 5),
+('Margherita', 4.5),
+('Marinara', 3.5),
+('Parigina', 6),
+('Parmigiana', 6),
+('Patatosa', 5.5),
+('Prosciutto e funghi', 6.5),
+('Romana', 5.5),
+('Tedesca', 6),
+('Tonno e cipolla', 6),
+('Vegetariana', 7.5),
+('Viennese', 5),
+('Acqua naturale 0.5l', 1.5),
+('Acqua frizzante 0.5l', 1.5),
+('Acqua naturale 1l', 2),
+('Acqua frizzante 1l', 2),
+('Coca Cola 0.5l', 3),
+('Fanta 0.5l', 3),
+('The al limone', 2.5),
+('The alla pesca', 2.5),
+('Panna cotta al caramello', 4),
+('Panna cotta al cioccolato', 4),
+('Panna cotta ai frutti di bosco', 4),
+('Propfiterole', 4.5),
+('Sorbetto al limone', 3.5),
+('Sorbetto alla liquirizia', 3.5),
+('Tiramisù', 4.5),
+('Torta della nonna', 4);
+
 INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
-('4 Formaggi', 30, ''),
-('CocaCola', 3, ''),
-('Prosciutto Funghi', 75.1, ''),
-('Tedesca', 98.5, ''),
-('Tiramisù', 10, ''),
-('Vegetariana', 85.6, '');
+('Pilsner Urquell', 3.5, 'Pilsner dal colore dorato, ha un bouquet di grano tostato e un bilanciato gusto. Sapore intensamente luppolato con un equilibrio di dolcezza sottile e di amaro vellutato dalla combinazione di sapori di miele, diacetile e note caramellate insieme ad un altro estratto residuo. Chiude con una cremosità pulita, che fa perfetto contraltare al luppolo.'),
+('Glossner Gold', 4, 'La Neumark Glossnerbrau, la storia di uno dei più antichi Braufamilien. Da semplici inizi come Kommunbrauer è nato un birrificio altamente tecnico e versatile. La gold ha un sapore rinfrescante e sapido con una piacevole amarezza.'),
+('Tennent\'s Super', 4.5, 'Una delle strong lager più forti del Regno Unito. Decisa e ad alto grado di piacere, ben equilibrata nelle sue componenti, è una birra pensata per un momento serale. Ha bisogno di calore e di colore, di spazi dove il tempo non ha fretta, ha bisogno di tranquillità.'),
+('Namur Blache', 4, 'Al primo assaggio la Blanche de Namur si presenta poco corposa e dagli odori freschi ma delicati. La rifermentazione in bottiglia le dona sentori speziati che rimangono dolci e ben bilanciati ai sapori amarognoli di agrumi.'),
+('La Chouffe', 4.5, 'Schiuma cremosa e molto abbondante a proteggere una birra elegante, dal color ambrato carico ed impenetrabile. Emergono piacevoli note floreali e di lievito fragrante, seguite dai classici sentori belgi di spezie, agrumi e coriandolo. Il gusto ed il corpo sono forti ma piacevoli e mantengono il giusto equilibrio.');
 
 -- --------------------------------------------------------
 
@@ -250,21 +362,32 @@ TRUNCATE TABLE `INGREDIENTE`;
 --
 
 INSERT INTO `INGREDIENTE` (`nome`, `allergene`) VALUES
-('Farina 00', 1),
-('Funghi', 0),
-('Gorgonzola', 1),
-('Mozzarella', 1),
-('Passata Pomodoro', 0),
-('Patatine Fritte', 0),
-('Peperoni Grigliati', 0),
-('Philadelpia', 1),
-('Prosciutto', 0),
-('Prosciutto Crudo', 0),
-('Salamino', 0),
-('Salsiccia', 0),
-('Uova', 1),
-('Wurstel', 0),
-('Zucchine Grigliate', 0);
+('acciughe', 4),
+('aglio', 0),
+('asiago', 7),
+('capperi', 0),
+('carciofi', 0),
+('cipolla', 0),
+('emmenthal', 7),
+('funghi', 0),
+('gorgonzola', 7),
+('grana', 7),
+('melanzane grigliate', 0),
+('mozzarella', 7),
+('origano', 0),
+('pancetta', 0),
+('patatine fritte', 0),
+('peperoni grigliati', 0),
+('philadelpia', 7),
+('pomodoro', 0),
+('prosciutto cotto', 0),
+('prosciutto crudo', 0),
+('salamino piccante', 0),
+('salsiccia', 0),
+('tonno', 4),
+('uova', 3),
+('wurstel', 0),
+('zucchine grigliate', 0);
 
 -- --------------------------------------------------------
 
@@ -302,7 +425,8 @@ INSERT INTO `ORDINAZIONE` (`dataOra`, `email`) VALUES
 --
 
 CREATE TABLE `PIZZA` (
-  `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -320,11 +444,23 @@ TRUNCATE TABLE `PIZZA`;
 -- Dump dei dati per la tabella `PIZZA`
 --
 
-INSERT INTO `PIZZA` (`nome`) VALUES
-('4 Formaggi'),
-('Prosciutto Funghi'),
-('Tedesca'),
-('Vegetariana');
+INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES
+('4 formaggi', 'classiche'),
+('4 stagioni', 'classiche'),
+('Capricciosa', 'classiche'),
+('Carbonara', 'classiche'),
+('Diavola', 'classiche'),
+('Margherita', 'classiche'),
+('Marinara', 'classiche'),
+('Parigina', 'classiche'),
+('Parmigiana', 'classiche'),
+('Patatosa', 'classiche'),
+('Prosciutto e funghi', 'classiche'),
+('Romana', 'classiche'),
+('Tedesca', 'classiche'),
+('Tonno e cipolla', 'classiche'),
+('Vegetariana', 'classiche'),
+('Viennese', 'classiche');
 
 -- --------------------------------------------------------
 

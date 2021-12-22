@@ -17,7 +17,7 @@
     <body>
     <header id="top-header">
       <div id="navigation" class="flex row">
-        <div id="logo" class="logo-icon">
+        <div id="logo" class="hide-text button">
             <a href="index.html">
               <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
             </a>
@@ -27,7 +27,7 @@
         <nav>
           <ul class="menu">
             <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="../PHP/menu.php">MENÙ</a></li
             ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
             ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
             ><li><a href="contatti.html">CONTATTI</a></li>
@@ -48,39 +48,37 @@
 		<div id="breadcrumb">
 			<p>Ti trovi in: <span lang="en">Ordina Online</span></p>
 		</div>
-		<div id="ordina" class="container">
+		<div id="ordina" class="first container">
 			<div class="subtitle-panel">
 				<h2 class="subtitle">Ordina Online</h2>
 			</div>
 			<div class="subcontainers">
-				<div class="first">
-					<div class="subcontainer">
-						<div id="scelta">
-							<div>
-								<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
-								<label for="deliveryTakeaway"><h2 aria-label="TakeAway">Take Away</h2></label>
-							</div>
-							<div>
-								<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
-								<label for="deliveryTakeaway"><h2 aria-label="delivery">Delivery</h2></label>
-							</div>
+				<div class="subcontainer">
+					<div id="scelta">
+						<div>
+							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
+							<label for="deliveryTakeaway"><h2 aria-label="TakeAway">Take Away</h2></label>
 						</div>
-						<div class="menu">
-							<h1>Scegli i tuoi piatti</h1>
-						
-						
+						<div>
+							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
+							<label for="deliveryTakeaway"><h2 aria-label="delivery">Delivery</h2></label>
 						</div>
-						<div class="riepilogo">
-						</div>
-						<div class="total">
-						</div>
-						<a class="order-button" href="pagamento.html">PROCEDI AL PAGAMENTO</a>
 					</div>
+					<div class="menu">
+						<h1>Scegli i tuoi piatti</h1>
+
+
+					</div>
+					<div class="riepilogo">
+					</div>
+					<div class="total">
+					</div>
+					<a class="order-button" href="pagamento.html">PROCEDI AL PAGAMENTO</a>
 				</div>
 			</div>
 		</div>
 	</main>
-	
+
 	<footer id="footer">
 			<div id="site-map">
 				<ul class="menu">

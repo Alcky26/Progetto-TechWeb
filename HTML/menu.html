@@ -17,8 +17,8 @@
   <body>
     <header id="top-header">
       <div id="navigation" class="flex row">
-        <div id="logo" class="logo-icon">
-            <a href="index.html">
+        <div id="logo" class="hide-text button">
+            <a href="../HTML/index.html">
               <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
             </a>
         </div>
@@ -26,11 +26,11 @@
         <div id="menu-button" class="mobile-only"></div>
         <nav>
           <ul class="menu">
-            <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="menu.html">MENÙ</a></li
-            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
-            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
-            ><li><a href="contatti.html">CONTATTI</a></li>
+            <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+            ><li><a href="menu.php">MENÙ</a></li
+            ><li><a href="../HTML/ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+            ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+            ><li><a href="../HTML/contatti.html">CONTATTI</a></li>
           </ul>
         </nav>
       </div>
@@ -48,26 +48,117 @@
       <div id="breadcrumb">
         <p>Ti trovi in: Menù</p>
       </div>
-      <div id="categories" class="viewport container">
+      <div id="categories" class="viewport first container">
         <div class="subtitle-panel">
           <h2 class="subtitle">Categorie</h2>
+          <a class="next-container hide-text button" href="#classiche">Vai giù</a>
         </div>
         <div class="subcontainers">
-          <div class="first">
-            <div class="subcontainer"></div>
+          <div class="subcontainer">
+            <ul>
+              <li>
+                Pizze
+                <ul>
+                  <li><a href="#classiche">Pizze classiche</a></li>
+                  <li><a href="#speciali">Pizze speciali</a></li>
+                  <li><a href="#bianche">Pizze bianche</a></li>
+                  <li><a href="#calzoni">Calzoni</a></li>
+                </ul>
+              </li>
+              <li>
+                Bevande
+                <ul>
+                  <li><a href="#bevande">Bevande analcoliche</a></li>
+                  <li><a href="#birre">Birre</a></li>
+                  <li><a href="#vini">Vini</a></li>
+                </ul>
+              </li>
+              <li><a href="#dolci">Dolci</a></li>
+            </ul>
           </div>
+        </div>
+      </div>
+      <div id="classiche" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Pizze classiche</h2>
+          <a class="next-container hide-text button" href="#speciali">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaClassiche />
+        </div>
+      </div>
+      <div id="speciali" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Pizze speciali</h2>
+          <a class="next-container hide-text button" href="#bianche">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaSpeciali />
+        </div>
+      </div>
+      <div id="bianche" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Pizze bianche</h2>
+          <a class="next-container hide-text button" href="#calzoni">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaBianche />
+        </div>
+      </div>
+      <div id="calzoni" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Calzoni</h2>
+          <a class="next-container hide-text button" href="#bevande">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaCalzoni />
+        </div>
+      </div>
+      <div id="bevande" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Bevande analcoliche</h2>
+          <a class="next-container hide-text button" href="#birre">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaBevande />
+        </div>
+      </div>
+      <div id="birre" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Birre</h2>
+          <a class="next-container hide-text button" href="#vini">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaBirre />
+        </div>
+      </div>
+      <div id="vini" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Vini</h2>
+          <a class="next-container hide-text button" href="#dolci">Vai giù</a>
+        </div>
+        <div class="subcontainers">
+          <listaVini />
+        </div>
+      </div>
+      <div id="dolci" class="viewport container">
+        <div class="subtitle-panel">
+          <h2 class="subtitle">Dolci</h2>
+        </div>
+        <div class="subcontainers">
+          <listaDolci />
         </div>
       </div>
     </main>
 	<footer id="footer">
 			<div id="site-map">
 				<ul class="menu">
-          <li><a href="chisiamo.html">Chi siamo</a></li
-					><li><a href="menu.html">Menù</a></li
-					><li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li
-					><li><a href="prenotazione.html">Prenota tavolo</a></li
-					><li><a href="contatti.html">Contatti</a></li
-					><li><a href="login.html">Accedi</a></li>
+          <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+					><li><a href="menu.php">Menù</a></li
+					><li><a href="../HTML/ordinazione.html">Ordina <span lang="en">online</span></a></li
+					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+					><li><a href="../HTML/contatti.html">Contatti</a></li
+					><li><a href="../HTML/login.html">Accedi</a></li>
 				</ul>
 			</div>
 			<div id="copyright">

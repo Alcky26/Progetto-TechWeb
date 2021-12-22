@@ -1,6 +1,6 @@
 <?php
 
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     $lati_pizzeria = 45.4069781;
     $longi_pizzeria = 11.8855697;
 
@@ -18,7 +18,7 @@ if(!empty($_POST)) {
 
     $rs = json_decode(file_get_contents_curl($geocodingAPI.$qs));
 
-    if(!empty((array) $rs)) {
+    if (!empty((array) $rs)) {
         $lati = $rs[0]->lat;
         $longi = $rs[0]->lon;
 
@@ -34,7 +34,7 @@ if(!empty($_POST)) {
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
         $distance = $earthRadiusKm * $c;
 
-        if($distance > 50) {
+        if ($distance > 50) {
             echo "<p>Troppo distante.</p>";
         } else {
             echo "<p>Va bene!</p>";

@@ -17,7 +17,7 @@
     <body>
     <header id="top-header">
       <div id="navigation" class="flex row">
-        <div id="logo" class="logo-icon">
+        <div id="logo" class="hide-text button">
             <a href="index.html">
               <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
             </a>
@@ -27,7 +27,7 @@
         <nav>
           <ul class="menu">
             <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="../PHP/menu.php">MENÙ</a></li
             ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
             ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
             ><li><a href="contatti.html">CONTATTI</a></li>
@@ -48,15 +48,15 @@
 		<div id="breadcrumb">
 			<p>Ti trovi in: <span lang="en">Prenota Tavolo</span></p>
 		</div>
-		<div id="prenotazione" class="container">
+		<div id="prenotazione" class="first container">
 			<div class="subtitle-panel">
 			  <h2 class="subtitle">Prenotazione</h2>
 			</div>
 			<div class="subcontainers">
-			  <div class="first">
 				<div class="subcontainer">
 					<!--<form action="php per inserimento nella database">-->
-						<fieldset><legend>Prenota il tuo posto</legend>
+						<fieldset>
+              <legend>Prenota il tuo posto</legend>
 							<div>
 								<label for="numeroPersone">Persone  </label>
 								<select id="numeroPersone" name="numeroPersone">
@@ -81,8 +81,7 @@
 								</div>
 								<div class="calendar" id="table">
 									<div class="header">
-										<div class="month" id="month-header">
-										</div>
+										<div class="month" id="month-header"></div>
 										<div class="buttons">
 											<button class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
 											<button class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
@@ -91,52 +90,35 @@
 								</div>
 								<h1 id="currentDate"></h1>
 							</div>
-  							</div>
-  							<div>
-  								<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
-  					    		<label for="pranzoCena">Pranzo</label>
-  							</div>
-  							<div>
-  								<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
-  					    		<label for="pranzoCena">Cena</label>
-  							</div>
-  							<div>
-  								<label for="orario">Ora  </label>
-  								<select id="orario" name="orario">
-  									<option value="seleziona">Seleziona</option>
-  									<!--definire orari in base all scelta pranzo o cena -->
-  								</select>
-  							</div>
-  							<input type="submit" value="Invia">
-  							<input type="reset" value="Resetta">
-  						</fieldset>
-  						<div>
-  							Vuoi prenotare via telefono?
-  						</div>
-      				<div id="nTelefono">
-      					049 111 1111
-      				</div>
-              <div id="geocoding">
-                <label for="address">Via: </label>
-                <input type="text" id="address" name="address">
-                <label for="number">Numero: </label>
-                <input type="text" id="number" name="number">
-                <label for="city">Città: </label>
-                <input type="text" id="city" name="city">
-                <label for="county">Provincia: </label>
-                <input type="text" id="county" name="county">
-              </div>
-  			    <!--</form>-->
-  		    </div>
+							<div>
+								<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
+					    		<label for="pranzoCena">Pranzo</label>
+							</div>
+							<div>
+								<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
+					    		<label for="pranzoCena">Cena</label>
+							</div>
+							<div>
+								<label for="orario">Ora  </label>
+								<select id="orario" name="orario">
+									<option value="seleziona">Seleziona</option>
+									<!--definire orari in base all scelta pranzo o cena -->
+								</select>
+							</div>
+  						<input type="submit" value="Invia">
+  						<input type="reset" value="Resetta">
+						</fieldset>
+						<p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
+  			  <!--</form>-->
+  		  </div>
 		  </div>
 		</div>
-	  </div>
 	</main>
 	<footer id="footer">
 			<div id="site-map">
 				<ul class="menu">
 					<li><a href="chisiamo.html">Chi siamo</a></li
-					><li><a href="menu.html">Menù</a></li
+					><li><a href="../PHP/menu.php">Menù</a></li
 					><li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li
 					><li><a href="prenotazione.html">Prenota tavolo</a></li
 					><li><a href="contatti.html">Contatti</a></li

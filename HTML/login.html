@@ -17,7 +17,7 @@
   <body>
     <header id="top-header">
       <div id="navigation" class="flex row">
-        <div id="logo" class="logo-icon">
+        <div id="logo" class="hide-text button">
             <a href="index.html">
               <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
             </a>
@@ -27,7 +27,7 @@
         <nav>
           <ul class="menu">
             <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="menu.html">MENÙ</a></li
+            ><li><a href="../PHP/menu.php">MENÙ</a></li
             ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
             ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
             ><li><a href="contatti.html">CONTATTI</a></li>
@@ -48,10 +48,12 @@
       <div id="breadcrumb">
         <p>Ti trovi in: Accedi</p>
       </div>
-      <div class="viewport container">
-        <div class="first">
+      <div class="viewport first container">
+        <div class="subcontainers">
           <div class="subcontainer">
+
       			<h1>Salve </h1>
+
       			<form action="inserimento_dati.php" method="POST">
       				<fieldset>
       					<legend>Benvenuto</legend>
@@ -59,7 +61,7 @@
       					<input type="text" name="nome" readonly required><br><br>
       					<label for="cognome">Cognome</label>
       					<input type="text" cognome="cognome" disable><br><br>
-						<label for="email">Email</label>
+  					    <label for="email">Email</label>
       					<input type="email"><br><br>
       				</fieldset><br><br>
       				<input type="submit" value="Invia">
@@ -76,9 +78,7 @@
                   <input type="submit" name="accesso" value="Accedi" id="login" />
                   <input type="submit" name="registrazione" value="Registrati" id="registrati"/>
               </span>
-          </form>
-
-
+            </form>
 
           </div>
         </div>
@@ -88,7 +88,7 @@
 			<div id="site-map">
 				<ul class="menu">
           <li><a href="chisiamo.html">Chi siamo</a></li
-					><li><a href="menu.html">Menù</a></li
+					><li><a href="../PHP/menu.php">Menù</a></li
 					><li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li
 					><li><a href="prenotazione.html">Prenota tavolo</a></li
 					><li><a href="contatti.html">Contatti</a></li
