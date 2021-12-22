@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-		<script src="../JS/custom.js"></script>
+		<script src="../JavaScript/calendario.js"></script>
 	</head>
     <body>
     <header id="top-header">
@@ -46,7 +46,7 @@
     </header>
     <main id="content-wrapper">
 		<div id="breadcrumb">
-			<p>Ti trovi in: <span lang="en">Home</span></p>
+			<p>Ti trovi in: <span lang="en">Prenota Tavolo</span></p>
 		</div>
 		<div id="prenotazione" class="container">
 			<div class="subtitle-panel">
@@ -55,7 +55,7 @@
 			<div class="subcontainers">
 			  <div class="first">
 				<div class="subcontainer">
-					<form action="php per inserimento nella database">
+					<!--<form action="php per inserimento nella database">-->
 						<fieldset><legend>Prenota il tuo posto</legend>
 							<div>
 								<label for="numeroPersone">Persone  </label>
@@ -71,90 +71,26 @@
 									<option value="8">8</option>
 								</select>
 							</div>
-							<div class="calendarioIntero">
-									<div class="calendarioSinistra">
-										<div class="intestazioneCalendario">
-											<i class="precedente">&#10094;</i>
-											<span class="mese">agosto</span>
-											<span class="anno">2021</span>
-											<i class="prossimo">&#10095;</i>
-										</div>
-										<table>
-											<thead>
-												<tr id="giorniSettimana">
-													<th>Lun</th>
-													<th>Mar</th>
-													<th>Mer</th>
-													<th>Gio</th>
-													<th>Ven</th>
-													<th>Sab</th>
-													<th>Dom</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-												<tr class="Giorni">
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-													<td>1</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div class="calendarioDestra">
-										<div class="intestazioneCalendario"><span>Dom</span></div>
-										<span class="Giorni">1</span>
-										<span class="mese">agosto</span>
+							<div class="calendario">
+								<div class="calendar-assets">
+									<div class="day-assets">
+										<button class="btn" onclick="prevDay()" title="Giorno precedente"><i class="fas fa-chevron-left">&#10094;</i> </button>
+										<button class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
+										<button class="btn" onclick="nextDay()" title="Prossimo giorno"><i class="fas fa-chevron-right">&#10095;</i> </button>
 									</div>
 								</div>
+								<div class="calendar" id="table">
+									<div class="header">
+										<div class="month" id="month-header">
+										</div>
+										<div class="buttons">
+											<button class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
+											<button class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
+										</div>
+									</div>
+								</div>
+								<h1 id="currentDate"></h1>
+							</div>
 							<div>
 								<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
 					    		<label for="pranzoCena">Pranzo</label>
@@ -173,14 +109,12 @@
 							<input type="submit" value="Invia">
 							<input type="reset" value="Resetta">
 						</fieldset>
-						<div>
-							Vuoi prenotare via telefono?
-						</div>
-				<div id="nTelefono">
-					049 111 1111
+					<!--</form>-->
+				<div id="telefono">
+					<div><h2>Vuoi prenotare via telefono?</h2></div>
+					<div id="nTelefono">049 111 1111</div>
 				</div>
-			  </form>
-		    </div>
+			</div>
 		  </div>
 		</div>
 	  </div>
