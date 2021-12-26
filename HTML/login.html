@@ -15,72 +15,21 @@
     <script src="../JS/custom.js"></script>
   </head>
   <body>
-    <header id="top-header">
-      <div id="navigation" class="flex row">
-        <div id="logo" class="hide-text button">
-            <a href="index.html">
-              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-            </a>
-        </div>
-        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-        <div id="menu-button" class="mobile-only"></div>
-        <nav>
-          <ul class="menu">
-            <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="../PHP/menu.php">MENÙ</a></li
-            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
-            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
-            ><li><a href="contatti.html">CONTATTI</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="language-login" class="flex row">
-        <div id="language" aria-label="Seleziona lingua:">
-          <ul class="menu">
-            <li class="first-item">ITA</li
-            ><li>ENG</li>
-          </ul>
-        </div>
-        <a class="text-button" href="login.html">ACCEDI</a>
-      </div>
-    </header>
     <main id="content-wrapper">
-      <div id="breadcrumb">
-        <p>Ti trovi in: Accedi</p>
-      </div>
-      <div class="viewport first container">
-        <div class="subcontainers">
-          <div class="subcontainer">
-
-      			<h1>Salve </h1>
-
-      			<form action="inserimento_dati.php" method="POST">
-      				<fieldset>
-      					<legend>Benvenuto</legend>
-      					<label for="nome">Nome</label>
-      					<input type="text" name="nome" readonly required><br><br>
-      					<label for="cognome">Cognome</label>
-      					<input type="text" cognome="cognome" disable><br><br>
-  					    <label for="email">Email</label>
-      					<input type="email"><br><br>
-      				</fieldset><br><br>
-      				<input type="submit" value="Invia">
-      				<input type="submit" value="Resetta">
-      			</form>
-
-            <form action="../PHP/loginHandler.php" method="post" id="accesso">
-              <msgErrore/>
-              <label for="email" lang="en">Email:</label>
-              <input type="text" name="eml" id="email" autocomplete="email" required/>
-              <label for="pwd" lang="en">Password:</label>
-              <input type="password" name="pwd" id="pwd" autocomplete="current-password" required/>
-              <span>
-                  <input type="submit" name="accesso" value="Accedi" id="login" />
-                  <input type="submit" name="registrazione" value="Registrati" id="registrati"/>
-              </span>
-            </form>
-
-          </div>
+      <div id="login-container" class="flex column container">
+        <div id="login" class="subcontainer">
+          <form action="../PHP/loginHandler.php" method="post" id="login-form">
+            <h2>Accedi</h2>
+            <msgErrore/>
+            <label for="email" lang="en">username:</label
+            ><input type="text" name="email" id="email" autocomplete="email" placeholder="Inserisci il tuo username:" required />
+            <label for="pwd" lang="en">password: </label
+            ><input type="password" name="pwd" id="pwd" autocomplete="current-password" placeholder="Inserisci la tua password:" required />
+            <div id="post">
+              <input type="submit" id="accesso" class="text-button" name="accesso" value="ACCEDI" />
+              <input type="submit" id="registrazione" class="text-button" name="registrazione" value="REGISTRATI" />
+            </div>
+          </form>
         </div>
       </div>
 		</main>
