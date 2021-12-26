@@ -1,7 +1,7 @@
 <?php
 
 require_once "UtilityFunctions.php";
-use UtilityFuntions\UtilityFuntions;
+use UtilityFunctions\UtilityFunctions;
 
 session_start();
 
@@ -11,5 +11,5 @@ $content = array(
     "<msgErrore/>" => $messaggio
 );
 
-echo UtilityFuntions::replacer("../HTML/login.html", $content);
+echo UtilityFunctions::replacer("../HTML/login.html", $content);
 ?>

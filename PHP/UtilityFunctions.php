@@ -1,12 +1,12 @@
 <?php
 
-namespace UtilityFuntions;
+namespace UtilityFunctions;
 
-class UtilityFuntions {
-    
+class UtilityFunctions {
+
     public static function replacer($urlHTML, $array) {
         $paginaHTML = file_get_contents($urlHTML);
-        return UtilityFuntions::replacerFromHTML($paginaHTML, $array);
+        return UtilityFunctions::replacerFromHTML($paginaHTML, $array);
     }
 
     public static function replacerFromHTML($HTMLPage, $array) {

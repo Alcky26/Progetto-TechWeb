@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 :root {
-  --color_main: #FFAE42;
-  --color_2: #80471C;
-  --color_3: #FFFFFF;
+  --orange: #FFAE42;
+  --brown: #80471C;
+  --white: #FFFFFF;
   --font: 'Poppins', sans-serif;
   --link_color: #1C2833;
   --link_visited: #360000;
@@ -22,12 +22,59 @@
   margin: 0;
   box-sizing: border-box;
   border-width: 0;
-  border-color: var(--color_2);
+  border-color: var(--brown);
   border-style: solid;
 }
 
-p, h2, h3 {
+h2, h3 {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 2em 0;
+}
+
+h3 {
+  margin: 1em 0;
+}
+
+p {
   margin: 1em;
+}
+
+label, input {
+  margin: 1em 0;
+}
+
+input[type = "text"], input[type = "password"] {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 0.5em;
+  border-bottom-width: 1px;
+  background-color: inherit;
+}
+
+input[type = "text"]::-webkit-input-placeholder, input[type = "password"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: var(--font);
+}
+
+input[type = "text"]::-moz-placeholder, input[type = "password"]::-moz-placeholder { /* Firefox 19+ */
+  font-family: var(--font);
+}
+
+input[type = "text"]:-ms-input-placeholder, input[type = "password"]:-ms-input-placeholder { /* IE 10+ */
+  font-family: var(--font);
+}
+
+input[type = "text"]:-moz-placeholder, input[type = "password"]:-moz-placeholder { /* Firefox 18- */
+  font-family: var(--font);
+}
+
+input[type = "text"]:focus, input[type = "password"]:focus {
+  outline: medium solid var(--orange);
+  outline-offset: 5px;
 }
 
 ul {
@@ -89,8 +136,12 @@ footer {
 .text-button {
   padding: 1em 2em;
   border-radius: 2em;
-  background-color: var(--color_2);
-  color: var(--color_3);
+  background-color: var(--brown);
+  color: var(--white);
+}
+
+.text-button:hover {
+  cursor: pointer;
 }
 
 .button {
@@ -185,7 +236,7 @@ footer {
   height: 80px;
   padding: 0 1em;
   border-bottom-width: 5px;
-  background-color: var(--color_main);
+  background-color: var(--orange);
 }
 
 #navigation, #language-login {
@@ -223,7 +274,7 @@ footer {
   top: 80px;
   width: 100%;
   border-bottom-width: 1px;
-  background-color: var(--color_main);
+  background-color: var(--orange);
 }
 
 .container {
@@ -235,20 +286,20 @@ footer {
   height: 100vh;
 }
 
-@media only screen and (max-height: 575px) {
+@media only screen and (max-height: 500px) {
   .viewport.container {
-    height: 575px;
+    height: 500px;
   }
 }
 
 .first.container > .subcontainers {
-  padding-top: 138px;
+  padding-top: calc(138px + 1em);
 }
 
 .subcontainers {
   height: 100%;
   width: 75%;
-  padding-top: 0.001em;
+  padding: 1em;
 }
 
 .subtitle-panel {
@@ -259,7 +310,7 @@ footer {
   height: 100%;
   padding-top: 170px;
   border-left-width: 5px;
-  background-color: var(--color_3);
+  background-color: var(--white);
   text-align: center;
 }
 
@@ -277,8 +328,8 @@ footer {
 }
 
 .subcontainer {
-  margin: 1em;
-  background-color: var(--color_3);
+  margin-bottom: 1em;
+  background-color: var(--white);
 }
 
 .grid.subcontainer {
@@ -292,7 +343,7 @@ footer {
 }
 
 .subsubcontainer {
-  background-color: var(--color_main);
+  background-color: var(--orange);
 }
 
 .prodotto {
@@ -317,12 +368,12 @@ footer {
   height: 250px;
   width: 750px;
   padding: 1em;
-  background-color: var(--color_3);
+  background-color: var(--white);
 }
 
 .midcontainer > .inner {
   height: 100%;
-  background-color: var(--color_main);
+  background-color: var(--orange);
 }
 
 #news {
@@ -414,14 +465,6 @@ footer {
     margin: 0px 10px 0 0;
 }
 
-.title {
-    font-size: 1.3em;
-}
-
-.subtitle {
-    font-size: 1.1em;
-}
-
 /* Calendar */
 
 .calendario  {
@@ -431,7 +474,7 @@ footer {
     align-items: center;
     width: 100%;
     background: #ecf1f8;
-	
+
 }
 
 .calendar-assets {
@@ -600,3 +643,28 @@ footer {
 #prenotazione input[type=reset]:hover {
   background-color: #80471cd4;
 }
+/*-------fine prenotazione tavolo------------*/
+#login-container {
+  height: 750px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/login_background.jpg");
+}
+
+#login {
+  height: 100%;
+  padding: 3em;
+  margin: 0;
+  background-color: #F5EF42;
+}
+
+#post {
+  width: 80%;
+  margin: 4em 10%;
+}
+
+#accesso, #registrazione {
+  width: 100%;
+}
+
