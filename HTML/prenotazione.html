@@ -54,10 +54,9 @@
 			</div>
 			<div class="subcontainers">
 				<div class="subcontainer">
-					<!--<form action="php per inserimento nella database">-->
-						<fieldset>
-              <legend>Prenota il tuo posto</legend>
-							<div>
+					<form action="php per inserimento nella database">
+						<div  id="titoloPrenotaT"><fieldset><legend><h2>Prenota il tuo posto</h2></legend></div>
+							<div id="numeroPersone">
 								<label for="numeroPersone">Persone  </label>
 								<select id="numeroPersone" name="numeroPersone">
 									<option value="seleziona">Seleziona</option>
@@ -74,42 +73,36 @@
 							<div class="calendario">
 								<div class="calendar-assets">
 									<div class="day-assets">
-										<button class="btn" onclick="prevDay()" title="Giorno precedente"><i class="fas fa-chevron-left">&#10094;</i> </button>
-										<button class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
-										<button class="btn" onclick="nextDay()" title="Prossimo giorno"><i class="fas fa-chevron-right">&#10095;</i> </button>
+										<button type="button" class="btn" onclick="prevDay()" title="Giorno precedente"><i class="fas fa-chevron-left">&#10094;</i> </button>
+										<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
+										<button type="button" class="btn" onclick="nextDay()" title="Prossimo giorno"><i class="fas fa-chevron-right">&#10095;</i> </button>
 									</div>
 								</div>
 								<div class="calendar" id="table">
 									<div class="header">
 										<div class="month" id="month-header"></div>
 										<div class="buttons">
-											<button class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
-											<button class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
+											<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
+											<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
 										</div>
 									</div>
 								</div>
 								<h1 id="currentDate"></h1>
 							</div>
-							<div>
-								<input type="radio" id="pranzoCena" name="pranzoCena" value="Pranzo">
-					    		<label for="pranzoCena">Pranzo</label>
-							</div>
-							<div>
-								<input type="radio" id="pranzoCena" name="pranzoCena" value="cena">
-					    		<label for="pranzoCena">Cena</label>
-							</div>
-							<div>
+							<div id="NB"><h5>Nota bene: </h5><P>scelgliere una data successiva a quella di oggi</P></div>
+							<div id="orario">
 								<label for="orario">Ora  </label>
 								<select id="orario" name="orario">
 									<option value="seleziona">Seleziona</option>
 									<!--definire orari in base all scelta pranzo o cena -->
 								</select>
 							</div>
-  						<input type="submit" value="Invia">
-  						<input type="reset" value="Resetta">
+  						
+  						<input type="reset" value="RESETTA">
+						<input type="submit" value="INVIA">
 						</fieldset>
 						<p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
-  			  <!--</form>-->
+  			  </form>
   		  </div>
 		  </div>
 		</div>

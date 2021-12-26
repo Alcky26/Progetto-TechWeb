@@ -330,7 +330,7 @@ footer {
   background-position: center;
 }
 
-/*parte prenotazione tavolo*/
+/*-------parte prenotazione tavolo------------*/
 .btn {
     font-family: 'Open Sans';
     font-size: 1em;
@@ -379,6 +379,18 @@ footer {
 
 .btn-day.active {
     color: #FFF;
+    font-weight: 600;
+    z-index: 99;
+}
+
+#today {
+	position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: blue;
+    border-radius: 10px;
+	color: #FFF;
     font-weight: 600;
     z-index: 99;
 }
@@ -434,6 +446,7 @@ footer {
 #currentDate{
   text-align:center;
   font-size:20px;
+  padding: 1em;
 }
 
 .field {
@@ -512,7 +525,7 @@ footer {
 
 .weekends th {
     font-size: 1em;
-    color: gray;
+    color: red;
     font-weight: 400;
     width: 40px;
     margin: 10px 0;
@@ -535,4 +548,55 @@ footer {
     align-items: center;
     text-align: center;
     z-index: 99;
+}
+
+#titoloPrenotaT, #numeroPersone, #orario {
+	text-align: center;
+}
+
+#titoloPrenotaT {
+	background-color: #FFAE42;
+	border-radius: 20px;
+}
+
+#numeroPersone, #orario {
+	margin: 1em;
+	font-size: 1em,
+}
+
+#NB p {
+	font-size: 12px;
+	margin: 0;
+}
+
+#prenotazione input[type=submit] {
+	float: right;
+    width: 20%;
+    background-color: #80471c;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#prenotazione input[type=reset] {
+	position: relative;
+    width: 20%;
+    background-color: #80471c;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#prenotazione input[type=submit]:hover {
+  background-color: #80471cd4;
+}
+
+#prenotazione input[type=reset]:hover {
+  background-color: #80471cd4;
 }

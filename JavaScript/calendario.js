@@ -19,7 +19,7 @@ const weekdays = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Vene
 
 // variabile principale
 let date = new Date();
-
+let contatore = 0;
 // Funzione che restituisce la data di calendario corrente
 function getCurrentDate(element, asString) {
     if (element) {
@@ -95,16 +95,17 @@ function generateCalendar() {
             let text = document.createTextNode(i);
             btn = document.createElement('button');
             btn.className = "btn-day";
+			btn.type = "button";
+			//btn.disabled = true;
             btn.addEventListener('click', function () { changeDate(this) });
             week++;
-
-
+			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()){btn.id = "today";}
 
             // Controlla che si fermi esattamente l'ultimo giorno
             if (i <= lastDay) {
                 i++;
                 btn.appendChild(text);
-                td.appendChild(btn)
+                td.appendChild(btn);
             } else {
                 text = document.createTextNode(' ');
                 td.appendChild(text);
@@ -125,10 +126,8 @@ function generateCalendar() {
     content.appendChild(table);
     changeActive();
     changeHeader(date);
-    //document.getElementById('date').textContent = date;
     getCurrentDate(document.getElementById("currentDate"), true);
-    //getCurrentDate(document.getElementById("date"), false);
-	disableDay();
+	//activeBtn();
 }
 
 // Modifica la data utilizzando il form
@@ -182,7 +181,7 @@ function changeDate(button) {
 // mese e giorno funzioni avanti e indietro
 function nextMonth() {
     date = new Date(date.getFullYear(), date.getMonth() + 1, 1);
-    generateCalendar(date);
+    generateCalendar();
 }
 
 function prevMonth() {
@@ -201,19 +200,21 @@ function nextDay() {
     generateCalendar();
 }
 
-function disableDay() {
-	var today = new Date();
-	var oggi = today.getDate();
-	var firstDay = new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        1
-    ).getDay();
-	while(firstDay < oggi) {
-		var btn = document.getElementById("button");
-		btn.disabled = true;
-		firstDay++;
-	}
+function activeBtn() {
+	let btnList = document.getElementsByClassName('btn-day');
+	let todaybtn = document.getElementById('today');
+    for (let i = 0; i < btnList.length; i++) {
+        const btn = btnList[i];
+        if (btn.textContent === (today.textContent)) {
+			var x = i + 1;
+			for (let j = 0; j < 13; j++){
+				var tmp = btnList[x];
+				tmp.disabled = false;
+				x++;
+			}
+        }
+    }
 }
 
-document = generateCalendar(date);
+
+document.onload = generateCalendar();
