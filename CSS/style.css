@@ -434,18 +434,6 @@ footer {
     z-index: 99;
 }
 
-#today {
-	position: absolute;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: blue;
-    border-radius: 10px;
-	color: #FFF;
-    font-weight: 600;
-    z-index: 99;
-}
-
 .btn-day.active::before {
     position: absolute;
     content: '';
@@ -463,6 +451,18 @@ footer {
     border: 1px solid #f0f0f0;
     border-radius: 10px;
     margin: 0px 10px 0 0;
+}
+
+#today {
+	position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: blue;
+    border-radius: 10px;
+	color: #FFF;
+    font-weight: 600;
+    z-index: 99;
 }
 
 /* Calendar */
@@ -489,7 +489,7 @@ footer {
 #currentDate{
   text-align:center;
   font-size:20px;
-  padding: 1em;
+   padding: 1em;
 }
 
 .field {
@@ -592,6 +592,7 @@ footer {
     text-align: center;
     z-index: 99;
 }
+
 
 #titoloPrenotaT, #numeroPersone, #orario {
 	text-align: center;

@@ -19,7 +19,7 @@ const weekdays = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Vene
 
 // variabile principale
 let date = new Date();
-let contatore = 0;
+
 // Funzione che restituisce la data di calendario corrente
 function getCurrentDate(element, asString) {
     if (element) {
@@ -96,10 +96,11 @@ function generateCalendar() {
             btn = document.createElement('button');
             btn.className = "btn-day";
 			btn.type = "button";
-			//btn.disabled = true;
             btn.addEventListener('click', function () { changeDate(this) });
             week++;
+			
 			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()){btn.id = "today";}
+
 
             // Controlla che si fermi esattamente l'ultimo giorno
             if (i <= lastDay) {
@@ -127,7 +128,7 @@ function generateCalendar() {
     changeActive();
     changeHeader(date);
     getCurrentDate(document.getElementById("currentDate"), true);
-	//activeBtn();
+	//disableDay();
 }
 
 // Modifica la data utilizzando il form
@@ -181,7 +182,7 @@ function changeDate(button) {
 // mese e giorno funzioni avanti e indietro
 function nextMonth() {
     date = new Date(date.getFullYear(), date.getMonth() + 1, 1);
-    generateCalendar();
+    generateCalendar(date);
 }
 
 function prevMonth() {
@@ -215,6 +216,5 @@ function activeBtn() {
         }
     }
 }
-
 
 document.onload = generateCalendar();
