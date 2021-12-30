@@ -5,11 +5,11 @@ use UtilityFunctions\UtilityFunctions;
 
 session_start();
 
-$messaggio = isset($_GET["msg"]) ? "<p id=\"datiNonCorretti\">" . $_GET["msg"] . "</p>" : "";
+$messaggio = isset($_GET["messaggio"]) ? "<p id=\"datiNonCorretti\">" . $_GET["messaggio"] . "</p>" : "";
 
-$nuovo = array(
+$content = array(
     "<msgErrore/>" => $messaggio
 );
 
-echo UtilityFunctions::replacer("../HTML/login.html", $nuovo);
+echo UtilityFunctions::replacer("../HTML/login.html", $content);
 ?>

@@ -33,56 +33,26 @@ class DBAccess {
     /*
         LOGIN
     */
-    public function checkLogin($username, $password) {
-        $txtUsername = mysqli_real_escape_string($this->connection, $username);
+    public function checkUserAndPassword($username, $password) {
+        $checkUsername = mysqli_real_escape_string($this->connection, $username);
         $sql = "SELECT *
                 FROM UTENTE
-                WHERE BINARY username = '$txtkUsername' AND Password = '$password'";
+                WHERE BINARY email = '$checkUsername' AND Password = '$password'";
 
-        $result = mysqli_query($this->connection, $sql);
+        $queryResult = mysqli_query($this->connection, $sql);
 
-        if (mysqli_num_rows($result) == 1) {
-            $user = mysqli_fetch_assoc($result);
-
+        if (mysqli_num_rows($queryResult) == 1) {
+            $user = mysqli_fetch_assoc($queryResult);
             return array(
                 "isValid" => true,
-                "username" => $user["username"]
+                "email" => $user["email"],
             );
         }
         return array(
             "isValid" => false,
-            "username" => null,
+            "email" => null,
         );
     }
-    /*
-        FINE LOGIN
-    */
-
-    /*
-        REGISTRA NUOVO
-    */
-    public function createNew($email,$username, $password) {
-        $txtUsername = mysqli_real_escape_string($this->connection, $username);
-        $txtEmail = mysqli_real_escape_string($this->connection, $email);
-        $sql = "SELECT *
-                FROM UTENTE
-                WHERE BINARY username = '$txtUsername' OR email='$txtEmail'";
-
-        $result = mysqli_query($this->connection, $sql);
-
-        if (mysqli_num_rows($result) == 0) {
-            //Nessun utente trovato con quel username o email, quindi creazione disponibile
-            $sql = "INSERT INTO `UTENTE` (`email`, `username`, `password`, `punti`) 
-            VALUES ('$txtEmail', '$txtUsername', '$password', 0)";
-
-            return (mysqli_query($this->connection, $sql) === true);
-            //ritorna true SSE l'utente è stato creato
-        }
-        return false;
-    }
-    /*
-        FINE REGISTRA NUOVO
-    */
 
     private function execQuery($query) {
         $queryResult = mysqli_query($this->connection, $query) or die("Errore: ".mysqli_error($this->connection));

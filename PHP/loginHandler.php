@@ -3,17 +3,17 @@
     require_once "connectionDB.php";
     use DB\DBAccess;
 
-    if(!isset($_POST["usr"], $_POST["pwd"])) {
+    if(!isset($_POST["eml"], $_POST["pwd"])) {
         header("Location: ../login.php");
         die;
     }
 
-    $username = $_POST["usr"];
+    $email = $_POST["eml"];
     $password = $_POST["pwd"];
-    $clickRegistrazione= in_array("REGITRATI",$_POST);
     
     $dbAccess = new DBAccess();
     $connessioneRiuscita = $dbAccess->openDBConnection();
+
     //CONNESSIONE FALLITA
     if(!$connessioneRiuscita) {
         header("Location: ../error_500.php");
@@ -21,23 +21,19 @@
     }
 
     session_start();
-    if($clickRegistrazione)
-    {
-        header("Location: ../PHP/signup.php");
-    }
 
     //ACCEDI
-    $result = $dbAccess->checkLogin($username, $password);
+    $result = $dbAccess->checkUserAndPassword($email, $password);
     $dbAccess->closeDBConnection();
     $_SESSION["isValid"] = $result["isValid"];
 
 
     if($_SESSION["isValid"]) {
-        $_SESSION["username"] = $result["username"];
-        header("Location: ../HTML/index.html");//poi indirizzare ad un area riservata o simile
+        $_SESSION["email"] = $result["email"];
+        header("Location: ../HTML/index.html");
     } else {
         $messaggio = "Dati non corretti";
-        header("Location: ../PHP/login.php?msg=$messaggio");
+        header("Location: ../PHP/login.php?messaggio=$messaggio");
     }
    
 ?>

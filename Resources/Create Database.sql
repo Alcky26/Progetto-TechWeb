@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Dic 30, 2021 alle 14:10
+-- Creato il: Dic 16, 2021 alle 13:36
 -- Versione del server: 10.3.32-MariaDB-0ubuntu0.20.04.1
 -- Versione PHP: 7.4.3
 
@@ -32,8 +32,7 @@ CREATE TABLE `ACQUISTO` (
   `quantita` tinyint(1) NOT NULL,
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `dataOra` timestamp NOT NULL DEFAULT current_timestamp(),
-  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -42,14 +41,21 @@ CREATE TABLE `ACQUISTO` (
 --       `ORDINAZIONE` -> `dataOra`
 --   `email`
 --       `ORDINAZIONE` -> `email`
+--   `nome`
+--       `ELEMENTO_LISTINO` -> `nome`
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `ACQUISTO`
+--
+
+TRUNCATE TABLE `ACQUISTO`;
 --
 -- Dump dei dati per la tabella `ACQUISTO`
 --
 
 INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
-(2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it');
+(2, '4 Formaggi', '2021-12-22 12:31:52', 'mvignaga@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -69,6 +75,11 @@ CREATE TABLE `BEVANDA` (
 --       `ELEMENTO_LISTINO` -> `nome`
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `BEVANDA`
+--
+
+TRUNCATE TABLE `BEVANDA`;
 --
 -- Dump dei dati per la tabella `BEVANDA`
 --
@@ -105,6 +116,11 @@ CREATE TABLE `BONUS` (
 -- RELAZIONI PER TABELLA `BONUS`:
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `BONUS`
+--
+
+TRUNCATE TABLE `BONUS`;
 --
 -- Dump dei dati per la tabella `BONUS`
 --
@@ -145,6 +161,11 @@ CREATE TABLE `COMPOSIZIONE` (
 --       `INGREDIENTE` -> `nome`
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `COMPOSIZIONE`
+--
+
+TRUNCATE TABLE `COMPOSIZIONE`;
 --
 -- Dump dei dati per la tabella `COMPOSIZIONE`
 --
@@ -232,6 +253,11 @@ CREATE TABLE `DOLCE` (
 --
 
 --
+-- Svuota la tabella prima dell'inserimento `DOLCE`
+--
+
+TRUNCATE TABLE `DOLCE`;
+--
 -- Dump dei dati per la tabella `DOLCE`
 --
 
@@ -262,8 +288,14 @@ CREATE TABLE `ELEMENTO_LISTINO` (
 --
 
 --
+-- Svuota la tabella prima dell'inserimento `ELEMENTO_LISTINO`
+--
+
+TRUNCATE TABLE `ELEMENTO_LISTINO`;
+--
 -- Dump dei dati per la tabella `ELEMENTO_LISTINO`
 --
+
 INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`) VALUES
 ('4 formaggi', 6.5),
 ('4 stagioni', 7),
@@ -298,7 +330,7 @@ INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`) VALUES
 ('Tiramisù', 4.5),
 ('Torta della nonna', 4);
 
- INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
+INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
 ('Pilsner Urquell', 3.5, 'Pilsner dal colore dorato, ha un bouquet di grano tostato e un bilanciato gusto. Sapore intensamente luppolato con un equilibrio di dolcezza sottile e di amaro vellutato dalla combinazione di sapori di miele, diacetile e note caramellate insieme ad un altro estratto residuo. Chiude con una cremosità pulita, che fa perfetto contraltare al luppolo.'),
 ('Glossner Gold', 4, 'La Neumark Glossnerbrau, la storia di uno dei più antichi Braufamilien. Da semplici inizi come Kommunbrauer è nato un birrificio altamente tecnico e versatile. La gold ha un sapore rinfrescante e sapido con una piacevole amarezza.'),
 ('Tennent\'s Super', 4.5, 'Una delle strong lager più forti del Regno Unito. Decisa e ad alto grado di piacere, ben equilibrata nelle sue componenti, è una birra pensata per un momento serale. Ha bisogno di calore e di colore, di spazi dove il tempo non ha fretta, ha bisogno di tranquillità.'),
@@ -320,6 +352,11 @@ CREATE TABLE `INGREDIENTE` (
 -- RELAZIONI PER TABELLA `INGREDIENTE`:
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `INGREDIENTE`
+--
+
+TRUNCATE TABLE `INGREDIENTE`;
 --
 -- Dump dei dati per la tabella `INGREDIENTE`
 --
@@ -370,11 +407,16 @@ CREATE TABLE `ORDINAZIONE` (
 --
 
 --
+-- Svuota la tabella prima dell'inserimento `ORDINAZIONE`
+--
+
+TRUNCATE TABLE `ORDINAZIONE`;
+--
 -- Dump dei dati per la tabella `ORDINAZIONE`
 --
 
 INSERT INTO `ORDINAZIONE` (`dataOra`, `email`) VALUES
-('2021-12-22 11:31:52', 'mvignaga@unipd.it');
+('2021-12-22 12:31:52', 'mvignaga@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -393,6 +435,11 @@ CREATE TABLE `PIZZA` (
 --       `ELEMENTO_LISTINO` -> `nome`
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `PIZZA`
+--
+
+TRUNCATE TABLE `PIZZA`;
 --
 -- Dump dei dati per la tabella `PIZZA`
 --
@@ -423,25 +470,29 @@ INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES
 
 CREATE TABLE `POSSESSO_BONUS` (
   `codiceBonus` int(11) NOT NULL,
-  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- RELAZIONI PER TABELLA `POSSESSO_BONUS`:
+--   `codiceBonus`
+--       `BONUS` -> `codiceBonus`
 --   `email`
 --       `UTENTE` -> `email`
---   `username`
---       `UTENTE` -> `username`
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `POSSESSO_BONUS`
+--
+
+TRUNCATE TABLE `POSSESSO_BONUS`;
 --
 -- Dump dei dati per la tabella `POSSESSO_BONUS`
 --
 
-INSERT INTO `POSSESSO_BONUS` (`codiceBonus`, `email`, `username`) VALUES
-(4, 'mvignaga@unipd.it', 'mvignaga'),
-(8, 'mmasetto@unipd.it', 'mmasetto');
+INSERT INTO `POSSESSO_BONUS` (`codiceBonus`, `email`) VALUES
+(4, 'mvignaga@unipd.it'),
+(8, 'mmasetto@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -458,18 +509,25 @@ CREATE TABLE `PRENOTAZIONE` (
 
 --
 -- RELAZIONI PER TABELLA `PRENOTAZIONE`:
+--   `email`
+--       `UTENTE` -> `email`
 --   `numero`
 --       `TAVOLO` -> `numero`
 --
 
 --
+-- Svuota la tabella prima dell'inserimento `PRENOTAZIONE`
+--
+
+TRUNCATE TABLE `PRENOTAZIONE`;
+--
 -- Dump dei dati per la tabella `PRENOTAZIONE`
 --
 
 INSERT INTO `PRENOTAZIONE` (`persone`, `dataOra`, `numero`, `email`) VALUES
-(4, '2021-12-16 11:27:02', 3, 'zzhenwei@unipd.it'),
-(5, '2021-12-16 11:27:02', 4, 'gorlandi@unipd.it'),
-(10, '2021-12-16 11:27:02', 12, 'mmasetto@unipd.it');
+(5, '2021-12-16 12:27:02', 4, 'gorlandi@unipd.it'),
+(4, '2021-12-16 12:27:02', 4, 'zzhenwei@unipd.it'),
+(10, '2021-12-16 12:27:02', 12, 'mmasetto@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -486,6 +544,11 @@ CREATE TABLE `TAVOLO` (
 -- RELAZIONI PER TABELLA `TAVOLO`:
 --
 
+--
+-- Svuota la tabella prima dell'inserimento `TAVOLO`
+--
+
+TRUNCATE TABLE `TAVOLO`;
 --
 -- Dump dei dati per la tabella `TAVOLO`
 --
@@ -515,8 +578,6 @@ INSERT INTO `TAVOLO` (`numero`, `posti`) VALUES
 
 CREATE TABLE `UTENTE` (
   `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `punti` int(15) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -526,14 +587,19 @@ CREATE TABLE `UTENTE` (
 --
 
 --
+-- Svuota la tabella prima dell'inserimento `UTENTE`
+--
+
+TRUNCATE TABLE `UTENTE`;
+--
 -- Dump dei dati per la tabella `UTENTE`
 --
 
-INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`) VALUES
-('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10),
-('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55),
-('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0),
-('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100);
+INSERT INTO `UTENTE` (`email`, `password`, `punti`) VALUES
+('gorlandi@unipd.it', 'password', 10),
+('mmasetto@unipd.it', 'password', 55),
+('mvignaga@unipd.it', 'password', 0),
+('zzhenwei@unipd.it', 'password', 100);
 
 --
 -- Indici per le tabelle scaricate
@@ -600,17 +666,15 @@ ALTER TABLE `PIZZA`
 -- Indici per le tabelle `POSSESSO_BONUS`
 --
 ALTER TABLE `POSSESSO_BONUS`
-  ADD PRIMARY KEY (`codiceBonus`,`email`,`username`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `email_2` (`email`,`username`);
+  ADD PRIMARY KEY (`codiceBonus`,`email`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indici per le tabelle `PRENOTAZIONE`
 --
 ALTER TABLE `PRENOTAZIONE`
-  ADD PRIMARY KEY (`dataOra`,`numero`),
-  ADD KEY `numero` (`numero`);
+  ADD PRIMARY KEY (`numero`,`email`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indici per le tabelle `TAVOLO`
@@ -622,9 +686,7 @@ ALTER TABLE `TAVOLO`
 -- Indici per le tabelle `UTENTE`
 --
 ALTER TABLE `UTENTE`
-  ADD PRIMARY KEY (`username`,`email`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -682,13 +744,15 @@ ALTER TABLE `PIZZA`
 -- Limiti per la tabella `POSSESSO_BONUS`
 --
 ALTER TABLE `POSSESSO_BONUS`
-  ADD CONSTRAINT `POSSESSO_BONUS_ibfk_1` FOREIGN KEY (`email`,`username`) REFERENCES `UTENTE` (`email`, `username`);
+  ADD CONSTRAINT `POSSESSO_BONUS_ibfk_1` FOREIGN KEY (`codiceBonus`) REFERENCES `BONUS` (`codiceBonus`),
+  ADD CONSTRAINT `POSSESSO_BONUS_ibfk_2` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`);
 
 --
 -- Limiti per la tabella `PRENOTAZIONE`
 --
 ALTER TABLE `PRENOTAZIONE`
-  ADD CONSTRAINT `PRENOTAZIONE_ibfk_1` FOREIGN KEY (`numero`) REFERENCES `TAVOLO` (`numero`);
+  ADD CONSTRAINT `PRENOTAZIONE_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`),
+  ADD CONSTRAINT `PRENOTAZIONE_ibfk_2` FOREIGN KEY (`numero`) REFERENCES `TAVOLO` (`numero`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
