@@ -46,6 +46,7 @@ p {
 
 label, input {
   margin: 1em 0;
+  cursor: pointer;
 }
 
 input[type = "text"], input[type = "password"] {
@@ -133,7 +134,7 @@ footer {
   display: grid;
 }
 
-.text-button {
+.text-button, .order-button {
   padding: 1em 2em;
   border-radius: 2em;
   background-color: var(--brown);
@@ -302,7 +303,7 @@ footer {
   padding: 1em;
 }
 
-.subtitle-panel {
+.subtitle-panel, .subtitle-riepilogo-panel {
   position: relative;
   z-index: 1;
   float: right;
@@ -739,6 +740,7 @@ footer {
 	text-decoration: underline;
 }
 /*-------fine ordina online------------*/
+
 #login-container {
   height: 750px;
   padding: 15px;
