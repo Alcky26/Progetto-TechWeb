@@ -12,7 +12,8 @@
 		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-		<script src="../JS/custom.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="../JavaScript/slideToggle.js"></script>
 	</head>
     <body>
     <header id="top-header">
@@ -49,31 +50,99 @@
 			<p>Ti trovi in: <span lang="en">Ordina Online</span></p>
 		</div>
 		<div id="ordina" class="first container">
-			<div class="subtitle-panel">
-				<h2 class="subtitle">Ordina Online</h2>
+			<div class="subtitle-riepilogo-panel">
+				<div class="riepilogo">
+					<h1>IL TUO ORDINE</h1>
+					<selezionati />
+				</div>
+				<div class="total">
+					<h2>TOTALE: </h2>
+					<totale />
+				</div>
+				<a class="order-button" href="pagamento.html">PROCEDI AL PAGAMENTO</a>
 			</div>
 			<div class="subcontainers">
 				<div class="subcontainer">
-					<div id="scelta">
-						<div>
-							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
+					<div class="scelta">
+						<h1>Scegli il tipo di cosegna</h1>
+						<div id="ritiroBox">
+							<img src="../images/takeAway.jpg" alt="immagine take away">
 							<label for="deliveryTakeaway"><h2 aria-label="TakeAway">Take Away</h2></label>
+							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
+							
 						</div>
-						<div>
-							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
+						<div id="consegnaBox">
+							<img src="../images/delivery.png" alt="immagine delivery">
 							<label for="deliveryTakeaway"><h2 aria-label="delivery">Delivery</h2></label>
+							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
+							
 						</div>
 					</div>
 					<div class="menu">
 						<h1>Scegli i tuoi piatti</h1>
+						<ul class="tipiPrincipali">
+							<li class="tipi">
+							<h3>Pizze</h3>
+							<ul>
+							  <li id="classicheFlip">Pizze classiche</li>
+								<div id="classiche" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaClassiche />
+									</div>
+								</div>
+							  <li id="specialiFlip">Pizze speciali</li>
+								<div id="speciali" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaSpeciali />
+									</div>
+								</div>
+							  <li id="biancheFlip">Pizze bianche</li>
+								<div id="bianche" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaBianche />
+									</div>
+								</div>
+							  <li id="calzoniFlip">Calzoni</li>
+								<div id="calzoni" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaCalzoni />
+									</div>
+								</div>
+							</ul>
+						  </li>
+						  <li class="tipi">
+							<h3>Bevande</h3>
+							<ul>
+							  <li id="bevandeFlip">Bevande analcoliche</li>
+								<div id="bevande" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaBevande />
+									</div>
+								</div>
+							  <li id="birreFlip">Birre</li>
+								<div id="birre" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaBirre />
+									</div>
+								</div>
+							  <li id="viniFlip">Vini</li>
+								<div id="vini" class="viewportContainer">
+									<div class="subcontainers">
+									  <listaVini />
+									</div>
+								</div>
+							</ul>
+						  </li>
+						  <li id="dolciFlip" class="tipi"><h3>Dolci</h3></li>
+							<div id="dolci" class="viewportContainer">
+								<div class="subcontainers">
+								  <listaDolci />
+								</div>
+							</div>
+						</ul>
 
-
 					</div>
-					<div class="riepilogo">
-					</div>
-					<div class="total">
-					</div>
-					<a class="order-button" href="pagamento.html">PROCEDI AL PAGAMENTO</a>
+					
 				</div>
 			</div>
 		</div>
