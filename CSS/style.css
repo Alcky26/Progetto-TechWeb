@@ -4,18 +4,11 @@
   --orange: #FFAE42;
   --brown: #80471C;
   --white: #FFFFFF;
+  --light_orange: #FCD299;
   --font: 'Poppins', sans-serif;
   --link_color: #1C2833;
   --link_visited: #360000;
-}
-
-#footer {
-  background-color:#FFF68F;
-  color:var(--link_color);
-}
-
-#copyright {
-  text-align:center;
+  font-size: 100%;
 }
 
 * {
@@ -27,32 +20,27 @@
 }
 
 h2, h3 {
-  width: 100%;
-  text-align: center;
   font-weight: bold;
 }
 
 h2 {
-  margin: 2em 0;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 h3 {
-  margin: 1em 0;
+  font-size: 1.25rem;
+  margin: 1.25rem 0;
 }
 
-p {
-  margin: 1em;
-}
-
-label, input {
-  margin: 1em 0;
-  cursor: pointer;
+p, ul, label, input {
+  margin: 1rem 0;
 }
 
 input[type = "text"], input[type = "password"] {
   display: inline-block;
   width: 100%;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
   border-bottom-width: 1px;
   background-color: inherit;
 }
@@ -74,23 +62,15 @@ input[type = "text"]:-moz-placeholder, input[type = "password"]:-moz-placeholder
 }
 
 input[type = "text"]:focus, input[type = "password"]:focus {
-  outline: medium solid var(--orange);
+  outline: 2px solid var(--orange);
   outline-offset: 5px;
 }
 
-ul {
-  margin: 1em 0;
-}
-
-ul ul {
-  margin: 0;
-}
-
-#navigation a, main a, footer a {
+.navigation a, main a, footer a {
   color: var(--link_color);
 }
 
-#navigation a:visited, main a:visited, footer a:visited {
+.navigation a:visited, main a:visited, footer a:visited {
   color: var(--link_visited);
 }
 
@@ -98,19 +78,22 @@ body {
   font-family: var(--font);
 }
 
+main {
+  background-color: var(--light_orange);
+}
+
 footer {
-  padding: 1em;
+  padding: 1rem;
 }
 
-<!-- inizia il css della pagina errore404-->
-
-body , #error404 {
-  background-color:#FFC0CB;
-  text-align:center;
-  text:color:#00008B;
-
+#footer {
+  background-color: #FFF68F;
+  color: var(--link_color);
 }
 
+#copyright {
+  text-align: center;
+}
 
 .sr-only {
   clip: rect(0 0 0 0);
@@ -128,46 +111,33 @@ body , #error404 {
 
 .flex {
   display: flex;
-  flex-wrap: wrap;
-  width: auto;
-}
-
-.flex.row {
-  flex-direction: row;
-}
-
-.flex.column {
-  flex-direction: column;
 }
 
 .grid {
+  display: -ms-grid;
   display: grid;
 }
 
-.text-button, .order-button {
-  padding: 1em 2em;
-  border-radius: 2em;
+.text-button {
+  padding: 1.25rem;
+  border-radius: 1.75rem;
   background-color: var(--brown);
-  color: var(--white);
+  line-height: 1;
 }
 
-.text-button:hover {
+.text-button * {
+  color: var(--white) !important;
+}
+
+.text-button:hover, .button:hover {
   cursor: pointer;
 }
 
 .button {
+  padding: 0;
+  background-color: inherit;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.menu {
-  margin: 0;
-  padding: 0;
-}
-
-.menu > li {
-  display: inline;
-  margin-right: 1em;
 }
 
 .background {
@@ -175,14 +145,16 @@ body , #error404 {
 }
 
 .hide-text {
-  text-indent: -999em;
+  height: 0;
+  text-indent: -999rem;
+  line-height: 1;
 }
 
 .allergene {
   font-weight: bold;
 }
 /*glutine*/
-.allergene- {
+.allergene-1 {
   color: #DE8043;
 }
 /*crostacei*/
@@ -243,114 +215,125 @@ body , #error404 {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2;
-  height: 80px;
-  padding: 0 1em;
+  z-index: 3;
+  height: auto;
+  padding: 0 16px;
   border-bottom-width: 5px;
   background-color: var(--orange);
 }
 
-#navigation, #language-login {
-  height: 75px;
-}
-
-#navigation {
-  float: left;
-  justify-content: flex-start;
-  align-items: center;
+#logo, #menu-button, #top-header > nav {
+  margin: 8px 0;
 }
 
 #logo {
-  width: 275px;
-  margin-right: 1em;
-  background-image: url("../images/logo.png");
-  background-position: center;
-  font-size: 24px;
+  float: left;
+  margin-right: 16px;
 }
 
 #menu-button {
-  width: 50px;
-  height: 50px;
+  width: 59px;
+  height: 59px;
   background-image: url("../images/hamburger_icon.png");
   background-position: center;
 }
 
-#language-login {
-  justify-content: flex-end;
+.navigation {
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  list-style: none;
+}
+
+#separator {
+  margin-right: 10%;
 }
 
 #breadcrumb {
   position: absolute;
   top: 80px;
+  z-index: 1;
   width: 100%;
+  padding: 0 16px;
   border-bottom-width: 1px;
   background-color: var(--orange);
+  line-height: 1;
 }
 
 .container {
-  height: 1000px;
+  position: relative;
+  min-height: 100vh;
   border-bottom-width: 1px;
 }
 
-.viewport {
-  height: 100vh;
+.first.container {
+  padding-top: 80px;
 }
 
-@media only screen and (max-height: 500px) {
-  .viewport.container {
-    height: 500px;
-  }
+.first.container > .subtitle-panel {
+  top: 80px;
 }
 
 .first.container > .subcontainers {
-  padding-top: calc(138px + 1em);
-}
-
-.subcontainers {
-  height: 100%;
-  width: 75%;
-  padding: 1em;
+  padding-top: calc(3rem + 17px);
 }
 
 .subtitle-panel, .subtitle-riepilogo-panel {
-  position: relative;
-  z-index: 1;
-  float: right;
   width: 25%;
-  height: 100%;
-  padding-top: 170px;
+  padding: 0 16px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   border-left-width: 5px;
   background-color: var(--white);
   text-align: center;
 }
 
+.subtitle-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  align-items: center;
+}
+
+.subcontainers {
+  width: 75%;
+  padding: 16px;
+}
+
 .next-container {
-  display: inline-block;
-  position: relative;
   width: 40px;
   height: 40px;
   background-image: url("../images/down.png");
 }
 
-.subcontainer, .subsubcontainer, .midcontainer, .midcontainer > .inner {
+.subcontainer, .subsubcontainer {
+  padding: 0 16px;
   border-width: 1px;
-  border-radius: 20px;
+  border-radius: 16px;
 }
 
 .subcontainer {
-  margin-bottom: 1em;
+  margin-bottom: 16px;
   background-color: var(--white);
 }
 
+.subcontainer:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
 .grid.subcontainer {
-  height: calc(100% - 2em);
-  padding: 1em;
-  column-gap: 1em;
-  row-gap: 1em;
+  height: 100%;
+  padding: 16px;
+  column-gap: 16px;
+  row-gap: 16px;
+  -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(auto-fit, auto);
-  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .subsubcontainer {
@@ -362,7 +345,7 @@ body , #error404 {
 }
 
 .prodotto > .nome, .prodotto > .descrizione {
-  margin: 0.25em;
+  margin: 0.25rem;
 }
 
 .img-prodotto {
@@ -372,24 +355,15 @@ body , #error404 {
   width:100px;
 }
 
-.midcontainer {
-  position: relative;
-  top: -125px;
-  left: calc((75% - 750px)/2);
-  height: 250px;
-  width: 750px;
-  padding: 1em;
-  background-color: var(--white);
-}
-
-.midcontainer > .inner {
-  height: 100%;
-  background-color: var(--orange);
-}
-
 #news {
   background-image: url("../images/pizza_home.jpg");
   background-position: center;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+  padding: 0;
 }
 
 /*-------parte prenotazione tavolo------------*/
@@ -445,6 +419,18 @@ body , #error404 {
     z-index: 99;
 }
 
+#today {
+	position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: blue;
+    border-radius: 10px;
+	color: #FFF;
+    font-weight: 600;
+    z-index: 99;
+}
+
 .btn-day.active::before {
     position: absolute;
     content: '';
@@ -462,18 +448,6 @@ body , #error404 {
     border: 1px solid #f0f0f0;
     border-radius: 10px;
     margin: 0px 10px 0 0;
-}
-
-#today {
-	position: absolute;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: blue;
-    border-radius: 10px;
-	color: #FFF;
-    font-weight: 600;
-    z-index: 99;
 }
 
 /* Calendar */
@@ -500,14 +474,13 @@ body , #error404 {
 #currentDate{
   text-align:center;
   font-size:20px;
-   padding: 1em;
+  padding: 1em;
 }
 
 .field {
     display: flex;
     width: auto;
     flex-direction: column;
-    align-items: left;
     justify-content: center;
     margin: 20px 0;
 }
@@ -604,7 +577,6 @@ body , #error404 {
     z-index: 99;
 }
 
-
 #titoloPrenotaT, #numeroPersone, #orario {
 	text-align: center;
 }
@@ -616,7 +588,7 @@ body , #error404 {
 
 #numeroPersone, #orario {
 	margin: 1em;
-	font-size: 1em,
+	font-size: 1em;
 }
 
 #NB p {
@@ -661,27 +633,19 @@ body , #error404 {
 
 .subtitle-riepilogo-panel {
 	position: fixed;
+  top: 80px;
 	right: 0;
+  bottom: 0;
 	z-index: 1;
-	padding-top: 100px;
-}
-
-.order-button {
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	z-index: 2;
-	margin: 0.5em;
+  justify-content: space-evenly;
 }
 
 .total {
-	position: fixed;
-	width: 25%;
-	right: 0;
-	bottom: 3em;
+  padding: 1rem;
 	box-shadow: 2px 2px 4px black;
 	text-align: right;
 }
+
 .scelta {
 	padding-bottom: 15em;
 	border-style: none;
@@ -690,10 +654,8 @@ body , #error404 {
 	border-color: #c3c3c3;
 }
 
-.scelta h1 , .menu h1 {
-	font-size: 30px;
+.scelta h2 , .menu h2 {
 	text-align: center;
-	padding: 10px;
 }
 
 .scelta h2 {
@@ -703,42 +665,34 @@ body , #error404 {
 
 #ritiroBox, #consegnaBox {
 	float: left;
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 #ritiroBox img, #consegnaBox img {
-	position: top center;
-    margin-bottom: 10px;
+	background-position: top center;
+  margin-bottom: 10px;
 	height: 5em;
 	width: 5em;;
 }
 
-.viewportContainer {
-	display: none;
-}
-
 .tipiPrincipali {
-	margin: 1em;
-	padding-left: 0;
 	box-shadow: 2px 2px 4px black;
-	
 }
 
-.tipiPrincipali li, .tipiPrincipali ul {
+.tipiPrincipali, .tipiPrincipali ul {
+  padding: 0;
 	list-style-type: none;
 }
 
-.tipiPrincipali h3 {
+.tipi > h3 {
 	margin: 0;
-	padding: 1em;
-	padding-bottom: 0.5em;
-	text-align: left;
+  padding: 1.25rem;
 	background-color: #bf7b21;
 }
 
-.tipiPrincipali .tipi {
-	border-bottom: solid 3px #fcf5dc;
+.tipi li {
+  padding-left: 16px;
 }
 
 .tipi li, #dolciFlip {
@@ -749,6 +703,11 @@ body , #error404 {
 	color: #bfb721;
 	text-decoration: underline;
 }
+
+#classiche, #speciali, #bianche, #calzoni, #bevande, #birre, #vini, #dolci {
+  padding: 16px;
+}
+
 /*-------fine ordina online------------*/
 
 #login-container {
@@ -761,17 +720,16 @@ body , #error404 {
 
 #login {
   height: 100%;
-  padding: 3em;
+  padding: 3rem;
   margin: 0;
   background-color: #F5EF42;
 }
 
 #post {
   width: 80%;
-  margin: 4em 10%;
+  margin: 4rem 10%;
 }
 
 #accesso, #registrazione {
   width: 100%;
 }
-

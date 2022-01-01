@@ -1,8 +1,8 @@
 <?php
 
 if (!empty($_POST)) {
-    $lati_pizzeria = 45.4069781;
-    $longi_pizzeria = 11.8855697;
+    $lati_pizzeria = 45.406972;
+    $longi_pizzeria = 11.885583;
 
     $geocodingAPI = "https://nominatim.openstreetmap.org/search?q=";
 

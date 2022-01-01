@@ -1,0 +1,42 @@
+:root {
+  font-size: 80%;
+}
+
+#top-header {
+  position: absolute;
+}
+
+#logo {
+  margin-right: calc(100% - 243px);
+}
+
+#menu-button {
+  width: 44px;
+  height: 44px;
+}
+
+#breadcrumb {
+  top: 65px;
+}
+
+.subtitle-panel {
+  position: static;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-left-width: 0;
+  border-bottom-width: 5px;
+}
+
+.first.container {
+  padding-top: calc(3rem + 66px);
+}
+
+.subcontainers {
+  width: 100%;
+}
+
+.first.container > .subcontainers {
+  padding-top: 16px;
+}

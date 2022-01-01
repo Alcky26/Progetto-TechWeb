@@ -10,47 +10,42 @@
 		<title>Contatti - Pizzeria Ai 4 Laureandi</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
 		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/icons/favicon.ico" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-		<script src="../JS/custom.js"></script>
+		<script src="../JavaScript/mini.js"></script>
 	</head>
 	<body>
 		<header id="top-header">
-      <div id="navigation" class="flex row">
-        <div id="logo" class="hide-text button">
-            <a href="index.html">
-              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-            </a>
-        </div>
-        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-        <div id="menu-button" class="mobile-only"></div>
-        <nav>
-          <ul class="menu">
-            <li><a href="chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="../PHP/menu.php">MENÙ</a></li
-            ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
-            ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
-            ><li><a href="contatti.html">CONTATTI</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="language-login" class="flex row">
-        <div id="language" aria-label="Seleziona lingua:">
-          <ul class="menu">
-            <li>ITA</li
-            ><li>ENG</li>
-          </ul>
-        </div>
-        <a class="text-button" href="login.html">ACCEDI</a>
-      </div>
+			<h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+			<a href="index.html">
+				<picture>
+					<source media="(max-width:600px)" srcset="../images/logo_small.png" />
+					<img id="logo" src="../images/logo.png" />
+				</picture>
+			</a>
+      <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+      <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
+      <nav class="desktop-only">
+        <ul class="navigation flex">
+          <li><a href="chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="../PHP/menu.php">MENÙ</a></li
+          ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+          ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
+          ><li id="separator"><a href="contatti.html">CONTATTI</a></li
+					><li>ITA</li
+					><li>ENG</li
+					><li class="text-button"><a href="login.html">ACCEDI</a>
+        </ul>
+      </nav>
     </header>
 		<main id="content-wrapper">
 			<div id="breadcrumb">
 				<p>Ti trovi in: Contatti</p>
 			</div>
-			<div id="contacts" class="viewport first container">
-				<div class="subtitle-panel">
+			<div class="first container">
+				<div class="subtitle-panel flex">
 					<h2 class="subtitle">Contatti</h2>
 				</div>
 				<div class="subcontainers">
@@ -60,20 +55,19 @@
 							<li><a href="mailto:ai4laureandi@gmail.com">ai4laureandi@gmail.com</a></li>
 						</ul>
 					</div>
-					<div id="map">
-						<iframe
-						  width="450"
-						  height="250"
-						  frameborder="0" style="border:0"
-						  src="https://nominatim.openstreetmap.org/search?q=" allowfullscreen>
-						</iframe>
-					</div>
+					<iframe
+						id="map"
+						class="subcontainer"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.117397347409!2d11.883394615555503!3d45.406972179100286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb4e906efe5552d9f!2zNDXCsDI0JzI1LjEiTiAxMcKwNTMnMDguMSJF!5e0!3m2!1sit!2sit!4v1640710983795!5m2!1sit!2sit"
+						allowfullscreen=""
+						loading="lazy">
+					</iframe>
 				</div>
 			</div>
 		</main>
 		<footer id="footer">
 			<div id="site-map">
-				<ul class="menu">
+				<ul>
 					<li><a href="chisiamo.html">Chi siamo</a></li
 					><li><a href="../PHP/menu.php">Menù</a></li
 					><li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li
@@ -85,7 +79,6 @@
 			<div id="copyright">
 				&copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
 			</div>
-			
 		</footer>
 	</body>
   </html>

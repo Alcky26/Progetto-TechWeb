@@ -10,46 +10,41 @@
     <title>Menù - Pizzeria Ai 4 Laureandi</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
     <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-    <script src="../JS/custom.js"></script>
+    <script src="../JavaScript/mini.js"></script>
   </head>
   <body>
     <header id="top-header">
-      <div id="navigation" class="flex row">
-        <div id="logo" class="hide-text button">
-            <a href="../HTML/index.html">
-              <h1 aria-label="Vai alla home"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-            </a>
-        </div>
-        <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-        <div id="menu-button" class="mobile-only"></div>
-        <nav>
-          <ul class="menu">
-            <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
-            ><li><a href="menu.php">MENÙ</a></li
-            ><li><a href="../HTML/ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
-            ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
-            ><li><a href="../HTML/contatti.html">CONTATTI</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="language-login" class="flex row">
-        <div id="language" aria-label="Seleziona lingua:">
-          <ul class="menu">
-            <li>ITA</li
-            ><li>ENG</li>
-          </ul>
-        </div>
-        <a class="text-button" href="login.html">ACCEDI</a>
-      </div>
+      <h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+      <a href="index.html">
+        <picture>
+          <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+          <img id="logo" src="../images/logo.png" />
+        </picture>
+      </a>
+      <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
+      <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
+      <nav class="desktop-only">
+        <ul class="navigation flex">
+          <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="menu.php">MENÙ</a></li
+          ><li><a href="../HTML/ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
+          ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+          ><li id="separator"><a href="../HTML/contatti.html">CONTATTI</a></li
+					><li>ITA</li
+					><li>ENG</li
+					><li class="text-button"><a href="login.html">ACCEDI</a>
+        </ul>
+      </nav>
     </header>
-    <main id="content-wrapper">
+    <main>
       <div id="breadcrumb">
         <p>Ti trovi in: Menù</p>
       </div>
-      <div id="categories" class="viewport first container">
-        <div class="subtitle-panel">
+      <div id="categories" class="first container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Categorie</h2>
           <a class="next-container hide-text button" href="#classiche">Vai giù</a>
         </div>
@@ -78,8 +73,8 @@
           </div>
         </div>
       </div>
-      <div id="classiche" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Pizze classiche</h2>
           <a class="next-container hide-text button" href="#speciali">Vai giù</a>
         </div>
@@ -87,8 +82,8 @@
           <listaClassiche />
         </div>
       </div>
-      <div id="speciali" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Pizze speciali</h2>
           <a class="next-container hide-text button" href="#bianche">Vai giù</a>
         </div>
@@ -96,8 +91,8 @@
           <listaSpeciali />
         </div>
       </div>
-      <div id="bianche" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Pizze bianche</h2>
           <a class="next-container hide-text button" href="#calzoni">Vai giù</a>
         </div>
@@ -105,8 +100,8 @@
           <listaBianche />
         </div>
       </div>
-      <div id="calzoni" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Calzoni</h2>
           <a class="next-container hide-text button" href="#bevande">Vai giù</a>
         </div>
@@ -114,8 +109,8 @@
           <listaCalzoni />
         </div>
       </div>
-      <div id="bevande" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Bevande analcoliche</h2>
           <a class="next-container hide-text button" href="#birre">Vai giù</a>
         </div>
@@ -123,8 +118,8 @@
           <listaBevande />
         </div>
       </div>
-      <div id="birre" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Birre</h2>
           <a class="next-container hide-text button" href="#vini">Vai giù</a>
         </div>
@@ -132,8 +127,8 @@
           <listaBirre />
         </div>
       </div>
-      <div id="vini" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Vini</h2>
           <a class="next-container hide-text button" href="#dolci">Vai giù</a>
         </div>
@@ -141,8 +136,8 @@
           <listaVini />
         </div>
       </div>
-      <div id="dolci" class="viewport container">
-        <div class="subtitle-panel">
+      <div class="container">
+        <div class="subtitle-panel flex">
           <h2 class="subtitle">Dolci</h2>
         </div>
         <div class="subcontainers">
@@ -150,9 +145,9 @@
         </div>
       </div>
     </main>
-	<footer id="footer">
+	  <footer id="footer">
 			<div id="site-map">
-				<ul class="menu">
+				<ul>
           <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
 					><li><a href="menu.php">Menù</a></li
 					><li><a href="../HTML/ordinazione.html">Ordina <span lang="en">online</span></a></li
