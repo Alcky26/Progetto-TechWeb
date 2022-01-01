@@ -102,6 +102,16 @@ footer {
   padding: 1em;
 }
 
+<!-- inizia il css della pagina errore404-->
+
+body , #error404 {
+  background-color:#FFC0CB;
+  text-align:center;
+  text:color:#00008B;
+
+}
+
+
 .sr-only {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
