@@ -1,0 +1,30 @@
+@page {
+  size: 210mm 297mm; 
+  margin: 30mm;
+}
+
+page-break-after;
+
+body {
+  font-size: 12pt;
+}
+
+div#container {
+  width: auto;
+}
+
+div#menu, div#links, div#banner {
+  display:none;
+}
+
+div#menu, div#news {
+  position: static; 
+  float: none;
+}
+
+* {
+  background: transparent !important; 
+  color: black !important;
+}
+
+a[href]:after{content: "(" attr(href) ")"}
