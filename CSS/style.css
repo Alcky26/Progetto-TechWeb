@@ -12,7 +12,7 @@
 }
 
 
-<!-- inizia il css della pagina errore404-->
+/* inizia il css della pagina errore404*/
 
 body , #error404 {
   background-color:#FFC0CB;
@@ -90,11 +90,8 @@ main {
   background-color: var(--light_orange);
 }
 
-footer {
-  padding: 1rem;
-}
-
 #footer {
+  padding: 1rem;
   background-color: #FFF68F;
   color: var(--link_color);
 }

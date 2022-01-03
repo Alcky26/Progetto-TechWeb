@@ -1,30 +1,81 @@
+/* Dimensione della pagina stampata */
+
 @page {
   size: 210mm 297mm; 
   margin: 30mm;
 }
+ 
 
+.allergene{
+  color:black;
+}
+
+#logo , #menu-botton{
+  display:none;
+}
+
+#top-header{
+  border-bottom:1mm;
+  solid #000;
+  border-top:1mm;
+  solid #000;
+}
+
+.text-button *{
+  display:none;
+}
+
+.button{
+  dispaly:none;
+}
+
+.navigation{
+  dispaly:none;
+}
+
+a:link, a:visited{
+  font-weight:bold;
+  text-decoration: underline;
+  color:#009;
+}
+
+a:link:after , a:visited:after{
+  content: " [ " attr(href) "]";
+}
 page-break-after;
 
 body {
   font-size: 12pt;
 }
 
-div#container {
-  width: auto;
-}
-
-div#menu, div#links, div#banner {
+#breadcrumb{
   display:none;
 }
 
-div#menu, div#news {
+.img-prodotto{
+  display:none;
+}
+
+.container {
+  width: auto;
+}
+
+#menu, #links {
+  display:none;
+}
+
+#menu, #news {
   position: static; 
   float: none;
 }
 
+#map{
+  dispaly:none;
+}
+
 * {
   background: transparent !important; 
-  color: black !important;
+  color: white !important;
 }
 
 a[href]:after{content: "(" attr(href) ")"}
