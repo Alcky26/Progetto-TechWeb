@@ -19,12 +19,12 @@
   border-width:20px;
   border-color:black;
   text-align:center;
-  background-color:#CAE1FF;
+  background-color:#FFFACD;
 }
 
 #error404 h1{
   border-style:thick;
-  border-color:#F0F8FF;
+  border-color:black;
   border-width:10px;
   font-size:50px;
   color:#1874CD
@@ -32,14 +32,30 @@
 
 #error404 p{
  font-size:25px;
- color:#2F4F4F;
+ color:black;
 }
 
 #error404 h2{
  font-size:25px;
- color:#2F4F4F;
+ color:black;
  text-align:left;
 }
+ 
+#error404 a:link{
+  color:#EEE685;
+}
+
+#error404 a:visited{
+  color:red;
+}
+
+#error404 #img_error{
+  opacity:50%;
+  border: 5px solid black;
+  border-radius:10px;
+}
+
+/* fine css pagina 404 */
 
 * {
   margin: 0;
