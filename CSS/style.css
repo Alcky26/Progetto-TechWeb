@@ -14,9 +14,31 @@
 
 /* inizia il css della pagina errore404*/
 
-body , #error404 {
-  background-color:#FFC0CB;
+#error404 {
+  border-style:thick;
+  border-width:20px;
+  border-color:black;
   text-align:center;
+  background-color:#CAE1FF;
+}
+
+#error404 h1{
+  border-style:thick;
+  border-color:#F0F8FF;
+  border-width:10px;
+  font-size:50px;
+  color:#1874CD
+}
+
+#error404 p{
+ font-size:25px;
+ color:#2F4F4F;
+}
+
+#error404 h2{
+ font-size:25px;
+ color:#2F4F4F;
+ text-align:left;
 }
 
 * {
