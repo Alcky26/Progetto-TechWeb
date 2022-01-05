@@ -720,6 +720,10 @@ main {
 	width: 5em;;
 }
 
+.flipP {
+	display: none;
+}
+
 .tipiPrincipali {
 	box-shadow: 2px 2px 4px black;
 }

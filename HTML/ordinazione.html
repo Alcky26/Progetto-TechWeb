@@ -10,14 +10,15 @@
 		<title>Ordina Online - Pizzeria Ai 4 Laureandi</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
 		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="../JavaScript/slideToggle.js"></script>
-    <script src="../JavaScript/mini.js"></script>
+		<script src="../JavaScript/cart.js"></script>
+		<script src="../JavaScript/mini.js"></script>
 	</head>
-  <body>
+    <body>
     <header id="top-header">
       <h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
       <a href="index.html">
@@ -30,14 +31,14 @@
       <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
       <nav class="desktop-only">
         <ul class="navigation flex">
-          <li><a href="chisiamo.html">CHI SIAMO</a></li
-          ><li><a href="../PHP/menu.php">MENÙ</a></li
-          ><li><a href="ordinazione.html">ORDINA <span lang="en">ONLINE</span></a></li
-          ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li id="separator"><a href="contatti.html">CONTATTI</a></li
+          <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="menu.php">MENÙ</a></li
+          ><li><a href="menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
+          ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+          ><li id="separator"><a href="../HTML/contatti.html">CONTATTI</a></li
           ><li>ITA</li
           ><li>ENG</li
-          ><li class="text-button"><a href="login.html">ACCEDI</a>
+          ><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
         </ul>
       </nav>
     </header>
@@ -47,13 +48,14 @@
 		</div>
 		<div id="ordina" class="first container">
 			<div class="subtitle-riepilogo-panel flex">
-				<div class="riepilogo">
-					<h2>IL TUO ORDINE</h2>
-					<selezionati />
+				<h2>IL TUO ORDINE</h2>
+				<div id="riepilogo">
+					
+					
 				</div>
-				<div class="total">
+				<div id="total">
 					<h2>TOTALE: </h2>
-					<totale />
+					
 				</div>
 				<div class="text-button"><a href="pagamento.html">PROCEDI AL PAGAMENTO</a></div>
 			</div>
@@ -63,62 +65,66 @@
 						<h2>Scegli il tipo di consegna:</h2>
 						<div id="ritiroBox">
 							<img src="../images/takeAway.jpg" alt="immagine take away">
-							<label for="deliveryTakeaway"><h3>Take Away</h3></label>
+							<label for="deliveryTakeaway"><h3 aria-label="TakeAway">Take Away</h3></label>
 							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
+							
 						</div>
 						<div id="consegnaBox">
 							<img src="../images/delivery.png" alt="immagine delivery">
-							<label for="deliveryTakeaway"><h3>Delivery</h3></label>
+							<label for="deliveryTakeaway"><h3 aria-label="delivery">Delivery</h3></label>
 							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
+							
 						</div>
 					</div>
 					<div class="menu">
 						<h2>Scegli i tuoi piatti</h2>
 						<ul class="tipiPrincipali">
 							<li class="tipi">
-  							<h3>Pizze</h3>
-  							<ul>
-  							  <li id="classicheFlip">Pizze classiche</li>
-  								<div id="classiche">
-  									<listaClassiche />
-  								</div>
-  							  <li id="specialiFlip">Pizze speciali</li>
-  								<div id="speciali">
-  									<listaSpeciali />
-  								</div>
-  							  <li id="biancheFlip">Pizze bianche</li>
-  								<div id="bianche">
-  									<listaBianche />
-  								</div>
-  							  <li id="calzoniFlip">Calzoni</li>
-  								<div id="calzoni">
-  									<listaCalzoni />
-  								</div>
-  							</ul>
+							<h3>Pizze</h3>
+							<ul>
+							  <li id="classicheFlip">Pizze classiche</li>
+								<div id="classiche" class="flipP">
+									  <listaClassiche />
+								</div>
+							  <li id="specialiFlip">Pizze speciali</li>
+								<div id="speciali" class="flipP">
+									  <listaSpeciali />
+								</div>
+							  <li id="biancheFlip">Pizze bianche</li>
+								<div id="bianche" class="flipP">
+									  <listaBianche />
+								</div>
+							  <li id="calzoniFlip">Calzoni</li>
+								<div id="calzoni" class="flipP">
+									  <listaCalzoni />
+								</div>
+							</ul>
 						  </li>
 						  <li class="tipi">
-  							<h3>Bevande</h3>
-  							<ul>
-  							  <li id="bevandeFlip">Bevande analcoliche</li>
-  								<div id="bevande">
-  									<listaBevande />
-  								</div>
-  							  <li id="birreFlip">Birre</li>
-  								<div id="birre">
-  									<listaBirre />
-  								</div>
-  							  <li id="viniFlip">Vini</li>
-  								<div id="vini">
-  									<listaVini />
-  								</div>
-  							</ul>
+							<h3>Bevande</h3>
+							<ul>
+							  <li id="bevandeFlip">Bevande analcoliche</li>
+								<div id="bevande" class="flipP">
+									  <listaBevande />
+								</div>
+							  <li id="birreFlip">Birre</li>
+								<div id="birre" class="flipP">
+									  <listaBirre />
+								</div>
+							  <li id="viniFlip">Vini</li>
+								<div id="vini" class="flipP">
+									  <listaVini />
+								</div>
+							</ul>
 						  </li>
 						  <li id="dolciFlip" class="tipi"><h3>Dolci</h3></li>
-							<div id="dolci">
-								<listaDolci />
+							<div id="dolci" class="flipP">
+								  <listaDolci />
 							</div>
 						</ul>
+
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -127,12 +133,12 @@
 	<footer id="footer">
 			<div id="site-map">
 				<ul>
-					<li><a href="chisiamo.html">Chi siamo</a></li
-					><li><a href="../PHP/menu.php">Menù</a></li
-					><li><a href="ordinazione.html">Ordina <span lang="en">online</span></a></li
-					><li><a href="prenotazione.html">Prenota tavolo</a></li
-					><li><a href="contatti.html">Contatti</a></li
-					><li><a href="login.html">Accedi</a></li>
+					<li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+					><li><a href="menu.php">Menù</a></li
+					><li><a href="menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+					><li><a href="../HTML/contatti.html">Contatti</a></li
+					><li><a href="../HTML/login.html">Accedi</a></li>
 				</ul>
 			</div>
 			<div id="copyright">
