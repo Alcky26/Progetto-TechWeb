@@ -72,7 +72,7 @@ class DBAccess {
 
         if (mysqli_num_rows($result) == 0) {
             //Nessun utente trovato con quel username o email, quindi creazione disponibile
-            $sql = "INSERT INTO `UTENTE` (`email`, `username`, `password`, `punti`) 
+            $sql = "INSERT INTO `UTENTE` (`email`, `username`, `password`, `punti`)
             VALUES ('$txtEmail', '$txtUsername', '$password', 0)";
 
             return (mysqli_query($this->connection, $sql) === true);
@@ -158,6 +158,28 @@ class DBAccess {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, descrizione
                   FROM DOLCE INNER JOIN ELEMENTO_LISTINO ON DOLCE.nome = ELEMENTO_LISTINO.nome";
         return $this->execQuery($query);
+    }
+
+    public function getPrenotazioni($account) {
+        $query = "SELECT dataOra, persone
+                  FROM PRENOTAZIONE
+                  WHERE email = '$account'
+                  ORDER BY dataOra DESC";
+        return $this->execQuery($query);
+    }
+
+    public function setUserInfo($email, $new_email, $new_pwd) {
+        $_new_email = mysqli_real_escape_string($this->connection, $new_email);
+        $_new_pwd = mysqli_real_escape_string($this->connection, $new_pwd);
+        $query = "UPDATE UTENTE
+                  SET email = '$_new_email', password = '$_new_pwd'
+                  WHERE email = '$email'";
+        return mysqli_query($this->connection, $query);
+    }
+
+    public function deleteAccount($account) {
+        $query = "DELETE FROM UTENTE WHERE email = '$account'";
+        return mysqli_query($this->connection, $query);
     }
 }
 

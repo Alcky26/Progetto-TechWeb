@@ -15,127 +15,122 @@
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="../JavaScript/slideToggle.js"></script>
-		<script src="../JavaScript/cart.js"></script>
-		<script src="../JavaScript/mini.js"></script>
+    <script src="../JavaScript/cart.js"></script>
+    <script src="../JavaScript/custom.js"></script>
 	</head>
     <body>
     <header id="top-header">
-      <h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <a href="index.html">
-        <picture>
-          <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-          <img id="logo" src="../images/logo.png" />
-        </picture>
-      </a>
-      <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-      <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
-      <nav class="desktop-only">
-        <ul class="navigation flex">
-          <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
-          ><li><a href="menu.php">MENÙ</a></li
-          ><li><a href="menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
+      <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+      <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+      <nav>
+        <ul id="nav">
+          <li id="logo">
+            <a href="../HTML/index.html">
+              <picture>
+                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+                <img src="../images/logo.png" />
+              </picture>
+            </a>
+          </li
+          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="../PHP/menu.php">MENÙ</a></li
+          ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li id="separator"><a href="../HTML/contatti.html">CONTATTI</a></li
-          ><li>ITA</li
-          ><li>ENG</li
-          ><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
+          ><li><a href="../HTML/contatti.html">CONTATTI</a></li
+					><li>ITA</li
+					><li>ENG</li
+					><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
         </ul>
       </nav>
+      <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main id="content-wrapper">
-		<div id="breadcrumb">
-			<p>Ti trovi in: <span lang="en">Ordina Online</span></p>
-		</div>
-		<div id="ordina" class="first container">
-			<div class="subtitle-riepilogo-panel flex">
-				<h2>IL TUO ORDINE</h2>
-				<div id="riepilogo">
-					
-					
-				</div>
-				<div id="total">
-					<h2>TOTALE: </h2>
-					
-				</div>
-				<div class="text-button"><a href="pagamento.html">PROCEDI AL PAGAMENTO</a></div>
-			</div>
-			<div class="subcontainers">
-				<div class="subcontainer">
-					<div class="scelta">
-						<h2>Scegli il tipo di consegna:</h2>
-						<div id="ritiroBox">
-							<img src="../images/takeAway.jpg" alt="immagine take away">
-							<label for="deliveryTakeaway"><h3 aria-label="TakeAway">Take Away</h3></label>
-							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
-							
-						</div>
-						<div id="consegnaBox">
-							<img src="../images/delivery.png" alt="immagine delivery">
-							<label for="deliveryTakeaway"><h3 aria-label="delivery">Delivery</h3></label>
-							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
-							
-						</div>
-					</div>
-					<div class="menu">
-						<h2>Scegli i tuoi piatti</h2>
-						<ul class="tipiPrincipali">
-							<li class="tipi">
-							<h3>Pizze</h3>
-							<ul>
-							  <li id="classicheFlip">Pizze classiche</li>
-								<div id="classiche" class="flipP">
-									  <listaClassiche />
-								</div>
-							  <li id="specialiFlip">Pizze speciali</li>
-								<div id="speciali" class="flipP">
-									  <listaSpeciali />
-								</div>
-							  <li id="biancheFlip">Pizze bianche</li>
-								<div id="bianche" class="flipP">
-									  <listaBianche />
-								</div>
-							  <li id="calzoniFlip">Calzoni</li>
-								<div id="calzoni" class="flipP">
-									  <listaCalzoni />
-								</div>
-							</ul>
-						  </li>
-						  <li class="tipi">
-							<h3>Bevande</h3>
-							<ul>
-							  <li id="bevandeFlip">Bevande analcoliche</li>
-								<div id="bevande" class="flipP">
-									  <listaBevande />
-								</div>
-							  <li id="birreFlip">Birre</li>
-								<div id="birre" class="flipP">
-									  <listaBirre />
-								</div>
-							  <li id="viniFlip">Vini</li>
-								<div id="vini" class="flipP">
-									  <listaVini />
-								</div>
-							</ul>
-						  </li>
-						  <li id="dolciFlip" class="tipi"><h3>Dolci</h3></li>
-							<div id="dolci" class="flipP">
-								  <listaDolci />
-							</div>
-						</ul>
+  		<div id="breadcrumb">
+  			Ti trovi in: <span class="path"><a href="../HTML/index.html">Home</a> &gt; Ordina Online</span>
+  		</div>
+      <div class="subtitle-fixed-panel">
+        <h2>IL TUO ORDINE</h2>
+        <div id="riepilogo">
+        </div>
+        <div id="total">
+          <h2>TOTALE: </h2>
+        </div>
+        <div class="text-button"><a href="pagamento.html">PROCEDI AL PAGAMENTO</a></div>
+      </div>
+		  <div id="ordina" class="first container">
+			  <div class="subcontainers">
+				  <div class="subcontainer">
+					  <div class="scelta">
+						  <h2>Scegli il tipo di consegna:</h2>
+			        <div id="ritiroBox">
+    						<img src="../images/takeAway.jpg" alt="immagine take away">
+    						<label for="deliveryTakeaway"><h3 aria-label="TakeAway">Take Away</h3></label>
+    						<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway">
+  						</div>
+  						<div id="consegnaBox">
+  							<img src="../images/delivery.png" alt="immagine delivery">
+  							<label for="deliveryTakeaway"><h3 aria-label="delivery">Delivery</h3></label>
+  							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delievry">
+  						</div>
+  					</div>
+  					<div class="listino">
+  						<h2>Scegli i tuoi piatti</h2>
+  						<ul class="tipiPrincipali">
+  							<li class="tipi">
+    							<h3>Pizze</h3>
+    							<ul>
+    							  <li id="classicheFlip">Pizze classiche</li>
+    								<div id="classiche" class="flipP">
+  									  <listaClassiche />
+    								</div>
+    							  <li id="specialiFlip">Pizze speciali</li>
+    								<div id="speciali" class="flipP">
+  									  <listaSpeciali />
+    								</div>
+    							  <li id="biancheFlip">Pizze bianche</li>
+    								<div id="bianche" class="flipP">
+    									<listaBianche />
+    								</div>
+    							  <li id="calzoniFlip">Calzoni</li>
+    								<div id="calzoni" class="flipP">
+  									  <listaCalzoni />
+    								</div>
+    							</ul>
+  						  </li>
+  						  <li class="tipi">
+    							<h3>Bevande</h3>
+    							<ul>
+    							  <li id="bevandeFlip">Bevande analcoliche</li>
+    								<div id="bevande" class="flipP">
+  									  <listaBevande />
+    								</div>
+    							  <li id="birreFlip">Birre</li>
+    								<div id="birre" class="flipP">
+  									  <listaBirre />
+    								</div>
+    							  <li id="viniFlip">Vini</li>
+    								<div id="vini" class="flipP">
+  									  <listaVini />
+    								</div>
+    							</ul>
+    						  </li>
+    						  <li id="dolciFlip" class="tipi"><h3>Dolci</h3></li>
+    							<div id="dolci" class="flipP">
+  								  <listaDolci />
+    							</div>
+    						</ul>
+    					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</main>
 
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</main>
-
-	<footer id="footer">
+  	<footer id="footer">
 			<div id="site-map">
 				<ul>
 					<li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-					><li><a href="menu.php">Menù</a></li
-					><li><a href="menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+					><li><a href="../PHP/menu.php">Menù</a></li
+					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
 					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
 					><li><a href="../HTML/contatti.html">Contatti</a></li
 					><li><a href="../HTML/login.html">Accedi</a></li>

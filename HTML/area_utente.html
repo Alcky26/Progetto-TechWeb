@@ -15,6 +15,8 @@
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../JavaScript/custom.js"></script>
+    <script src="../JavaScript/popup.js"></script>
+    <script src="../JavaScript/account.js"></script>
   </head>
   <body>
     <header id="top-header">
@@ -26,7 +28,7 @@
             <a href="../HTML/index.html">
               <picture>
                 <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png"/>
+                <img src="../images/logo.png" />
               </picture>
             </a>
           </li
@@ -44,41 +46,49 @@
     </header>
     <main id="content-wrapper">
       <div id="breadcrumb">
-        Ti trovi in: <span class="path" lang="en">Home</span>
-      </div>
-      <div id="news" class="background first container">
-        <div class="subtitle-panel">
-          <h2 class="subtitle">Novità</h2>
+  			Ti trovi in: <span class="path"><a href="index.html">Home</a> &gt; Area utente</span>
+  		</div>
+      <div class="first container">
+        <div class="subtitle-fixed-panel flex">
+          <h2>Area personale</h2>
+          <ul id="user-menu" class="list-image menu">
+            <li id="info" class="checked">Informazioni personali</li>
+            <li id="bonus">I tuoi bonus</li>
+            <li id="prenotazioni">Le tue prenotazioni</li>
+            <li id="acquisti">Cronologia acquisti</li>
+          </ul>
         </div>
         <div class="subcontainers">
-            <div class="subcontainer">
-              <p>SOLO PER QUESTO MESE! PROVA LE NOSTRE PIZZE DI STAGIONE: </p>
-              <ul>
-                <li>Pizza 1: mozzarella, crema di zucca, funghi, salsiccia, gorgonzola;</li>
-                <li>Pizza 2: mozzarella, crema di zucca, radicchio, pancetta affumicata;</li>
-                <li>Pizza 3: pomodoro, mozzarella, patate, cipolla, salsiccia.</li>
-              </ul>
-            </div>
-          <div class="subcontainer">
-            <p>NUOVA FUNZIONALITÀ AGGIUNTA AL SITO! <a href="login.html">ACCEDI</a> PER PARTECIPARE ALLA RACCOLTA PUNTI.</p>
-          </div>
+            <info />
+        </div>
+        <div id="bonus-div" class="subcontainer">
+          <bonus />
+        </div>
+        <div id="prenotazioni-div" class="subcontainer">
+          <form>
+            <fieldset>
+              <legend>Filtra</legend>
+              <label for="periodo">Periodo:</label>
+              <select id="periodo" name="periodo">
+                <option value="tutto">Tutto</option>
+                <option value="mese">Ultimo mese</option>
+                <option value="due-settimane">Ultime 2 settimane</option>
+                <option value="settimana">Una settimana fa</option>
+              </select>
+              <label for="persone">Persone:</label>
+              <select id="persone" name="persone">
+                <option value="quattro">Meno di 4</option>
+                <option value="quattrotto">4 - 8</option>
+                <option value="otto">Più di 8</option>
+              </select>
+            </fieldset>
+          </form>
+          <prenotazioni />
+        </div>
+        <div id="acquisti-div" class="subcontainer">
+          <acquisti />
         </div>
       </div>
     </main>
-	<footer id="footer">
-			<div id="site-map">
-				<ul>
-					<li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-					><li><a href="../PHP/menu.php">Menù</a></li
-					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
-					><li><a href="../HTML/contatti.html">Contatti</a></li
-					><li><a href="../HTML/login.html">Accedi</a></li>
-				</ul>
-			</div>
-			<div id="copyright">
-				&copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
-			</div>
-		</footer>
   </body>
 </html>

@@ -2,21 +2,17 @@
   font-size: 80%;
 }
 
-#top-header {
-  position: absolute;
-}
-
-#logo {
-  margin-right: calc(100% - 243px);
-}
-
-#menu-button {
+#nav-button {
   width: 44px;
   height: 44px;
 }
 
-#breadcrumb {
-  top: 65px;
+#breadcrumb{
+  top: 72px;
+}
+
+.first.container {
+  padding-top: calc(73px + 3rem);
 }
 
 .subtitle-panel {
@@ -25,18 +21,19 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-left-width: 0;
+  border-right-width: 0;
   border-bottom-width: 5px;
 }
 
-.first.container {
-  padding-top: calc(3rem + 66px);
-}
-
 .subcontainers {
+  position: static;
   width: 100%;
 }
 
 .first.container > .subcontainers {
   padding-top: 16px;
+}
+
+.grid-subcontainer {
+  grid-template-columns: 1fr 1fr;
 }

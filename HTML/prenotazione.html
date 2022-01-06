@@ -13,104 +13,110 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JavaScript/custom.js"></script>
 		<script src="../JavaScript/calendario.js"></script>
-    <script src="../JavaScript/mini.js"></script>
 	</head>
   <body>
     <header id="top-header">
-      <h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <a href="index.html">
-        <picture>
-          <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-          <img id="logo" src="../images/logo.png" />
-        </picture>
-      </a>
-      <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-      <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
-      <nav class="desktop-only">
-        <ul class="navigation flex">
-          <li><a href="chisiamo.html">CHI SIAMO</a></li
+      <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+      <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+      <nav>
+        <ul id="nav">
+          <li id="logo">
+            <a href="../HTML/index.html">
+              <picture>
+                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+                <img src="../images/logo.png" />
+              </picture>
+            </a>
+          </li
+          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
           ><li><a href="../PHP/menu.php">MENÙ</a></li
           ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
-          ><li><a href="prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li id="separator"><a href="contatti.html">CONTATTI</a></li
+          ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+          ><li><a href="../HTML/contatti.html">CONTATTI</a></li
 					><li>ITA</li
 					><li>ENG</li
-					><li class="text-button"><a href="login.html">ACCEDI</a>
+					><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
         </ul>
       </nav>
+      <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main id="content-wrapper">
-		<div id="breadcrumb">
-			<p>Ti trovi in: <span lang="en">Prenota Tavolo</span></p>
-		</div>
-		<div id="prenotazione" class="first container">
-			<div class="subtitle-panel flex">
-			  <h2 class="subtitle">Prenotazione</h2>
-			</div>
-			<div class="subcontainers">
-				<div class="subcontainer">
-					<form action="php per inserimento nella database">
-						<div  id="titoloPrenotaT"><fieldset><legend><h2>Prenota il tuo posto</h2></legend></div>
-							<div id="numeroPersone">
-								<label for="numeroPersone">Persone  </label>
-								<select id="numeroPersone" name="numeroPersone">
-									<option value="seleziona">Seleziona</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-								</select>
-							</div>
-							<div class="calendario">
-								<div class="calendar-assets">
-									<div class="day-assets">
-										<button type="button" class="btn" onclick="prevDay()" title="Giorno precedente"><i class="fas fa-chevron-left">&#10094;</i> </button>
-										<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
-										<button type="button" class="btn" onclick="nextDay()" title="Prossimo giorno"><i class="fas fa-chevron-right">&#10095;</i> </button>
-									</div>
-								</div>
-								<div class="calendar" id="table">
-									<div class="header">
-										<div class="month" id="month-header"></div>
-										<div class="buttons">
-											<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
-											<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
-										</div>
-									</div>
-								</div>
-								<h1 id="currentDate"></h1>
-							</div>
-							<div id="NB"><h5>Nota bene: </h5><P>scelgliere una data successiva a quella di oggi</P></div>
-							<div id="orario">
-								<label for="orario">Ora  </label>
-								<select id="orario" name="orario">
-									<option value="seleziona">Seleziona</option>
-									<!--definire orari in base all scelta pranzo o cena -->
-								</select>
-							</div>
-  						<input type="reset" value="RESETTA">
-						<input type="submit" value="INVIA">
-						</fieldset>
-						<p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
-  			  </form>
-  		  </div>
+      <div id="breadcrumb">
+  			Ti trovi in: <span class="path"><a href="index.html">Home</a> &gt; Prenota tavolo</span>
+  		</div>
+		  <div id="prenotazione" class="first container">
+			  <div class="subtitle-fixed-panel">
+			    <h2 class="subtitle">Prenotazione</h2>
+			  </div>
+			  <div class="subcontainers">
+				  <form class="subcontainer" action="php per inserimento nella database">
+					  <fieldset>
+              <legend id="titoloPrenotaT">
+                <h2>Prenota il tuo posto</h2>
+              </legend>
+  						<div id="numeroPersone">
+  							<label for="numPersone">Persone:</label>
+  							<select id="numPersone" name="numPersone">
+  								<option value="seleziona">Seleziona</option>
+  								<option value="1">1</option>
+  								<option value="2">2</option>
+  								<option value="3">3</option>
+  								<option value="4">4</option>
+  								<option value="5">5</option>
+  								<option value="6">6</option>
+  								<option value="7">7</option>
+  								<option value="8">8</option>
+  							</select>
+  						</div>
+  						<div class="calendario">
+  							<div class="calendar-assets">
+  								<div class="day-assets">
+  									<button type="button" class="btn" onclick="prevDay()" title="Giorno precedente"><i class="fas fa-chevron-left">&#10094;</i> </button>
+  									<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
+  									<button type="button" class="btn" onclick="nextDay()" title="Prossimo giorno"><i class="fas fa-chevron-right">&#10095;</i> </button>
+  								</div>
+  							</div>
+  							<div class="calendar">
+  								<div class="header">
+  									<div class="month" id="month-header"></div>
+  									<div class="buttons">
+  										<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
+  										<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
+  									</div>
+  								</div>
+  							</div>
+  							<h1 id="currentDate"></h1>
+  						</div>
+						  <h5>Nota bene:</h5><p>scelgliere una data successiva a quella di oggi.</p>
+  						<div id="orario">
+  							<label for="ora">Ora:</label>
+  							<select id="ora" name="ora">
+  								<option value="seleziona">Seleziona:</option>
+  								<!--definire orari in base all scelta pranzo o cena -->
+  							</select>
+  						</div>
+              <div class="submit">
+    						<input type="reset" class="text-button" value="Resetta" />
+    					  <input type="submit" class="text-button" value="Conferma" />
+              </div>
+					  </fieldset>
+					  <p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
+			    </form>
+		    </div>
 		  </div>
-		</div>
-	</main>
-	<footer id="footer">
+	  </main>
+	  <footer id="footer">
 			<div id="site-map">
 				<ul>
-					<li><a href="chisiamo.html">Chi siamo</a></li
+					<li><a href="../HTML/chisiamo.html">Chi siamo</a></li
 					><li><a href="../PHP/menu.php">Menù</a></li
 					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-					><li><a href="prenotazione.html">Prenota tavolo</a></li
-					><li><a href="contatti.html">Contatti</a></li
-					><li><a href="login.html">Accedi</a></li>
+					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+					><li><a href="../HTML/contatti.html">Contatti</a></li
+					><li><a href="../HTML/login.html">Accedi</a></li>
 				</ul>
 			</div>
 			<div id="copyright">

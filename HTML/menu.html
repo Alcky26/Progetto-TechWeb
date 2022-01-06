@@ -13,38 +13,41 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-    <script src="../JavaScript/mini.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JavaScript/custom.js"></script>
   </head>
   <body>
     <header id="top-header">
-      <h1 class="hide-text"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <a href="index.html">
-        <picture>
-          <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-          <img id="logo" src="../images/logo.png" />
-        </picture>
-      </a>
-      <a class="sr-only" href="#content-wrapper">Vai al contenuto</a>
-      <button id="menu-button" class="mobile-only button" onclick="dropdownMenu()"></button>
-      <nav class="desktop-only">
-        <ul class="navigation flex">
-          <li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
-          ><li><a href="menu.php">MENÙ</a></li
-          ><li><a href="menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
+      <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+      <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+      <nav>
+        <ul id="nav">
+          <li id="logo">
+            <a href="index.html">
+              <picture>
+                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+                <img src="../images/logo.png" />
+              </picture>
+            </a>
+          </li
+          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="../PHP/menu.php">MENÙ</a></li
+          ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li id="separator"><a href="../HTML/contatti.html">CONTATTI</a></li
+          ><li><a href="../HTML/contatti.html">CONTATTI</a></li
 					><li>ITA</li
 					><li>ENG</li
-					><li class="text-button"><a href="login.html">ACCEDI</a>
+					><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
         </ul>
       </nav>
+      <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main>
       <div id="breadcrumb">
-        <p>Ti trovi in: Menù</p>
-      </div>
+  			Ti trovi in: <span class="path"><a href="index.html">Home</a> &gt; Menù</span>
+  		</div>
       <div id="categories" class="first container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Categorie</h2>
           <a class="next-container hide-text button" href="#classiche">Vai giù</a>
         </div>
@@ -71,10 +74,113 @@
               <li><a href="#dolci">Dolci</a></li>
             </ul>
           </div>
+          <div class="subcontainer">
+            <p>
+              Attenzione: le nostre pizze potrebbero contenere allergeni.
+              Consulta la seguente tabella dei colori prima dell'acquisto.
+              Gli ingredienti saranno segnati con un colore in base alla categoria di allergeni a cui appartengono.
+            </p>
+            <dl id="allergeni" class="table">
+              <div class="table-row">
+                <dt class="allergene-1">Glutine</dt>
+                <dd>
+                  Cereali contenenti glutine: grano, segale, orzo, avena, farro, kamut o i loro ceppi ibridati e prodotti derivati, tranne:
+                  <ul>
+                    <li>Sciroppi di glucosio a base di grano, incluso destrosio ( 1 );</li>
+                    <li>Maltodestrine a base di grano ( 1 );</li>
+                    <li>Sciroppi di glucosio a base di orzo</li>
+                    <li>Cereali utilizzati per la fabbricazione di distillati alcolici, incluso l’alcol etilico di origine agricola.</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-2">Crostacei</dt>
+                <dd>Crostacei e prodotti a base di crostacei.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-3">Uova</dt>
+                <dd>Uova e prodotti a base di uova.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-4">Pesce</dt>
+                <dd>
+                  Pesce e prodotti a base di pesce, tranne:
+                  <ul>
+                    <li>Gelatina di pesce utilizzata come supporto per preparati di vitamine o carotenoidi;</li>
+                    <li>Gelatina o colla di pesce utilizzata come chiarificante nella birra e nel vino.</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-5">Arachidi</dt>
+                <dd>Arachidi e prodotti a base di arachidi.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-6">Soia</dt>
+                <dd>
+                  Soia e prodotti a base di soia, tranne:
+                  <ul>
+                    <li>Olio e grasso di soia raffinato ( 1 );</li>
+                    <li>Tocoferoli misti naturali (E306), tocoferolo D-alfa naturale, tocoferolo acetato D-alfa naturale, tocoferolo succinato D-alfa naturale a base di soia;</li>
+                    <li>Oli vegetali derivati da fitosteroli e fitosteroli esteri a base di soia;</li>
+                    <li>Estere di stanolo vegetale prodotto da steroli di olio vegetale a base di soia.</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-7">Latte</dt>
+                <dd>
+                  Latte e prodotti a base di latte (incluso lattosio), tranne:
+                  <ul>
+                    <li>Siero di latte utilizzato per la fabbricazione di distillati alcolici, incluso l’alcol etilico di origine agricola;</li>
+                    <li>Lattiolo.</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-8">Frutta a guscio</dt>
+                <dd>
+                  Frutta a guscio: mandorle, nocciole, noci, noci di acagiù, noci di pecan, noci del Brasile, pistacchi, noci macadamia o noci del Queensland, e
+                  i loro prodotti, tranne per la frutta a guscio utilizzata per la fabbricazione di distillati alcolici, incluso l’alcol etilico di origine agricola.
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-9">Sedano</dt>
+                <dd>Sedano e prodotti a base di sedano.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-10">Senape</dt>
+                <dd>Senape e prodotti a base di senape.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-11">Sesamo</dt>
+                <dd>Semi di sesamo e prodotti a base di semi di sesamo.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-12">Anidride solforosa</dt>
+                <dd>
+                  Anidride solforosa e solfiti in concentrazioni superiori a 10 mg/kg o 10 mg/litro in termini di SO 2 totale da calcolarsi
+                  per i prodotti così come proposti pronti al consumo o ricostituiti conformemente alle istruzioni dei fabbricanti.
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-13">Molluschi</dt>
+                <dd>Molluschi e prodotti a base di molluschi.</dd>
+              </div>
+              <div class="table-row">
+                <dt class="allergene-14">Lupini</dt>
+                <dd>Lupini e prodotti a base di lupini.</dd>
+              </div>
+            </dl>
+            <p>
+              Per maggiori informazioni, visita il sito
+              <a href="https://www.salute.gov.it/portale/nutrizione/dettaglioContenutiNutrizione.jsp?lingua=italiano&id=1460&area=nutrizione&menu=vuoto" target="_blank" rel="noopener noreferrer">www.salute.gov.it/dettaglioContenutiNutrizione</a>.
+            </p>
+          </div>
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Pizze classiche</h2>
           <a class="next-container hide-text button" href="#speciali">Vai giù</a>
         </div>
@@ -83,7 +189,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Pizze speciali</h2>
           <a class="next-container hide-text button" href="#bianche">Vai giù</a>
         </div>
@@ -92,7 +198,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Pizze bianche</h2>
           <a class="next-container hide-text button" href="#calzoni">Vai giù</a>
         </div>
@@ -101,7 +207,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Calzoni</h2>
           <a class="next-container hide-text button" href="#bevande">Vai giù</a>
         </div>
@@ -110,7 +216,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Bevande analcoliche</h2>
           <a class="next-container hide-text button" href="#birre">Vai giù</a>
         </div>
@@ -119,7 +225,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Birre</h2>
           <a class="next-container hide-text button" href="#vini">Vai giù</a>
         </div>
@@ -128,7 +234,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Vini</h2>
           <a class="next-container hide-text button" href="#dolci">Vai giù</a>
         </div>
@@ -137,7 +243,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="subtitle-panel flex">
+        <div class="subtitle-panel">
           <h2 class="subtitle">Dolci</h2>
         </div>
         <div class="subcontainers">
@@ -149,8 +255,8 @@
 			<div id="site-map">
 				<ul>
           <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-					><li><a href="menu.php">Menù</a></li
-					><li><a href="menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+					><li><a href="../PHPmenu.php">Menù</a></li
+					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
 					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
 					><li><a href="../HTML/contatti.html">Contatti</a></li
 					><li><a href="../HTML/login.html">Accedi</a></li>

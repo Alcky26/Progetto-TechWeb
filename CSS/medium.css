@@ -1,23 +1,19 @@
-.desktop-only {
-  display: none;
-}
-
 .mobile-only {
   display: block;
 }
 
-#logo {
-  margin-right: calc(100% - 327px);
-}
-
-#separator {
+#logo, #separator {
   margin-right: 0;
 }
 
-.dropdown {
-  display: block;
+#nav {
+  flex-direction: column;
 }
 
-.dropdown > .navigation {
-  flex-direction: column;
+#nav li:not(#logo) {
+  display: none;
+}
+
+#nav.dropdown li:not(#logo) {
+  display: block;
 }

@@ -9,14 +9,14 @@ $connessioneOK = $connessione->openDBConnection();
 $categories = array("", "", "", "", "", "", "", "");
 
 if ($connessioneOK) {
-    $categories[0] = fillClassiche();
-    $categories[1] = fillSpeciali();
-    $categories[2] = fillBianche();
-    $categories[3] = fillCalzoni();
-    $categories[4] = fillBevande();
-    $categories[5] = fillBirre();
-    $categories[6] = fillVini();
-    $categories[7] = fillDolci();
+    $categories[0] = classiche();
+    $categories[1] = speciali();
+    $categories[2] = bianche();
+    $categories[3] = calzoni();
+    $categories[4] = bevande();
+    $categories[5] = birre();
+    $categories[6] = vini();
+    $categories[7] = dolci();
 } else {
     foreach ($i as $categories) {
         $i = "<div class=\"subcontainer\"><p>Errore nella connessione al server. Per favore riprova più tardi.</p></div>";
@@ -41,7 +41,7 @@ $replace = array("<listaClassiche />" => $categories[0],
 echo UtilityFunctions::replacer($url, $replace);
 
 function fill($array, $listino) {
-    $string = "<div class=\"grid subcontainer\">";
+    $string = "<div class=\"subcontainer grid-subcontainer\">";
     foreach ($array as $i) {
         $string = $string."<div class=\"subsubcontainer\"><h3>".$i['nome']." (".$i['prezzo']."&euro;)</h3>";
         switch ($listino) {
@@ -75,7 +75,7 @@ function fill($array, $listino) {
     return $string."</div>";
 }
 
-function fillClassiche() {
+function classiche() {
     $result = $GLOBALS['connessione']->getClassiche();
     if ($result != null) {
         return fill($result, "pizza");
@@ -83,7 +83,7 @@ function fillClassiche() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillSpeciali() {
+function speciali() {
     $result = $GLOBALS['connessione']->getSpeciali();
     if ($result != null) {
         return fill($result, "pizza");
@@ -91,7 +91,7 @@ function fillSpeciali() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillBianche() {
+function bianche() {
     $result = $GLOBALS['connessione']->getBianche();
     if ($result != null) {
         return fill($result, "pizza");
@@ -99,7 +99,7 @@ function fillBianche() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillCalzoni() {
+function calzoni() {
     $result = $GLOBALS['connessione']->getCalzoni();
     if ($result != null) {
         return fill($result, "pizza");
@@ -107,7 +107,7 @@ function fillCalzoni() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillBevande() {
+function bevande() {
     $result = $GLOBALS['connessione']->getBevande();
     if ($result != null) {
         return fill($result, "bevanda");
@@ -115,7 +115,7 @@ function fillBevande() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillBirre() {
+function birre() {
     $result = $GLOBALS['connessione']->getBirre();
     if ($result != null) {
         return fill($result, "bevanda");
@@ -123,7 +123,7 @@ function fillBirre() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillVini() {
+function vini() {
     $result = $GLOBALS['connessione']->getVini();
     if ($result != null) {
         return fill($result, "bevanda");
@@ -131,7 +131,7 @@ function fillVini() {
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
 }
 
-function fillDolci() {
+function dolci() {
     $result = $GLOBALS['connessione']->getDolci();
     if ($result != null) {
         return fill($result, "dolce");
