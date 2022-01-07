@@ -50,7 +50,92 @@
         <div class="subtitle-fixed-panel flex">
           <h2>Gestione Pizzeria</h2>
         </div>
-        <ListaElementi/>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Aggiungi Pizza</h2>
+            </div>
+            <div class="subcontainers">
+                <form id="signup-form" class="subcontainer" action="../PHP/signupHandler.php" method="post">
+                    <fieldset>
+                      <listaPizze />
+                      <label for="text" lang="ITA">Nome Pizza:</label>
+                      <input type="text" name="nomepizza" id="nomepizza" placeholder="Inserisci nome pizza:"/>
+                      <label for="number" lang="ITA">Prezzo:</label>
+                      <input type="number" name="prezzo" id="prezzo" min="0.0" placeholder="Inserisci il prezzo:"/>
+                      <label for="text" lang="ITA">Descrizione: </label>
+                      <input type="text" name="desc" id="desc" placeholder="Inserisci la descrizione:"/>
+                      <div id="post">
+                        <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
+                      </div>
+                      <!--aggiungi lista ingredienti-->
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Aggiungi Bevanda</h2>
+            </div>
+            <div class="subcontainers">
+                <listaBevande />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Aggiungi Dolce</h2>
+            </div>
+            <div class="subcontainers">
+                <listaDolci />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Elimina Pizza</h2>
+            </div>
+            <div class="subcontainers">
+                <listaPizze />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Elimina Bevanda</h2>
+            </div>
+            <div class="subcontainers">
+                <listaBevande />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Elimina Dolce</h2>
+            </div>
+            <div class="subcontainers">
+                <listaDolci />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Modifica Pizza</h2>
+            </div>
+            <div class="subcontainers">
+                <listaPizze />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Modifica Bevanda</h2>
+            </div>
+            <div class="subcontainers">
+                <listaBevande />
+            </div>
+        </div>
+        <div class="container">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Modifica Dolce</h2>
+            </div>
+            <div class="subcontainers">
+                <listaDolci />
+            </div>
+        </div>
       </div>
     </main>
   </body>
