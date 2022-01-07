@@ -13,16 +13,19 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <script src="../JS/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <main id="content-wrapper">
       <div id="signup-container" class="container">
-        <div id="signup" class="subcontainer">
-          <form action="../PHP/signupHandler.php" method="post" id="signup-form">
-            <h2>Registrati</h2>
+        <form id="signup-form" class="subcontainer" action="../PHP/signupHandler.php" method="post">
+          <fieldset>
+            <legend>
+              <h2>Registrati</h2>
+            </legend>
             <msgErrore/>
             <label for="email" lang="en">Email:</label>
-            <input type="text" name="email" id="email" autocomplete="email" placeholder="Inserisci la tua email:" required />
+            <input type="email" name="email" id="email" autocomplete="email" placeholder="Inserisci la tua email:" required />
             <label for="username" lang="en">Username:</label>
             <input type="text" name="username" id="username" autocomplete="username" placeholder="Inserisci il tuo username:" required />
             <label for="pwd" lang="en">password: </label>
@@ -30,20 +33,21 @@
             <div id="post">
               <input type="submit" id="registrazione" class="text-button" name="registrazione" value="Registrati" />
             </div>
-          </form>
-        </div>
+          </fieldset>
+        </form>
       </div>
+     </div>
 		</main>
 		<footer id="footer">
 			<div id="site-map">
 				<ul class="menu">
-          <li><a href="chisiamo.html">Chi siamo</a></li
+          <li><a href="..HTML/chisiamo.html">Chi siamo</a></li
 					><li><a href="../PHP/menu.php">Menù</a></li
 					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-					><li><a href="prenotazione.html">Prenota tavolo</a></li
-					><li><a href="contatti.html">Contatti</a></li
-					><li><a href="login.html">Accedi</a></li>
-                    ><li><a href="signup.html">Accedi</a></li>
+					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+					><li><a href="/HTML/contatti.html">Contatti</a></li
+					><li><a href="../HTML/login.html">Accedi</a></li>
+                    ><li><a href="../HTML/signup.html">Registrati</a></li>
 				</ul>
 			</div>
 			<div id="copyright">

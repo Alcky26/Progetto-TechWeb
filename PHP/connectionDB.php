@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mmasetto";
-    private const PASSWORD = "iyuyiSohS5oochu3";
-    private const DATABASE_NAME = "mmasetto";
+    private const USERNAME = "mvignaga";
+    private const PASSWORD = "ohthohXie5aichah";
+    private const DATABASE_NAME = "mvignaga";
 
     private $connection;
 
@@ -37,7 +37,7 @@ class DBAccess {
         $txtUsername = mysqli_real_escape_string($this->connection, $username);
         $sql = "SELECT *
                 FROM UTENTE
-                WHERE BINARY username = '$txtkUsername' AND Password = '$password'";
+                WHERE BINARY username = '$txtUsername' AND Password = '$password'";
 
         $result = mysqli_query($this->connection, $sql);
 
@@ -46,12 +46,14 @@ class DBAccess {
 
             return array(
                 "isValid" => true,
-                "username" => $user["username"]
+                "username" => $user["username"],
+                "isAdmin" => $user["isAdmin"]
             );
         }
         return array(
             "isValid" => false,
             "username" => null,
+            "isAdmin" => false
         );
     }
     /*
@@ -61,24 +63,28 @@ class DBAccess {
     /*
         REGISTRA NUOVO
     */
-    public function createNew($email,$username, $password) {
+    public function createNewUser($email,$username, $password) {
         $txtUsername = mysqli_real_escape_string($this->connection, $username);
         $txtEmail = mysqli_real_escape_string($this->connection, $email);
-        $sql = "SELECT *
+        $txtPass = mysqli_real_escape_string($this->connection, $password);
+        $sql = sprintf("SELECT *
                 FROM UTENTE
-                WHERE BINARY username = '$txtUsername' OR email='$txtEmail'";
+                WHERE username = '%s' OR email='%s'",$txtUsername,$txtEmail);
 
         $result = mysqli_query($this->connection, $sql);
-
         if (mysqli_num_rows($result) == 0) {
             //Nessun utente trovato con quel username o email, quindi creazione disponibile
-            $sql = "INSERT INTO `UTENTE` (`email`, `username`, `password`, `punti`)
-            VALUES ('$txtEmail', '$txtUsername', '$password', 0)";
-
-            return (mysqli_query($this->connection, $sql) === true);
+            $sql = sprintf("INSERT INTO `UTENTE` (`email`, `username`, `password`)
+            VALUES ('%s', '%s', '%s')",$txtEmail,$txtUsername,$txtPass);
+            $result = mysqli_query($this->connection, $sql);
+            
+            return ($result == true);
             //ritorna true SSE l'utente è stato creato
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
     /*
         FINE REGISTRA NUOVO
