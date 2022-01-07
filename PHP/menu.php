@@ -51,9 +51,9 @@ function fill($array, $listino) {
                     $string = $string."<p>";
                     foreach ($ingredienti as $j) {
                         if ($j['allergene']) {
-                            $string = $string."<span class = \"allergene allergene-".$j['allergene']."\">".$j['nome_ingr']."</span>, ";
+                            $string = $string."<span class = \"allergene allergene-".$j['allergene']."\">".$j['nome']."</span>, ";
                         } else {
-                            $string = $string.$j['nome_ingr'].", ";
+                            $string = $string.$j['nome'].", ";
                         }
                     }
                     $string = substr($string, 0, -2)."</p>";

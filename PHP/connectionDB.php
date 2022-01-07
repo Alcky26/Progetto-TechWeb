@@ -105,9 +105,10 @@ class DBAccess {
     }
 
     public function getIngredients($pizza) {
-        $query = "SELECT nome_ingr, allergene
-                  FROM INGREDIENTE JOIN COMPOSIZIONE ON INGREDIENTE.nome = COMPOSIZIONE.nome_ingr
-                  WHERE COMPOSIZIONE.nome = '$pizza'";
+        $query = "SELECT INGREDIENTE.nome, allergene
+                  FROM INGREDIENTE JOIN COMPOSIZIONE ON INGREDIENTE.id_ingrediente = COMPOSIZIONE.id_ingrediente
+                  WHERE COMPOSIZIONE.nome = '$pizza'
+                  ORDER BY COMPOSIZIONE.id_ingrediente";
         return $this->execQuery($query);
     }
 
