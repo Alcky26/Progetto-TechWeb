@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Gen 06, 2022 alle 22:44
+-- Creato il: Gen 08, 2022 alle 18:57
 -- Versione del server: 10.3.32-MariaDB-0ubuntu0.20.04.1
 -- Versione PHP: 7.4.3
 
@@ -598,18 +598,21 @@ CREATE TABLE `UTENTE` (
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `punti` int(15) NOT NULL DEFAULT 0
+  `punti` int(15) NOT NULL DEFAULT 0,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `UTENTE`
 --
 
-INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`) VALUES
-('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10),
-('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55),
-('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0),
-('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100);
+INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`, `isAdmin`) VALUES
+('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10, 0),
+('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55, 0),
+('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0, 0),
+('prova@gmail.com', 'prova', '0000-00-00 00:00:00', 'prova', 0, 0),
+('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'testpw', 0, 1),
+('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100, 0);
 
 --
 -- Indici per le tabelle scaricate
