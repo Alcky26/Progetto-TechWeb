@@ -14,50 +14,15 @@
   font-size: 100%;
 }
 
-/* inizia il css della pagina errore404*/
+#footer{
+  background-color:#FFF68F;
+  color:#FFF8DC;
+}
 
-#error404 {
-  border-style:thick;
-  border-width:20px;
-  border-color:black;
+#copyright{
+  color:#FFF8DC;
   text-align:center;
-  background-color:#FFFACD;
 }
-
-#error404 h1{
-  border-style:thick;
-  border-color:black;
-  border-width:10px;
-  font-size:50px;
-  color:#1874CD
-}
-
-#error404 p{
- font-size:25px;
- color:black;
-}
-
-#error404 h2{
- font-size:25px;
- color:black;
- text-align:left;
-}
-
-#error404 a:link{
-  color:#EEE685;
-}
-
-#error404 a:visited{
-  color:red;
-}
-
-#error404 #img_error{
-  opacity:50%;
-  border: 5px solid black;
-  border-radius:10px;
-}
-
-/* fine css pagina 404 */
 
 * {
   margin: 0;
