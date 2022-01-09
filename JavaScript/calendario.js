@@ -19,7 +19,7 @@ const weekdays = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Vene
 
 // variabile principale
 let date = new Date();
-
+let resto;
 // Funzione che restituisce la data di calendario corrente
 function getCurrentDate(element, asString) {
     if (element) {
@@ -95,10 +95,11 @@ function generateCalendar() {
             let text = document.createTextNode(i);
             btn = document.createElement('button');
             btn.className = "btn-day";
-			btn.type = "button";
+			      btn.type = "button";
+			      btn.disabled = true;
             btn.addEventListener('click', function () { changeDate(this) });
             week++;
-			
+
 			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()){btn.id = "today";}
 
 
@@ -125,18 +126,13 @@ function generateCalendar() {
     // Aggiungi la tabella al div a cui dovrebbe appartenere
     const content = document.getElementById('table');
     content.appendChild(table);
-    changeActive();
+
     changeHeader(date);
     getCurrentDate(document.getElementById("currentDate"), true);
-	//disableDay();
-}
 
-// Modifica la data utilizzando il form
-function setDate(form) {
-    let newDate = new Date(form.date.value);
-    date = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() );
-    generateCalendar();
-    return false;
+	activeBtn();
+  changeActive();
+	//disableDay();
 }
 
 // Metodo Cambia il mese e l'anno nella parte superiore del calendario
@@ -160,7 +156,7 @@ function changeActive() {
     btnList = document.getElementsByClassName('btn-day');
     for (let i = 0; i < btnList.length; i++) {
         const btn = btnList[i];
-        if (btn.textContent === (date.getDate()).toString()) {
+        if (btn.textContent === (date.getDate()).toString() && btn.disabled==false) {
             btn.classList.add('active');
         }
     }
@@ -168,6 +164,7 @@ function changeActive() {
 
 // Funzione che prende la data corrente
 function resetDate() {
+    resto = 0;
     date = new Date();
     generateCalendar();
 }
@@ -190,31 +187,32 @@ function prevMonth() {
     generateCalendar(date);
 }
 
-
-function prevDay() {
-    date = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
-    generateCalendar();
-}
-
-function nextDay() {
-    date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-    generateCalendar();
-}
-
 function activeBtn() {
 	let btnList = document.getElementsByClassName('btn-day');
 	let todaybtn = document.getElementById('today');
     for (let i = 0; i < btnList.length; i++) {
-        const btn = btnList[i];
-        if (btn.textContent === (today.textContent)) {
-			var x = i + 1;
-			for (let j = 0; j < 13; j++){
-				var tmp = btnList[x];
-				tmp.disabled = false;
-				x++;
-			}
-        }
+      const btn = btnList[i];
+
+      if (todaybtn){
+      if (btn.textContent == todaybtn.textContent) {
+			  var x = i + 1;
+			  for (let j = 0; j < 13; j++){
+			  	if(btnList[x]) {
+			  	  var tmp = btnList[x];
+			  	  tmp.disabled = false;
+			  	  x++;
+          } else {
+            resto = 13 - j;
+          }
+	  		}
+      }
+    } else {
+      if(resto > 0) {
+        btn.disabled = false;
+        resto--;
+      }
+    }
     }
 }
 
-document.onload = generateCalendar();
+document.onload = generateCalendar(date);

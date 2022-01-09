@@ -41,9 +41,9 @@ $replace = array("<listaClassiche />" => $categories[0],
 echo UtilityFunctions::replacer($url, $replace);
 
 function fill($array, $listino) {
-    $string = "<div class=\"grid subcontainer\">";
+    $string = "<div class=\"subcontainer grid-subcontainer\">";
     foreach ($array as $i) {
-        $string = $string."<div class=\"subsubcontainer\"><h3 class=\"itemName\">".$i['nome']."</h3> (<h4 class= \"itemPrice\">".$i['prezzo']."&euro;</h4>)";
+        $string = $string."<div class=\"subsubcontainer\"><h3><span class=\"itemName\">".$i['nome']."</span> (<span class=\"itemPrice\">".$i['prezzo']."&euro;</span>)</h3>";
         switch ($listino) {
             case "pizza":
                 $ingredienti = $GLOBALS['connessione']->getIngredients($i['nome']);
@@ -51,18 +51,18 @@ function fill($array, $listino) {
                     $string = $string."<p>";
                     foreach ($ingredienti as $j) {
                         if ($j['allergene']) {
-                            $string = $string."<span class = \"allergene allergene-".$j['allergene']."\">".$j['nome_ingr']."</span>, ";
+                            $string = $string."<span class = \"allergene allergene-".$j['allergene']."\">".$j['nome']."</span>, ";
                         } else {
-                            $string = $string.$j['nome_ingr'].", ";
+                            $string = $string.$j['nome'].", ";
                         }
                     }
                     $string = substr($string, 0, -2)."</p>";
-                } 
+                }
                 break;
             case "bevanda":
                 if ($i['gradiAlcolici'] != 0) {
                     $string = $string."<p>".$i['gradiAlcolici']."%</p>";
-                }  
+                }
                 break;
             case "dolce":
                 break;

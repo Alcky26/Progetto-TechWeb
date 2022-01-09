@@ -449,7 +449,6 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .subtitle-fixed-panel {
 	position: fixed;
-  padding-top: 87px;
   justify-content: space-evenly;
 }
 
@@ -568,6 +567,7 @@ dt.allergene-14 {background-color: #F7DF65;}
     transition: 0.2s ease;
     cursor: pointer;
     outline: 0;
+    width: 324px;
 }
 
 .btn:hover {
@@ -591,7 +591,7 @@ dt.allergene-14 {background-color: #F7DF65;}
     width: 100%;
     height: 100%;
     cursor: pointer;
-    z-index: 99;
+
     outline: 0;
     border-radius: 10px;
     transition: 0.4s all;
@@ -600,7 +600,7 @@ dt.allergene-14 {background-color: #F7DF65;}
 .btn-day.active {
     color: #FFF;
     font-weight: 600;
-    z-index: 99;
+    z-index: 1;
 }
 
 #today {
@@ -612,7 +612,6 @@ dt.allergene-14 {background-color: #F7DF65;}
     border-radius: 10px;
 	color: #FFF;
     font-weight: 600;
-    z-index: 99;
 }
 
 .btn-day.active::before {
@@ -680,17 +679,7 @@ dt.allergene-14 {background-color: #F7DF65;}
     justify-content: center;
 }
 
-.day-assets {
-    display: flex;
-    justify-content: space-between;
-    width: 324px;
-}
 
-
-
-.day-assets .btn:nth-child(2) i {
-    padding: 0 10px 0 0 !important;
-}
 
 .calendar {
     height: 370px;
@@ -758,7 +747,7 @@ dt.allergene-14 {background-color: #F7DF65;}
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: 99;
+
 }
 
 #numeroPersone, #orario {
@@ -788,10 +777,16 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 /*-------inizio ordina online------------*/
 
-.total {
+#total {
   padding: 1rem;
 	box-shadow: 2px 2px 4px black;
 	text-align: right;
+  width: 100%;
+}
+
+#total h2 {
+  float: left;
+  margin: 0;
 }
 
 .scelta {
@@ -862,6 +857,71 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 #riepilogo {
   width: 100%;
+  float: left;
+  display: inline;
+  background: #EEEEEE;
+}
+
+.item_add {
+  background-image: url(../images/add_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: -999rem;
+}
+
+.remove-product {
+  background-image: url(../images/delete_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  text-indent: -999rem;
+}
+
+.product {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #a73131;
+}
+
+
+
+.productName {
+  float: left;
+  width: 35%;
+  font-weight: bold;
+}
+
+.productPrice{
+  float: left;
+  width: 15%;
+}
+
+.productLinePrice {
+  float: right;
+  width: 15%;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.productRemoval {
+  float: left;
+  width: 15%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.productQuantity {
+  float: left;
+  width: 15%;
+  text-align: center;
+}
+
+.productQuantity input {
+  float: left;
+  width: 40px;
 }
 
 /*-------fine ordina online------------*/
