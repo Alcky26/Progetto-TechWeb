@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mvignaga";
-    private const PASSWORD = "ohthohXie5aichah";
-    private const DATABASE_NAME = "mvignaga";
+    private const USERNAME = "mmasetto";
+    private const PASSWORD = "iyuyiSohS5oochu3";
+    private const DATABASE_NAME = "mmasetto";
 
     private $connection;
 
@@ -33,11 +33,12 @@ class DBAccess {
     /*
         LOGIN
     */
-    public function checkLogin($username, $password) {
+    public function checkLogin($email, $username, $password) {
+        $txtEmail = mysqli_real_escape_string($this->connection, $email);
         $txtUsername = mysqli_real_escape_string($this->connection, $username);
         $sql = "SELECT *
                 FROM UTENTE
-                WHERE BINARY username = '$txtUsername' AND Password = '$password'";
+                WHERE BINARY username = '$txtUsername' AND password = '$password'";
 
         $result = mysqli_query($this->connection, $sql);
 
@@ -46,13 +47,13 @@ class DBAccess {
 
             return array(
                 "isValid" => true,
-                "username" => $user["username"],
+                "email" => $user["email"],
                 "isAdmin" => $user["isAdmin"]
             );
         }
         return array(
             "isValid" => false,
-            "username" => null,
+            "email" => null,
             "isAdmin" => false
         );
     }
@@ -77,7 +78,7 @@ class DBAccess {
             $sql = sprintf("INSERT INTO `UTENTE` (`email`, `username`, `password`)
             VALUES ('%s', '%s', '%s')",$txtEmail,$txtUsername,$txtPass);
             $result = mysqli_query($this->connection, $sql);
-            
+
             return ($result == true);
             //ritorna true SSE l'utente è stato creato
         }
@@ -175,17 +176,26 @@ class DBAccess {
         return $this->execQuery($query);
     }
 
-    public function setUserInfo($email, $new_email, $new_pwd) {
-        $_new_email = mysqli_real_escape_string($this->connection, $new_email);
-        $_new_pwd = mysqli_real_escape_string($this->connection, $new_pwd);
-        $query = "UPDATE UTENTE
-                  SET email = '$_new_email', password = '$_new_pwd'
+    public function getUserInfo($email) {
+        $query = "SELECT *
+                  FROM UTENTE
                   WHERE email = '$email'";
+        return $this->execQuery($query);
+    }
+
+    public function setUserInfo($email, $new_email, $new_username, $new_pwd, $new_birthday) {
+        $_new_email = mysqli_real_escape_string($this->connection, $new_email);
+        $_new_username = mysqli_real_escape_string($this->connection, $new_username);
+        $_new_pwd = mysqli_real_escape_string($this->connection, $new_pwd);
+        $_new_birthday = mysqli_real_escape_string($this->connection, $new_birthday);
+        $query = "UPDATE UTENTE
+                  SET email = '$_new_email', username = '$_new_username', password = '$_new_pwd', birthday = '$_new_birthday', birthdayModified = 1
+                  WHERE email = '$email' AND (birthday = '$new_birthday' OR birthdayModified = 0)";
         return mysqli_query($this->connection, $query);
     }
 
-    public function deleteAccount($account) {
-        $query = "DELETE FROM UTENTE WHERE email = '$account'";
+    public function deleteAccount($email) {
+        $query = "DELETE FROM UTENTE WHERE email = '$email'";
         return mysqli_query($this->connection, $query);
     }
 }

@@ -91,7 +91,7 @@ label, input, select, button {
   font-weight: 400;
 }
 
-input[type = "text"], input[type = "password"], input[type = "email"] {
+input[type = "text"], input[type = "password"], input[type = "email"], input[type = "datetime"] {
   display: block;
   width: 100%;
   padding: 0.5rem;
@@ -101,7 +101,7 @@ input[type = "text"], input[type = "password"], input[type = "email"] {
   transition: background-color .3s;
 }
 
-input[type = "text"]:focus, input[type = "email"]:focus, input[type = "password"]:focus {
+input[type = "text"]:focus, input[type = "email"]:focus, input[type = "password"]:focus, input[type = "datetime"]:focus {
   background-color: rgba(0, 0, 0, 0.07);
   outline: 2px solid var(--orange);
   outline-offset: 5px;
@@ -219,6 +219,23 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   text-align: center;
 }
 
+.alert-box {
+  width: 100%;
+  border-width: 1px;
+  border-radius: 10px;
+  color: white;
+}
+
+.success {
+  background-color: #4BB543;
+  border-color: #2B9523;
+}
+
+.danger {
+  background-color: #F32013;
+  border-color: #D30000;
+}
+
 .menu {
   list-style: none;
   padding: 0;
@@ -266,92 +283,104 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 
 .allergene {
   font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-decoration: underline 2px;
 }
-/*glutine*/
 
-.allergene-1 {color: #DE8043;}
+dt.allergene {width: 25%;}
+
+.allergene::after {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.allergene-1 {text-decoration-color: #DE8043;}
 
 dt.allergene-1 {background-color: #DE8043;}
 
-/*crostacei*/
+.allergene-1::after {content: "Allergene 1 - Glutine";}
 
-.allergene-2 {color: #00ADEF;}
+.allergene-2 {text-decoration-color: #00ADEF;}
 
 dt.allergene-2 {background-color: #00ADEF;}
 
-/*uova*/
+.allergene-2::after {content: "Allergene 2 - Crostacei";}
 
-.allergene-3 {color: #FFFF00;}
+.allergene-3 {text-decoration-color: #FFFF00;}
 
 dt.allergene-3 {background-color: #FFFF00;}
 
-/*pesce*/
+.allergene-3::after {content: "Allergene 3 - Uova";}
 
-.allergene-4 {color: #2C3790;}
+.allergene-4 {text-decoration-color: #2C3790;}
 
 dt.allergene-4 {background-color: #2C3790;}
 
-/*arachidi*/
+.allergene-4::after {content: "Allergene 4 - Pesce";}
 
-.allergene-5 {color: #B57F50;}
+.allergene-5 {text-decoration-color: #B57F50;}
 
 dt.allergene-5 {background-color: #B57F50;}
 
-/*soia*/
+.allergene-5::after {content: "Allergene 5 - Arachidi";}
 
-.allergene-6 {color: #00A551;}
+.allergene-6 {text-decoration-color: #00A551;}
 
 dt.allergene-6 {background-color: #00A551;}
 
-/*latticini*/
+.allergene-6::after {content: "Allergene 6 - Soia";}
 
-.allergene-7 {color: #FFFFFF;}
+.allergene-7 {text-decoration-color: #FFFFFF;}
 
 dt.allergene-7 {background-color: #FFFFFF;}
 
-/*frutta a guscio*/
+.allergene-7::after {content: "Allergene 7 - Latte";}
 
-.allergene-8 {color: #BE5856;}
+.allergene-8 {text-decoration-color: #BE5856;}
 
 dt.allergene-8 {background-color: #BE5856;}
 
-/*sedano*/
+.allergene-8::after {content: "Allergene 8 - Frutta a guscio";}
 
-.allergene-9 {color: #80CB28;}
+.allergene-9 {text-decoration-color: #80CB28;}
 
 dt.allergene-9 {background-color: #80CB28;}
 
-/*senape*/
+.allergene-9::after {content: "Allergene 9 - Sedano";}
 
-.allergene-10 {color: #BC9B3C;}
+.allergene-10 {text-decoration-color: #BC9B3C;}
 
 dt.allergene-10 {background-color: #BC9B3C;}
 
-/*semi di sesamo*/
+.allergene-10::after {content: "Allergene 10 - Senape";}
 
-.allergene-11 {color: #A4997D;}
+.allergene-11 {text-decoration-color: #A4997D;}
 
 dt.allergene-11 {background-color: #A4997D;}
 
-/*anidride solforosa e solfiti*/
+.allergene-11::after {content: "Allergene 11 - Semi di sesamo";}
 
-.allergene-12 {color: #77144B;}
+.allergene-12 {text-decoration-color: #77144B;}
 
 dt.allergene-12 {background-color: #77144B;}
 
-/*molluschi*/
+.allergene-12::after {content: "Allergene 12 - Solfiti";}
 
-.allergene-13 {color: #68CFE2;}
+.allergene-13 {text-decoration-color: #68CFE2;}
 
 dt.allergene-13 {background-color: #68CFE2;}
 
-/*lupini*/
+.allergene-13::after {content: "Allergene 13 - Molluschi";}
 
-.allergene-14 {color: #F7DF65;}
+.allergene-14 {text-decoration-color: #F7DF65;}
 
 dt.allergene-14 {background-color: #F7DF65;}
 
+.allergene-14::after {content: "Allergene 14 - Lupini";}
 
 /*----------stile header----------*/
 

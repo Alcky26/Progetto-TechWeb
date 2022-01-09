@@ -32,16 +32,15 @@ CREATE TABLE `ACQUISTO` (
   `quantita` tinyint(1) NOT NULL,
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `dataOra` timestamp NOT NULL DEFAULT current_timestamp(),
-  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `ACQUISTO`
 --
 
-INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`, `birthday`) VALUES
-(2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it', '0000-00-00 00:00:00');
+INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
+(2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -84,29 +83,30 @@ CREATE TABLE `BONUS` (
   `codiceBonus` int(11) NOT NULL,
   `dataScadenza` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `valore` int(4) NOT NULL,
-  `dataRiscatto` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `dataRiscatto` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `BONUS`
 --
 
-INSERT INTO `BONUS` (`codiceBonus`, `dataScadenza`, `valore`, `dataRiscatto`) VALUES
-(1, '2021-10-13 18:36:37', 4, '2021-12-16 12:21:31'),
-(2, '2021-04-05 10:45:11', 4, '2021-12-16 12:21:31'),
-(3, '2021-10-17 05:56:00', 3, '2021-12-16 12:21:31'),
-(4, '2021-12-07 23:59:54', 5, '2021-12-16 12:21:31'),
-(5, '2021-12-18 19:26:17', 9, '2021-12-16 12:21:31'),
-(6, '2021-05-31 22:32:17', 10, '2021-12-16 12:21:31'),
-(7, '2021-06-18 08:01:52', 5, '2021-12-16 12:21:31'),
-(8, '2022-01-20 12:23:22', 10, '2021-12-16 12:21:31'),
-(9, '2021-10-19 05:34:33', 4, '2021-12-16 12:21:31'),
-(10, '2021-04-02 06:00:47', 5, '2021-12-16 12:21:31'),
-(11, '2022-02-18 17:38:53', 10, '2021-12-16 12:21:31'),
-(12, '2021-10-24 04:34:39', 10, '2021-12-16 12:21:31'),
-(13, '2021-08-07 14:03:34', 8, '2021-12-16 12:21:31'),
-(14, '2021-12-16 14:11:36', 10, '2021-12-16 12:21:31'),
-(15, '2021-05-23 06:25:41', 10, '2021-12-16 12:21:31');
+INSERT INTO `BONUS` (`codiceBonus`, `dataScadenza`, `valore`, `dataRiscatto`, `email`) VALUES
+(1, '2021-10-13 18:36:37', 4, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
+(2, '2021-04-05 10:45:11', 4, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
+(3, '2021-10-17 05:56:00', 3, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
+(4, '2021-12-07 23:59:54', 5, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
+(5, '2021-12-18 19:26:17', 9, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
+(6, '2021-05-31 22:32:17', 10, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
+(7, '2021-06-18 08:01:52', 5, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
+(8, '2022-01-20 12:23:22', 10, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
+(9, '2021-10-19 05:34:33', 4, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
+(10, '2021-04-02 06:00:47', 5, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
+(11, '2022-02-18 17:38:53', 10, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
+(12, '2021-10-24 04:34:39', 10, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
+(13, '2021-08-07 14:03:34', 8, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
+(14, '2021-12-16 14:11:36', 10, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
+(15, '2021-05-23 06:25:41', 10, '2021-12-16 12:21:31', 'mmasetto@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -340,12 +340,12 @@ INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
 ('Estate', 6, NULL),
 ('Fanta 0.5l', 3, NULL),
 ('Frutti di mare', 7, NULL),
-('Glossner Gold', 3.5, NULL),
-('La Chouffe', 3.5, NULL),
+('Glossner Gold', 3.5, 'La Neumark Glossnerbrau, la storia di uno dei più antichi Braufamilien. Da semplici inizi come Kommunbrauer è nato un birrificio altamente tecnico e versatile. La gold ha un sapore rinfrescante e sapido con una piacevole amarezza.'),
+('La Chouffe', 3.5, 'Schiuma cremosa e molto abbondante a proteggere una birra elegante, dal color ambrato carico ed impenetrabile. Emergono piacevoli note floreali e di lievito fragrante, seguite dai classici sentori belgi di spezie, agrumi e coriandolo. Il gusto ed il corpo sono forti ma piacevoli e mantengono il giusto equilibrio.'),
 ('Margherita', 4.5, NULL),
 ('Marinara', 3.5, NULL),
 ('Mediterranea', 7, NULL),
-('Namur Blache', 3.5, NULL),
+('Namur Blache', 3.5, 'Al primo assaggio la Blanche de Namur si presenta poco corposa e dagli odori freschi ma delicati. La rifermentazione in bottiglia le dona sentori speziati che rimangono dolci e ben bilanciati ai sapori amarognoli di agrumi.'),
 ('Panna cotta ai frutti di bosco', 4, NULL),
 ('Panna cotta al caramello', 4, NULL),
 ('Panna cotta al cioccolato', 4, NULL),
@@ -367,7 +367,7 @@ INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
 ('Stromboli', 8, NULL),
 ('Svizzera', 6.5, NULL),
 ('Tedesca', 6, NULL),
-('Tennents Super', 3.5, NULL),
+('Tennents Super', 3.5, 'Una delle strong lager più forti del Regno Unito. Decisa e ad alto grado di piacere, ben equilibrata nelle sue componenti, è una birra pensata per un momento serale. Ha bisogno di calore e di colore, di spazi dove il tempo non ha fretta, ha bisogno di tranquillità.'),
 ('Texana', 7.5, NULL),
 ('The al limone', 2.5, NULL),
 ('The alla pesca', 2.5, NULL),
@@ -516,26 +516,6 @@ INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `POSSESSO_BONUS`
---
-
-CREATE TABLE `POSSESSO_BONUS` (
-  `codiceBonus` int(11) NOT NULL,
-  `email` varchar(319) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dump dei dati per la tabella `POSSESSO_BONUS`
---
-
-INSERT INTO `POSSESSO_BONUS` (`codiceBonus`, `email`, `username`) VALUES
-(4, 'mvignaga@unipd.it', 'mvignaga'),
-(8, 'mmasetto@unipd.it', 'mmasetto');
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `PRENOTAZIONE`
 --
 
@@ -599,20 +579,21 @@ CREATE TABLE `UTENTE` (
   `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `punti` int(15) NOT NULL DEFAULT 0,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
+  `birthdayModified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `UTENTE`
 --
 
-INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`, `isAdmin`) VALUES
-('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10, 0),
-('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55, 0),
-('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0, 0),
-('prova@gmail.com', 'prova', '0000-00-00 00:00:00', 'prova', 0, 0),
-('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'testpw', 0, 1),
-('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100, 0);
+INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`, `isAdmin`, `birthdayModified`) VALUES
+('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10, 0, 0),
+('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55, 0, 0),
+('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0, 0, 0),
+('prova@gmail.com', 'prova', '0000-00-00 00:00:00', 'prova', 0, 0, 0),
+('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'testpw', 0, 1, 0),
+('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100, 0, 0);
 
 --
 -- Indici per le tabelle scaricate
@@ -635,7 +616,8 @@ ALTER TABLE `BEVANDA`
 -- Indici per le tabelle `BONUS`
 --
 ALTER TABLE `BONUS`
-  ADD PRIMARY KEY (`codiceBonus`);
+  ADD PRIMARY KEY (`codiceBonus`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indici per le tabelle `COMPOSIZIONE`
@@ -676,20 +658,12 @@ ALTER TABLE `PIZZA`
   ADD PRIMARY KEY (`nome`);
 
 --
--- Indici per le tabelle `POSSESSO_BONUS`
---
-ALTER TABLE `POSSESSO_BONUS`
-  ADD PRIMARY KEY (`codiceBonus`,`email`,`username`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `username_2` (`username`,`email`);
-
---
 -- Indici per le tabelle `PRENOTAZIONE`
 --
 ALTER TABLE `PRENOTAZIONE`
   ADD PRIMARY KEY (`dataOra`,`numero`),
-  ADD KEY `numero` (`numero`);
+  ADD KEY `numero` (`numero`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indici per le tabelle `TAVOLO`
@@ -701,7 +675,7 @@ ALTER TABLE `TAVOLO`
 -- Indici per le tabelle `UTENTE`
 --
 ALTER TABLE `UTENTE`
-  ADD PRIMARY KEY (`username`,`email`),
+  ADD PRIMARY KEY (`email`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `username` (`username`);
 
@@ -739,6 +713,12 @@ ALTER TABLE `ACQUISTO`
   ADD CONSTRAINT `ACQUISTO_ibfk_2` FOREIGN KEY (`nome`) REFERENCES `ELEMENTO_LISTINO` (`nome`);
 
 --
+-- limiti per la tabella 'BONUS'
+--
+ALTER TABLE `BONUS`
+  ADD CONSTRAINT `BONUS_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+--
 -- Limiti per la tabella `BEVANDA`
 --
 ALTER TABLE `BEVANDA`
@@ -761,7 +741,7 @@ ALTER TABLE `DOLCE`
 -- Limiti per la tabella `ORDINAZIONE`
 --
 ALTER TABLE `ORDINAZIONE`
-  ADD CONSTRAINT `ORDINAZIONE_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`);
+  ADD CONSTRAINT `ORDINAZIONE_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `PIZZA`
@@ -770,17 +750,11 @@ ALTER TABLE `PIZZA`
   ADD CONSTRAINT `PIZZA_ibfk_1` FOREIGN KEY (`nome`) REFERENCES `ELEMENTO_LISTINO` (`nome`);
 
 --
--- Limiti per la tabella `POSSESSO_BONUS`
---
-ALTER TABLE `POSSESSO_BONUS`
-  ADD CONSTRAINT `POSSESSO_BONUS_ibfk_1` FOREIGN KEY (`username`,`email`) REFERENCES `UTENTE` (`username`, `email`),
-  ADD CONSTRAINT `POSSESSO_BONUS_ibfk_2` FOREIGN KEY (`codiceBonus`) REFERENCES `BONUS` (`codiceBonus`);
-
---
 -- Limiti per la tabella `PRENOTAZIONE`
 --
 ALTER TABLE `PRENOTAZIONE`
-  ADD CONSTRAINT `PRENOTAZIONE_ibfk_1` FOREIGN KEY (`numero`) REFERENCES `TAVOLO` (`numero`);
+  ADD CONSTRAINT `PRENOTAZIONE_ibfk_1` FOREIGN KEY (`numero`) REFERENCES `TAVOLO` (`numero`),
+  ADD CONSTRAINT `PRENOTAZIONE_ibfk_2` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
