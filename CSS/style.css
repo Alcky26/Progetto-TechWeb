@@ -805,17 +805,28 @@ dt.allergene-14 {background-color: #F7DF65;}
 /*-------fine prenotazione tavolo------------*/
 
 /*-------inizio ordina online------------*/
+.nonVisibile{
+  display: none;
+}
+
+#orderPanel{justify-content: initial;}
 
 #total {
-  padding: 1rem;
 	box-shadow: 2px 2px 4px black;
 	text-align: right;
   width: 100%;
 }
 
-#total h2 {
-  float: left;
+#total h2 , #totale{
   margin: 0;
+  align-items: center;
+  padding: 1em;
+}
+
+#total h2{
+  float: left;
+  padding-right: 0;
+  padding-left: 10px;
 }
 
 .scelta {
@@ -889,25 +900,40 @@ dt.allergene-14 {background-color: #F7DF65;}
   float: left;
   display: inline;
   background: #EEEEEE;
+  margin-top: 95px;
+  height: 34em;
+  overflow: auto;
+}
+
+#contenutiNonVisibili{
+  padding: 0;
+  position: relative;
 }
 
 .item_add {
   background-image: url(../images/add_icon.png);
-  background-size: contain;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center;
   text-indent: -999rem;
 }
 
+.subcontainer button {
+  margin: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  margin: 1em;
+}
+
 .remove-product {
   background-image: url(../images/delete_icon.png);
-  background-size: contain;
+  background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: top center;
   text-indent: -999rem;
 }
 
-.product {
+.product, .headerP {
   width: 100%;
   float: left;
   margin-bottom: 20px;
@@ -915,45 +941,64 @@ dt.allergene-14 {background-color: #F7DF65;}
   border-bottom: 1px solid #a73131;
 }
 
-
-
-.productName {
+.productName, .productNameP {
   float: left;
-  width: 35%;
+  width: 100%;
   font-weight: bold;
+  margin-bottom: 10px;
 }
+
+.productNameP{width: 25%}
 
 .productPrice{
   float: left;
-  width: 15%;
+  width: 25%;
 }
 
-.productLinePrice {
+.productLinePrice, .productPriceP {
   float: right;
-  width: 15%;
+  width: 25%;
   text-align: center;
-  margin-right: 10px;
 }
 
 .productRemoval {
   float: left;
-  width: 15%;
+  width: 25%;
   text-align: center;
+
+}
+
+.productRemoval button {
+  margin: 0;
+  padding: 0 10px;
   cursor: pointer;
 }
 
-.productQuantity {
+.productQuantity, .productQuantityP {
   float: left;
   width: 15%;
   text-align: center;
+
 }
 
 .productQuantity input {
   float: left;
   width: 40px;
+  margin: 0;
+}
+
+.segno, .segnoP {
+  float: left;
+  width: 10%;
 }
 
 /*-------fine ordina online------------*/
+
+/*-------inizio pagamento------------*/
+
+
+
+/*-------fine pagamento------------*/
 
 /*----------pagina login----------*/
 

@@ -26,9 +26,9 @@ function getCurrentDate(element, asString) {
         if (asString) {
             return element.textContent = weekdays[date.getDay()] + ', ' + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
         }
-        return element.value = date.toISOString().substr(0, 10);
+        return element.textContent = date.getFullYear + date.getMonth + date.getDate;
     }
-    return date;
+    return date.toLocaleDateString();
 }
 
 
@@ -129,6 +129,7 @@ function generateCalendar() {
 
     changeHeader(date);
     getCurrentDate(document.getElementById("currentDate"), true);
+    document.getElementById("dataS").value = getCurrentDate();
 
 	activeBtn();
   changeActive();

@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mmasetto";
-    private const PASSWORD = "iyuyiSohS5oochu3";
-    private const DATABASE_NAME = "mmasetto";
+    private const USERNAME = "zzheng";
+    private const PASSWORD = "eigh1yiePut0Haij";
+    private const DATABASE_NAME = "zzheng";
 
     private $connection;
 
@@ -197,6 +197,24 @@ class DBAccess {
     public function deleteAccount($email) {
         $query = "DELETE FROM UTENTE WHERE email = '$email'";
         return mysqli_query($this->connection, $query);
+    }
+
+    public insertPrenotazioni ($nPersone, $dataS, $ora,$email,$username){
+      $dataora = $dataS + ' ' +  $ora;
+      $ntavolo = 1;
+      $tavoliDisp = "SELECT numero FROM TAVOLO where numero not in (
+        SELECT numero FROM TAVOLO inner join prenotazione on tavolo.numero =prenotazione.numero
+        where TIMEDIFF($dataora,dataOra)='04:00:00')";
+
+      $query = "INSERT INTO PRENOTAZIONE ('persone','dataOra','numero','email','username')
+                VALUES ('$nPersone',"$dataora","$tavoliDisp","$email","$username")";
+      $risultato = mysqli_query($this->connection, $query) or die (mysqli_error($this->connection));
+      if(mysqli_affected_rows($this->connection) > 0) {
+        return true;
+      } else {
+        return false;
+      }
+      return mysqli_query($this->connection, $query);
     }
 }
 

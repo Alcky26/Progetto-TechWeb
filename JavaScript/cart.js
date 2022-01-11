@@ -11,8 +11,10 @@ function recalculateCart()
   function calcFunction(prodotto) {
 	subtotal += parseFloat(prodotto.querySelector(".productLinePrice").textContent);
 	}
-  var total = document.getElementById("total");
+  var total = document.getElementById("totale");
   total.textContent = subtotal+"€";
+
+  document.getElementById("inpFinalTotal").value = subtotal;
 }
 
 
@@ -22,6 +24,7 @@ function updateQuantity(quantityInput)
 {
   /* calcola prezzo inline */
   var productRow = quantityInput.parentNode.parentNode;
+  var productName = productRow.querySelector(".productName").textContent;
   var price = parseFloat(productRow.querySelector(".productPrice").textContent);
   var quantity = parseFloat(quantityInput.value);
   var linePrice = price * quantity;
@@ -29,28 +32,36 @@ function updateQuantity(quantityInput)
   /* Update line price display and recalc cart totals */
   var productLinePr = productRow.querySelector(".productLinePrice");
   productLinePr.innerHTML = linePrice+"€";
-      recalculateCart();
+
+  var fieldset = document.getElementById(productName);
+  fieldset.querySelector(".quantitaInput").setAttribute("value", quantity);
+  fieldset.querySelector(".totaleInp").setAttribute("value", linePrice);
+  recalculateCart();
 }
 
 
-/* togli elemtto */
+/* togli elemento */
 function removeItem(removeButton)
 {
   var productRow = removeButton.parentNode.parentNode;
-    productRow.remove();
-    recalculateCart();
+  var productName = productRow.querySelector(".productName").textContent;
+  var fieldset = document.getElementById(productName);
+  fieldset.remove();
+  productRow.remove();
+  recalculateCart();
 }
 
 /* aggiungi elemento */
 function addItem(itemInput)
 {
+  /* leggi Informazioni del prodotto */
 	var productRow = itemInput.parentNode;
 	var price = productRow.querySelector(".itemPrice").textContent;
 	var item = productRow.querySelector(".itemName").textContent;
 
 	var prodotti = document.getElementsByClassName("product");
 	var presente = false;
-
+  /* controlla se il prodotto e' gia presente nel carrello/riepilogo, se presente allora incrementa la quantita */
   if (prodotti){
   	for(let i = 0; i < prodotti.length; i++){
   		if(prodotti[i].querySelector(".productName").textContent == item){
@@ -63,6 +74,7 @@ function addItem(itemInput)
   }
 
 	if(!presente){
+    /* aggiungi prodotto al carrrello/riepilogo */
 		var product = document.createElement("div");
 		product.className="product";
 
@@ -97,13 +109,47 @@ function addItem(itemInput)
 		productLinePrice.className = "productLinePrice";
 		productLinePrice.textContent = price;
 
+    var per = document.createElement("div");
+    per.textContent = "  X  ";
+    per.className = "segno";
+
 		product.appendChild(productName);
 		product.appendChild(productPrice);
+    product.appendChild(per);
 		product.appendChild(productQuantity);
 		product.appendChild(productRemoval);
 		product.appendChild(productLinePrice);
 
 		document.getElementById("riepilogo").appendChild(product);
+
+    /* creazione form nascosto con Informazioni del prodotto */
+    var fieldset = document.createElement("fieldset");
+    fieldset.id = item;
+    fieldset.className = "nonVisibile";
+
+    var inpName = document.createElement("input");
+    inpName.type = "text";
+    inpName.name = "nomePr[]";
+    inpName.setAttribute("value", item);
+
+    var inpQuantity = document.createElement("input");
+    inpQuantity.type = "number";
+    inpQuantity.name = "quantitaPr[]";
+    inpQuantity.className = "quantitaInput";
+    inpQuantity.setAttribute("value", "1");
+
+    var inpTotal = document.createElement("input");
+    inpTotal.type = "text";
+    inpTotal.name = "totalPr[]";
+    inpTotal.className = "totaleInp";
+    inpTotal.setAttribute("value",price);
+
+    fieldset.appendChild(inpName);
+    fieldset.appendChild(inpQuantity);
+    fieldset.appendChild(inpTotal);
+
+    document.getElementById("contenutiNonVisibili").appendChild(fieldset);
+
 		recalculateCart();
 	}
 }
