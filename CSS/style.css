@@ -8,7 +8,7 @@
   --yellow: #F5EF42;
   --white: #FFFFFF;
   --gray: #B5AB9E;
-  --font: 'Poppins', sans-serif;
+  --font: 'Poppins', sans-serif, 'Arial', sans-serif;
   --link_color: #1C2833;
   --link_visited: #360000;
   font-size: 100%;
@@ -35,31 +35,30 @@
 
 h2, h3, h3, h5 {
   font-weight: bold;
-  line-height: 1;
 }
 
 h2 {
   font-size: 1.5rem;
-  margin: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 h3 {
   font-size: 1.25rem;
-  margin: 1.25rem;
+  margin: 1.25rem 0;
 }
 
 h4 {
   font-size: 1.125rem;
-  margin: 1.125rem;
+  margin: 1.125rem 0;
 }
 
 h5 {
   font-size: 1rem;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 p, ul, ol, dl {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 fieldset, legend {
@@ -71,18 +70,12 @@ fieldset > legend {
 }
 
 fieldset > legend * {
-  margin-left: 0;
-  margin-right: 0;
   text-align: center;
-}
-
-form {
-  padding: 16px;
 }
 
 form .submit {
   width: 80%;
-  margin: 1rem 10%;
+  margin: 1rem auto;
 }
 
 label, input, select, button {
@@ -91,20 +84,52 @@ label, input, select, button {
   font-weight: 400;
 }
 
-input[type = "text"], input[type = "password"], input[type = "email"], input[type = "datetime"] {
+label:nth-child(1) {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+label + label {
+  display: block;
+  margin-top: 0;
+}
+
+select {
+  display: inline-block;
+  margin: 1rem 1rem 1rem 0;
+}
+
+input[type = "checkbox"], input[type = "checkbox"] + label {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+input[type = "text"], input[type = "password"], input[type = "email"], input[type = "date"] {
   display: block;
   width: 100%;
   padding: 0.5rem;
   border-width: 1px;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.15);
-  transition: background-color .3s;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color .25s;
 }
 
-input[type = "text"]:focus, input[type = "email"]:focus, input[type = "password"]:focus, input[type = "datetime"]:focus {
-  background-color: rgba(0, 0, 0, 0.07);
+input[type = "text"]:focus, input[type = "email"]:focus, input[type = "password"]:focus, input[type = "date"]:focus {
+  background-color: rgba(0, 0, 0, 0.01);
   outline: 2px solid var(--orange);
   outline-offset: 5px;
+}
+
+a, button, input[type = "reset"], input[type = "submit"] {
+  cursor: pointer;
+}
+
+button, input[type = "reset"], input[type = "submit"] {
+  padding: 1em;
+}
+
+input[disabled], input:disabled, button[disabled], button:disabled {
+  cursor: default;
 }
 
 header a, main a, footer a {
@@ -120,6 +145,7 @@ main {
 }
 
 #footer {
+  position: sticky;
   padding: 1rem;
   background-color: #FFF68F;
   color: var(--link_color);
@@ -142,15 +168,20 @@ main {
   width: 1px;
 }
 
-.hide-text {
-  text-indent: -9999px;
-}
-
 .mobile-only {
   display: none;
 }
 
+button.link {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--link_color);
+  text-decoration: underline;
+}
+
 .text-button {
+  display: block;
   padding: 1.25em;
   border-radius: 1.75em;
   background-color: var(--brown);
@@ -170,23 +201,19 @@ main {
 
 input.text-button, button.text-button {
   width: 100%;
-
 }
 
-input[disabled].text-button, input:disabled.text-button, button[disabled].text-button, input:disabled.text-button {
+input[disabled].text-button, input:disabled.text-button, button[disabled].text-button, button:disabled.text-button {
   background-color: var(--gray);
-  cursor: default;
 }
 
 .button {
   padding: 0;
   background-color: inherit;
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-}
-
-.text-button:hover, .button:hover {
-  cursor: pointer;
+  text-indent: -9999px;
 }
 
 .popup {
@@ -197,8 +224,6 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   z-index: 4;
   width: 100vw;
   height: 100vh;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -221,28 +246,34 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 
 .alert-box {
   width: 100%;
+  padding: 1rem;
   border-width: 1px;
   border-radius: 10px;
-  color: white;
+  text-align: center;
 }
 
 .success {
-  background-color: #4BB543;
+  background-color: rgba(75, 181, 67, .2);
   border-color: #2B9523;
+  color: #2B9523;
 }
 
 .danger {
-  background-color: #F32013;
+  background-color: rgba(243, 32, 19, .2);
   border-color: #D30000;
+  color: #D30000;
 }
 
 .menu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   list-style: none;
   padding: 0;
 }
 
 .menu li {
-  padding: 20px;
+  padding: 1em;
   border-radius: 15px;
   white-space: nowrap;
   overflow: hidden;
@@ -266,10 +297,10 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 }
 
 .list-image.menu li {
+  padding: 1.5em 1em;
   background-repeat: no-repeat;
   background-position: left center;
   background-origin: content-box;
-  padding: 20px;
 }
 
 .list-image.menu li::before {
@@ -279,6 +310,11 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 
 .background {
   background-size: cover;
+}
+
+.canceled {
+  text-decoration: line-through;
+  color: #A3A3A3;
 }
 
 .allergene {
@@ -411,7 +447,6 @@ dt.allergene-14 {background-color: #F7DF65;}
   height: 59px;
   margin: 8px 16px;
   background-image: url("../images/hamburger_icon.png");
-  background-position: center;
 }
 
 #nav {
@@ -450,6 +485,7 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .subtitle-panel, .subtitle-fixed-panel {
   display: flex;
+  position: absolute;
   width: 25%;
   top: 0;
   bottom: 0;
@@ -468,28 +504,32 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 .subtitle-panel {
-  position: absolute;
   justify-content: center;
+}
+
+.subtitle-fixed-panel {
+  position: fixed;
+  padding-top: 160px;
+  justify-content: space-between;
+}
+
+.subtitle-fixed-panel * {
+  width: 100%;
 }
 
 .first.container {
   padding-top: 87px;
 }
 
-.subtitle-fixed-panel {
-	position: fixed;
-  justify-content: space-evenly;
-}
-
 .subcontainers {
   position: relative;
   left: 25%;
   width: 75%;
-  padding: 16px;
+  padding: 1rem;
 }
 
 .first.container > .subcontainers {
-  padding-top: calc(3rem + 17px);
+  padding-top: calc(3rem + 1px + 1rem);
 }
 
 .next-container {
@@ -499,16 +539,21 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 .subcontainer, .subsubcontainer, .popup-inner {
+  padding: 0 1rem;
   border-width: 1px;
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 
 .subcontainer {
-  margin-bottom: 16px;
+  margin: 1rem 0;
   background-color: var(--white);
 }
 
-.subcontainers > *:nth-last-child(1) {
+:not(.subcontainer) > .subcontainer:nth-child(1) {
+  margin-top: 0;
+}
+
+:not(.subcontainer) > .subcontainer:nth-last-child(1) {
   margin-bottom: 0;
 }
 
@@ -525,17 +570,9 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 .subsubcontainer {
+  position: relative;
+  padding-bottom: 41px;
   background-color: var(--orange);
-}
-
-/*----------pagina menù----------*/
-
-.prodotto {
-  text-align: center;
-}
-
-.prodotto > .nome, .prodotto > .descrizione {
-  margin: 0.25rem;
 }
 
 /*----------pagina index----------*/
@@ -580,107 +617,94 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 /*-------parte prenotazione tavolo------------*/
 .btn {
-    font-family: 'Open Sans';
-    font-size: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background: #fff;
-    color: #262626;
-    border-radius: 10px;
-    height: 50px;
-    font-weight: 600;
-    min-width: 100px;
-    padding: 0px 20px;
-    transition: 0.2s ease;
-    cursor: pointer;
-    outline: 0;
-    width: 324px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #262626;
+  border-radius: 10px;
+  font-weight: 600;
+  min-width: 100px;
+  transition: 0.2s ease;
+  outline: 0;
+  width: 324px;
 }
 
 .btn:hover {
-    color: #FFF;
-    background: #455AF7;
+  color: #FFF;
+  background: #455AF7;
 }
 
 .btn-small {
-    min-width: 50px;
+  min-width: 50px;
 }
 
 
 .btn-day {
-    font-family: 'Open Sans';
-    font-size: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background: rgba(0, 0, 0, 0);
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-
-    outline: 0;
-    border-radius: 10px;
-    transition: 0.4s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  border-radius: 10px;
+  transition: 0.4s all;
 }
 
 .btn-day.active {
-    color: #FFF;
-    font-weight: 600;
-    z-index: 1;
+  color: #FFF;
+  font-weight: 600;
+  z-index: 1;
 }
 
 #today {
 	position: absolute;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: blue;
-    border-radius: 10px;
+  content: '';
+  width: 40px;
+  height: 40px;
+  background: blue;
 	color: #FFF;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .btn-day.active::before {
-    position: absolute;
-    content: '';
-    width: 40px;
-    height: 40px;
-    background: #455AF7;
-    border-radius: 10px;
-    z-index: -1;
+  position: absolute;
+  content: '';
+  width: 40px;
+  height: 40px;
+  background: #455AF7;
+  border-radius: 10px;
+  z-index: -1;
 }
 
 .text-field {
-    padding: 10px;
-    height: 50px;
-    width: 200px;
-    border: 1px solid #f0f0f0;
-    border-radius: 10px;
-    margin: 0px 10px 0 0;
+  padding: 10px;
+  height: 50px;
+  width: 200px;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  margin: 0px 10px 0 0;
 }
 
 /* Calendar */
 
 .calendario  {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    background: #ecf1f8;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  background: #ecf1f8;
 }
 
 .calendar-assets {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
 }
 
 #currentDate{
@@ -690,74 +714,67 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 .field {
-    display: flex;
-    width: auto;
-    flex-direction: column;
-    justify-content: center;
-    margin: 20px 0;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .field label {
-    margin: 2px;
+  margin: 2px;
 }
 
 .form-input {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
 .calendar {
-    height: 370px;
-    width: 324px;
-    border-radius: 18px;
-    background: #ffffff;
-	  padding: 10px;
-	  user-select: none;
+  height: 370px;
+  width: 324px;
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 10px;
+  user-select: none;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 18px 18px 0px 0px;
-    height: 50px;
-    width: 100%;
-    color: #262626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 18px 18px 0px 0px;
+  height: 50px;
+  width: 100%;
+  color: #262626;
 }
 
 .month {
-    font-size: 0.7em;
+  font-size: 0.7em;
 }
 
 .icon {
-    padding: 10px;
-    font-size: 1em;
-    margin: 0 0 0 5px;
-    background: #ffffff;
-    color: #455af7;
-    border: none;
-    cursor: pointer;
-    outline: 0;
-}
-
-.icon:hover {
-    cursor: pointer;
+  padding: 10px;
+  font-size: 1em;
+  margin: 0 0 0 5px;
+  background: #ffffff;
+  color: #455af7;
+  border: none;
+  outline: 0;
 }
 
 #calendar {
-    width: 100%;
+  width: 100%;
 }
 
 .weekends th {
-    font-size: 1em;
-    color: red;
-    font-weight: 400;
-    width: 40px;
-    margin: 10px 0;
+  font-size: 1em;
+  color: red;
+  font-weight: 400;
+  width: 40px;
+  margin: 10px 0;
 }
 
 #calendar tr {
@@ -784,22 +801,11 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 #titoloPrenotaT {
+  position: relative;
+  left: -1em;
+  width: calc(100% + 2em);
 	background-color: #FFAE42;
-	border-radius: 16px;
-}
-
-/*
-#NB p {
-	font-size: 12px;
-	margin: 0;
-}
-*/
-#prenotazione input[type=submit] {
-	float: right;
-}
-
-#prenotazione input[type=reset] {
-	position: relative;
+	border-radius: 1rem;
 }
 
 /*-------fine prenotazione tavolo------------*/
@@ -808,8 +814,6 @@ dt.allergene-14 {background-color: #F7DF65;}
 .nonVisibile{
   display: none;
 }
-
-#orderPanel{justify-content: initial;}
 
 #total {
 	box-shadow: 2px 2px 4px black;
@@ -897,40 +901,25 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 #riepilogo {
   width: 100%;
-  float: left;
+  height: 100%;
   display: inline;
   background: #EEEEEE;
-  margin-top: 95px;
-  height: 34em;
-  overflow: auto;
-}
-
-#contenutiNonVisibili{
-  padding: 0;
-  position: relative;
+  overflow-y: auto;
 }
 
 .item_add {
+  position: absolute;
+  left: 16px;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
   background-image: url(../images/add_icon.png);
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-indent: -999rem;
-}
-
-.subcontainer button {
-  margin: 0;
-  padding: 0 10px;
-  cursor: pointer;
-  margin: 1em;
 }
 
 .remove-product {
+  width: 20px;
+  height: 20px;
   background-image: url(../images/delete_icon.png);
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: top center;
-  text-indent: -999rem;
 }
 
 .product, .headerP {
@@ -941,8 +930,11 @@ dt.allergene-14 {background-color: #F7DF65;}
   border-bottom: 1px solid #a73131;
 }
 
+.product > * {
+  display: inline-block;
+}
+
 .productName, .productNameP {
-  float: left;
   width: 100%;
   font-weight: bold;
   margin-bottom: 10px;
@@ -951,18 +943,15 @@ dt.allergene-14 {background-color: #F7DF65;}
 .productNameP{width: 25%}
 
 .productPrice{
-  float: left;
   width: 25%;
 }
 
 .productLinePrice, .productPriceP {
-  float: right;
   width: 25%;
   text-align: center;
 }
 
 .productRemoval {
-  float: left;
   width: 25%;
   text-align: center;
 
@@ -970,25 +959,20 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .productRemoval button {
   margin: 0;
-  padding: 0 10px;
-  cursor: pointer;
 }
 
 .productQuantity, .productQuantityP {
-  float: left;
   width: 15%;
   text-align: center;
 
 }
 
 .productQuantity input {
-  float: left;
   width: 40px;
   margin: 0;
 }
 
 .segno, .segnoP {
-  float: left;
   width: 10%;
 }
 
@@ -1025,8 +1009,13 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 /*----------pagina area utente----------*/
 
-#user-menu {
-  width: 100%;
+#email-div, #username-div {
+  display: inline-block;
+  width: calc(50% - 0.5rem);
+}
+
+#username-div {
+  float: right;
 }
 
 #info {
@@ -1063,4 +1052,12 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 #info-div, #bonus-div, #prenotazioni-div, #acquisti-div {
   margin-bottom: 0;
+}
+
+.show-code {
+  float: right;
+}
+
+.qr-code {
+  margin: 0 calc(50% - 75px) 1rem calc(50% - 75px);
 }

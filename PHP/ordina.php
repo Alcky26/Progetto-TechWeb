@@ -7,8 +7,8 @@
   //$replace = "<riepilogo />" => $string;
   $url = "../HTML/pagamento.html";
 
-  //require_once "UtilityFunctions.php";
-  //use UtilityFunctions\UtilityFunctions;
+  require_once "UtilityFunctions.php";
+  use UtilityFunctions\UtilityFunctions;
 
 
   $string = "<div id=\"riepilogo\"><h2> IL TUO ORDINE</h2>
@@ -27,6 +27,7 @@
                       </div>";
   }
   $string = $string."</div><div class=\"totaleFinale\">".$totaleFinale."</div>";
-  
-  echo str_replace("<riepilogo />", $string, $url);
+
+  echo UtilityFunctions::replacer($url, array("<riepilogo />" => $string));
+
 ?>

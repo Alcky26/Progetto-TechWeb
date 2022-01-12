@@ -2,6 +2,26 @@
   font-size: 80%;
 }
 
+.menu {
+  flex-direction: row;
+}
+
+.menu li {
+  padding: 0.5em;
+  text-align: center;
+}
+
+.list-image.menu li {
+  background-position: top;
+}
+
+.list-image.menu li::before {
+  display: block;
+  width: 40px;
+  height: 50px;
+  margin: auto;
+}
+
 #nav-button {
   width: 44px;
   height: 44px;
@@ -15,14 +35,28 @@
   padding-top: calc(73px + 3rem);
 }
 
-.subtitle-panel {
+.subtitle-panel, .subtitle-fixed-panel {
   position: static;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   border-right-width: 0;
   border-bottom-width: 5px;
+}
+
+.subtitle-fixed-panel {
+  padding-top: 0;
+}
+
+.subtitle-fixed-panel > h2 {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.subtitle-fixed-panel li {
+  display: inline;
 }
 
 .subcontainers {

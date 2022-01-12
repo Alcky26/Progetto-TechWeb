@@ -49,7 +49,7 @@
   			Ti trovi in: <span class="path" lang="en"><a href="index.html">Home</a> &gt; Area utente</span>
   		</div>
       <div class="first container">
-        <div class="subtitle-fixed-panel flex">
+        <div class="subtitle-fixed-panel">
           <h2>Area personale</h2>
           <ul id="user-menu" class="list-image menu">
             <li id="info" class="checked">Informazioni personali</li>
@@ -62,32 +62,55 @@
           <div id="info-div">
             <info />
           </div>
-        <div id="bonus-div" class="subcontainer">
-          <bonus />
-        </div>
-        <div id="prenotazioni-div" class="subcontainer">
-          <form>
-            <fieldset>
-              <legend>Filtra</legend>
-              <label for="periodo">Periodo:</label>
-              <select id="periodo" name="periodo">
-                <option value="tutto">Tutto</option>
-                <option value="mese">Ultimo mese</option>
-                <option value="due-settimane">Ultime 2 settimane</option>
-                <option value="settimana">Una settimana fa</option>
-              </select>
-              <label for="persone">Persone:</label>
-              <select id="persone" name="persone">
-                <option value="quattro">Meno di 4</option>
-                <option value="quattrotto">4 - 8</option>
-                <option value="otto">Più di 8</option>
-              </select>
-            </fieldset>
-          </form>
-          <prenotazioni />
-        </div>
-        <div id="acquisti-div" class="subcontainer">
-          <acquisti />
+          <div id="bonus-div">
+            <form class="subcontainer">
+              <fieldset>
+                <label for="scadenza">Data scadenza:</label
+                ><select id="scadenza" name="scadenza">
+                  <option value="tutto">Tutto</option>
+                  <option value="due-settimane">Entro 2 settimane</option>
+                  <option value="settimana">Entro 1 settimana</option>
+                  <option value="scaduto">Scaduto</option>
+                </select
+                ><label for="valore">Valore:</label
+                ><select id="valore" name="valore">
+                  <option value="tutto">Tutto</option>
+                  <option value="nove">Meno di 10</option>
+                  <option value="venti">10 - 20</option>
+                  <option value="ventuno">Più di 20</option>
+                </select>
+              </fieldset>
+            </form>
+            <div class="subcontainer">
+              <bonus />
+            </div>
+          </div>
+          <div id="prenotazioni-div">
+            <form class="subcontainer">
+              <fieldset>
+                <label for="periodo">Periodo:</label
+                ><select id="periodo" name="periodo">
+                  <option value="tutto">Tutto</option>
+                  <option value="mese">Ultimo mese</option>
+                  <option value="due-settimane">Ultime 2 settimane</option>
+                  <option value="settimana">Una settimana fa</option>
+                </select
+                ><label for="persone">Persone:</label
+                ><select id="persone" name="persone">
+                  <option value="tutto">Tutto</option>
+                  <option value="tre">Meno di 4</option>
+                  <option value="quattro">4 - 8</option>
+                  <option value="nove">Più di 8</option>
+                </select>
+              </fieldset>
+            </form>
+            <div class="subcontainer">
+              <prenotazioni />
+            </div>
+          </div>
+          <div id="acquisti-div">
+            <acquisti />
+          </div>
         </div>
       </div>
     </main>

@@ -1,23 +1,36 @@
-var email = $("#email").val();
-var username = $("#username").val();
-var pwd = $("#password").val();
-var birthday = $("#birthday").val();
+var info = {
+  "email": "",
+  "username": "",
+  "pwd": "",
+  "birthday": ""
+};
+var code;
 
-$(document).ready(function(){
-    $("#show-pwd").prop('checked', false);
+$(document).ready(function() {
+    info["email"] = $("#email").val();
+    info["username"] = $("#username").val();
+    info["pwd"] = $("#password").val();
+    info["birthday"] = $("#birthday").val();
     $("#set-info").text("Modifica");
-    $('#email').prop('disabled', true);
-    $('#pwd').prop('disabled', true);
-    $('#info-form input[type="submit"]').prop('disabled', true);
+    $("#email").prop("disabled", true);
+    $("#pwd").prop("disabled", true);
+    $("#info-form .alert-box").css("display", "none");
+    $("#info-form input[type='submit']").prop("disabled", true);
     $("#bonus-div").css("display", "none");
     $("#prenotazioni-div").css("display", "none");
     $("#acquisti-div").css("display", "none");
+    $(".show-code").closest(".list-item").find(".qr-code").css("display", "none");
 });
 
-$(document).ready(function(){
-    $("#info").click(function(){
-        $("#user-menu").find(".checked").removeClass("checked");
-        $("#info").addClass("checked");
+$(document).ready(function() {
+    $("#user-menu > li").click(function(event) {
+        $("#user-menu").children(".checked").removeClass("checked");
+        $(event.target).addClass("checked");
+    });
+});
+
+$(document).ready(function() {
+    $("#info").click(function() {
         $("#info-div").css("display", "block");
         $("#bonus-div").css("display", "none");
         $("#prenotazioni-div").css("display", "none");
@@ -25,10 +38,8 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $("#bonus").click(function(){
-        $("#user-menu").find(".checked").removeClass("checked");
-        $("#bonus").addClass("checked");
+$(document).ready(function() {
+    $("#bonus").click(function() {
         $("#info-div").css("display", "none");
         $("#bonus-div").css("display", "block");
         $("#prenotazioni-div").css("display", "none");
@@ -36,10 +47,8 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $("#prenotazioni").click(function(){
-        $("#user-menu").find(".checked").removeClass("checked");
-        $("#prenotazioni").addClass("checked");
+$(document).ready(function() {
+    $("#prenotazioni").click(function() {
         $("#info-div").css("display", "none");
         $("#bonus-div").css("display", "none");
         $("#prenotazioni-div").css("display", "block");
@@ -47,10 +56,8 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $("#acquisti").click(function(){
-        $("#user-menu").find(".checked").removeClass("checked");
-        $("#acquisti").addClass("checked");
+$(document).ready(function() {
+    $("#acquisti").click(function() {
         $("#info-div").css("display", "none");
         $("#bonus-div").css("display", "none");
         $("#prenotazioni-div").css("display", "none");
@@ -59,64 +66,49 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#set-info").click(function(){
+    $("#set-info").click(function() {
         if ($("#set-info").text() === "Modifica") {
               $("#set-info").text("Annulla");
               $("#set-info").css("background-color", "red");
-              $("#email").prop("disabled", false);
-              $("#username").prop("disabled", false);
-              $("#pwd").prop("disabled", false);
-              $("#birthday").prop("disabled", false);
-              $("#info-form input[type='submit']").prop("disabled", false);
+              $("#email, #username, #pwd, #birthday, #info-form input[type='submit']").each(function(index) {
+                  $(this).prop("disabled", false);
+              });
         } else {
               $("#set-info").text("Modifica");
               $("#set-info").css("background-color", "#80471C");
-              $("#email").prop("value", email);
-              $('#email').prop("disabled", true);
-              $("#username").prop("value", username);
-              $("#username").prop("disabled", true);
-              $("#pwd").prop("value", pwd);
-              $("#pwd").prop("disabled", true);
-              $("#birthday").prop("value", birthday);
-              $("#birthday").prop("disabled", true);
+              $("#email, #username, #pwd, #birthday").each(function(index) {
+                  $(this).prop("value", info[index]);
+                  $(this).prop("disabled", true);
+              });
               $("#info-form input[type='submit']").prop("disabled", true);
         }
     });
 });
 
 $(document).ready(function(){
-    $("#show-pwd").click(function(){
-        var type = $("#pwd").prop("type") === "password" ? "text" : "password";
-        $("#pwd").prop("type", type);
-    });
-});
-
-$(document).ready(function(){
-    $('#info-form').submit(function(event){
+    $('#info-form').submit(function(event) {
         event.preventDefault();
         $.post(
-        "../PHP/setUserInfo.php",
-        {
-            email: $("#email").val(),
-            username: $("#username").val(),
-            pwd: $("#pwd").val(),
-            birthday: $("#birthday").val()
-        },
-        function(response) {
-            email = $("#email").val();
-            username = $("#username").val();
-            pwd = $("#password").val();
-            birthday = $("#birthday").val();
-            var result = response;
-            $(".alert-box").html(function() {return result.success ? "<p>Modifiche effettuate.</p>" : "<p>Attenzione: non puoi modificare il giorno del compleanno più di una volta. Modifiche annullate.</p>"});
-            if (result.success) {
-                $(".alert-box").removeClass("danger");
-                $(".alert-box").addClass("success");
-            } else {
-                $(".alert-box").removeClass("success");
-                $(".alert-box").addClass("danger");
+            "../PHP/setUserInfo.php",
+            {
+                email: $("#email").val(),
+                username: $("#username").val(),
+                pwd: $("#pwd").val(),
+                birthday: $("#birthday").val()
+            },
+            function(response) {
+                info["email"] = $("#email").val();
+                info["username"] = $("#username").val();
+                info["pwd"] = $("#password").val();
+                info["birthday"] = $("#birthday").val();
+                var alert = $("#info-form .alert-box");
+                alert.html(response.success ? "Modifiche effettuate." : "<strong>Attenzione:</strong> non puoi modificare il giorno del compleanno più di una volta. Modifiche non salvate.");
+                alert.removeClass(response.success ? "danger" : "success");
+                alert.addClass(response.success ? "success" : "danger");
+                animateAlert(alert, 3000);
+                setTimeout(function() {alert.css("display", "none");}, 3000);
             }
-        });
+        );
     });
 });
 
@@ -130,4 +122,48 @@ $(document).ready(function(){
             }
         );
     });
+});
+
+function showCode(event) {
+    code = $(event.target).closest(".list-item").find(".qr-code");
+    code.css("display", code.css("display") === "none" ? "block" : "none");
+    $(event.target).text(code.css("display") === "none" ? "Mostra codice QR" : "Nascondi codice QR");
+}
+
+$(document).ready(function() {
+    var bonus = $("#bonus-div > :nth-child(2)");
+    $("#scadenza, #valore").change(function() {
+        $.get(
+            "../PHP/bonus.php",
+            {
+                scadenza: $("#scadenza").val(),
+                persone: $("#valore").val()
+            },
+            function(response) {
+                bonus.html(response);
+            }
+        );
+    });
+});
+
+$(document).ready(function(){
+    var prenotazioni = $("#prenotazioni-div > :nth-child(2)");
+    $("#periodo, #persone").change(function() {
+        $.get(
+            "../PHP/prenotazioni.php",
+            {
+                periodo: $("#periodo").val(),
+                persone: $("#persone").val()
+            },
+            function(response) {
+                prenotazioni.html(response);
+                $(".show-code").closest(".list-item").find(".qr-code").css("display", "none");
+                $(".show-code").click(function(event) {showCode(event)});
+            }
+        );
+    });
+});
+
+$(document).ready(function(){
+    $(".show-code").click(function(event) {showCode(event)});
 });

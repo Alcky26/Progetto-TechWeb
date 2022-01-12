@@ -48,23 +48,16 @@
   		<div id="breadcrumb">
   			Ti trovi in: <span class="path"><a href="../HTML/index.html">Home</a> &gt; Ordina Online</span>
   		</div>
-      <div id="orderPanel" class="subtitle-fixed-panel">
-
-        <div id="riepilogo">
-          <h2>IL TUO ORDINE</h2>
-
-        </div>
-        <div id="total">
-          <h2>TOTALE:       <span id="totale">0€</span></h2>
-
-        </div>
-        <form id="contenutiNonVisibili" action="../PHP/ordina.php" method="POST">
-          <input type="text" name="totaleFinale" id="inpFinalTotal">
-          <input class="text-button" type="submit" value="PROCEDI AL PAGAMENTO">
-        </form>
-
-      </div>
 		  <div id="ordina" class="first container">
+        <div class="subtitle-fixed-panel">
+          <h2>IL TUO ORDINE</h2>
+          <div id="riepilogo"></div>
+          <form id="contenutiNonVisibili" action="../PHP/ordina.php" method="POST">
+            <label for="inpFinalTotal">Totale:</label>
+            <input type="text" name="totaleFinale" id="inpFinalTotal" readonly>
+            <input class="text-button" type="submit" value="PROCEDI AL PAGAMENTO">
+          </form>
+        </div>
 			  <div class="subcontainers">
 				  <div class="subcontainer">
 					  <div class="scelta">
@@ -88,7 +81,7 @@
     							<ul>
     							  <li id="classicheFlip">Pizze classiche</li>
     								<div id="classiche" class="flipP">
-                      
+
   									  <listaClassiche />
     								</div>
     							  <li id="specialiFlip">Pizze speciali</li>

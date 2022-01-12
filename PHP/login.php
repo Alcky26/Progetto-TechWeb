@@ -5,7 +5,7 @@ use UtilityFunctions\UtilityFunctions;
 
 session_start();
 
-$messaggio = isset($_GET["msg"]) ? "<span id=\"datiNonCorretti\">" . $_GET["msg"] . "</span>" : "";
+$messaggio = isset($_GET["msg"]) ? "<p class=\"alert-box danger\" id=\"datiNonCorretti\">" . $_GET["msg"] . "</p>" : "";
 
 $nuovo = array(
     "<msgErrore/>" => $messaggio

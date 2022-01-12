@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "zzheng";
-    private const PASSWORD = "eigh1yiePut0Haij";
-    private const DATABASE_NAME = "zzheng";
+    private const USERNAME = "mmasetto";
+    private const PASSWORD = "iyuyiSohS5oochu3";
+    private const DATABASE_NAME = "mmasetto";
 
     private $connection;
 
@@ -168,10 +168,18 @@ class DBAccess {
         return $this->execQuery($query);
     }
 
-    public function getPrenotazioni($account) {
-        $query = "SELECT dataOra, persone
+    public function getBonus($email, $dataScadenza, $minValore, $maxValore) {
+        $query = "SELECT dataScadenza, valore, dataRiscatto
+                  FROM BONUS
+                  WHERE email = '$email' AND dataScadenza <= '$dataScadenza' AND valore >= '$minValore' AND valore <= '$maxValore'
+                  ORDER BY dataScadenza DESC";
+        return $this->execQuery($query);
+    }
+
+    public function getPrenotazioni($email, $periodo, $minPersone, $maxPersone) {
+        $query = "SELECT dataOra, numero, persone
                   FROM PRENOTAZIONE
-                  WHERE email = '$account'
+                  WHERE email = '$email' AND dataOra >= '$periodo' AND persone >= '$minPersone' AND persone <= '$maxPersone'
                   ORDER BY dataOra DESC";
         return $this->execQuery($query);
     }
@@ -189,9 +197,15 @@ class DBAccess {
         $_new_pwd = mysqli_real_escape_string($this->connection, $new_pwd);
         $_new_birthday = mysqli_real_escape_string($this->connection, $new_birthday);
         $query = "UPDATE UTENTE
-                  SET email = '$_new_email', username = '$_new_username', password = '$_new_pwd', birthday = '$_new_birthday', birthdayModified = 1
-                  WHERE email = '$email' AND (birthday = '$new_birthday' OR birthdayModified = 0)";
-        return mysqli_query($this->connection, $query);
+                  SET email = '$_new_email', username = '$_new_username', password = '$_new_pwd'
+                  WHERE email = '$email'";
+        if (mysqli_query($this->connection, $query)) {
+            $query = "UPDATE UTENTE
+                      SET birthday = '$_new_birthday', birthdayModified = 1
+                      WHERE email = '$_new_email' AND birthdayModified = 0";
+            return mysqli_query($this->connection, $query);
+        }
+        return false;
     }
 
     public function deleteAccount($email) {
@@ -199,7 +213,7 @@ class DBAccess {
         return mysqli_query($this->connection, $query);
     }
 
-    public insertPrenotazioni ($nPersone, $dataS, $ora,$email,$username){
+    public function insertPrenotazioni ($nPersone, $dataS, $ora,$email,$username){
       $dataora = $dataS + ' ' +  $ora;
       $ntavolo = 1;
       $tavoliDisp = "SELECT numero FROM TAVOLO where numero not in (
@@ -207,14 +221,13 @@ class DBAccess {
         where TIMEDIFF($dataora,dataOra)='04:00:00')";
 
       $query = "INSERT INTO PRENOTAZIONE ('persone','dataOra','numero','email','username')
-                VALUES ('$nPersone',"$dataora","$tavoliDisp","$email","$username")";
+                VALUES ('$nPersone','$dataora','$tavoliDisp','$email','$username')";
       $risultato = mysqli_query($this->connection, $query) or die (mysqli_error($this->connection));
       if(mysqli_affected_rows($this->connection) > 0) {
         return true;
       } else {
         return false;
       }
-      return mysqli_query($this->connection, $query);
     }
 }
 

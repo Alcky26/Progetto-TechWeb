@@ -1,4 +1,8 @@
 
+window.onload = function() {
+  document.getElementById("inpFinalTotal").value = "0€";
+};
+
 /* ricalcola prezzo */
 function recalculateCart()
 {
@@ -11,10 +15,8 @@ function recalculateCart()
   function calcFunction(prodotto) {
 	subtotal += parseFloat(prodotto.querySelector(".productLinePrice").textContent);
 	}
-  var total = document.getElementById("totale");
-  total.textContent = subtotal+"€";
 
-  document.getElementById("inpFinalTotal").value = subtotal;
+  document.getElementById("inpFinalTotal").value = subtotal + "€";
 }
 
 
@@ -99,7 +101,7 @@ function addItem(itemInput)
 		var productRemoval = document.createElement("div");
 		productRemoval.className = "productRemoval";
 		var removeBtn = document.createElement("button");
-		removeBtn.className = "remove-product";
+		removeBtn.className = "remove-product button";
 		removeBtn.onclick = function() {removeItem(this)};
 		var text = document.createTextNode("Remove");
 		removeBtn.appendChild(text);
