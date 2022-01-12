@@ -14,6 +14,28 @@ class UtilityFunctions {
             $HTMLPage = str_replace($key, $value, $HTMLPage);
         return $HTMLPage;
     }
-}
 
+    public static function changeAccedi() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $string = "";
+        if(isset($_SESSION["username"],$_SESSION["email"],$_SESSION["isValid"]) && $_SESSION["isValid"])
+        {
+            $string="<div id=\"hovermenu\">
+                        <li>
+                            <a href=\"../PHP/area_utente.php\">Area Utente</a>
+                            <ul>
+                                <li><a href=\"../PHP/logout.php\">Logout</a></li>
+                            </ul>
+                        </li>
+                    </div>";
+        }
+        else
+        {
+            $string="<a href=\"../HTML/login.html\">ACCEDI</a>";
+        }
+        return $string;
+    }
+}
 ?>
