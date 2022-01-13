@@ -15,12 +15,20 @@ class UtilityFunctions {
         return $HTMLPage;
     }
 
-    public static function changeAccedi() {
+    public static function loginCheck()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $string = "";
         if(isset($_SESSION["username"],$_SESSION["email"],$_SESSION["isValid"]) && $_SESSION["isValid"])
+            return true;
+        return false;
+    }
+
+    public static function changeAccedi() 
+    {
+        $string = "";
+        if(loginCheck())
         {
             $string="<div id=\"hovermenu\">
                         <ul>
