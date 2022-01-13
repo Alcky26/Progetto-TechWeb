@@ -6,6 +6,7 @@ use DB\DBAccess;
 $connessione = new DBAccess();
 $connessioneOK = $connessione->openDBConnection();
 
+session_start();
 $categories = array("", "", "", "", "", "", "", "");
 
 if ($connessioneOK) {
@@ -36,9 +37,11 @@ $replace = array("<listaClassiche />" => $categories[0],
                  "<listaBevande />" => $categories[4],
                  "<listaBirre />" => $categories[5],
                  "<listaVini />" => $categories[6],
-                 "<listaDolci />" => $categories[7]);
+                 "<listaDolci />" => $categories[7],
+                 "<a href=\"../HTML/login.html\">ACCEDI</a>" => UtilityFunctions::changeAccedi());
 
 echo UtilityFunctions::replacer($url, $replace);
+
 
 function fill($array, $listino) {
     $string = "<div class=\"subcontainer grid-subcontainer\">";

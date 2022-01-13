@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mmasetto";
-    private const PASSWORD = "iyuyiSohS5oochu3";
-    private const DATABASE_NAME = "mmasetto";
+    private const USERNAME = "mvignaga";
+    private const PASSWORD = "ohthohXie5aichah";
+    private const DATABASE_NAME = "mvignaga";
 
     private $connection;
 
@@ -33,13 +33,11 @@ class DBAccess {
     /*
         LOGIN
     */
-    public function checkLogin($email, $username, $password) {
-        $txtEmail = mysqli_real_escape_string($this->connection, $email);
+    public function checkLogin($username, $password) {
         $txtUsername = mysqli_real_escape_string($this->connection, $username);
         $sql = "SELECT *
                 FROM UTENTE
                 WHERE BINARY username = '$txtUsername' AND password = '$password'";
-
         $result = mysqli_query($this->connection, $sql);
 
         if (mysqli_num_rows($result) == 1) {
@@ -89,6 +87,46 @@ class DBAccess {
     }
     /*
         FINE REGISTRA NUOVO
+    */
+
+    /*
+        ADMINISTRATOR
+    */
+            /*
+                AGGIUNGI
+            */
+            public function addPizza($nome,$categoria, $prezzo, $descrizione)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+
+                $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    mysqli_query($this->connection, $sql2);
+                    $result=mysqli_affected_rows($this->connection);
+                    if($result == 1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+
+                //manca ingredienti
+            }
+            /*
+                FINE AGGIUNGI
+            */
+    /*
+            FINE ADMINISTRATOR
     */
 
     private function execQuery($query) {

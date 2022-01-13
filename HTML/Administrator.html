@@ -32,20 +32,20 @@
               </picture>
             </a>
           </li
-          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+          ><li><a href="../PHP/chisiamo.php">CHI SIAMO</a></li
           ><li><a href="../PHP/menu.php">MENÙ</a></li
           ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
           ><li><a href="../HTML/contatti.html">CONTATTI</a></li
-          ><li class="text-button"><a href="../HTML/LOGOUT???.html">Logout</a><!-- --------------------------------------------------------------------- -->
+          ><li class="text-button"><a href="../HTML/logout.php">Logout</a>
         </ul>
       </nav>
       <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main id="content-wrapper">
-      <div id="breadcrumb">
+      <!--<div id="breadcrumb">
   			Ti trovi in: <span class="path"><a href="Administrator.html">Home</a> &gt; Gestione Pizzeria</span>
-  		</div>
+  		</div>-->
       <div class="first container">
         <div class="subtitle-fixed-panel flex">
           <h2>Gestione Pizzeria</h2>
@@ -55,98 +55,55 @@
                 <h2 class="subtitle">Aggiungi Pizza</h2>
             </div>
             <div class="subcontainers">
-                <form id="signup-form" class="subcontainer" action="../PHP/signupHandler.php" method="post">
-                    <fieldset>
-                      <listaPizze />
-                      <label for="text" lang="ITA">Nome Pizza:</label>
-                      <input type="text" name="nomepizza" id="nomepizza" placeholder="Inserisci nome pizza:"/>
-                      <label for="number" lang="ITA">Prezzo:</label>
-                      <input type="number" name="prezzo" id="prezzo" min="0.0" placeholder="Inserisci il prezzo:"/>
-                      <label for="text" lang="ITA">Descrizione: </label>
-                      <input type="text" name="desc" id="desc" placeholder="Inserisci la descrizione:"/>
-                      <div id="post">
-                        <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
-                      </div>
-                      <!--aggiungi lista ingredienti-->
-                    </fieldset>
-                </form>
+                <div class="subcontainer">
+                    <div id="hovermenu">
+                        <li>
+                            <a href="#">Menu 1</a>
+                            <ul>
+                            <li><a href="#">Submenu 1</a></li>
+                            <li><a href="#">Submenu 1</a></li>
+                            <li><a href="#">Submenu 1</a></li>
+                            <li><a href="#">Submenu 1</a></li>
+                            <li><a href="#">Submenu 1</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+                <div class="subcontainer">
+                    <form id="add-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
+                        <fieldset>
+                        <listaPizze />
+                        <messaggioPizzaAggiunta />
+                        <label for="text" lang="ITA">Nome Pizza:</label>
+                        <input type="text" name="aggnomepizza" id="aggniomepizza" placeholder="Inserisci nome pizza:"/>
+                        <label for="text" lang="ITA">Categoria:</label>
+                        <input type="text" name="aggcategoriapizza" id="aggcategoriapizza" placeholder="Inserisci catergoria:"/>
+                        <label for="number" lang="ITA">Prezzo:</label>
+                        <input type="number" name="aggprezzo" id="aggprezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"/>
+                        <label for="text" lang="ITA">Descrizione: </label>
+                        <input type="text" name="aggdesc" id="aggdesc" placeholder="Inserisci la descrizione:"/>
+                        <div id="post">
+                            <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
+                        </div>
+                        <!--aggiungi lista ingredienti-->
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Aggiungi Bevanda</h2>
-            </div>
-            <div class="subcontainers">
-                <listaBevande />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Aggiungi Dolce</h2>
-            </div>
-            <div class="subcontainers">
-                <listaDolci />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Elimina Pizza</h2>
-            </div>
-            <div class="subcontainers">
-                <listaPizze />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Elimina Bevanda</h2>
-            </div>
-            <div class="subcontainers">
-                <listaBevande />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Elimina Dolce</h2>
-            </div>
-            <div class="subcontainers">
-                <listaDolci />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Modifica Pizza</h2>
-            </div>
-            <div class="subcontainers">
-                <listaPizze />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Modifica Bevanda</h2>
-            </div>
-            <div class="subcontainers">
-                <listaBevande />
-            </div>
-        </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Modifica Dolce</h2>
-            </div>
-            <div class="subcontainers">
-                <listaDolci />
-            </div>
-        </div>
+        
       </div>
       <footer id="footer">
         <div id="site-map">
-            <ul>
-      <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-                ><li><a href="../PHPmenu.php">Menù</a></li
-                ><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-                ><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
-                ><li><a href="../HTML/contatti.html">Contatti</a></li
-                ><li><a href="../HTML/login.html">Accedi</a></li>
-            </ul>
+        <ul class="menu">
+            <li><a href="../PHP/chisiamo.php">Chi siamo</a></li
+            ><li><a href="../PHP/menu.php">Menù</a></li
+            ><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+            ><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+            ><li><a href="../HTML/contatti.html">Contatti</a></li
+            ><li><a href="../HTML/login.html">Accedi</a></li
+            ><li><a href="../HTML/signup.html">Registrati</a></li>
+        </ul>
         </div>
         <div id="copyright">
             &copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>

@@ -20,8 +20,9 @@ if (isset($_SESSION["email"])) {
     $replace = array("<info />" => $info,
                      "<bonus />" => $bonus,
                      "<prenotazioni />" => $prenotazioni,
-                     "acquisti />" => $acquisti);
-
+                     "acquisti />" => $acquisti,
+                     "<a href=\"../HTML/login.html\">ACCEDI</a>" => UtilityFunctions::changeAccedi());
+    
     echo UtilityFunctions::replacer($url, $replace);
 
 } else {

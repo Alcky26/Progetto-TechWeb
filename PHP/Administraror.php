@@ -5,8 +5,12 @@ use DB\DBAccess;
 
 $connessione = new DBAccess();
 $connessioneOK = $connessione->openDBConnection();
+if(!isset($_SESSION["isAdmin"],$_SESSION["email"],$_SESSION["isValid"]))
+{
+    header("Location: ../PHP/login.php");
+}
 
-$categories = array("", "", "", "", "", "", "", "");
+$categories = array("", "", "", "");
 
 if ($connessioneOK) {
     $categories[0] = pizze();
