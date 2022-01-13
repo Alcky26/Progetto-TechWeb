@@ -14,39 +14,82 @@
     else
     {
         $url="../HTML/Administrator.html";
-        if(isset($_POST["aggnomepizza"],$_POST["aggcategoriapizza"],$_POST["aggprezzo"],$_POST["aggdesc"]))
+        if($_POST["Aggiungi"])
         {
-            $npizza = $_POST["aggnomepizza"];
-            $catpizza = $_POST["aggcategoriapizza"];
-            $prez = $_POST["aggprezzo"];
-            $des = $_POST["aggdesc"];
-
-            
-            $connessioneRiuscita = $dbAccess->openDBConnection();
-            $result=false;
-            if($connessioneRiuscita)
+            if(isset($_POST["aggNomepizza"],$_POST["aggCategoriapizza"],$_POST["aggPrezzo"],$_POST["aggDesc"]))
             {
-                $result = $dbAccess->addPizza($npizza,$catpizza, $prez, $des);
-            }
-            $dbAccess->closeDBConnection();
+                $npizza = $_POST["aggNomepizza"];
+                $catpizza = $_POST["aggCategoriapizza"];
+                $prez = $_POST["aggPrezzo"];
+                $des = $_POST["aggDesc"];
 
-            $replace="";
-            if($result)
-            {
-                $replace = array("<messaggioPizzaAggiunta />" => "<p class=\"alert-box danger\">Pizza Aggiunta con successo!</p>");
                 
+                $connessioneRiuscita = $dbAccess->openDBConnection();
+                $result=false;
+                if($connessioneRiuscita)
+                {
+                    $result = $dbAccess->addPizza($npizza,$catpizza, $prez, $des);
+                }
+                $dbAccess->closeDBConnection();
+
+                $replace="";
+                if($result==true)
+                {
+                    $replace = array("<messaggioPizzaAggiunta />" => "<p class=\"alert-box success\">Pizza Aggiunta con successo!</p>");
+                    
+                }
+                else
+                {
+                    $replace = array("<messaggioPizzaAggiunta />" => "<p class=\"alert-box danger\">Errore nell'inserimento della pizza!</p>");
+                }
+                
+                echo UtilityFunctions::replacer($url, $replace);
             }
             else
             {
                 $replace = array("<messaggioPizzaAggiunta />" => "<p class=\"alert-box danger\">Errore nell'inserimento della pizza!</p>");
+                echo UtilityFunctions::replacer($url, $replace);
             }
-            
-            echo UtilityFunctions::replacer($url, $replace);
         }
         else
         {
-            $replace = array("<messaggioPizzaAggiunta />" => "<p class=\"alert-box danger\">Errore nell'inserimento della pizza!</p>");
-            echo UtilityFunctions::replacer($url, $replace);
+            if($_POST["Modifica"])
+            {
+                if(isset($_POST["updateNomepizza"],$_POST["updateCategoriapizza"],$_POST["updatePrezzo"],$_POST["updateDesc"])&&$_POST["updateNomepizza"]!=""&&$_POST["updateCategoria"]!=""&&$_POST["updatePrezzo"]!="")
+            {
+                $npizza = $_POST["updateNomepizza"];
+                $catpizza = $_POST["updateCategoriapizza"];
+                $prez = $_POST["updatePrezzo"];
+                $des = $_POST["updateDesc"];
+
+                
+                $connessioneRiuscita = $dbAccess->openDBConnection();
+                $result=false;
+                if($connessioneRiuscita)
+                {
+                    $result = $dbAccess->updatePizza($npizza,$catpizza, $prez, $des);
+                }
+                $dbAccess->closeDBConnection();
+
+                $replace="";
+                if($result)
+                {
+                    $replace = array("<messaggioPizzaModificata />" => "<p class=\"alert-box success\">Pizza Modificata con successo!</p>");
+                    
+                }
+                else
+                {
+                    $replace = array("<messaggioPizzaModificata />" => "<p class=\"alert-box danger\">Errore nella modifica della pizza!</p>");
+                }
+                
+                echo UtilityFunctions::replacer($url, $replace);
+            }
+            else
+            {
+                $replace = array("<messaggioPizzaModificata />" => "<p class=\"alert-box danger\">Errore nella modifica della pizza!</p>");
+                echo UtilityFunctions::replacer($url, $replace);
+            }
+            }
         }
     }
 ?>

@@ -23,12 +23,14 @@ class UtilityFunctions {
         if(isset($_SESSION["username"],$_SESSION["email"],$_SESSION["isValid"]) && $_SESSION["isValid"])
         {
             $string="<div id=\"hovermenu\">
-                        <li>
-                            <a href=\"../PHP/area_utente.php\">Area Utente</a>
-                            <ul>
-                                <li><a href=\"../PHP/logout.php\">Logout</a></li>
-                            </ul>
-                        </li>
+                        <ul>
+                            <li>
+                                <a href=\"../PHP/area_utente.php\">Area Utente</a>
+                            </li>
+                            <li>
+                                <a href=\"../PHP/logout.php\">Logout</a>
+                            </li>
+                        </ul>
                     </div>";
         }
         else

@@ -42,7 +42,7 @@
                 }
                 else
                 {
-                    header("Location: ../HTML/Administrator.html");
+                    header("Location: ../PHP/Administrator.php");
                 }
             }
             else

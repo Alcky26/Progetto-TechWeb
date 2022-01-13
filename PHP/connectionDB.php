@@ -125,6 +125,58 @@ class DBAccess {
             /*
                 FINE AGGIUNGI
             */
+            /*
+                MODIFICA
+            */
+            public function FillTemporaneo()
+            {
+                $updateFill = array("", "", "", "","");
+                $sql = "SELECT `ELEMENTO_LISTINO`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione` 
+                FROM `ELEMENTO_LISTINO` join `PIZZA` on `ELEMENTO_LISTINO`.`nome`=`PIZZA`.`nome`
+                WHERE `ELEMENTO_LISTINO`.`nome`=\"pizza test\"";
+                $queryResult=mysqli_query($this->connection, $sql);
+                if ($queryResult && mysqli_num_rows($queryResult) > 0) {
+                    $row = mysqli_fetch_assoc($queryResult);
+                        $updateFill[0]=$row['nome'];
+                        $updateFill[0]=$row['categoria'];
+                        $updateFill[0]=$row['prezzo'];
+                        $updateFill[0]=$row['descrizione'];
+                }
+                var_dump($updateFill);
+                die;
+                return $updateFill;
+            }
+
+            public function updatePizza($nome,$categoria, $prezzo, $descrizione)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+
+                $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    mysqli_query($this->connection, $sql2);
+                    $result=mysqli_affected_rows($this->connection);
+                    if($result == 1) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+
+                //manca ingredienti
+            }
+            /*
+                FINE MODIFICA
+            */
     /*
             FINE ADMINISTRATOR
     */
