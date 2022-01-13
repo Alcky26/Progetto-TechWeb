@@ -811,23 +811,28 @@ dt.allergene-14 {background-color: #F7DF65;}
 /*-------fine prenotazione tavolo------------*/
 
 /*-------inizio ordina online------------*/
-.nonVisibile{
+.nonVisibile ,.PnonVisibile, .flipP, #contenutiNonVisibili input[type=text]{
   display: none;
 }
 
-#total {
+#orderPanel{justify-content: initial;}
+
+.total {
 	box-shadow: 2px 2px 4px black;
 	text-align: right;
   width: 100%;
 }
 
-#total h2 , #totale{
+#totale{
   margin: 0;
   align-items: center;
   padding: 1em;
 }
 
-#total h2{
+.total h2{
+  margin: 0;
+  align-items: center;
+  padding: 1em;
   float: left;
   padding-right: 0;
   padding-left: 10px;
@@ -863,8 +868,8 @@ dt.allergene-14 {background-color: #F7DF65;}
 	width: 5em;;
 }
 
-.flipP {
-	display: none;
+#scegliOrario, #inserisciIndirizzo {
+  margin: 1em;
 }
 
 .tipiPrincipali {
@@ -899,7 +904,7 @@ dt.allergene-14 {background-color: #F7DF65;}
   padding: 16px;
 }
 
-#riepilogo {
+#riepilogo, #riepilogoP {
   width: 100%;
   height: 100%;
   display: inline;
@@ -930,9 +935,11 @@ dt.allergene-14 {background-color: #F7DF65;}
   border-bottom: 1px solid #a73131;
 }
 
-.product > * {
+.product > *, .headerP > * {
   display: inline-block;
 }
+
+
 
 .productName, .productNameP {
   width: 100%;
@@ -946,7 +953,7 @@ dt.allergene-14 {background-color: #F7DF65;}
   width: 25%;
 }
 
-.productLinePrice, .productPriceP {
+.productLinePrice, .productLinePriceP {
   width: 25%;
   text-align: center;
 }
@@ -980,6 +987,29 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 /*-------inizio pagamento------------*/
 
+.containerP {
+  border-width: 1px;
+  border-radius: 16px;
+  background: #EEEEEE;
+  padding: 1em;
+  text-align: center;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 1em;
+
+}
+
+#riepilogoP{
+  margin-top: 0;
+  margin-bottom: 1em;
+  border-bottom: 3px solid #000000;
+}
+
+.headerP {
+  font-weight: bold;
+  font-size: 18px;
+  color: #a73131;
+}
 
 
 /*-------fine pagamento------------*/

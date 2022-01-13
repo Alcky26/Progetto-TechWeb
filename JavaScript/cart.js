@@ -127,7 +127,7 @@ function addItem(itemInput)
     /* creazione form nascosto con Informazioni del prodotto */
     var fieldset = document.createElement("fieldset");
     fieldset.id = item;
-    fieldset.className = "nonVisibile";
+    fieldset.className = "PnonVisibile";
 
     var inpName = document.createElement("input");
     inpName.type = "text";
@@ -154,4 +154,17 @@ function addItem(itemInput)
 
 		recalculateCart();
 	}
+}
+
+function deliveryTakeaway(elem)
+{
+  var x =elem.value;
+  document.getElementById(x).checked = true;
+  document.getElementById("indOra").value = '';
+}
+
+function indOra(elem)
+{
+  var x = elem.value;
+  document.getElementById("indOra").value = x;
 }
