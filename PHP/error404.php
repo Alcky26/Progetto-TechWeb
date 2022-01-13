@@ -10,4 +10,4 @@ if($error==404){
 	$error_message='The document/file requested was not found on this server.';
 }
 
-$>
+?>
