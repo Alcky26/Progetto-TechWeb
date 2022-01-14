@@ -1,4 +1,15 @@
 $(document).ready(function() {
+  var button = $("#login-logout");
+  $.get(
+    "../PHP/checkLogin.php",
+    {},
+    function(response) {
+      button.html(response);
+    }
+  );
+});
+
+$(document).ready(function() {
     $(".show-pwd").prop("checked", false);
 });
 
@@ -7,12 +18,6 @@ $(document).ready(function(){
         var input = $(this).prev("input");
         var type = input.prop("type") === "password" ? "text" : "password";
         input.prop("type", type);
-    });
-});
-
-$(document).ready(function(){
-    $("#nav-button").click(function(){
-        $("#nav").toggleClass("dropdown");
     });
 });
 

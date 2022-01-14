@@ -25,13 +25,14 @@ class UtilityFunctions {
         return false;
     }
 
-    public static function changeAccedi() 
+    public static function changeAccedi()
     {
         $string = "";
-        if(loginCheck())
+        if(self::loginCheck())
         {
-            $string="<div id=\"hovermenu\">
-                        <ul>
+            $string="<div class=\"dropdown\">
+                        <a class=\"text-button dropbtn\">Il mio account</a>
+                        <ul class=\"dropdown-content\">
                             <li>
                                 <a href=\"../PHP/area_utente.php\">Area Utente</a>
                             </li>
@@ -43,7 +44,7 @@ class UtilityFunctions {
         }
         else
         {
-            $string="<a href=\"../HTML/login.html\">ACCEDI</a>";
+            $string="<a class=\"text-button\" href=\"../HTML/login.html\">Accedi</a>";
         }
         return $string;
     }

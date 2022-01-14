@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mvignaga";
-    private const PASSWORD = "ohthohXie5aichah";
-    private const DATABASE_NAME = "mvignaga";
+    private const USERNAME = "mmasetto";
+    private const PASSWORD = "iyuyiSohS5oochu3";
+    private const DATABASE_NAME = "mmasetto";
 
     private $connection;
 
@@ -270,6 +270,16 @@ class DBAccess {
         $query = "SELECT dataOra, numero, persone
                   FROM PRENOTAZIONE
                   WHERE email = '$email' AND dataOra >= '$periodo' AND persone >= '$minPersone' AND persone <= '$maxPersone'
+                  ORDER BY dataOra DESC";
+        return $this->execQuery($query);
+    }
+
+    public function getAcquisti($email, $data, $minSpesa, $maxSpesa) {
+        $query = "SELECT ORDINAZIONE.email, ORDINAZIONE.dataOra, ACQUISTO.quantita * ELEMENTO_LISTINO.prezzo AS spesa
+                  FROM ELEMENTO_LISTINO JOIN ACQUISTO ON ELEMENTO_LISTINO.nome = ACQUISTO.nome
+                  JOIN ORDINAZIONE ON ACQUISTO.dataOra = ORDINAZIONE.dataOra AND ACQUISTO.email = ORDINAZIONE.email
+                  WHERE ORDINAZIONE.email = '$email' AND ORDINAZIONE.dataOra > '$data'
+                  HAVING spesa >= '$minSpesa' AND spesa <= '$maxSpesa'
                   ORDER BY dataOra DESC";
         return $this->execQuery($query);
     }

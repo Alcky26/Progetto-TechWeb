@@ -24,11 +24,11 @@ if (!empty($_POST)) {
 
         $earthRadiusKm = 6371;
 
-        $lat = deg2rad($lati_pizzeria - $lati);
-        $lon = deg2rad($longi_pizzeria - $longi);
+        $lat = (($lati_pizzeria - $lati) * Math.PI) / 180;
+        $lon = (($longi_pizzeria - $longi) * Math.PI) / 180;
 
-        $lati_pizzeria = deg2rad($lati_pizzeria);
-        $lati = deg2rad($lati);
+        $lati_pizzeria = ($lati_pizzeria * Math.PI) / 180;
+        $lati = ($lati * Math.PI) / 180;
 
         $a = sin($lat/2) * sin($lat/2) + sin($lon/2) * sin($lon/2) * cos($lati_pizzeria) * cos($lati);
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));

@@ -37,8 +37,7 @@ $replace = array("<listaClassiche />" => $categories[0],
                  "<listaBevande />" => $categories[4],
                  "<listaBirre />" => $categories[5],
                  "<listaVini />" => $categories[6],
-                 "<listaDolci />" => $categories[7],
-                 "<a href=\"../HTML/login.html\">ACCEDI</a>" => UtilityFunctions::changeAccedi());
+                 "<listaDolci />" => $categories[7]);
 echo UtilityFunctions::replacer($url, $replace);
 
 function fill($array, $listino) {

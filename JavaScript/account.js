@@ -146,7 +146,7 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
     var prenotazioni = $("#prenotazioni-div > :nth-child(2)");
     $("#periodo, #persone").change(function() {
         $.get(
@@ -159,6 +159,22 @@ $(document).ready(function(){
                 prenotazioni.html(response);
                 $(".show-code").closest(".list-item").find(".qr-code").css("display", "none");
                 $(".show-code").click(function(event) {showCode(event)});
+            }
+        );
+    });
+});
+
+$(document).ready(function() {
+    var acquisti = $("#acquisti-div > :nth-child(2)");
+    $("#data-acquisto, #spesa").change(function() {
+        $.get(
+            "../PHP/acquisti.php",
+            {
+                data: $("#data-acquisto").val(),
+                spesa: $("#spesa").val()
+            },
+            function(response) {
+                acquisti.html(response);
             }
         );
     });

@@ -10,10 +10,10 @@
   flex-direction: column;
 }
 
-#nav li:not(#logo) {
-  display: none;
+#nav > #logo {
+  display: inline-block;
 }
 
-#nav.dropdown li:not(#logo) {
-  display: block;
+#nav > :not(#logo) {
+  padding: 0.25rem;
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
+  <head>
 		<meta charset="utf-8" />
 		<meta name="title" content="Orndina Online - Pizzeria Ai 4 Laureandi" />
 		<meta name="keywords" content="" />
@@ -18,31 +18,35 @@
     <script src="../JavaScript/cart.js"></script>
     <script src="../JavaScript/custom.js"></script>
 	</head>
-    <body>
+  <body>
     <header id="top-header">
       <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
       <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
-      <nav>
-        <ul id="nav">
+      <nav class="dropdown">
+        <button id="nav-button" class="mobile-only button dropbtn"></button>
+        <ul id="nav" class="dropdown-content">
           <li id="logo">
             <a href="../HTML/index.html">
               <picture>
                 <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png" />
+                <img src="../images/logo.png"/>
               </picture>
             </a>
           </li
-          ><li><a href="../PHP/chisiamo.php">CHI SIAMO</a></li
+          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
           ><li><a href="../PHP/menu.php">MENÙ</a></li
           ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
           ><li><a href="../HTML/contatti.html">CONTATTI</a></li
-					><li>ITA</li
-					><li>ENG</li
-					><li class="text-button"><a href="../HTML/login.html">ACCEDI</a>
+					><li id="login-logout" class="dropdown">
+            <a class="text-button dropbtn">Il mio account</a>
+              <ul class="dropdown-content">
+                <li><a href="../PHP/area_utente.php">Area utente</a></li>
+                <li><a href="../PHP/logout.php">Effettua il logout</a></li>
+              </ul>
+          </li>
         </ul>
       </nav>
-      <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main id="content-wrapper">
   		<div id="breadcrumb">
@@ -105,7 +109,7 @@
               </div>
               <div id="inserisciIndirizzo" class="nonVisibile">
                 <label for="ora">Inserisci indirizzo di consegna:</label>
-                <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)">
+                <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)">
               </div>
   					</div>
   					<div class="listino">
@@ -116,7 +120,7 @@
     							<ul>
     							  <li id="classicheFlip">Pizze classiche</li>
     								<div id="classiche" class="flipP">
-                      
+
   									  <listaClassiche />
     								</div>
     							  <li id="specialiFlip">Pizze speciali</li>
@@ -163,7 +167,7 @@
 	  <footer id="footer">
 		<div id="site-map">
 	<ul class="menu">
-	  <li><a href="../PHP/chisiamo.php">Chi siamo</a></li
+	  <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
 				><li><a href="../PHP/menu.php">Menù</a></li
 				><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
 				><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li

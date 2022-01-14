@@ -110,12 +110,12 @@ input[type = "text"], input[type = "password"], input[type = "email"], input[typ
   padding: 0.5rem;
   border-width: 1px;
   border-radius: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.075);
   transition: background-color .25s;
 }
 
 input[type = "text"]:focus, input[type = "email"]:focus, input[type = "password"]:focus, input[type = "date"]:focus {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.075);
   outline: 2px solid var(--orange);
   outline-offset: 5px;
 }
@@ -244,6 +244,43 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   text-align: center;
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content > * {
+  padding: 1rem;
+  list-style: none;
+  display: none;
+  border-width: 1px 1px 0 1px;
+}
+
+.dropdown-content > :nth-last-child(1) {
+  border-bottom-width: 1px;
+}
+
+.dropdown-content > * {
+  background-color: white;
+  transition: background-color .25s;
+}
+
+.dropdown-content > :hover {background-color: var(--light_orange);}
+
+.dropbtn.text-button + .dropdown-content {
+  top: 3.5em;
+  left: 1.25em;
+}
+
+.dropbtn:hover + .dropdown-content > *, .dropdown-content:hover > * {
+  display: block;
+}
+
 .alert-box {
   width: 100%;
   padding: 1rem;
@@ -253,13 +290,13 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 }
 
 .success {
-  background-color: rgba(75, 181, 67, .2);
+  background-color: #4BB543;
   border-color: #2B9523;
   color: #2B9523;
 }
 
 .danger {
-  background-color: rgba(243, 32, 19, .2);
+  background-color: #F32013;
   border-color: #D30000;
   color: #D30000;
 }
@@ -433,10 +470,10 @@ dt.allergene-14 {background-color: #F7DF65;}
   font-size: 16px;
 }
 
-#nav > li {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media screen and (min-width: 1080px) {
+  #nav > li {
+    display: inline-block;
+  }
 }
 
 #nav-button {
@@ -445,11 +482,12 @@ dt.allergene-14 {background-color: #F7DF65;}
   right: 0;
   width: 59px;
   height: 59px;
-  margin: 8px 16px;
+  margin: 0;
   background-image: url("../images/hamburger_icon.png");
 }
 
 #nav {
+  position: static;
   margin: 0;
   padding: 0;
   display: flex;
@@ -457,10 +495,13 @@ dt.allergene-14 {background-color: #F7DF65;}
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: inherit;
 }
 
-#nav > li {
-  list-style: none;
+#nav > * {
+  padding: 0;
+  border-width: 0;
+  background-color: inherit;
 }
 
 #breadcrumb {

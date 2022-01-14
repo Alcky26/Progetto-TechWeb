@@ -22,45 +22,45 @@
     <header id="top-header">
       <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
       <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
-      <nav>
-        <ul id="nav">
+      <nav class="dropdown">
+        <button id="nav-button" class="mobile-only button dropbtn"></button>
+        <ul id="nav" class="dropdown-content">
           <li id="logo">
             <a href="../HTML/index.html">
               <picture>
                 <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png" />
+                <img src="../images/logo.png"/>
               </picture>
             </a>
           </li
-          ><li><a href="../PHP/chisiamo.php">CHI SIAMO</a></li
+          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
           ><li><a href="../PHP/menu.php">MENÙ</a></li
           ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
           ><li><a href="../HTML/contatti.html">CONTATTI</a></li
-          ><li class="text-button"><a href="../PHP/logout.php">Logout</a>
+					><li id="login-logout" class="dropdown">
+            <a class="text-button dropbtn">Il mio account</a>
+              <ul class="dropdown-content">
+                <li><a href="../PHP/area_utente.php">Area utente</a></li>
+                <li><a href="../PHP/logout.php">Effettua il logout</a></li>
+              </ul>
+          </li>
         </ul>
       </nav>
-      <button id="nav-button" class="mobile-only button"></button>
     </header>
     <main id="content-wrapper">
       <!--<div id="breadcrumb">
   			Ti trovi in: <span class="path"><a href="Administrator.html">Home</a> &gt; Gestione Pizzeria</span>
   		</div>-->
-      <div class="first container">
-        <div class="subtitle-fixed-panel flex">
-          <h2>Gestione Pizzeria</h2>
-        </div>
-        <div class="container">
+        <div class="first container">
             <div class="subtitle-panel">
                 <h2 class="subtitle">Aggiungi Pizza</h2>
             </div>
             <div class="subcontainers">
                 <div class="subcontainer">
-                    <div id="hovermenu">
-                        <ul>
-                            <li>
-                            <a href="#">Menu 1</a>
-                            </li>
+                    <div class="dropdown">
+                        <button class="text-button dropbtn">Menu</button>
+                        <ul class="dropdown-content">
                             <li><a href="#">Submenu 1</a></li>
                             <li><a href="#">Submenu 1</a></li>
                             <li><a href="#">Submenu 1</a></li>
@@ -69,61 +69,57 @@
                         </ul>
                     </div>
                 </div>
-                <div class="subcontainer">
-                    <form id="add-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
-                        <fieldset>
-                        <listaPizze />
-                        <messaggioPizzaAggiunta />
-                        <label for="text" lang="ITA">Nome Pizza:</label>
-                        <input type="text" name="aggNomepizza" id="aggNomepizza" placeholder="Inserisci nome pizza:" required/>
-                        <label for="text" lang="ITA">Categoria:</label>
-                        <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" placeholder="Inserisci catergoria:"required/>
-                        <label for="number" lang="ITA">Prezzo:</label>
-                        <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
-                        <label for="text" lang="ITA">Descrizione: </label>
-                        <input type="text" name="aggDesc" id="aggDesc" placeholder="Inserisci la descrizione:"/>
-                        <div id="post">
-                            <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
-                        </div>
-                        <!--aggiungi lista ingredienti-->
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <div class="container">
-
-                <div class="subtitle-panel">
-                    <h2 class="subtitle">Modifica Pizza</h2>
-                </div>
-                <div class="subcontainers">
-                    <div class="subcontainer">
-                        <form id="update-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
-                            <fieldset>
-                            <listaPizze />
-                            <messaggioPizzaModificata />
-                            <label for="text" lang="ITA">Nome Pizza:</label>
-                            <input type="text" name="updateNomepizza" id="updateNomepizza" value="pizzapholder"/>
-                            <label for="text" lang="ITA">Categoria:</label>
-                            <input type="text" name="updateCategoriapizza" id="updateCategoriapizza" value="categoriapholder"/>
-                            <label for="number" lang="ITA">Prezzo:</label>
-                            <input type="number" name="updatePrezzo" id="updatePrezzo" min="0.0" step="0.1" value="prezzopholder"/>
-                            <label for="text" lang="ITA">Descrizione: </label>
-                            <input type="text" name="updateDesc" id="updateDesc" value="descrizionepholder"/>
-                            <div id="post">
-                                <input type="submit" id="Modifica" class="text-button" name="Modifica" value="Modifica"/>
-                            </div>
-                            <!--aggiungi lista ingredienti-->
-                            </fieldset>
-                        </form>
+                <form id="add-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
+                    <fieldset>
+                    <listaPizze />
+                    <messaggioPizzaAggiunta />
+                    <label for="text" lang="ITA">Nome Pizza:</label>
+                    <input type="text" name="aggNomepizza" id="aggNomepizza" placeholder="Inserisci nome pizza:" required/>
+                    <label for="text" lang="ITA">Categoria:</label>
+                    <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" placeholder="Inserisci catergoria:"required/>
+                    <label for="number" lang="ITA">Prezzo:</label>
+                    <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
+                    <label for="text" lang="ITA">Descrizione: </label>
+                    <input type="text" name="aggDesc" id="aggDesc" placeholder="Inserisci la descrizione:"/>
+                    <div id="post">
+                        <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
                     </div>
-                </div>
+                    <!--aggiungi lista ingredienti-->
+                    </fieldset>
+                </form>
             </div>
+        </div>
+        <div class="container">
 
-      </div>
-      <footer id="footer">
+            <div class="subtitle-panel">
+                <h2 class="subtitle">Modifica Pizza</h2>
+            </div>
+            <div class="subcontainers">
+                <form id="update-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
+                    <fieldset>
+                    <listaPizze />
+                    <messaggioPizzaModificata />
+                    <label for="text" lang="ITA">Nome Pizza:</label>
+                    <input type="text" name="updateNomepizza" id="updateNomepizza" value="pizzapholder"/>
+                    <label for="text" lang="ITA">Categoria:</label>
+                    <input type="text" name="updateCategoriapizza" id="updateCategoriapizza" value="categoriapholder"/>
+                    <label for="number" lang="ITA">Prezzo:</label>
+                    <input type="number" name="updatePrezzo" id="updatePrezzo" min="0.0" step="0.1" value="prezzopholder"/>
+                    <label for="text" lang="ITA">Descrizione: </label>
+                    <input type="text" name="updateDesc" id="updateDesc" value="descrizionepholder"/>
+                    <div id="post">
+                        <input type="submit" id="Modifica" class="text-button" name="Modifica" value="Modifica"/>
+                    </div>
+                    <!--aggiungi lista ingredienti-->
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
         <div id="site-map">
         <ul class="menu">
-            <li><a href="../PHP/chisiamo.php">Chi siamo</a></li
+            <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
             ><li><a href="../PHP/menu.php">Menù</a></li
             ><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
             ><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
@@ -136,6 +132,5 @@
             &copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
         </div>
     </footer>
-    </main>
   </body>
 </html>

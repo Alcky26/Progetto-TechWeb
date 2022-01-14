@@ -156,6 +156,59 @@ function addItem(itemInput)
 	}
 }
 
+function checkDistance(elem) {
+    var x = elem.value;
+    var array = x.split(",");
+    var queryString = "";
+    array.forEach(i => {
+        queryString += (i + ",");
+    });
+    queryString += "Italy";
+    queryString += "&format=json&limit=1&polygon=0&addressdetails=0";
+    var geocodingAPI = "http://nominatim.openstreetmap.org/search?q=" + queryString;
+    $.getJSON(geocodingAPI, function(json) {
+        if ($.isEmptyObject(json)) {
+            if (elem.classList.contains("success"))
+                elem.classList.remove("success");
+  			    if (!elem.classList.contains("danger"))
+                elem.classList.add("danger");
+            elem.value = "Nessun risultato! Controlla i dati che hai inserito.";
+  		  } else {
+            var lati_pizzeria = 45.406972;
+            var longi_pizzeria = 11.885583;
+            var lati = json["lat"];
+            var longi = json["lon"];
+
+            var earthRadiusKm = 6371;
+
+            var lat = ((lati_pizzeria - lati) * Math.PI) / 180;
+            var lon = ((longi_pizzeria - longi) * Math.PI) / 180;
+
+            var lati_pizzeria = (lati_pizzeria * Math.PI) / 180;
+            lati = (lati * Math.PI) / 180;
+
+            var a = Math.sin(lat/2) * Math.sin(lat/2) + Math.sin(lon/2) * Math.sin(lon/2) * Math.cos(lati_pizzeria) * Math.cos(lati);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = earthRadiusKm * c;
+
+            if (distance > 30) {
+                if (elem.classList.contains("success"))
+                    elem.classList.remove("success");
+                if (!elem.classList.contains("danger"))
+                    elem.classList.add("danger");
+                elem.value = "Troppo distante.";
+            } else {
+                if (elem.classList.contains("danger"))
+                    elem.classList.remove("danger");
+                if (!elem.classList.contains("success"))
+                    elem.classList.add("success");
+                elem.value = "Va bene!";
+            }
+        }
+    });
+
+}
+
 function deliveryTakeaway(elem)
 {
   var x =elem.value;
