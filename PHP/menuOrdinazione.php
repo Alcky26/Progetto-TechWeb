@@ -23,11 +23,11 @@ if ($connessioneOK) {
         $i = "<div class=\"subcontainer\"><p>Errore nella connessione al server. Per favore riprova più tardi.</p></div>";
     }
 }
-
+$connessione->closeDBConnection();
 require_once "UtilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
-//$url = "../HTML/menu.html";
+
 $url = "../HTML/ordinazione.html";
 
 $replace = array("<listaClassiche />" => $categories[0],

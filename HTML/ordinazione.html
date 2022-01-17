@@ -109,8 +109,9 @@
               </div>
               <div id="inserisciIndirizzo" class="nonVisibile">
                 <label for="ora">Inserisci indirizzo di consegna:</label>
-                <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)">
+                <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)" placeholder="numero,via,citta,provincia">
               </div>
+              <div id="a"></div>
   					</div>
   					<div class="listino">
   						<h2>Scegli i tuoi piatti</h2>
@@ -120,7 +121,7 @@
     							<ul>
     							  <li id="classicheFlip">Pizze classiche</li>
     								<div id="classiche" class="flipP">
-
+                    
   									  <listaClassiche />
     								</div>
     							  <li id="specialiFlip">Pizze speciali</li>

@@ -28,7 +28,7 @@ function getCurrentDate(element, asString) {
         }
         return element.textContent = date.getFullYear + date.getMonth + date.getDate;
     }
-    return date.toLocaleDateString();
+    return date.toISOString().split('T')[0];
 }
 
 

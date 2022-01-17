@@ -128,6 +128,7 @@ function addItem(itemInput)
     var fieldset = document.createElement("fieldset");
     fieldset.id = item;
     fieldset.className = "PnonVisibile";
+    fieldset.setAttribute("aria-hidden", true);
 
     var inpName = document.createElement("input");
     inpName.type = "text";
@@ -209,11 +210,11 @@ function checkDistance(elem) {
 
 }
 
+
 function deliveryTakeaway(elem)
 {
   var x =elem.value;
   document.getElementById(x).checked = true;
-  document.getElementById("indOra").value = '';
 }
 
 function indOra(elem)

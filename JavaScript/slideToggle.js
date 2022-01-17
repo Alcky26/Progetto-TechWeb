@@ -55,8 +55,13 @@ $(document).ready(function(){
        if ($("input[id='Delivery']:checked").val() && $('#indOra').val() == ''){
          alert("Attenzione: inserire l'indirizzo di consegna");
          return false;
+       } else {
+         if(parseFloat($("#inpFinalTotal").value) < 15) {
+           alert("Si accettano solo ordini maggiori di 15€ per consegna a domicilio");
+           return false;
        }
      }
+   }
    }
   });
 });

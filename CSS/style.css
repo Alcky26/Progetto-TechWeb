@@ -852,11 +852,14 @@ dt.allergene-14 {background-color: #F7DF65;}
 /*-------fine prenotazione tavolo------------*/
 
 /*-------inizio ordina online------------*/
-.nonVisibile ,.PnonVisibile, .flipP, #contenutiNonVisibili input[type=text]{
+#contenutiNonVisibili .nonVisibile ,.PnonVisibile, .flipP, .nonVisibile, .product .nonVisibile{
   display: none;
 }
 
 #orderPanel{justify-content: initial;}
+
+#inpFinalTotal{border: none;}
+#inpFinalTotal:focus{outline: none; background-color: white;}
 
 .total {
 	box-shadow: 2px 2px 4px black;

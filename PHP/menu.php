@@ -28,7 +28,6 @@ require_once "UtilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
 $url = "../HTML/menu.html";
-//$url = "../HTML/ordinazione.html";
 
 $replace = array("<listaClassiche />" => $categories[0],
                  "<listaSpeciali />" => $categories[1],

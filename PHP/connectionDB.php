@@ -131,7 +131,7 @@ class DBAccess {
             public function FillTemporaneo()
             {
                 $updateFill = array("", "", "", "","");
-                $sql = "SELECT `ELEMENTO_LISTINO`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione` 
+                $sql = "SELECT `ELEMENTO_LISTINO`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
                 FROM `ELEMENTO_LISTINO` join `PIZZA` on `ELEMENTO_LISTINO`.`nome`=`PIZZA`.`nome`
                 WHERE `ELEMENTO_LISTINO`.`nome`=\"pizza test\"";
                 $queryResult=mysqli_query($this->connection, $sql);
@@ -259,7 +259,7 @@ class DBAccess {
     }
 
     public function getBonus($email, $dataScadenza, $minValore, $maxValore) {
-        $query = "SELECT dataScadenza, valore, dataRiscatto
+        $query = "SELECT dataScadenza, valore, dataRiscatto, codiceBonus, dataRiscatto
                   FROM BONUS
                   WHERE email = '$email' AND dataScadenza <= '$dataScadenza' AND valore >= '$minValore' AND valore <= '$maxValore'
                   ORDER BY dataScadenza DESC";
@@ -313,21 +313,58 @@ class DBAccess {
         return mysqli_query($this->connection, $query);
     }
 
-    public function insertPrenotazioni ($nPersone, $dataS, $ora,$email,$username){
-      $dataora = $dataS + ' ' +  $ora;
-      $ntavolo = 1;
-      $tavoliDisp = "SELECT numero FROM TAVOLO where numero not in (
-        SELECT numero FROM TAVOLO inner join prenotazione on tavolo.numero =prenotazione.numero
-        where TIMEDIFF($dataora,dataOra)='04:00:00')";
+    public function getTavoli($dataora) {
+      $tavoliDisp = "SELECT TAVOLO.numero FROM TAVOLO WHERE TAVOLO.numero NOT IN (
+        SELECT TAVOLO.numero FROM TAVOLO INNER JOIN PRENOTAZIONE ON TAVOLO.numero = PRENOTAZIONE.numero
+        WHERE TIMEDIFF ('$dataora',dataOra) >= '02:00:00')
+        LIMIT 1";
 
-      $query = "INSERT INTO PRENOTAZIONE ('persone','dataOra','numero','email','username')
-                VALUES ('$nPersone','$dataora','$tavoliDisp','$email','$username')";
+      return $this->execQuery($tavoliDisp);
+    }
+
+    public function insertPrenotazioni ($nPersone, $dataOra, $nTavolo,$email){
+      $query = "INSERT INTO `PRENOTAZIONE` (`persone`,`dataOra`,`numero`,`email`)
+                VALUES ('$nPersone','$dataOra','$nTavolo','$email')";
       $risultato = mysqli_query($this->connection, $query) or die (mysqli_error($this->connection));
       if(mysqli_affected_rows($this->connection) > 0) {
         return true;
       } else {
         return false;
       }
+    }
+
+    public function insertOrdinazioni ($dataora, $email){
+      $query = "INSERT INTO `ORDINAZIONE` (`dataOra`,`email`)
+                VALUES ('$dataora','$email')";
+      $risultato = mysqli_query($this->connection, $query);
+      if(mysqli_affected_rows($this->connection) > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function insertAcquisto ($quantita,$nome,$dataora,$email){
+      $query = "INSERT INTO `ACQUISTO` (`quantita`,`nome`,`dataOra`,`email`)
+                VALUES ('$quantita','$nome','$dataora','$email')";
+      $risultato = mysqli_query($this->connection, $query);
+      if(mysqli_affected_rows($this->connection) > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function useBonus($codice,$email,$dataR){
+      $query = "UPDATE BONUS
+                SET dataRiscatto = '$dataR'
+                WHERE codiceBonus = '$codice', email = '$email'";
+      $risultato = mysqli_query($this->connection, $query);
+      if(mysqli_affected_rows($this->connection) > 0) {
+        return true;
+      } else {
+          return false;
+        }
     }
 }
 

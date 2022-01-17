@@ -56,10 +56,11 @@
 			    <h2 class="subtitle">Prenotazione</h2>
 			  </div>
 			  <div class="subcontainers">
-				  <form class="subcontainer" action="php per inserimento nella database" method="POST">
+				  <form class="subcontainer" action="../PHP/prenotaT.php" method="POST">
 					  <fieldset>
               <legend id="titoloPrenotaT">
                 <h2>Prenota il tuo posto</h2>
+                <error />
               </legend>
   						<div id="numeroPersone">
   							<label for="numPersone">Persone:</label>
@@ -90,7 +91,7 @@
   							</div>
   							<h1 id="currentDate"></h1>
   						</div >
-              <div  style="display: none;"><input id="dataS" type="text" name="data"></div>
+              <div aria-hidden="true" style="display: none;"><input id="dataS" type="text" name="data"></div>
 						  <h5>Nota bene:</h5><p>scelgliere una data successiva a quella di oggi.</p>
   						<div id="orario">
   							<label for="ora">Ora:</label>
