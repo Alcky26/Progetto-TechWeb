@@ -5,8 +5,22 @@ $(document).ready(function() {
     {},
     function(response) {
       button.html(response);
+      $(".dropbtn").attr("aria-haspopup", "true");
+      $(".dropbtn").attr("aria-expanded", "false");
+      $(".dropbtn").click(function(event) {
+        $(event.target).parent(".dropdown").toggleClass("focus-within");
+        $(event.target).attr("aria-expanded", ($(event.target).attr("aria-expanded") === "false" ? "true" : "false"));
+      });
     }
   );
+});
+
+$(document).ready(function() {
+  $(".confirm").attr("type", "button");
+  $(".confirm").click(function(event) {
+    if (confirm("Sei sicuro?"))
+      $(event.target).parent("form").submit();
+  });
 });
 
 $(document).ready(function() {
@@ -20,24 +34,3 @@ $(document).ready(function(){
         input.prop("type", type);
     });
 });
-
-function animateAlert(alertBox, time) {
-    alertBox.css({
-      "padding": "0 1rem",
-      "font-size": 0,
-      "display": "block"
-    });
-    alertBox.animate({
-        "padding-top": "1rem",
-        "padding-bottom": "1rem",
-        "font-size": "1rem"
-    }, time/4, function() {
-        setTimeout(function() {
-            alertBox.animate({
-              "padding-top": "0",
-              "padding-bottom": "0",
-              "font-size": "0"
-            }, time/4)
-        }, time/2);
-    });
-}

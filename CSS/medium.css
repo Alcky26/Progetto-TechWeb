@@ -2,6 +2,14 @@
   display: block;
 }
 
+#content-wrapper, #content-wrapper + #footer {
+  top: 79px;
+}
+
+#top-header {
+  padding: 4px 16px;
+}
+
 #logo, #separator {
   margin-right: 0;
 }
@@ -14,6 +22,6 @@
   display: inline-block;
 }
 
-#nav > :not(#logo) {
+#nav > :not(#logo, #login-logout) {
   padding: 0.25rem;
 }

@@ -61,7 +61,8 @@ if (isset($_SESSION["email"])) {
             foreach ($prenotazioni as $i) {
                 $code = base64_encode($i["dataOra"]." - tavolo n. ".$i["numero"]);
                 $html .= "<div class='list-item subcontainer'>
-                            <p><strong>{$i["dataOra"]} - tavolo n. {$i["numero"]} </strong><button class='link show-code'>Mostra codice QR</button></p>
+                            <p><strong>{$i["dataOra"]} - tavolo n. {$i["numero"]}</strong></p>
+                            <button class='link show-code'>Mostra codice QR</button>
                             <img class='qr-code' src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=$code' width=150 height=150 alt='$code' />
                           </div>";
             }

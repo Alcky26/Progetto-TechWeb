@@ -21,13 +21,13 @@
       <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
       <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
       <nav class="dropdown">
-        <button id="nav-button" class="mobile-only button dropbtn"></button>
+        <button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
         <ul id="nav" class="dropdown-content">
           <li id="logo">
             <a href="../HTML/index.html">
               <picture>
                 <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png"/>
+                <img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
               </picture>
             </a>
           </li
@@ -37,46 +37,45 @@
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
           ><li><a href="../HTML/contatti.html">CONTATTI</a></li
 					><li id="login-logout" class="dropdown">
-            <a class="text-button dropbtn">Il mio account</a>
-              <ul class="dropdown-content">
-                <li><a href="../PHP/area_utente.php">Area utente</a></li>
-                <li><a href="../PHP/logout.php">Effettua il logout</a></li>
-              </ul>
+            <button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
+            <ul class="dropdown-content">
+              <li><a href="../PHP/area_utente.php">Area utente</a></li>
+              <li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
+            </ul>
           </li>
         </ul>
       </nav>
     </header>
     <main id="content-wrapper">
+      <div class="fake-subtitle"></div>
       <div id="breadcrumb">
-  			Ti trovi in: <span class="path"><a href="index.html">Home</a> &gt; Chi siamo</span>
+  			<p>Ti trovi in: <span lang="en"><a href="index.html">Home</a></span> / Chi siamo</p>
   		</div>
-      <div id="storia" class="first container">
+      <div class="container">
         <div class="subtitle-panel">
           <h2 class="subtitle">Locale giovane e per giovani</h2>
-          <a class="next-container hide-text button" href="#sogno">Vai giù</a>
+          <a class="next-container hide-text button" href="#sogno">Passa alla prossima sezione</a>
         </div>
         <div class="subcontainers">
-          <div class="subcontainer">
-            <p class="parag_storia">
+            <p class="subcontainer">
               Il locale è nato ..................... cose cose csoe<br>
               ............. altre cose....<br>
               ..... si.
             </p>
-          </div>
         </div>
       </div>
       <div id="sogno" class="container">
         <div class="subtitle-panel">
           <h2 class="subtitle">Il nostro sogno</h2>
-          <a class="next-container hide-text button" href="#qualità">Vai giù</a>
+          <a class="next-container hide-text button" href="#qualità">Passa alla prossima sezione</a>
         </div>
         <div class="subcontainers">
           <div class="subcontainer">
             <h3>Pizze, bibite e dolci</h3>
-            <p class="parag_storia">
-              Come obbiettivo ci siamo prefissati .................<br>
-              .... cose cose csoe<br>
-              ............. altre cose....<br>
+            <p>
+              Come obbiettivo ci siamo prefissati .................<br />
+              .... cose cose csoe<br />
+              ............. altre cose....<br />
               ..... si.
             </p>
           </div>
@@ -89,7 +88,7 @@
         <div class="subcontainers">
           <div class="subcontainer">
             <h3>Chilometro 0</h3>
-            <p class="parag_storia">
+            <p>
               cibo cibo cibo cibo .................<br>
               .... cose cose csoe<br>
               ............. altre cose....<br>
@@ -100,20 +99,39 @@
       </div>
     </main>
     <footer id="footer">
-			<div id="site-map">
-        <ul class="menu">
-          <li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-					><li><a href="../PHP/menu.php">Menù</a></li
-					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
-					><li><a href="../HTML/contatti.html">Contatti</a></li
-					><li><a href="../HTML/login.html">Accedi</a></li
-          ><li><a href="../HTML/signup.html">Registrati</a></li>
-				</ul>
-			</div>
-			<div id="copyright">
-				&copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
-			</div>
+      <div>
+  			<nav id="sitemap">
+          <h4>Navigazione</h4>
+          <ul class="list">
+            <li><a href="../HTML/index.html" lang="en">Home</a></li
+            ><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+  					><li><a href="../PHP/menu.php">Menù</a></li
+  					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+  					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+  					><li><a href="../HTML/contatti.html">Contatti</a></li
+  					><li><a href="../HTML/login.html">Accedi</a></li
+            ><li><a href="../HTML/signup.html">Registrati</a></li
+            ><li><a href="../PHP/area_utente.php">Area utente</a></li
+            ><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
+  				</ul>
+  			</nav>
+        <div>
+          <h4>Informazioni</h4>
+          Progetto didattico del corso di Tecnologie Web prodotto da:
+          <ul class="list">
+            <li>Giacomo Orlandi - </li
+            ><li>Matteo Vignaga - </li
+            ><li>Michele Masetto - 1224457</li
+            ><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Certificazioni</h4>
+        </div>
+      </div>
+			<p id="copyright">
+				&copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
+			</p>
 		</footer>
   </body>
 </html>

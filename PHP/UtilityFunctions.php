@@ -31,13 +31,13 @@ class UtilityFunctions {
         if(self::loginCheck())
         {
             $string="<div class=\"dropdown\">
-                        <a class=\"text-button dropbtn\">Il mio account</a>
+                        <button type=\"button\" class=\"text-button dropbtn\">Il mio <span lang=\"en\">account</span></button>
                         <ul class=\"dropdown-content\">
                             <li>
-                                <a href=\"../PHP/area_utente.php\">Area Utente</a>
+                                <a href=\"../PHP/area_utente.php\">Area utente</a>
                             </li>
                             <li>
-                                <a href=\"../PHP/logout.php\">Logout</a>
+                                <a href=\"../PHP/logout.php\">Effetua il <span lang=\"en\">logout</span></a>
                             </li>
                         </ul>
                     </div>";

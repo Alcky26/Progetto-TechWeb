@@ -22,13 +22,13 @@
       <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
       <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
       <nav class="dropdown">
-        <button id="nav-button" class="mobile-only button dropbtn"></button>
+        <button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
         <ul id="nav" class="dropdown-content">
           <li id="logo">
             <a href="../HTML/index.html">
               <picture>
                 <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png"/>
+                <img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
               </picture>
             </a>
           </li
@@ -36,22 +36,23 @@
           ><li><a href="../PHP/menu.php">MENÙ</a></li
           ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
           ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li><a href="../HTML/contatti.html">CONTATTI</a></li
+          ><lh4<a href="../HTML/contatti.html">CONTATTI</a></li
 					><li id="login-logout" class="dropdown">
-            <a class="text-button dropbtn">Il mio account</a>
-              <ul class="dropdown-content">
-                <li><a href="../PHP/area_utente.php">Area utente</a></li>
-                <li><a href="../PHP/logout.php">Effettua il logout</a></li>
-              </ul>
+            <button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
+            <ul class="dropdown-content">
+              <li><a href="../PHP/area_utente.php">Area utente</a></li>
+              <li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
+            </ul>
           </li>
         </ul>
       </nav>
     </header>
     <main id="content-wrapper">
+      <div class="fake-subtitle"></div>
       <div id="breadcrumb">
-  			Ti trovi in: <span class="path"><a href="../HTML/index.html">Home</a> &gt; Prenota tavolo</span>
-  		</div>
-		  <div id="prenotazione" class="first container">
+        <p>Ti trovi in: <span lang="en">Home</span> / Prenota tavolo</p>
+      </div>
+		  <div id="prenotazione" class="container">
 			  <div class="subtitle-panel">
 			    <h2 class="subtitle">Prenotazione</h2>
 			  </div>
@@ -136,22 +137,41 @@
 		    </div>
 		  </div>
 	  </main>
-	  <footer id="footer">
-		<div id="site-map">
-	<ul class="menu">
-	  <li><a href="../PHP/chisiamo.php">Chi siamo</a></li
-				><li><a href="../PHP/menu.php">Menù</a></li
-				><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-				><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
-				><li><a href="../HTML/contatti.html">Contatti</a></li
-				><li><a href="../HTML/login.html">Accedi</a></li
-	  ><li><a href="../HTML/signup.html">Registrati</a></li>
-			</ul>
-		</div>
-		<div id="copyright">
-			&copy; 2021 <span lang="en">Copyright - All Rights Reserved</span>
-		</div>
-	</footer>
+    <footer id="footer">
+      <div>
+  			<nav id="sitemap">
+          <h4>Navigazione</h4>
+          <ul class="list">
+            <li><a href="../HTML/index.html" lang="en">Home</a></li
+            ><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+  					><li><a href="../PHP/menu.php">Menù</a></li
+  					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
+  					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+  					><li><a href="../HTML/contatti.html">Contatti</a></li
+  					><li><a href="../HTML/login.html">Accedi</a></li
+            ><li><a href="../HTML/signup.html">Registrati</a></li
+            ><li><a href="../PHP/area_utente.php">Area utente</a></li
+            ><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
+  				</ul>
+  			</nav>
+        <div>
+          <h4>Informazioni</h4>
+          Progetto didattico del corso di Tecnologie Web prodotto da:
+          <ul class="list">
+            <li>Giacomo Orlandi - </li
+            ><li>Matteo Vignaga - </li
+            ><li>Michele Masetto - 1224457</li
+            ><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Certificazioni</h4>
+        </div>
+      </div>
+			<p id="copyright">
+				&copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
+			</p>
+		</footer>
     <script src="../JavaScript/calendario.js"></script>
   </body>
 </html>

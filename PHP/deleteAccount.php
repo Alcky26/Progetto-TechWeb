@@ -10,10 +10,11 @@ $connessioneOK = $connessione->openDBConnection();
 
 if($connessioneOK) {
     if($GLOBALS["connessione"]->deleteAccount($_SESSION["email"])) {
-        unset($_SESSION["email"], $_SESSION["username"], $_SESSION["isValid"], $_SESSION["isAdmin"]);
         session_destroy();
     }
     $connessione->closeDBConnection();
 }
+
+header("Location: ../HTML/index.html");
 
 ?>

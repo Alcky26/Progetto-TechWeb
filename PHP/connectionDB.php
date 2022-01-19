@@ -295,17 +295,25 @@ class DBAccess {
         $_new_email = mysqli_real_escape_string($this->connection, $new_email);
         $_new_username = mysqli_real_escape_string($this->connection, $new_username);
         $_new_pwd = mysqli_real_escape_string($this->connection, $new_pwd);
-        $_new_birthday = mysqli_real_escape_string($this->connection, $new_birthday);
+        $_new_birthday = $new_birthday;
         $query = "UPDATE UTENTE
                   SET email = '$_new_email', username = '$_new_username', password = '$_new_pwd'
                   WHERE email = '$email'";
-        if (mysqli_query($this->connection, $query)) {
+        $result1 = mysqli_query($this->connection, $query);;
+        $result2 = 1;
+        if (substr($this->getUserInfo($_SESSION["email"])[0]["birthday"], 0, 10) != $_new_birthday) {
             $query = "UPDATE UTENTE
                       SET birthday = '$_new_birthday', birthdayModified = 1
                       WHERE email = '$_new_email' AND birthdayModified = 0";
-            return mysqli_query($this->connection, $query);
+            mysqli_query($this->connection, $query);
+            $result2 = mysqli_affected_rows($this->connection);
         }
-        return false;
+        if($result1 && $result2)
+            return "Modifiche salvate.";
+        else if (!$result1)
+            return "Errore nell'inserimento dei dati.";
+        else
+            return "ATTENZIONE: non è possibile modificare il giorno del compleanno più di una volta.";
     }
 
     public function deleteAccount($email) {

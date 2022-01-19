@@ -2,6 +2,10 @@
   font-size: 80%;
 }
 
+#content-wrapper, #content-wrapper + #footer {
+  top: 64px;
+}
+
 .menu {
   flex-direction: row;
 }
@@ -28,11 +32,8 @@
 }
 
 #breadcrumb{
-  top: 72px;
-}
-
-.first.container {
-  padding-top: calc(73px + 3rem);
+  left: 0;
+  width: 100%;
 }
 
 .subtitle-panel, .subtitle-fixed-panel {
@@ -59,13 +60,13 @@
   display: inline;
 }
 
+.fake-subtitle {
+  display: none;
+}
+
 .subcontainers {
   position: static;
   width: 100%;
-}
-
-.first.container > .subcontainers {
-  padding-top: 16px;
 }
 
 .grid-subcontainer {
