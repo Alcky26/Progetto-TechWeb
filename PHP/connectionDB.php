@@ -163,6 +163,89 @@ class DBAccess {
                 }
                 return false;
             }
+
+            public function addBevanda($nome,$categoria, $gradi, $descrizione, $prezzo)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+                $txtGradi = mysqli_real_escape_string($this->connection, $gradi);
+
+                $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                $sql2 = "INSERT INTO `BEVANDA` (`nome`, `categoria` , `gradiAlcolici`) VALUES ('$txtNome', '$txtCategoria', '$txtGradi');";
+                
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    mysqli_query($this->connection, $sql2);
+                    $result=mysqli_affected_rows($this->connection);
+                    if($result == 1) {
+                        return true;
+                    }
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `BEVANDA` WHERE `BEVANDA`.`nome`= '$txtNome'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                }
+                return false;
+            }
+
+            public function addDolce($nome, $descrizione, $prezzo)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+
+                $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                $sql2 = "INSERT INTO `DOLCE` (`nome`) VALUES ('$txtNome');";
+                
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    mysqli_query($this->connection, $sql2);
+                    $result=mysqli_affected_rows($this->connection);
+                    if($result == 1) {
+                        return true;
+                    }
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `DOLCE` WHERE `DOLCE`.`nome`= '$txtNome'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                }
+                return false;
+            }
+
+            public function addIngrediente($nome, $categoria)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
+
+                $sql2 = "INSERT INTO `INGREDIENTE` (`nome`, `allergene`) VALUES ('$txtNome', '$txtCategoria')";
+                
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    mysqli_query($this->connection, $sql2);
+                    $result=mysqli_affected_rows($this->connection);
+                    if($result == 1) {
+                        return true;
+                    }
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `INGREDIENTE` WHERE `INGREDIENTE`.`nome`= '$txtNome'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                }
+                return false;
+            }
             /*
                 FINE AGGIUNGI
             */
@@ -200,6 +283,70 @@ class DBAccess {
                     return false;
                 }
             }
+
+            public function getListBevande() {
+                $query = "SELECT * FROM `BEVANDA`";
+                return $this->execQuery($query);
+            }
+
+            public function delBevanda($bevanda) {
+                $txtbevanda = mysqli_real_escape_string($this->connection, $bevanda);
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `PIZZA` WHERE `PIZZA`.`nome`= '$txtbevanda'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtbevanda'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            public function getListDolci() {
+                $query = "SELECT * FROM `DOLCI`";
+                return $this->execQuery($query);
+            }
+
+            public function delDolce($dolce) {
+                $txtdolce = mysqli_real_escape_string($this->connection, $dolce);
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `DOLCE` WHERE `DOLCE`.`nome`= '$txtdolce'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            public function delDolce($dolce) {
+                $txtdolce = mysqli_real_escape_string($this->connection, $dolce);
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `DOLCE` WHERE `DOLCE`.`nome`= '$txtdolce'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
             /*
                 FINE ELIMINA
             */
@@ -224,6 +371,39 @@ class DBAccess {
                     array_push($pizza, $row);
                 }
                 return $pizza;
+            }
+
+            public function selectBevanda($nome)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $sql5 = "SELECT `BEVANDA`.`nome`,`BEVANDA`.`categoria`,`BEVANDA`.`gradiAlcolici` ,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
+                        FROM `BEVANDA` JOIN `ELEMENTO_LISTINO` on `BEVANDA`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        WHERE `BEVANDA`.`nome`='$txtNome'";
+                
+                $bevanda = $this->execQuery($sql5);
+                return $bevanda;
+            }
+
+            public function selectDolce($nome)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $sql5 = "SELECT `DOLCE`.`nome`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
+                        FROM `DOLCE` JOIN `ELEMENTO_LISTINO` on `DOLCE`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        WHERE `DOLCE`.`nome`='$txtNome'";
+                
+                $dolce = $this->execQuery($sql5);
+                return $dolce;
+            }
+
+            public function selectIngrediente($id)
+            {
+                $txtId = mysqli_real_escape_string($this->connection, $id);
+                $sql5 = "SELECT `INGREDIENTE`.`nome`,`INGREDIENTE`.`allergene`,`INGREDIENTE`.`id_ingrediente`
+                        FROM `INGREDIENTE`
+                        WHERE `INGREDIENTE`.`id_ingrediente`='$txtId'";
+                
+                $dolce = $this->execQuery($sql5);
+                return $dolce;
             }
 
             public function updatePizza($nome,$categoria, $prezzo, $descrizione, $idIngredienti, $nomevecchio)
@@ -279,6 +459,93 @@ class DBAccess {
                     }
                 }
                 //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
+            }
+
+            public function updateBevanda($nome,$categoria, $prezzo, $descrizione, $gradialcolici, $nomevecchio)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+                $txtGradiAlcolici = (float)$gradialcolici;
+                $txtOldName = mysqli_real_escape_string($this->connection, $nomevecchio);
+
+                
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `BEVANDA` WHERE `BEVANDA`.`nome`= '$txtOldName'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == 2) {
+                    $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                    $sql2 ="INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici) VALUES ('$txtNome', '$txtCategoria', '$txtGradiAlcolici');";
+                    
+                    mysqli_query($this->connection, $sql);
+                    $result=mysqli_affected_rows($this->connection);
+                    if ($result == 1) {
+                        mysqli_query($this->connection, $sql2);
+                        $result=mysqli_affected_rows($this->connection);
+                        if($result == 1) {
+                            return true;
+                        }
+                    }
+                }
+                //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
+            }
+            
+            public function updateDolce($nome, $prezzo, $descrizione, $nomevecchio)
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $txtPrezzo = (float)$prezzo;
+                $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+                $txtOldName = mysqli_real_escape_string($this->connection, $nomevecchio);
+
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `BEVANDA` WHERE `BEVANDA`.`nome`= '$txtOldName'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == 2) {
+                    $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                    $sql2 ="INSERT INTO `BEVANDA` (`nome`) VALUES ('$txtNome');";
+                    
+                    mysqli_query($this->connection, $sql);
+                    $result=mysqli_affected_rows($this->connection);
+                    if ($result == 1) {
+                        mysqli_query($this->connection, $sql2);
+                        $result=mysqli_affected_rows($this->connection);
+                        if($result == 1) {
+                            return true;
+                        }
+                    }
+                }
+                //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
+            }
+            public function updateIngrediente($nomeingred, $categoriaallergene, $idvecchio);
+            {
+                $txtNome = mysqli_real_escape_string($this->connection, $nomeingred);
+                $txtAllergene = mysqli_real_escape_string($this->connection, $categoriaallergene);
+                $txtOldId = mysqli_real_escape_string($this->connection, $idvecchio);
+
+                $sql = "UPDATE `INGREDIENTE` SET `nome` = '$txtNome', `allergene` = '$txtAllergene' WHERE `INGREDIENTE`.`id_ingrediente` = '$txtOldId'";
+                
+                mysqli_query($this->connection, $sql);
+                $result=mysqli_affected_rows($this->connection);
+                if ($result == 1) {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+                //////////////////////////////////////// CHE ROLL BACK FARE ???????????????? PROBLEMA DEL FATTO CHE SE CAMBIO NOME, CAMBIO NOME ANCHE ALLINGREDIENTE SU COMPOSIZIONE
             }
             /*
                 FINE MODIFICA

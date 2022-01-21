@@ -1,6 +1,6 @@
 $(document).ready(function(){
    
-    $("#slideFlip").click(function(){
+    $("#slideFlipPizza").click(function(){
       $("#slidePizza").slideToggle("fast");
     });
 
@@ -15,6 +15,63 @@ $(document).ready(function(){
     $("#modificaFlip").click(function(){
         $("#modificaPizza").slideToggle("fast");
       });
+
+
+
+    $("#slideFlipBevanda").click(function(){
+        $("#slideBevande").slideToggle("fast");
+      });
+  
+    $("#aggiungiFlipBev").click(function(){
+          $("#aggiungiBev").slideToggle("fast");
+      });
+  
+    $("#eliminaFlipBev").click(function(){
+          $("#eliminaBev").slideToggle("fast");
+      });
+  
+    $("#modificaFlipBev").click(function(){
+          $("#modificaBev").slideToggle("fast");
+      });
+
+
+
+    $("#slideFlipDolci").click(function(){
+        $("#slideDolci").slideToggle("fast");
+      });
+  
+    $("#aggiungiFlipDolci").click(function(){
+          $("#aggiungiDolci").slideToggle("fast");
+      });
+  
+    $("#eliminaFlipDolci").click(function(){
+          $("#eliminaDolci").slideToggle("fast");
+      });
+  
+    $("#modificaFlipDolce").click(function(){
+          $("#modificaDolce").slideToggle("fast");
+      });
+
+
+    
+
+    $("#slideFlipIngre").click(function(){
+        $("#slideIngre").slideToggle("fast");
+      });
+  
+    $("#aggiungiFlipIngre").click(function(){
+          $("#aggiungiIngre").slideToggle("fast");
+      });
+  
+    $("#eliminaFlipIngrediente").click(function(){
+          $("#eliminaIngrediente").slideToggle("fast");
+      });
+  
+    $("#modificaFlipDmodificaFlipIngredienteolce").click(function(){
+          $("#modificaIngrediente").slideToggle("fast");
+      });
+
+
 
 
     $("#delPiz").on('keydown paste focus mousedown', function(e){
@@ -38,6 +95,11 @@ $(document).ready(function(){
     });
 
     $("#oldName").on('keydown paste focus mousedown', function(e){
+        if(e.keyCode != 9) 
+            e.preventDefault();
+    });
+
+    $("#oldNameBev").on('keydown paste focus mousedown', function(e){
         if(e.keyCode != 9) 
             e.preventDefault();
     });
@@ -102,10 +164,49 @@ function addItemToDel(itemInput)
     document.getElementById('delPiz').value = productRow.querySelector(".itemNamePizDel").textContent;
 }
 
+function addItemToDelBev(itemInput)
+{
+	var productRow = itemInput.parentNode;
+    document.getElementById('delBev').value = productRow.querySelector(".itemNameBevDel").textContent;
+}
+
+function addItemToDelDolce(itemInput)
+{
+	var productRow = itemInput.parentNode;
+    document.getElementById('delDolce').value = productRow.querySelector(".itemNameBevDolce").textContent;
+}
+
+function addItemToDelIngre(itemInput)
+{
+	var productRow = itemInput.parentNode;
+    document.getElementById('delIngrediente').value = productRow.querySelector(".ingredNameUpd").textContent;
+}
+
 function removeItemDel()
 {
     if(document.getElementById('delPiz').value.length > 0){
             document.getElementById('delPiz').value = "";
+    }
+}
+
+function removeItemDelBev()
+{
+    if(document.getElementById('delBev').value.length > 0){
+            document.getElementById('delBev').value = "";
+    }
+}
+
+function removeItemDelDolce()
+{
+    if(document.getElementById('delDolce').value.length > 0){
+            document.getElementById('delDolce').value = "";
+    }
+}
+
+function removeItemDelIngrediente()
+{
+    if(document.getElementById('delIngrediente').value.length > 0){
+            document.getElementById('delIngrediente').value = "";
     }
 }
 

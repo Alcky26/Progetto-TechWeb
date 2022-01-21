@@ -64,7 +64,7 @@
             <li class="tipiCateg">
               <h3>Pizze</h3>
               <ul>
-                <li id="slideFlip">Pizze</li>
+                <li id="slideFlipPizza">Pizze</li>
                 <div id="slidePizza" class="flipP">
                   <div class="subcontainer">
                     <ul class="categoriePrinc">
@@ -72,33 +72,33 @@
                         <ul>
                           <li id="aggiungiFlip">Aggiungi</li>
                           <div id="aggiungiPizza" class="flipP">
-                              <form id="add-pizza-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
-                                <fieldset>
-                                <messaggioPizzaAggiunta />
-                                <label for="text" lang="ITA">Nome Pizza:</label>
-                                <input type="text" name="aggNomepizza" id="aggNomepizza" maxlength="30" placeholder="Inserisci nome pizza:" required/>
-                                <label for="text" lang="ITA">Categoria:</label>
-                                <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" maxlength="30" placeholder="Inserisci catergoria:"required/>
-                                <label for="number" lang="ITA">Prezzo:</label>
-                                <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
-                                <label for="text" lang="ITA">Descrizione: </label>
-                                <input type="text" name="aggDesc" id="aggDesc" maxlenght="500" placeholder="Inserisci la descrizione:"/>
-                                <label for="text" lang="ITA">Ingredienti: </label>
-                                <ul>
-                                  <li id="ingredient" class="dropdown">
-                                  <a class="text-button dropbtn">Ingrediente</a>
-                                    <ul class="dropdown-content">
-                                      <listaIngredienti/>
-                                    </ul>
-                                  </li>
-                                </ul>
-                                <input type="text" name="aggIngre" id="aggIngre" placeholder="Seleziona un ingrediente per inserirlo:" required/>
-                                <input type="text" name="aggIngreId" id="aggIngreId" class="invIdIng" required/>
-                                <button type="button" class="text-button" onclick="removeItem()">Elimina ultimo ingrediente</button>
-                                <div id="post">
-                                  <input type="submit" id="AggiungiPiz" class="text-button" name="AggiungiPiz" value="Aggiungi"/>
-                                </div>
-                                </fieldset>
+                            <form id="add-pizza-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                              <messaggioPizzaAggiunta />
+                              <label for="text" lang="ITA">Nome Pizza:</label>
+                              <input type="text" name="aggNomepizza" id="aggNomepizza" maxlength="30" placeholder="Inserisci nome pizza:" required/>
+                              <label for="text" lang="ITA">Categoria:</label>
+                              <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" maxlength="30" placeholder="Inserisci catergoria:"required/>
+                              <label for="number" lang="ITA">Prezzo:</label>
+                              <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
+                              <label for="text" lang="ITA">Descrizione: </label>
+                              <input type="text" name="aggDesc" id="aggDesc" maxlenght="500" placeholder="Inserisci la descrizione:"/>
+                              <label for="text" lang="ITA">Ingredienti: </label>
+                              <ul>
+                                <li id="ingredient" class="dropdown">
+                                <a class="text-button dropbtn">Ingrediente</a>
+                                  <ul class="dropdown-content">
+                                    <listaIngredienti/>
+                                  </ul>
+                                </li>
+                              </ul>
+                              <input type="text" name="aggIngre" id="aggIngre" placeholder="Seleziona un ingrediente per inserirlo:" required/>
+                              <input type="text" name="aggIngreId" id="aggIngreId" class="invIdIng" required/>
+                              <button type="button" class="text-button" onclick="removeItem()">Elimina ultimo ingrediente</button>
+                              <div id="post">
+                                <input type="submit" id="AggiungiPiz" class="text-button" name="AggiungiPiz" value="Aggiungi"/>
+                              </div>
+                              </fieldset>
                             </form>
                           </div>
 
@@ -129,7 +129,7 @@
 
                           <li id="modificaFlip">Modifica</li>
                           <div id="modificaPizza" class="flipP">
-                            <label for="text" lang="ITA">Seleziona pizza da eliminare: </label>
+                            <label for="text" lang="ITA">Seleziona pizza da modificare: </label>
                             <ul>
                               <li id="pizzaList" class="dropdown">
                               <a class="text-button dropbtn">Pizze</a>
@@ -143,72 +143,262 @@
                                 <messaggioPizzaModificata />
                                 <interfacciaModifica/>
                                 <div id="post">
-                                  <input type="submit" id="ModificaiPiz" class="text-button" name="ModificaiPiz" value="Modifica"/>
+                                  <input type="submit" id="ModificaPiz" class="text-button" name="ModificaPiz" value="Modifica"/>
                                 </div>
                               </fieldset>
                             </form>
                           </div>
-
-
-
-
-                          <!--<div id="eliminaPizza" class="flipP">
-                            <listaClassiche />
-                          </div>
-                          <div id="modificaPizza" class="flipP">
-                            <listaClassiche />
-                          </div>
-                        </ul>
+                        </ul> 
                       </li>
-                      <li class="tipiCateg">
-                        <h3>Bevande</h3>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+            </li>
+
+            <li class="tipiCateg">
+              <h3>Bevande</h3>
+              <ul>
+                <li id="slideFlipBevanda">Bevande</li>
+                <div id="slideBevande" class="flipP">
+                  <div class="subcontainer">
+                    <ul class="categoriePrinc">
+                      <li class="tipiAzione">
                         <ul>
-                          <li id="classicheFlip">Bevande</li>
-                          <div id="aggiungiBevanda" class="flipP">
-                            <listaClassiche />
+                          <li id="aggiungiFlipBev">Aggiungi</li>
+                          <div id="aggiungiBev" class="flipP">
+                            <form id="add-bevanda-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                              <messaggioBevandaAggiunta />
+                              <label for="text" lang="ITA">Nome Bevanda:</label>
+                              <input type="text" name="aggNomebevanda" id="aggNomebevanda" maxlength="30" placeholder="Inserisci nome bevanda:" required/>
+                              <label for="text" lang="ITA">Categoria:</label>
+                              <input type="text" name="aggCategoriabevanda" id="aggCategoriabevanda" maxlength="30" placeholder="Inserisci catergoria:" required/>
+                              <label for="number" lang="ITA">Gradi Alcolici:</label>
+                              <input type="number" name="aggGradi" id="aggGradi" min="0.0" step="0.1" placeholder="Inserisci il grado alcolico:" required/>
+                              <label for="number" lang="ITA">Prezzo:</label>
+                              <input type="number" name="aggPrezzoBev" id="aggPrezzoBev" min="0.0" step="0.1" placeholder="Inserisci il prezzo:" required/>
+                              <label for="text" lang="ITA">Descrizione: </label>
+                              <input type="text" name="aggDescbev" id="aggDescbev" maxlenght="500" placeholder="Inserisci la descrizione:"/>
+                              <div id="post">
+                                <input type="submit" id="AggiungiBev" class="text-button" name="AggiungiBev" value="Aggiungi"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
-                          <div id="eliminaBevanda" class="flipP">
-                            <listaClassiche />
+
+                          <li id="eliminaFlipBev">Elimina</li>
+                          <div id="eliminaBev" class="flipP">
+                            <form id="delete-bevanda-form"  action="../PHP/adminEventHandler.php" method="post">
+                              <fieldset>
+                              <messaggioBevandaEliminata />
+                              <label for="text" lang="ITA">Seleziona bevanda da eliminare: </label>
+                              <ul>
+                                <li id="bevandaList" class="dropdown">
+                                <a class="text-button dropbtn">Bevande</a>
+                                  <ul class="dropdown-content">
+                                    <listaBevandaDel/>
+                                  </ul>
+                                </li>
+                              </ul>
+                              <input type="text" name="delBev" id="delBev" placeholder="Seleziona una bevanda per eliminarla:"  required/>
+                              <button type="button" class="text-button" onclick="removeItemDelBev()">Cambia bevanda da eliminare</button>
+                              <div id="post">
+                                <input type="submit" id="EliminaBev" class="text-button" name="EliminaBev" value="Elimina"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
-                          <div id="modificaBevanda" class="flipP">
-                            <listaClassiche />
+
+                          <li id="modificaFlipBev">Modifica</li>
+                          <div id="modificaBev" class="flipP">
+                            <label for="text" lang="ITA">Seleziona bevanda da modificare: </label>
+                            <ul>
+                              <li id="bevandaList" class="dropdown">
+                              <a class="text-button dropbtn">Bevande</a>
+                                <ul class="dropdown-content">
+                                  <listaBevandeUpd/>
+                                </ul>
+                              </li>
+                            </ul>
+                            <form id="upd-bevanda-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                                <messaggioBevandaModificata />
+                                <interfacciaModificaBev/>
+                                <div id="post">
+                                  <input type="submit" id="ModificaBev" class="text-button" name="ModificaBev" value="Modifica"/>
+                                </div>
+                              </fieldset>
+                            </form>
                           </div>
-                        </ul>
+                        </ul> 
                       </li>
-                      <li class="tipiCateg">
-                        <h3>Dolci</h3>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+            </li>
+
+            <li class="tipiCateg">
+              <h3>Dolci</h3>
+              <ul>
+                <li id="slideFlipDolci">Dolci</li>
+                <div id="slideDolci" class="flipP">
+                  <div class="subcontainer">
+                    <ul class="categoriePrinc">
+                      <li class="tipiAzione">
                         <ul>
-                          <li id="classicheFlip">Pizze</li>
-                          <div id="aggiungiDolce" class="flipP">
-                            <listaClassiche />
+                          <li id="aggiungiFlipDolci">Aggiungi</li>
+                          <div id="aggiungiDolci" class="flipP">
+                            <form id="add-dolci-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                              <messaggioDolceAggiunta />
+                              <label for="text" lang="ITA">Nome Bevanda:</label>
+                              <input type="text" name="aggNomedolce" id="aggNomedolce" maxlength="30" placeholder="Inserisci nome dolce:" required/>
+                              <label for="number" lang="ITA">Prezzo:</label>
+                              <input type="number" name="aggPrezzoDolce" id="aggPrezzoDolce" min="0.0" step="0.1" placeholder="Inserisci il prezzo:" required/>
+                              <label for="text" lang="ITA">Descrizione: </label>
+                              <input type="text" name="aggDescdolce" id="aggDescdolce" maxlenght="500" placeholder="Inserisci la descrizione:"/>
+                              <div id="post">
+                                <input type="submit" id="AggiungiDolce" class="text-button" name="AggiungiDolce" value="Aggiungi"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
-                          <div id="eliminaDolce" class="flipP">
-                            <listaClassiche />
+
+                          <li id="eliminaFlipDolci">Elimina</li>
+                          <div id="eliminaDolci" class="flipP">
+                            <form id="delete-dolci-form"  action="../PHP/adminEventHandler.php" method="post">
+                              <fieldset>
+                              <messaggioDolceEliminata />
+                              <label for="text" lang="ITA">Seleziona dolce da eliminare: </label>
+                              <ul>
+                                <li id="dolceList" class="dropdown">
+                                <a class="text-button dropbtn">Dolci</a>
+                                  <ul class="dropdown-content">
+                                    <listaDolceDel/>
+                                  </ul>
+                                </li>
+                              </ul>
+                              <input type="text" name="delDolce" id="delDolce" placeholder="Seleziona un dolce per eliminarlo:"  required/>
+                              <button type="button" class="text-button" onclick="removeItemDelDolce()">Cambia dolce da eliminare</button>
+                              <div id="post">
+                                <input type="submit" id="EliminaDolce" class="text-button" name="EliminaDolce" value="Elimina"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
+
+                          <li id="modificaFlipDolce">Modifica</li>
                           <div id="modificaDolce" class="flipP">
-                            <listaClassiche />
+                            <label for="text" lang="ITA">Seleziona dolce da modificare: </label>
+                            <ul>
+                              <li id="dolceList" class="dropdown">
+                              <a class="text-button dropbtn">Dolce</a>
+                                <ul class="dropdown-content">
+                                  <listaDolceUpd/>
+                                </ul>
+                              </li>
+                            </ul>
+                            <form id="upd-dolci-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                                <messaggioDolceModificata />
+                                <interfacciaModificaDolce/>
+                                <div id="post">
+                                  <input type="submit" id="ModificaDolce" class="text-button" name="ModificaDolce" value="Modifica"/>
+                                </div>
+                              </fieldset>
+                            </form>
                           </div>
-                        </ul>
+                        </ul> 
                       </li>
-                      <li class="tipiCateg">
-                        <h3>Ingredienti</h3>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+            </li>
+
+            <li class="tipiCateg">
+              <h3>Ingredienti</h3>
+              <ul>
+                <li id="slideFlipIngre">Ingredienti</li>
+                <div id="slideIngre" class="flipP">
+                  <div class="subcontainer">
+                    <ul class="categoriePrinc">
+                      <li class="tipiAzione">
                         <ul>
-                          <li id="classicheFlip">Ingredienti</li>
-                          <div id="aggiungiIngrediente" class="flipP">
-                            <listaClassiche />
+                          <li id="aggiungiFlipIngre">Aggiungi</li>
+                          <div id="aggiungiIngre" class="flipP">
+                            <form id="add-ingrediente-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                              <messaggioIngredienteAggiunta />
+                              <label for="text" lang="ITA">Nome Ingrediente:</label>
+                              <input type="text" name="aggNomeingred" id="aggNomeingred" maxlength="30" placeholder="Inserisci nome ingrediente:" required/>
+                              <label for="number" lang="ITA">Categoria Allergene:</label>
+                              <input type="number" name="aggCategoriaDolce" id="aggCategoriaDolce" min="0" step="1" placeholder="Inserisci la categoria:" required/>
+                              <div id="post">
+                                <input type="submit" id="AggiungiIngre" class="text-button" name="AggiungiIngre" value="Aggiungi"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
+
+                          <li id="eliminaFlipIngrediente">Elimina</li>
                           <div id="eliminaIngrediente" class="flipP">
-                            <listaClassiche />
+                            <form id="delete-ingrediente-form"  action="../PHP/adminEventHandler.php" method="post">
+                              <fieldset>
+                              <messaggioIngretienteEliminata />
+                              <label for="text" lang="ITA">Seleziona ingrediente da eliminare: </label>
+                              <ul>
+                                <li id="List" class="dropdown">
+                                <a class="text-button dropbtn">Ingredienti</a>
+                                  <ul class="dropdown-content">
+                                    <listaIngredientiElimina/>
+                                  </ul>
+                                </li>
+                              </ul>
+                              <input type="text" name="delIngrediente" id="delIngrediente" placeholder="Seleziona un ingrediente per eliminarlo:"  required/>
+                              <button type="button" class="text-button" onclick="removeItemDelIngrediente()">Cambia ingrediente da eliminare</button>
+                              <div id="post">
+                                <input type="submit" id="EliminaIngrediente" class="text-button" name="EliminaIngrediente" value="Elimina"/>
+                              </div>
+                              </fieldset>
+                            </form>
                           </div>
+
+                          <li id="modificaFlipIngrediente">Modifica</li>
                           <div id="modificaIngrediente" class="flipP">
-                            <listaClassiche />
+                            <label for="text" lang="ITA">Seleziona ingrediente da modificare: </label>
+                            <ul>
+                              <li id="ingredienteList" class="dropdown">
+                              <a class="text-button dropbtn">Ingrediente</a>
+                                <ul class="dropdown-content">
+                                  <listaIngredienteUpd/>
+                                </ul>
+                              </li>
+                            </ul>
+                            <form id="upd-ingrediente-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                                <messaggioIngredienteModificata />
+                                <interfacciaModificaIngrediente/>
+                                <div id="post">
+                                  <input type="submit" id="ModificaIngrediente" class="text-button" name="ModificaIngrediente" value="Modifica"/>
+                                </div>
+                              </fieldset>
+                            </form>
                           </div>
-                        </ul>
-                      </li>-->
-            </ul> 
-          </div>
+                        </ul> 
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+            </li>
+            
+          </ul>
         </div>
       </div>
+    </div>
     </main>
     <footer id="footer">
       <div>

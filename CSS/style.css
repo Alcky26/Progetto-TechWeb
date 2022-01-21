@@ -1082,7 +1082,7 @@ p.subcontainer {
   padding: 16px;
 }
 
-div.idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd{
+div.idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd, div.idIngdel, input[type = "text"].idIngdel{
   display: none;
 }
 
