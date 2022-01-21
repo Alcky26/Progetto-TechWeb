@@ -1026,65 +1026,90 @@ p.subcontainer {
 
 /*----------pagina admin----------------*/
 
-div#hovermenu {
-  width: 100%;
-  float: left;
-  margin: 0;
+.categoriePrinc {
+	box-shadow: 2px 2px 4px black;
+}
+
+.categoriePrinc, .categoriePrinc ul {
   padding: 0;
-  background: #FCD299;
-  }
-
-div#hovermenu ul
-{
-margin: 0;
-padding: 0;
-list-style-type: none;
+	list-style-type: none;
 }
 
-div#hovermenu li
-{
-width:100px;
-float:left;
-margin: 0;
-padding: 0;
-border: 1px solid black;
-color:black;
-list-style-type: none;
+.tipiCateg > h3 {
+	margin: 0;
+  padding: 1.25rem;
+	background-color: #bf7b21;
 }
 
-div#hovermenu a
-{
-display: block;
-padding: 5px;
-color: #000;
-text-decoration: none;
-}
-div#hovermenu a:hover
-{
-background-color: #000033;
-color: #FFFFFF;
-text-decoration: none;
+.tipiCateg li {
+  padding-left: 16px;
 }
 
-div#hovermenu li ul
-{
-display: none
+.tipiCateg li {
+	cursor: pointer;
 }
 
-div#hovermenu li:hover ul
-{
-display: block;
-position: absolute;
-z-index:1;
-width:150px;
-padding: 0;
-margin: 0 0 0 -1px;
-border:1px solid black;
-background: white;
+.tipiCateg li:hover {
+	color: #bfb721;
+	text-decoration: underline;
 }
 
-div#hovermenu li li { border:none; width:150px; }
-div#hovermenu li li a { padding:2px 2px 2px 10px; }
+.tipiAzione > h3 {
+	margin: 0;
+  padding: 1.25rem;
+	background-color: #bf7b21;
+}
+
+.tipiAzione li {
+  padding-left: 16px;
+}
+
+.tipiAzione li {
+	cursor: pointer;
+}
+
+.tipiAzione > li:hover {
+	color: #bfb721;
+  text-decoration: none;
+}
+
+.tipiAzione * {
+	color: #000000;
+  text-decoration: none;
+}
+
+#slidePizza, #slideBevande, #aggiungiPizza, #aggiungiBevanda, #aggiungiDolce, #aggiungiIngrediente, #eliminaPizza, #eliminaBevanda, #eliminaDolce, #eliminaIngrediente, #modificaPizza, #modificaBevanda, #modificaDolce, #modificaIngrediente {
+  padding: 16px;
+}
+
+div.idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd{
+  display: none;
+}
+
+.pizza-link {
+
+  background: none;
+  border: none;
+  padding: 0px;
+  color: #3097D1;
+  font: inherit;
+
+}
+
+.pizza-link:hover {
+
+  color: #216a94;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*.dropdown-content + #upd-pizza-form {
+  padding:none;
+}
+
+.dropdown-content > #upd-pizza-form + li{
+  padding-left:none;
+}*/
 
 /*----------pagina area utente----------*/
 

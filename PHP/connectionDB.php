@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mmasetto";
-    private const PASSWORD = "iyuyiSohS5oochu3";
-    private const DATABASE_NAME = "mmasetto";
+    private const USERNAME = "mvignaga";
+    private const PASSWORD = "ohthohXie5aichah";
+    private const DATABASE_NAME = "mvignaga";
 
     private $connection;
 
@@ -28,6 +28,20 @@ class DBAccess {
     public function closeDBConnection() {
         if ($this->connection)
             mysqli_close($this->connection);
+    }
+
+    private function execQuery($query) {
+        $queryResult = mysqli_query($this->connection, $query) or die("Errore: ".mysqli_error($this->connection));
+
+        if ($queryResult && mysqli_num_rows($queryResult) > 0) {
+
+            $result = array();
+            while ($row = mysqli_fetch_assoc($queryResult)) {
+                array_push($result, $row);
+            }
+            return $result;
+        }
+        return null;
     }
 
     /*
@@ -92,87 +106,179 @@ class DBAccess {
     /*
         ADMINISTRATOR
     */
+        public function getIngredienti()
+        {
+            $sql = "SELECT `INGREDIENTE`.`nome`,`INGREDIENTE`.`id_ingrediente`  FROM `INGREDIENTE` ORDER BY `INGREDIENTE`.`id_ingrediente` ASC";
+            return $this->execQuery($sql);
+        }
             /*
                 AGGIUNGI
             */
-            public function addPizza($nome,$categoria, $prezzo, $descrizione)
+            public function addPizza($nome,$categoria, $prezzo, $descrizione, $idingrediente)
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
                 $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
                 $txtPrezzo = (float)$prezzo;
                 $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+                $txtIdIngrediente = mysqli_real_escape_string($this->connection, $idingrediente);
 
                 $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
-                $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
+                $sql2 = "INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
+                
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
                     mysqli_query($this->connection, $sql2);
                     $result=mysqli_affected_rows($this->connection);
                     if($result == 1) {
-                        return true;
-                    }
-                    else {
-                        return false;
+                        $txtId = explode("-", $txtIdIngrediente);
+                        $sql3 = array();
+                        for ($i = 0; $i < count($txtId); $i++) {
+                            array_push($sql3, "INSERT INTO `COMPOSIZIONE` (`id_ingrediente`, `nome`) VALUES ('$txtId[$i]', '$txtNome')");
+                        }
+                        $aff_rows = 0;
+                        foreach($sql3 as $current_sql) {
+                            $insert = mysqli_query($this->connection, $current_sql); 
+                            $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                        }
+                        if($aff_rows == count($txtId)) {
+                            return true;
+                        }
                     }
                 }
-                else {
-                    return false;
-                }
+                $sqlcount = "SELECT count(*) as conta FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome`='$txtNome'";
+                $result = mysqli_query($this->connection, $sqlcount);
 
-                //manca ingredienti
+                if (mysqli_num_rows($result) == 1) {
+                    $count = mysqli_fetch_assoc($result);
+                    $conta=$count["conta"];
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome` = '$txtNome'");
+                array_push($sql4, "DELETE FROM `PIZZA` WHERE `PIZZA`.`nome`= '$txtNome'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                }
+                return false;
             }
             /*
                 FINE AGGIUNGI
             */
+
+            /*
+                ELIMINA
+            */
+            public function getPizze() {
+                $query = "SELECT * FROM `PIZZA`";
+                return $this->execQuery($query);
+            }
+
+            public function delPizza($pizza) {
+                $txtpizza = mysqli_real_escape_string($this->connection, $pizza);
+                $sqlcount = "SELECT count(*) as conta FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome`='$txtpizza'";
+                $result = mysqli_query($this->connection, $sqlcount);
+
+                if (mysqli_num_rows($result) == 1) {
+                    $count = mysqli_fetch_assoc($result);
+                    $conta=$count["conta"];
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome` = '$txtpizza'");
+                array_push($sql4, "DELETE FROM `PIZZA` WHERE `PIZZA`.`nome`= '$txtpizza'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtpizza'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == ($conta+2)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            /*
+                FINE ELIMINA
+            */
+
             /*
                 MODIFICA
             */
-            public function FillTemporaneo()
+            public function selectPizza($nome)
             {
-                $updateFill = array("", "", "", "","");
-                $sql = "SELECT `ELEMENTO_LISTINO`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
-                FROM `ELEMENTO_LISTINO` join `PIZZA` on `ELEMENTO_LISTINO`.`nome`=`PIZZA`.`nome`
-                WHERE `ELEMENTO_LISTINO`.`nome`=\"pizza test\"";
-                $queryResult=mysqli_query($this->connection, $sql);
-                if ($queryResult && mysqli_num_rows($queryResult) > 0) {
-                    $row = mysqli_fetch_assoc($queryResult);
-                        $updateFill[0]=$row['nome'];
-                        $updateFill[0]=$row['categoria'];
-                        $updateFill[0]=$row['prezzo'];
-                        $updateFill[0]=$row['descrizione'];
+                $txtNome = mysqli_real_escape_string($this->connection, $nome);
+                $sql5 = "SELECT `PIZZA`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
+                        FROM `PIZZA` JOIN `ELEMENTO_LISTINO` on `PIZZA`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        WHERE `PIZZA`.`nome`='$txtNome'";
+
+                $sql6 = "SELECT `INGREDIENTE`.`id_ingrediente`,`INGREDIENTE`.`nome`
+                        FROM `PIZZA` JOIN `COMPOSIZIONE` on `PIZZA`.`nome`=`COMPOSIZIONE`.`nome` JOIN `INGREDIENTE` on `COMPOSIZIONE`.`id_ingrediente`=`INGREDIENTE`.`id_ingrediente`
+                        WHERE `PIZZA`.`nome`='$txtNome'";
+                
+                $pizza = $this->execQuery($sql5);
+                $result2 = mysqli_query($this->connection, $sql6);
+                while ($row = mysqli_fetch_assoc($result2)) {
+                    array_push($pizza, $row);
                 }
-                var_dump($updateFill);
-                die;
-                return $updateFill;
+                return $pizza;
             }
 
-            public function updatePizza($nome,$categoria, $prezzo, $descrizione)
+            public function updatePizza($nome,$categoria, $prezzo, $descrizione, $idIngredienti, $nomevecchio)
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
                 $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
                 $txtPrezzo = (float)$prezzo;
                 $txtDescrizione = mysqli_real_escape_string($this->connection, $descrizione);
+                $txtIdIngredienti = mysqli_real_escape_string($this->connection,$idIngredienti);
+                $txtOldName = mysqli_real_escape_string($this->connection, $nomevecchio);
 
-                $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
-                $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
-                mysqli_query($this->connection, $sql);
-                $result=mysqli_affected_rows($this->connection);
-                if ($result == 1) {
-                    mysqli_query($this->connection, $sql2);
+                $stringaIngredienti = explode("-", $txtIdIngredienti);
+                //prima cancello quelle vecchie
+                $sqlcount = "SELECT count(*) as conta FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome`='$txtOldName'";
+                $result = mysqli_query($this->connection, $sqlcount);
+
+                if (mysqli_num_rows($result) == 1) {
+                    $count = mysqli_fetch_assoc($result);
+                    $conta=$count["conta"];
+                }
+                $sql4 = array();
+                array_push($sql4, "DELETE FROM `COMPOSIZIONE` WHERE `COMPOSIZIONE`.`nome` = '$txtOldName'");
+                array_push($sql4, "DELETE FROM `PIZZA` WHERE `PIZZA`.`nome`= '$txtOldName'");
+                array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
+                $aff_rows = 0;
+                foreach($sql4 as $current_sql) {
+                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                }
+                if($aff_rows == ($conta+2)) {
+                    $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
+                    $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
+                    
+                    mysqli_query($this->connection, $sql);
                     $result=mysqli_affected_rows($this->connection);
-                    if($result == 1) {
-                        return true;
-                    }
-                    else {
-                        return false;
+                    if ($result == 1) {
+                        mysqli_query($this->connection, $sql2);
+                        $result=mysqli_affected_rows($this->connection);
+                        if($result == 1) {
+                            $sql3 = array();
+                            $aff_rows = 0;
+                            foreach($stringaIngredienti as $ingred) {
+                                array_push($sql3, "INSERT INTO `COMPOSIZIONE` (`id_ingrediente`, `nome`) VALUES ('$ingred', '$txtNome')");
+                            }
+                            foreach($sql3 as $current_sql) {
+                                $update = mysqli_query($this->connection, $current_sql); 
+                                $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
+                            }
+                            if($aff_rows == count($stringaIngredienti)) {
+                                return true;
+                            }
+                        }
                     }
                 }
-                else {
-                    return false;
-                }
-
-                //manca ingredienti
+                //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
             }
             /*
                 FINE MODIFICA
@@ -180,20 +286,6 @@ class DBAccess {
     /*
             FINE ADMINISTRATOR
     */
-
-    private function execQuery($query) {
-        $queryResult = mysqli_query($this->connection, $query) or die("Errore: ".mysqli_error($this->connection));
-
-        if ($queryResult && mysqli_num_rows($queryResult) > 0) {
-
-            $result = array();
-            while ($row = mysqli_fetch_assoc($queryResult)) {
-                array_push($result, $row);
-            }
-            return $result;
-        }
-        return null;
-    }
 
     public function getIngredients($pizza) {
         $query = "SELECT INGREDIENTE.nome, allergene

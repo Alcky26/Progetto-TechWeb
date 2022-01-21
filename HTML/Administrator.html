@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JavaScript/adminSlide.js"></script>
     <script src="../JavaScript/custom.js"></script>
     <script src="../JavaScript/popup.js"></script>
     <script src="../JavaScript/account.js"></script>
@@ -49,73 +50,165 @@
       </nav>
     </header>
     <main id="content-wrapper">
-      <div class="fake-subtitle"></div>
-      <div id="breadcrumb">
-        <p>Ti trovi in: <span lang="en">Home</span> / Gestione pizzeria</p>
+    <div class="fake-subtitle"></div>
+    <div id="breadcrumb">
+      <p>Ti trovi in: <span lang="en">Home</span> / Gestione pizzeria</p>
+    </div>
+    <div class="container">
+      <div class="subtitle-panel">
+          <h2 class="subtitle">Aggiungi Pizza</h2>
       </div>
-        <div class="container">
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Aggiungi Pizza</h2>
-            </div>
-            <div class="subcontainers">
-                <div class="subcontainer">
-                    <div class="dropdown">
-                        <button class="text-button dropbtn">Menu</button>
-                        <ul class="dropdown-content">
-                            <li><a href="#">Submenu 1</a></li>
-                            <li><a href="#">Submenu 1</a></li>
-                            <li><a href="#">Submenu 1</a></li>
-                            <li><a href="#">Submenu 1</a></li>
-                            <li><a href="#">Submenu 1</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <form id="add-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
-                    <fieldset>
-                    <listaPizze />
-                    <messaggioPizzaAggiunta />
-                    <label for="text" lang="ITA">Nome Pizza:</label>
-                    <input type="text" name="aggNomepizza" id="aggNomepizza" placeholder="Inserisci nome pizza:" required/>
-                    <label for="text" lang="ITA">Categoria:</label>
-                    <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" placeholder="Inserisci catergoria:"required/>
-                    <label for="number" lang="ITA">Prezzo:</label>
-                    <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
-                    <label for="text" lang="ITA">Descrizione: </label>
-                    <input type="text" name="aggDesc" id="aggDesc" placeholder="Inserisci la descrizione:"/>
-                    <div id="post">
-                        <input type="submit" id="Aggiungi" class="text-button" name="Aggiungi" value="Aggiungi"/>
-                    </div>
-                    <!--aggiungi lista ingredienti-->
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-        <div class="container">
+      <div class="subcontainers">
+        <div class="subcontainer">
+          <ul class="categoriePrinc">
+            <li class="tipiCateg">
+              <h3>Pizze</h3>
+              <ul>
+                <li id="slideFlip">Pizze</li>
+                <div id="slidePizza" class="flipP">
+                  <div class="subcontainer">
+                    <ul class="categoriePrinc">
+                      <li class="tipiAzione">
+                        <ul>
+                          <li id="aggiungiFlip">Aggiungi</li>
+                          <div id="aggiungiPizza" class="flipP">
+                              <form id="add-pizza-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                                <fieldset>
+                                <messaggioPizzaAggiunta />
+                                <label for="text" lang="ITA">Nome Pizza:</label>
+                                <input type="text" name="aggNomepizza" id="aggNomepizza" maxlength="30" placeholder="Inserisci nome pizza:" required/>
+                                <label for="text" lang="ITA">Categoria:</label>
+                                <input type="text" name="aggCategoriapizza" id="aggCategoriapizza" maxlength="30" placeholder="Inserisci catergoria:"required/>
+                                <label for="number" lang="ITA">Prezzo:</label>
+                                <input type="number" name="aggPrezzo" id="aggPrezzo" min="0.0" step="0.1" placeholder="Inserisci il prezzo:"required/>
+                                <label for="text" lang="ITA">Descrizione: </label>
+                                <input type="text" name="aggDesc" id="aggDesc" maxlenght="500" placeholder="Inserisci la descrizione:"/>
+                                <label for="text" lang="ITA">Ingredienti: </label>
+                                <ul>
+                                  <li id="ingredient" class="dropdown">
+                                  <a class="text-button dropbtn">Ingrediente</a>
+                                    <ul class="dropdown-content">
+                                      <listaIngredienti/>
+                                    </ul>
+                                  </li>
+                                </ul>
+                                <input type="text" name="aggIngre" id="aggIngre" placeholder="Seleziona un ingrediente per inserirlo:" required/>
+                                <input type="text" name="aggIngreId" id="aggIngreId" class="invIdIng" required/>
+                                <button type="button" class="text-button" onclick="removeItem()">Elimina ultimo ingrediente</button>
+                                <div id="post">
+                                  <input type="submit" id="AggiungiPiz" class="text-button" name="AggiungiPiz" value="Aggiungi"/>
+                                </div>
+                                </fieldset>
+                            </form>
+                          </div>
 
-            <div class="subtitle-panel">
-                <h2 class="subtitle">Modifica Pizza</h2>
-            </div>
-            <div class="subcontainers">
-                <form id="update-pizza-form" class="subcontainer" action="../PHP/adminEventHandler.php" method="post">
-                    <fieldset>
-                    <listaPizze />
-                    <messaggioPizzaModificata />
-                    <label for="text" lang="ITA">Nome Pizza:</label>
-                    <input type="text" name="updateNomepizza" id="updateNomepizza" value="pizzapholder"/>
-                    <label for="text" lang="ITA">Categoria:</label>
-                    <input type="text" name="updateCategoriapizza" id="updateCategoriapizza" value="categoriapholder"/>
-                    <label for="number" lang="ITA">Prezzo:</label>
-                    <input type="number" name="updatePrezzo" id="updatePrezzo" min="0.0" step="0.1" value="prezzopholder"/>
-                    <label for="text" lang="ITA">Descrizione: </label>
-                    <input type="text" name="updateDesc" id="updateDesc" value="descrizionepholder"/>
-                    <div id="post">
-                        <input type="submit" id="Modifica" class="text-button" name="Modifica" value="Modifica"/>
-                    </div>
-                    <!--aggiungi lista ingredienti-->
-                    </fieldset>
-                </form>
-            </div>
+                          <li id="eliminaFlip">Elimina</li>
+                          <div id="eliminaPizza" class="flipP">
+                            <form id="delete-pizza-form"  action="../PHP/adminEventHandler.php" method="post">
+                              <fieldset>
+                              <messaggioPizzaEliminata />
+                              <label for="text" lang="ITA">Seleziona pizza da eliminare: </label>
+                              <ul>
+                                <li id="pizzaList" class="dropdown">
+                                <a class="text-button dropbtn">Pizze</a>
+                                  <ul class="dropdown-content">
+                                    <listaPizzeDel/>
+                                  </ul>
+                                </li>
+                              </ul>
+                              <input type="text" name="delPiz" id="delPiz" placeholder="Seleziona una pizza per eliminarla:"  required/>
+                              <button type="button" class="text-button" onclick="removeItemDel()">Cambia pizza da eliminare</button>
+                              <div id="post">
+                                <input type="submit" id="EliminaPiz" class="text-button" name="EliminaPiz" value="Elimina"/>
+                              </div>
+                              </fieldset>
+                            </form>
+                          </div>
+
+
+
+                          <li id="modificaFlip">Modifica</li>
+                          <div id="modificaPizza" class="flipP">
+                            <label for="text" lang="ITA">Seleziona pizza da eliminare: </label>
+                            <ul>
+                              <li id="pizzaList" class="dropdown">
+                              <a class="text-button dropbtn">Pizze</a>
+                                <ul class="dropdown-content">
+                                  <listaPizzeUpd/>
+                                </ul>
+                              </li>
+                            </ul>
+                            <form id="upd-pizza-form"  action="../PHP/adminEventHandler.php" name="formsub" method="post">
+                              <fieldset>
+                                <messaggioPizzaModificata />
+                                <interfacciaModifica/>
+                                <div id="post">
+                                  <input type="submit" id="ModificaiPiz" class="text-button" name="ModificaiPiz" value="Modifica"/>
+                                </div>
+                              </fieldset>
+                            </form>
+                          </div>
+
+
+
+
+                          <!--<div id="eliminaPizza" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="modificaPizza" class="flipP">
+                            <listaClassiche />
+                          </div>
+                        </ul>
+                      </li>
+                      <li class="tipiCateg">
+                        <h3>Bevande</h3>
+                        <ul>
+                          <li id="classicheFlip">Bevande</li>
+                          <div id="aggiungiBevanda" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="eliminaBevanda" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="modificaBevanda" class="flipP">
+                            <listaClassiche />
+                          </div>
+                        </ul>
+                      </li>
+                      <li class="tipiCateg">
+                        <h3>Dolci</h3>
+                        <ul>
+                          <li id="classicheFlip">Pizze</li>
+                          <div id="aggiungiDolce" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="eliminaDolce" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="modificaDolce" class="flipP">
+                            <listaClassiche />
+                          </div>
+                        </ul>
+                      </li>
+                      <li class="tipiCateg">
+                        <h3>Ingredienti</h3>
+                        <ul>
+                          <li id="classicheFlip">Ingredienti</li>
+                          <div id="aggiungiIngrediente" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="eliminaIngrediente" class="flipP">
+                            <listaClassiche />
+                          </div>
+                          <div id="modificaIngrediente" class="flipP">
+                            <listaClassiche />
+                          </div>
+                        </ul>
+                      </li>-->
+            </ul> 
+          </div>
         </div>
+      </div>
     </main>
     <footer id="footer">
       <div>
