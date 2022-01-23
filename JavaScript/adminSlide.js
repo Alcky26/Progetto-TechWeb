@@ -54,7 +54,6 @@ $(document).ready(function(){
 
 
     
-
     $("#slideFlipIngre").click(function(){
         $("#slideIngre").slideToggle("fast");
       });
@@ -67,7 +66,7 @@ $(document).ready(function(){
           $("#eliminaIngrediente").slideToggle("fast");
       });
   
-    $("#modificaFlipDmodificaFlipIngredienteolce").click(function(){
+    $("#modificaFlipIngrediente").click(function(){
           $("#modificaIngrediente").slideToggle("fast");
       });
 
@@ -100,6 +99,11 @@ $(document).ready(function(){
     });
 
     $("#oldNameBev").on('keydown paste focus mousedown', function(e){
+        if(e.keyCode != 9) 
+            e.preventDefault();
+    });
+
+    $("#oldIdelim").on('keydown paste focus mousedown', function(e){
         if(e.keyCode != 9) 
             e.preventDefault();
     });
@@ -173,7 +177,7 @@ function addItemToDelBev(itemInput)
 function addItemToDelDolce(itemInput)
 {
 	var productRow = itemInput.parentNode;
-    document.getElementById('delDolce').value = productRow.querySelector(".itemNameBevDolce").textContent;
+    document.getElementById('delDolce').value = productRow.querySelector(".itemNameDolceDel").textContent;
 }
 
 function addItemToDelIngre(itemInput)
@@ -205,9 +209,14 @@ function removeItemDelDolce()
 
 function removeItemDelIngrediente()
 {
-    if(document.getElementById('delIngrediente').value.length > 0){
-            document.getElementById('delIngrediente').value = "";
-    }
+    var productRow = itemInput.parentNode;
+    var id = productRow.querySelector(".idIngUpd").textContent;
+    var nome = productRow.querySelector(".itemNameUpd").textContent;
+
+    document.getElementById('delIngrediente').value = nome;
+    document.getElementById('oldIdIngr').value = id;
+    
+
 }
 
 function removeItemUpd()

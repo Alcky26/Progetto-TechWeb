@@ -308,7 +308,7 @@ class DBAccess {
             }
 
             public function getListDolci() {
-                $query = "SELECT * FROM `DOLCI`";
+                $query = "SELECT * FROM `DOLCE`";
                 return $this->execQuery($query);
             }
 
@@ -330,10 +330,10 @@ class DBAccess {
                 }
             }
 
-            public function delDolce($dolce) {
-                $txtdolce = mysqli_real_escape_string($this->connection, $dolce);
+            public function delIngrediente($ingrediente) {
+                $txtingrediente = mysqli_real_escape_string($this->connection, $ingrediente);
                 $sql4 = array();
-                array_push($sql4, "DELETE FROM `DOLCE` WHERE `DOLCE`.`nome`= '$txtdolce'");
+                array_push($sql4, "DELETE FROM `INGREDIENTE` WHERE `INGREDIENTE`.`nome`= '$txtingrediente'");
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
@@ -481,7 +481,7 @@ class DBAccess {
                 }
                 if($aff_rows == 2) {
                     $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
-                    $sql2 ="INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici) VALUES ('$txtNome', '$txtCategoria', '$txtGradiAlcolici');";
+                    $sql2 ="INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici`) VALUES ('$txtNome', '$txtCategoria', '$txtGradiAlcolici');";
                     
                     mysqli_query($this->connection, $sql);
                     $result=mysqli_affected_rows($this->connection);
@@ -527,7 +527,7 @@ class DBAccess {
                 }
                 //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
             }
-            public function updateIngrediente($nomeingred, $categoriaallergene, $idvecchio);
+            public function updateIngrediente($nomeingred, $categoriaallergene, $idvecchio)
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nomeingred);
                 $txtAllergene = mysqli_real_escape_string($this->connection, $categoriaallergene);
