@@ -533,24 +533,24 @@ else{
                         $result=false;
                         if($connessioneRiuscita)
                         {
-                            $result = $dbAccess->delDolce($delete);
+                            $result = $dbAccess->delIngrediente($delete);
                         }
                         $dbAccess->closeDBConnection();
 
                         
                         if($result==true)
                         {
-                            $replace = array("<messaggioDolceEliminata />" => "<p class=\"alert-box success\">Dolce Eliminato con successo!</p>");
+                            $replace = array("<messaggioIngredienteEliminata />" => "<p class=\"alert-box success\">Ingrediente Eliminato con successo!</p>");
                             
                         }
                         else
                         {
-                            $replace = array("<messaggioDolceEliminata />" => "<p class=\"alert-box danger\">Errore nell'eliminazione del dolce!</p>");
+                            $replace = array("<messaggioIngredienteEliminata />" => "<p class=\"alert-box danger\">Errore nell'eliminazione dell'ingrediente!</p>");
                         }
                     }
                     else
                     {
-                        $replace = array("<messaggioDolceEliminata />" => "<p class=\"alert-box danger\">Errore nell'eliminazione del dolce!</p>");
+                        $replace = array("<messaggioIngredienteEliminata />" => "<p class=\"alert-box danger\">Errore nell'eliminazione dell'ingrediente!</p>");
                     }
                     $stringHTML = UtilityFunctions::replacer($url, $replace);
                     echo UtilityFunctions::replacerFromHTML($stringHTML,addReplaceFinali());

@@ -308,7 +308,7 @@ class DBAccess {
             }
 
             public function getListDolci() {
-                $query = "SELECT * FROM `DOLCI`";
+                $query = "SELECT * FROM `DOLCE`";
                 return $this->execQuery($query);
             }
 
@@ -330,10 +330,10 @@ class DBAccess {
                 }
             }
 
-            public function delDolce($dolce) {
-                $txtdolce = mysqli_real_escape_string($this->connection, $dolce);
+            public function delIngrediente($ingrediente) {
+                $txtingrediente = mysqli_real_escape_string($this->connection, $ingrediente);
                 $sql4 = array();
-                array_push($sql4, "DELETE FROM `DOLCE` WHERE `DOLCE`.`nome`= '$txtdolce'");
+                array_push($sql4, "DELETE FROM `INGREDIENTE` WHERE `INGREDIENTE`.`nome`= '$txtingrediente'");
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
@@ -685,7 +685,7 @@ class DBAccess {
         SELECT TAVOLO.numero FROM TAVOLO INNER JOIN PRENOTAZIONE ON TAVOLO.numero = PRENOTAZIONE.numero
         WHERE TIMEDIFF ('$dataora',dataOra) >= '02:00:00')
         LIMIT 1";
-
+        
       return $this->execQuery($tavoliDisp);
     }
 

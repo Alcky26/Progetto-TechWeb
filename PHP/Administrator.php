@@ -48,7 +48,7 @@ function addReplaceFinali()
                     "<istaDolceDel/>" => $deleteFillDolce,
                     "<listaDolceUpd/>" => $updateFillDolce,
                     "<listaIngredienteUpd/>" => $updateFillIngrediente,
-                    "<listaIngredientiUpdate/>" => $updateFillIngr),
+                    "<listaIngredientiUpdate/>" => $updateFillIngr,
                     "<listaIngredientiElimina/>" => $deleteFillIngr);
     
     return $add;
@@ -122,6 +122,20 @@ function fillDolceDel() {
         $connessione->closeDBConnection();
         if ($result != null) {
             return fill($result, "dolciDel");
+        }
+    }
+    return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
+}
+
+function fillIngDel() {
+    $connessione = new DBAccess();
+    $connessioneOK = $connessione->openDBConnection();
+    if ($connessioneOK) 
+    {
+        $result = $connessione->getIngredienti();
+        $connessione->closeDBConnection();
+        if ($result != null) {
+            return fill($result, "ingreDel");
         }
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -215,7 +229,7 @@ function fill($array, $listino)
         break;
         case "dolciDel":
             foreach ($array as $i) {
-                $string = $string."<li><a onclick=\"addItemToDelDolce(this)\" class=\"itemNameBevDolce\">".$i['nome']."</a></li>";
+                $string = $string."<li><a onclick=\"addItemToDelDolce(this)\" class=\"itemNameDolceDel\">".$i['nome']."</a></li>";
             }
         break;
         case "pizzeUpd":
