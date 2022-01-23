@@ -95,6 +95,7 @@ function addItem(itemInput)
 		quantity.setAttribute("value", "1");
 		quantity.min = "1";
     quantity.id = "qtt";
+    quantity.ariaLabel = "quantita";
 		quantity.onchange = function() {updateQuantity(this)};
 		productQuantity.appendChild(quantity);
 
@@ -103,7 +104,8 @@ function addItem(itemInput)
 		var removeBtn = document.createElement("button");
 		removeBtn.className = "remove-product button";
 		removeBtn.onclick = function() {removeItem(this)};
-		var text = document.createTextNode("Remove");
+    removeBtn.ariaLabel = "rimuovi prodotto";
+ 	  var text = document.createTextNode("Remove");
 		removeBtn.appendChild(text);
 		productRemoval.append(removeBtn);
 
@@ -114,6 +116,7 @@ function addItem(itemInput)
     var per = document.createElement("div");
     per.textContent = "  X  ";
     per.className = "segno";
+    per.alt = "quantita";
 
 		product.appendChild(productName);
 		product.appendChild(productPrice);
@@ -215,6 +218,13 @@ function deliveryTakeaway(elem)
 {
   var x =elem.value;
   document.getElementById(x).checked = true;
+  if(x == "TakeAway") {
+    document.getElementById('inserisciIndirizzo').setAttribute("aria-hidden",false);
+    document.getElementById('scegliOrario').setAttribute("aria-hidden",true);
+  } else {
+    document.getElementById('inserisciIndirizzo').setAttribute("aria-hidden",true);
+    document.getElementById('scegliOrario').setAttribute("aria-hidden",false);
+  }
 }
 
 function indOra(elem)

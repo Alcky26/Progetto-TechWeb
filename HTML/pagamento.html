@@ -19,13 +19,49 @@
 
 	</head>
   <body>
-    <header>
+    <div id="logoP">
       <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <img src="../images/logo.png">
-    </header>
+      <img src="../images/logo.png" alt="logo della pizzeria">
+    </div>
     <form action="../PHP/paga.php" method="POST">
     <div class="containerP">
-      
+      <div id="riepilogoP"><h2> IL TUO ORDINE</h2>
+              <div class="headerP">
+              <div class="productNameP">Prodotto</div>
+              <div class="segnoP"></div>
+              <div class="productQuantityP">Quantita'</div>
+              <div class="productLinePriceP">Totale</div>
+              </div><div class="product">
+                      <div class="productNameP">4 formaggi</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">6.5€</div>
+                      </div><div class="product">
+                      <div class="productNameP">4 stagioni</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">7€</div>
+                      </div><div class="product">
+                      <div class="productNameP">Capricciosa</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">7€</div>
+                      </div><div class="product">
+                      <div class="productNameP">Margherita</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">4.5€</div>
+                      </div><div class="product">
+                      <div class="productNameP">Diavola</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">5€</div>
+                      </div><div class="product">
+                      <div class="productNameP">Carbonara</div>
+                      <div class="segnoP">X</div>
+                      <div class="productQuantityP">1</div>
+                      <div class="productLinePriceP">6€</div>
+                      </div></div><div class="totaleFinale"><h2>TOTALE FINALE36€</h2></div>
       <riepilogo />
   </div>
   <div class="containerP">
@@ -33,10 +69,10 @@
 
         <div class="row">
           <div><Informazioni /></div>
-          <div><bonus /></div>
+          <div><div class="bonus"><bonus /></div>
 
           <div class="col-50">
-            <h3>Pagamento</h3>
+            <h3>Dati della carta</h3>
             <label for="cname">Titolare della carta</label>
             <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
             <label for="ccnum">Numero della carta</label>

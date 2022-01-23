@@ -44,6 +44,7 @@ function generateCalendar() {
     // Crea la tabella che memorizzerà le date
     const table = document.createElement("table");
     table.id = "calendar";
+    table.alt = "calendario per scgliere la data per pernotare il tavolo";
 
     // Crea le intestazioni riferite ai giorni della settimana
     const trHeader = document.createElement('tr');
@@ -216,4 +217,24 @@ function activeBtn() {
     }
 }
 
+function formatISOLocal(d) {
+  let z = n => ('0' + n).slice(-2);
+  return d.getFullYear()+'-'+z(d.getMonth()+1) + '-' + z(d.getDate()+1);
+}
+
+window.onload = function() {
+  let inp = document.querySelector('#calAlt');
+  let d = new Date();
+  inp.min = formatISOLocal(d);
+  inp.defaultValue = inp.min;
+  d.setDate(d.getDate() + 14);
+  inp.max = formatISOLocal(d);
+  // Debug
+  console.log(inp.outerHTML);
+}
+
+function inserisci(elem)
+{
+  document.getElementById("dataS").value = elem.value;
+}
 document.onload = generateCalendar(date);

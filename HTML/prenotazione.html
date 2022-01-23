@@ -77,23 +77,28 @@
   								<option value="8">8</option>
   							</select>
   						</div>
-  						<div class="calendario">
+              <h5>Nota bene:</h5><p> è possibile prenotare dolo per i giorni successivi ad oggi.</p>
+              <div class="nonVisibile">
+                <label for="data" class="nonVisibile">Seleziona una data</label>
+                <input type="date" id="calAlt" onchange="inserisci(this)">
+              </div>
+  						<div class="calendario" aria-hidden="true">
   							<div class="calendar-assets">
-  									<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"><i class="fas fa-calendar-day"></i> Oggi</button>
+  									<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"> Oggi</button>
   							</div>
   							<div class="calendar" id="table">
   								<div class="header">
   									<div class="month" id="month-header"></div>
   									<div class="buttons">
-  										<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;<i class="fas fa-chevron-left"></i></button>
-  										<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;<i class="fas fa-chevron-right "></i></button>
+  										<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;</button>
+  										<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;</button>
   									</div>
   								</div>
   							</div>
   							<h1 id="currentDate"></h1>
   						</div >
-              <div aria-hidden="true" style="display: none;"><input id="dataS" type="text" name="data"></div>
-						  <h5>Nota bene:</h5><p>scelgliere una data successiva a quella di oggi.</p>
+              <div aria-hidden="true" class="nonVisibile"><input id="dataS" type="text" name="data"></div>
+
   						<div id="orario">
   							<label for="ora">Ora:</label>
   							<select id="ora" name="ora">
@@ -125,8 +130,8 @@
   							</select>
   						</div>
               <div class="submit">
-    						<input type="reset" class="text-button" value="Resetta" />
-    					  <input type="submit" class="text-button" value="Conferma" />
+    						<input type="reset" class="text-button" value="Resetta" aria-label="resetta valori">
+    					  <input type="submit" class="text-button" value="Conferma" aria-label="conferma prenotazione">
               </div>
 					  </fieldset>
 

@@ -13,6 +13,7 @@ function applicaBonus(elem)
     document.getElementById('codiceBonus').value = parseInt(codice);
 
   } else {
+    document.getElementById('codiceBonus').value = 0;
     document.getElementById('conBonus').remove();
     document.getElementById('senzaBonus').canceled = false;
   }

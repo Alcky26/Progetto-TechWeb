@@ -72,7 +72,7 @@ function fill($array, $listino) {
         if ($i['descrizione'] != null) {
             $string = $string."<p>".$i['descrizione']."</p>";
         }
-        $string = $string."<button type=\"button\" onclick=\"addItem(this)\" class=\"item_add button\" />Aggiungi</button> </div>";
+        $string = $string."<button type=\"button\" onclick=\"addItem(this)\" class=\"item_add button\" aria-label=\"aggiungi prodotto al carrello\"/>Aggiungi</button> </div>";
     }
     return $string."</div>";
 }

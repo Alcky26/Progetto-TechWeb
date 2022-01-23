@@ -124,7 +124,7 @@ class DBAccess {
 
                 $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                 $sql2 = "INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
@@ -138,7 +138,7 @@ class DBAccess {
                         }
                         $aff_rows = 0;
                         foreach($sql3 as $current_sql) {
-                            $insert = mysqli_query($this->connection, $current_sql); 
+                            $insert = mysqli_query($this->connection, $current_sql);
                             $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                         }
                         if($aff_rows == count($txtId)) {
@@ -159,7 +159,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                 }
                 return false;
             }
@@ -174,7 +174,7 @@ class DBAccess {
 
                 $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                 $sql2 = "INSERT INTO `BEVANDA` (`nome`, `categoria` , `gradiAlcolici`) VALUES ('$txtNome', '$txtCategoria', '$txtGradi');";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
@@ -189,7 +189,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                 }
                 return false;
             }
@@ -202,7 +202,7 @@ class DBAccess {
 
                 $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                 $sql2 = "INSERT INTO `DOLCE` (`nome`) VALUES ('$txtNome');";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
@@ -217,7 +217,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtNome'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                 }
                 return false;
             }
@@ -228,7 +228,7 @@ class DBAccess {
                 $txtCategoria = mysqli_real_escape_string($this->connection, $categoria);
 
                 $sql2 = "INSERT INTO `INGREDIENTE` (`nome`, `allergene`) VALUES ('$txtNome', '$txtCategoria')";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
@@ -242,7 +242,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `INGREDIENTE` WHERE `INGREDIENTE`.`nome`= '$txtNome'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                 }
                 return false;
             }
@@ -273,7 +273,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtpizza'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == ($conta+2)) {
@@ -296,7 +296,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtbevanda'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == 2) {
@@ -319,7 +319,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == 2) {
@@ -337,7 +337,7 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtdolce'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == 2) {
@@ -358,13 +358,13 @@ class DBAccess {
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
                 $sql5 = "SELECT `PIZZA`.`nome`,`PIZZA`.`categoria`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
-                        FROM `PIZZA` JOIN `ELEMENTO_LISTINO` on `PIZZA`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        FROM `PIZZA` JOIN `ELEMENTO_LISTINO` on `PIZZA`.`nome`=`ELEMENTO_LISTINO`.`nome`
                         WHERE `PIZZA`.`nome`='$txtNome'";
 
                 $sql6 = "SELECT `INGREDIENTE`.`id_ingrediente`,`INGREDIENTE`.`nome`
                         FROM `PIZZA` JOIN `COMPOSIZIONE` on `PIZZA`.`nome`=`COMPOSIZIONE`.`nome` JOIN `INGREDIENTE` on `COMPOSIZIONE`.`id_ingrediente`=`INGREDIENTE`.`id_ingrediente`
                         WHERE `PIZZA`.`nome`='$txtNome'";
-                
+
                 $pizza = $this->execQuery($sql5);
                 $result2 = mysqli_query($this->connection, $sql6);
                 while ($row = mysqli_fetch_assoc($result2)) {
@@ -377,9 +377,9 @@ class DBAccess {
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
                 $sql5 = "SELECT `BEVANDA`.`nome`,`BEVANDA`.`categoria`,`BEVANDA`.`gradiAlcolici` ,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
-                        FROM `BEVANDA` JOIN `ELEMENTO_LISTINO` on `BEVANDA`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        FROM `BEVANDA` JOIN `ELEMENTO_LISTINO` on `BEVANDA`.`nome`=`ELEMENTO_LISTINO`.`nome`
                         WHERE `BEVANDA`.`nome`='$txtNome'";
-                
+
                 $bevanda = $this->execQuery($sql5);
                 return $bevanda;
             }
@@ -388,9 +388,9 @@ class DBAccess {
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
                 $sql5 = "SELECT `DOLCE`.`nome`,`ELEMENTO_LISTINO`.`prezzo`,`ELEMENTO_LISTINO`.`descrizione`
-                        FROM `DOLCE` JOIN `ELEMENTO_LISTINO` on `DOLCE`.`nome`=`ELEMENTO_LISTINO`.`nome` 
+                        FROM `DOLCE` JOIN `ELEMENTO_LISTINO` on `DOLCE`.`nome`=`ELEMENTO_LISTINO`.`nome`
                         WHERE `DOLCE`.`nome`='$txtNome'";
-                
+
                 $dolce = $this->execQuery($sql5);
                 return $dolce;
             }
@@ -401,7 +401,7 @@ class DBAccess {
                 $sql5 = "SELECT `INGREDIENTE`.`nome`,`INGREDIENTE`.`allergene`,`INGREDIENTE`.`id_ingrediente`
                         FROM `INGREDIENTE`
                         WHERE `INGREDIENTE`.`id_ingrediente`='$txtId'";
-                
+
                 $dolce = $this->execQuery($sql5);
                 return $dolce;
             }
@@ -430,13 +430,13 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == ($conta+2)) {
                     $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                     $sql2 ="INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES ('$txtNome', '$txtCategoria');";
-                    
+
                     mysqli_query($this->connection, $sql);
                     $result=mysqli_affected_rows($this->connection);
                     if ($result == 1) {
@@ -449,7 +449,7 @@ class DBAccess {
                                 array_push($sql3, "INSERT INTO `COMPOSIZIONE` (`id_ingrediente`, `nome`) VALUES ('$ingred', '$txtNome')");
                             }
                             foreach($sql3 as $current_sql) {
-                                $update = mysqli_query($this->connection, $current_sql); 
+                                $update = mysqli_query($this->connection, $current_sql);
                                 $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                             }
                             if($aff_rows == count($stringaIngredienti)) {
@@ -470,19 +470,19 @@ class DBAccess {
                 $txtGradiAlcolici = (float)$gradialcolici;
                 $txtOldName = mysqli_real_escape_string($this->connection, $nomevecchio);
 
-                
+
                 $sql4 = array();
                 array_push($sql4, "DELETE FROM `BEVANDA` WHERE `BEVANDA`.`nome`= '$txtOldName'");
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == 2) {
                     $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
-                    $sql2 ="INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici) VALUES ('$txtNome', '$txtCategoria', '$txtGradiAlcolici');";
-                    
+                    $sql2 ="INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici`) VALUES ('$txtNome', '$txtCategoria', '$txtGradiAlcolici');";
+
                     mysqli_query($this->connection, $sql);
                     $result=mysqli_affected_rows($this->connection);
                     if ($result == 1) {
@@ -495,7 +495,7 @@ class DBAccess {
                 }
                 //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
             }
-            
+
             public function updateDolce($nome, $prezzo, $descrizione, $nomevecchio)
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nome);
@@ -508,13 +508,13 @@ class DBAccess {
                 array_push($sql4, "DELETE FROM `ELEMENTO_LISTINO` WHERE `ELEMENTO_LISTINO`.`nome`= '$txtOldName'");
                 $aff_rows = 0;
                 foreach($sql4 as $current_sql) {
-                    $delete = mysqli_query($this->connection, $current_sql); 
+                    $delete = mysqli_query($this->connection, $current_sql);
                     $aff_rows = $aff_rows + mysqli_affected_rows($this->connection);
                 }
                 if($aff_rows == 2) {
                     $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                     $sql2 ="INSERT INTO `BEVANDA` (`nome`) VALUES ('$txtNome');";
-                    
+
                     mysqli_query($this->connection, $sql);
                     $result=mysqli_affected_rows($this->connection);
                     if ($result == 1) {
@@ -527,14 +527,14 @@ class DBAccess {
                 }
                 //////////////////////////////////////// CHE ROLL BACK FARE ????????????????
             }
-            public function updateIngrediente($nomeingred, $categoriaallergene, $idvecchio);
+            public function updateIngrediente($nomeingred, $categoriaallergene, $idvecchio)
             {
                 $txtNome = mysqli_real_escape_string($this->connection, $nomeingred);
                 $txtAllergene = mysqli_real_escape_string($this->connection, $categoriaallergene);
                 $txtOldId = mysqli_real_escape_string($this->connection, $idvecchio);
 
                 $sql = "UPDATE `INGREDIENTE` SET `nome` = '$txtNome', `allergene` = '$txtAllergene' WHERE `INGREDIENTE`.`id_ingrediente` = '$txtOldId'";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result == 1) {
@@ -544,7 +544,7 @@ class DBAccess {
                 {
                     return false;
                 }
-                
+
                 //////////////////////////////////////// CHE ROLL BACK FARE ???????????????? PROBLEMA DEL FATTO CHE SE CAMBIO NOME, CAMBIO NOME ANCHE ALLINGREDIENTE SU COMPOSIZIONE
             }
             /*

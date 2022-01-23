@@ -58,9 +58,9 @@
           <h2>IL TUO ORDINE</h2>
           <div id="riepilogo"></div>
           <form id="contenutiNonVisibili" action="../PHP/ordina.php" method="POST">
-            <input type="radio" id="TakeAway" name="DT" value="TakeAway" class="nonVisibile"/>
-            <input type="radio" id="Delivery" name="DT" value="Delivery" class="nonVisibile"/>
-            <input type="text" name="indOra" id="indOra" class="nonVisibile">
+            <input type="radio" id="TakeAway" name="DT" value="TakeAway" class="nonVisibile" aria-hidden="true"/>
+            <input type="radio" id="Delivery" name="DT" value="Delivery" class="nonVisibile" aria-hidden="true"/>
+            <input type="text" name="indOra" id="indOra" class="nonVisibile" aria-hidden="true">
             <label for="inpFinalTotal">Totale:</label>
             <input type="text" name="totaleFinale" id="inpFinalTotal" readonly>
             <input class="text-button" type="submit" value="PROCEDI AL PAGAMENTO" id="submit">
@@ -71,16 +71,16 @@
 					  <div class="scelta">
 						  <h2>Scegli il tipo di consegna:</h2>
 			        <div id="ritiroBox">
-    						<img src="../images/takeAway.jpg" alt="immagine take away">
-    						<label for="deliveryTakeaway"><h3 aria-label="TakeAway">Take Away</h3></label>
+    						<img src="../images/takeAway.jpg" alt="immagine ritiro a mano">
+    						<label for="deliveryTakeaway"><h3><span lang="en">Take Away</span></h3></label>
     						<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="TakeAway" onchange="deliveryTakeaway(this)"/>
   						</div>
   						<div id="consegnaBox">
-  							<img src="../images/delivery.png" alt="immagine delivery">
-  							<label for="deliveryTakeaway"><h3 aria-label="delivery">Delivery</h3></label>
+  							<img src="../images/delivery.png" alt="immagine consegna a domicilio">
+  							<label for="deliveryTakeaway"><h3><span lang="en">Delivery</span></h3></label>
   							<input type="radio" id="deliveryTakeaway" name="deliveryTakeaway" value="Delivery" onchange="deliveryTakeaway(this)"/>
   						</div>
-              <div id="scegliOrario" class="nonVisibile">
+              <div id="scegliOrario" class="nonVisibile" aria-hidden="true">
                 <label for="ora">Seleziona orario di ritiro:</label>
   							<select id="ora" name="ora" onchange="indOra(this)">
                   <option value="seleziona">Seleziona:</option>
@@ -108,7 +108,7 @@
                   <option value="22:00">22:00</option>
                 </select>
               </div>
-              <div id="inserisciIndirizzo" class="nonVisibile">
+              <div id="inserisciIndirizzo" class="nonVisibile" aria-hidden="true">
                 <label for="ora">Inserisci indirizzo di consegna:</label>
                 <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)" placeholder="numero,via,citta,provincia">
               </div>
@@ -122,7 +122,7 @@
     							<ul>
     							  <li id="classicheFlip">Pizze classiche</li>
     								<div id="classiche" class="flipP">
-
+                      
   									  <listaClassiche />
     								</div>
     							  <li id="specialiFlip">Pizze speciali</li>

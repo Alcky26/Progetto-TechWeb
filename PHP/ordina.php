@@ -21,7 +21,7 @@
           $connessione->closeDBConnection();
           if ($bonus !== null) {
             $bonusList = "<div class=\"bonus\"><h3>Bonus disponibili</h3>
-                          <input type=\"number\" id=\"codicecBonus\" name=\"codiceBonus\" value=\"0\">
+                          <div class=\"nonVisibile\" aria-hidden=\"true\"><input type=\"number\" id=\"codicecBonus\" name=\"codiceBonus\" value=\"0\"></div>
                           <input onchange=\"applicaBonus(this)\" type=\"radio\" id=\"bonus\" name=\"bonus\" value=\"0\" checked>
                           <label for=\"0\"><p><strong>Non voglio utilizzare i Bonus</strong></p>";
               foreach ($bonus as $i) {
@@ -66,7 +66,7 @@
                           <div class=\"productLinePriceP\">".$totale[$i]."</div>
                           </div>";
       }
-      $string = $string."</div><div><h2 id=\"totaleFinale\">TOTALE FINALE : <span id=\"senzaBonus\">".$totaleFinale."</span></h2></div>";
+      $string = $string."</div><div><h2 id=\"totaleFinale\">TOTALE FINALE : <span id=\"senzaBonus\">".' '.$totaleFinale.' '."</span></h2></div>";
 
       if($DT == "TakeAway"){
         $info = "<div>Hai scelto la modalita <strong>ritiro a mano</strong> per le ore:<strong> ".$indOra."</strong></div>";
