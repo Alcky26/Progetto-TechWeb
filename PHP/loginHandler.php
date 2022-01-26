@@ -14,15 +14,10 @@
 
         $dbAccess = new DBAccess();
         $connessioneRiuscita = $dbAccess->openDBConnection();
-        /*//CONNESSIONE FALLITA
-        if(!$connessioneRiuscita) {
-            header("Location: ../PHP/error_500.php");
-            die;
-        }*/
 
         if(isset($_POST["registrazione"]))
         {
-            header("Location: ../HTML/signup.html");
+            header("Location: ../PHP/signup.php");
         }
         else
         {
@@ -43,7 +38,7 @@
                 else
                 {
                     require_once "Administrator.php";
-                    checkadmin();/////////////////////////// è giusto ????????????????????????????????????????????????
+                    checkadmin();
                 }
             }
             else

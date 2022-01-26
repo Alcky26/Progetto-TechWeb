@@ -1102,7 +1102,7 @@ p.subcontainer {
   padding: 16px;
 }
 
-div.idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd, div.idIngdel, input[type = "text"].idIngdel{
+div.idIng, input[type = "text"].idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd, div.idIngdel, input[type = "text"].idIngdel,  input[type = "text"].invisibile{
   display: none;
 }
 
@@ -1123,13 +1123,7 @@ div.idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idI
   cursor: pointer;
 }
 
-/*.dropdown-content + #upd-pizza-form {
-  padding:none;
-}
 
-.dropdown-content > #upd-pizza-form + li{
-  padding-left:none;
-}*/
 
 /*----------pagina area utente----------*/
 

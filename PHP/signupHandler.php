@@ -1,47 +1,60 @@
 <?php
 
-    require_once "connectionDB.php";
-    use DB\DBAccess;
+require_once "connectionDB.php";
+use DB\DBAccess;
 
-    if(!isset($_POST["username"],$_POST["email"], $_POST["pwd"])) {
-        header("Location: ../PHP/signup.php");
+require_once "UtilityFunctions.php";
+use UtilityFunctions\UtilityFunctions;
+session_start();
+if(!isset($_POST["username"],$_POST["email"], $_POST["pwd"])) {
+    header("Location: ../PHP/signup.php");
+}
+else
+{
+    $email = $_POST["email"];
+    $username = $_POST["username"];
+    $password = $_POST["pwd"];
+    
+    $dbAccess = new DBAccess();
+    $connessioneRiuscita = $dbAccess->openDBConnection();
+    $result = $dbAccess->createNewUser($email,$username, $password);
+    $dbAccess->closeDBConnection();
+
+    if($result){
+        $replace=array("<registrazione/>" => 
+        "<form id=\"signup-form\" class=\"subcontainer\" action=\"../PHP/signupHandler.php\" method=\"post\">
+        <fieldset>
+        <legend>
+            <h2>Registrati</h2>
+        </legend>
+        <p id=\"validSignUp\">Registrazione Effettuata con successo!</p></br>
+        </fieldset>
+        </form>
+        <div id=\"post\">
+        <a href=\"../HTML/login.html\"><input type=\"button\"  id=\"Accesso\" class=\"text-button\" name=\"Accesso\" value=\"Accedi\" /></a>
+        </div>");
     }
-    else
-    {
-        $email = $_POST["email"];
-        $username = $_POST["username"];
-        $password = $_POST["pwd"];
-        //$clickAccesso= in_array("Accesso",$_POST);
-        
-        $dbAccess = new DBAccess();
-        $connessioneRiuscita = $dbAccess->openDBConnection();
-        /*//CONNESSIONE FALLITA
-        if(!$connessioneRiuscita) {
-            header("Location: ../PHP/error_500.php");
-            die;
-        }*/
-        //if($clickAccesso)
-        //{
-        //    header("Location: ../PHP/login.html");
-        //}
-        //else
-        //{
-            session_start();
-
-            $result = $dbAccess->createNewUser($email,$username, $password);
-            $dbAccess->closeDBConnection();
-            $_SESSION["risultato"] = $result;
-
-            if($_SESSION["risultato"])
-            {
-                $messaggio = "Registrazione effettuata!";
-                header("Location: ../PHP/login.php?msg=$messaggio");//???? cosìì???
-            }
-            else
-            {
-                $messaggio = "Email o Username già in uso";
-                header("Location: ../PHP/signup.php?msgf=$messaggio");
-            }
-        //}
+    else{
+        $replace=array("<registrazione/>" => 
+        "<form id=\"signup-form\" class=\"subcontainer\" action=\"../PHP/signupHandler.php\" method=\"post\">
+        <fieldset>
+        <legend>
+            <h2>Registrati</h2>
+        </legend>
+        <p id=\"erroreDati\">Email o Username già in uso</p></br>
+        <label for=\"email\" lang=\"en\">Email:</label>
+        <input type=\"email\" name=\"email\" id=\"email\" autocomplete=\"email\" placeholder=\"Inserisci la tua email:\" required />
+        <label for=\"username\" lang=\"en\">Username:</label>
+        <input type=\"text\" name=\"username\" id=\"username\" autocomplete=\"username\" placeholder=\"Inserisci il tuo username:\" required />
+        <label for=\"pwd\" lang=\"en\">password: </label>
+        <input type=\"password\" name=\"pwd\" id=\"pwd\" autocomplete=\"current-password\" placeholder=\"Inserisci la tua password:\" required />
+        <div id=\"post\">
+            <input type=\"submit\" id=\"registrazione\" class=\"text-button\" name=\"registrazione\" value=\"Registrati\" />
+        </div>
+        </fieldset>
+        </form>");
     }
+    $url = "../HTML/signup.html";
+    echo UtilityFunctions::replacer($url, $replace);
+}
 ?>
