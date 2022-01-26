@@ -15,15 +15,10 @@
     $dataS = $_POST['data'];
     $ora = $_POST['ora'];
 
-    //if($nPersone == "Seleziona") $messaggio .= "seleziona il numero delle persone";
-    //if($ora == "Seleziona") $messaggio .= "seleziona l'ora";
     $ora .= ":00";
     $dataora = $dataS." ".$ora;
 
     $nTavolo = $connessione->getTavoli($dataora)[0]['numero'];
-    //$nTavolo = implode("",$array);
-    //$messaggio = $nPersone.$dataora.$nTavolo.$_SESSION['email'].is_array($nPersone).is_array($dataora).is_array($nTavolo);
-  //echo implode(",",$array);}}
     $risultatoQuery = $connessione->insertPrenotazioni($nPersone,$dataora,$nTavolo,$_SESSION['email']);
     $connessione->closeDBConnection();
 

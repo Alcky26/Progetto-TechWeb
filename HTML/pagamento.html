@@ -69,7 +69,10 @@
 
         <div class="row">
           <div><Informazioni /></div>
-          <div><div class="bonus"><bonus /></div>
+          <div><div class="bonus"><h3>Bonus disponibili</h3>
+                        <div class="nonVisibile" aria-hidden="true"><input type="number" id="codicecBonus" name="codiceBonus" value="0"></div>
+                        <input onchange="applicaBonus(this)" type="radio" id="bonus" name="bonus" value="0" checked>
+                        <label for="0"><p><strong>Non voglio utilizzare i Bonus</strong></p><bonus /></div>
 
           <div class="col-50">
             <h3>Dati della carta</h3>

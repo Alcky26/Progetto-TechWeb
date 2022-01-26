@@ -21,21 +21,21 @@
           $connessione->closeDBConnection();
           if ($bonus !== null) {
             $bonusList = "<div class=\"bonus\"><h3>Bonus disponibili</h3>
-                          <div class=\"nonVisibile\" aria-hidden=\"true\"><input type=\"number\" id=\"codicecBonus\" name=\"codiceBonus\" value=\"0\"></div>
-                          <input onchange=\"applicaBonus(this)\" type=\"radio\" id=\"bonus\" name=\"bonus\" value=\"0\" checked>
-                          <label for=\"0\"><p><strong>Non voglio utilizzare i Bonus</strong></p>";
+                          <div class=\"nonVisibile\" aria-hidden=\"true\"><input type=\"number\" id=\"codiceBonus\" name=\"codiceBonus\" value=\"0\"></div>
+                          <input onchange=\"cancellaBonus()\" type=\"radio\" id=\"bonus\" name=\"bonus\" value=\"0\" checked>
+                          <label for=\"0\"><p><strong>Non voglio utilizzare i Bonus</strong></p></label>";
               foreach ($bonus as $i) {
                 if (strtotime($i["dataScadenza"]) >= strtotime(date("Y-n-j")) && $i["dataRiscatto"] == "0000-00-00 00:00:00") {
                   $bonusList .= "<div>
                               <p class=\"nonVisibile\" aria-hidden=\"true\">".$i["codiceBonus"]."</p>
                               <input onchange=\"applicaBonus(this)\" type=\"radio\" id=\"bonus\" name=\"bonus\" value=".$i["valore"].">
-                              <label for=".$i["valore"]."><p><strong>Bonus dal valore di {$i["valore"]}&euro; - spendibile entro il {$i["dataScadenza"]}</strong></p>
+                              <label for=".$i["valore"]."><p><strong>Bonus dal valore di {$i["valore"]}&euro; - spendibile entro il {$i["dataScadenza"]}</strong></p></label>
                             </div>";
                   $checkbonus = true;
                 }
               }
           }
-          if(!$checkbonus) {
+          if($checkbonus == false) {
             $bonusList =  "<div><p>Non hai bonus applicabili.</p></div>";
           }
       }
@@ -59,7 +59,7 @@
       for($i = 0; $i < sizeOf($name); $i++){
         $string = $string."<div class=\"product\">
                           <div class=\"productNameP\">".$name[$i]."</div>
-                          <input type=\"text\" name=\"nomeP[]\" value=".$name[$i]." class=\"nonVisibile\" aria-hidden=\"true\">
+                          <input type=\"text\" name=\"nomeP[]\" value=\"".$name[$i]."\" class=\"nonVisibile\" aria-hidden=\"true\">
                           <div class=\"segnoP\">X</div>
                           <div class=\"productQuantityP\">".$quantita[$i]."</div>
                           <input type=\"text\" name=\"quantitaP[]\" value=".$quantita[$i]." class=\"nonVisibile\" aria-hidden=\"true\">

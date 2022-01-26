@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mvignaga";
-    private const PASSWORD = "ohthohXie5aichah";
-    private const DATABASE_NAME = "mvignaga";
+    private const USERNAME = "zzheng";
+    private const PASSWORD = "eigh1yiePut0Haij";
+    private const DATABASE_NAME = "zzheng";
 
     private $connection;
 
@@ -618,7 +618,7 @@ class DBAccess {
     }
 
     public function getBonus($email, $dataScadenza, $minValore, $maxValore) {
-        $query = "SELECT dataScadenza, valore, dataRiscatto, codiceBonus, dataRiscatto
+        $query = "SELECT dataScadenza, valore, dataRiscatto, codiceBonus
                   FROM BONUS
                   WHERE email = '$email' AND dataScadenza <= '$dataScadenza' AND valore >= '$minValore' AND valore <= '$maxValore'
                   ORDER BY dataScadenza DESC";
@@ -685,14 +685,14 @@ class DBAccess {
         SELECT TAVOLO.numero FROM TAVOLO INNER JOIN PRENOTAZIONE ON TAVOLO.numero = PRENOTAZIONE.numero
         WHERE TIMEDIFF ('$dataora',dataOra) >= '02:00:00')
         LIMIT 1";
-        
+
       return $this->execQuery($tavoliDisp);
     }
 
     public function insertPrenotazioni ($nPersone, $dataOra, $nTavolo,$email){
       $query = "INSERT INTO `PRENOTAZIONE` (`persone`,`dataOra`,`numero`,`email`)
                 VALUES ('$nPersone','$dataOra','$nTavolo','$email')";
-      $risultato = mysqli_query($this->connection, $query) or die (mysqli_error($this->connection));
+      $risultato = mysqli_query($this->connection, $query);
       if(mysqli_affected_rows($this->connection) > 0) {
         return true;
       } else {
@@ -722,10 +722,10 @@ class DBAccess {
       }
     }
 
-    public function useBonus($codice,$email,$dataR){
-      $query = "UPDATE BONUS
-                SET dataRiscatto = '$dataR'
-                WHERE codiceBonus = '$codice', email = '$email'";
+    public function useBonus($codice,$dataR){
+      $query = "UPDATE `BONUS`
+                SET `dataRiscatto` = '$dataR'
+                WHERE `codiceBonus` = '$codice'";
       $risultato = mysqli_query($this->connection, $query);
       if(mysqli_affected_rows($this->connection) > 0) {
         return true;

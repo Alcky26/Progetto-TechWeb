@@ -8,13 +8,12 @@
     $connessioneOK = $connessione->openDBConnection();
     $messaggio = '';
     if($connessioneOK){
-      $dataora = date('y-m-d h:i:s');
+      $dataora = date('Y-m-d H:i:s');
       $quantita = $_POST["quantitaP"];
       $nome = $_POST["nomeP"];
       $bonus = $_POST["bonus"];
-      $codice = $_POST["codiceBonus"];
+      if($bonus != 0) {$codice = $_POST["codiceBonus"];}
       $usaBonus = true;
-
 
       $ordinazione = $connessione->insertOrdinazioni($dataora,$_SESSION["email"]);
       if(is_array($nome)){
@@ -23,15 +22,17 @@
         }
       } else {$acquisto = $connessione->insertAcquisto($quantita,$nome,$dataora,$_SESSION["email"]);}
 
-      $connessione->closeDBConnection();
+
       if ($ordinazione && $acquisto){
-        if($bonus != 0) $usaBonus = $connessione->useBonus($codice,$_SESSION['email'],$dataora);
-        if($usaBonus) $messaggio = "<div id=\"mainMex\"><h1>Pagamento effettuato</h1>Ora puoi visualizzare il tuo ordine nell'area personale";
+        if($bonus != 0) {$usaBonus = $connessione->useBonus($codice,$dataora);}
+        if($usaBonus) {$messaggio = "<div id=\"mainMex\"><h1>Pagamento effettuato</h1>Ora puoi visualizzare il tuo ordine nell'area personale";}
+        else {$messaggio = "<div id=\"mainMex\"><h1>errore bonus</h1>";}
       } else {
         $messaggio = "<div id=\"mainMex\"><h1>Errore nell'insermimento</h1>";
       }
     } else {$messaggio = "<div id=\"mainMex\"><h1>Errore nella connessione al server. Per favore riprova più tardi</h1>";}
   }
+  $connessione->closeDBConnection();
   $messaggio .= "<div><a href=\"../HTML/index.html\">Torna alla <span lang=\"en\">home</span></div></div>";
 
   require_once "UtilityFunctions.php";

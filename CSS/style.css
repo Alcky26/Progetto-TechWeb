@@ -800,11 +800,14 @@ p.subcontainer {
 /*-------fine prenotazione tavolo------------*/
 
 /*-------inizio ordina online------------*/
-.nonVisibile ,.PnonVisibile, .flipP, #contenutiNonVisibili input[type=text]{
+#contenutiNonVisibili .nonVisibile ,.PnonVisibile, .flipP, .nonVisibile, .product .nonVisibile{
   display: none;
 }
+#inpFinalTotal{border: none;}
 
 #orderPanel{justify-content: initial;}
+
+#inpFinalTotal:focus{outline: none; background-color: white;}
 
 .total {
 	box-shadow: 2px 2px 4px black;
