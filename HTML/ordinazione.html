@@ -54,18 +54,7 @@
         <p>Ti trovi in: <span lang="en">Home</span> / Ordina online</p>
       </div>
 		  <div id="ordina" class="container">
-        <div class="subtitle-fixed-panel">
-          <h2>IL TUO ORDINE</h2>
-          <div id="riepilogo"></div>
-          <form id="contenutiNonVisibili" action="../PHP/ordina.php" method="POST">
-            <input type="radio" id="TakeAway" name="DT" value="TakeAway" class="nonVisibile" aria-hidden="true"/>
-            <input type="radio" id="Delivery" name="DT" value="Delivery" class="nonVisibile" aria-hidden="true"/>
-            <input type="text" name="indOra" id="indOra" class="nonVisibile" aria-hidden="true">
-            <label for="inpFinalTotal">Totale:</label>
-            <input type="text" name="totaleFinale" id="inpFinalTotal" readonly>
-            <input class="text-button" type="submit" value="PROCEDI AL PAGAMENTO" id="submit">
-          </form>
-        </div>
+
 			  <div class="subcontainers">
 				  <div class="subcontainer">
 					  <div class="scelta">
@@ -109,10 +98,9 @@
                 </select>
               </div>
               <div id="inserisciIndirizzo" class="nonVisibile" aria-hidden="true">
-                <label for="ora">Inserisci indirizzo di consegna:</label>
-                <input id="dataS" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)" placeholder="numero,via,citta,provincia">
+                <label for="indirizzo">Inserisci indirizzo di consegna:</label>
+                <input id="indirizzo" type="text" name="indirizzo" oninput="indOra(this)" onchange="checkDistance(this)" placeholder="numero,via,citta,provincia">
               </div>
-              <div id="a"></div>
   					</div>
   					<div class="listino">
   						<h2>Scegli i tuoi piatti</h2>
@@ -163,6 +151,18 @@
     					</div>
   				</div>
   			</div>
+        <div class="subtitle-fixed-panel">
+          <h2>IL TUO ORDINE</h2>
+          <div id="riepilogo"></div>
+          <form id="contenutiNonVisibili" action="../PHP/ordina.php" method="POST">
+            <input type="radio" id="TakeAway" name="DT" value="TakeAway" class="nonVisibile" aria-hidden="true"/>
+            <input type="radio" id="Delivery" name="DT" value="Delivery" class="nonVisibile" aria-hidden="true"/>
+            <input type="text" name="indOra" id="indOra" class="nonVisibile" aria-hidden="true">
+            <label for="inpFinalTotal">Totale:</label>
+            <input type="text" name="totaleFinale" id="inpFinalTotal" readonly>
+            <input class="text-button" type="submit" value="PROCEDI AL PAGAMENTO" id="submit">
+          </form>
+        </div>
   		</div>
   	</main>
     <footer id="footer">

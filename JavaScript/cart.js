@@ -116,7 +116,7 @@ function addItem(itemInput)
     var per = document.createElement("div");
     per.textContent = "  X  ";
     per.className = "segno";
-    per.alt = "quantita";
+    per.setAttribute("alt", "quantita");
 
 		product.appendChild(productName);
 		product.appendChild(productPrice);
@@ -219,11 +219,11 @@ function deliveryTakeaway(elem)
   var x =elem.value;
   document.getElementById(x).checked = true;
   if(x == "TakeAway") {
-    document.getElementById('inserisciIndirizzo').setAttribute("aria-hidden",false);
-    document.getElementById('scegliOrario').setAttribute("aria-hidden",true);
-  } else {
     document.getElementById('inserisciIndirizzo').setAttribute("aria-hidden",true);
     document.getElementById('scegliOrario').setAttribute("aria-hidden",false);
+  } else {
+    document.getElementById('inserisciIndirizzo').setAttribute("aria-hidden",false);
+    document.getElementById('scegliOrario').setAttribute("aria-hidden",true);
   }
 }
 
