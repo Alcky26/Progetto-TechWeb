@@ -60,7 +60,7 @@
         $string = $string."<div class=\"product\">
                           <div class=\"productNameP\">".$name[$i]."</div>
                           <input type=\"text\" name=\"nomeP[]\" value=\"".$name[$i]."\" class=\"nonVisibile\" aria-hidden=\"true\">
-                          <div class=\"segnoP\">X</div>
+                          <div class=\"segnoP\" aria-label=\"quantità\">X</div>
                           <div class=\"productQuantityP\">".$quantita[$i]."</div>
                           <input type=\"text\" name=\"quantitaP[]\" value=".$quantita[$i]." class=\"nonVisibile\" aria-hidden=\"true\">
                           <div class=\"productLinePriceP\">".$totale[$i]."</div>

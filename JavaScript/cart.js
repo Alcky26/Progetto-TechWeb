@@ -116,7 +116,7 @@ function addItem(itemInput)
     var per = document.createElement("div");
     per.textContent = "  X  ";
     per.className = "segno";
-    per.setAttribute("alt", "quantita");
+    per.setAttribute("aria'label", "quantita");
 
 		product.appendChild(productName);
 		product.appendChild(productPrice);
