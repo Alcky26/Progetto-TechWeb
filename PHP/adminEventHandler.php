@@ -6,7 +6,9 @@ use DB\DBAccess;
 $dbAccess = new DBAccess();
 require_once "UtilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if(!isset($_SESSION["isAdmin"],$_SESSION["email"],$_SESSION["isValid"],$_SESSION["username"])){
     header("Location: ../PHP/login.php");
 }
@@ -438,7 +440,5 @@ else{
             
         }
     }
-    
-    header("Location: ../PHP/Administrator.php");
 }
 ?>

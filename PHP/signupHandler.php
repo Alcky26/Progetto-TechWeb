@@ -27,12 +27,13 @@ else
         <legend>
             <h2>Registrati</h2>
         </legend>
-        <p id=\"validSignUp\">Registrazione Effettuata con successo!</p></br>
+        <p class=\"alert-box success\">Registrazione Effettuata con successo!</p>
+        <div id=\"post\">
+            <a href=\"../HTML/login.html\"><input type=\"button\"  id=\"Accesso\" class=\"text-button\" name=\"Accesso\" value=\"Accedi\" /></a>
+        </div>
         </fieldset>
         </form>
-        <div id=\"post\">
-        <a href=\"../HTML/login.html\"><input type=\"button\"  id=\"Accesso\" class=\"text-button\" name=\"Accesso\" value=\"Accedi\" /></a>
-        </div>");
+        ");
     }
     else{
         $replace=array("<registrazione/>" => 
@@ -41,7 +42,7 @@ else
         <legend>
             <h2>Registrati</h2>
         </legend>
-        <p id=\"erroreDati\">Email o Username già in uso</p></br>
+        <p class=\"alert-box danger\">Email o Username già in uso</p>
         <label for=\"email\" lang=\"en\">Email:</label>
         <input type=\"email\" name=\"email\" id=\"email\" autocomplete=\"email\" placeholder=\"Inserisci la tua email:\" required />
         <label for=\"username\" lang=\"en\">Username:</label>
@@ -50,6 +51,9 @@ else
         <input type=\"password\" name=\"pwd\" id=\"pwd\" autocomplete=\"current-password\" placeholder=\"Inserisci la tua password:\" required />
         <div id=\"post\">
             <input type=\"submit\" id=\"registrazione\" class=\"text-button\" name=\"registrazione\" value=\"Registrati\" />
+        </div>
+        <div id=\"post\">
+          <a href=\"../HTML/login.html\"><input type=\"button\" class=\"text-button\" value=\"Vai a Login\"/></a>
         </div>
         </fieldset>
         </form>");

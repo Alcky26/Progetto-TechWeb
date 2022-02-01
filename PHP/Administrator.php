@@ -7,21 +7,21 @@ require_once "UtilityFunctions.php";
 use UtilityFunctions\UtilityFunctions;
 
 
-function checkadmin(){
-    $connessione = new DBAccess();
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-    if(!isset($_SESSION["isAdmin"],$_SESSION["email"],$_SESSION["isValid"],$_SESSION["username"]))
-    {
-        header("Location: ../PHP/login.php");
-    }
-    $replace=addReplaceIniziali();
-    $url = "../HTML/Administrator.html";
-    echo UtilityFunctions::replacer($url, $replace);
-    
+$connessione = new DBAccess();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION["isAdmin"],$_SESSION["email"],$_SESSION["isValid"],$_SESSION["username"]))
+{
+    header("Location: ../PHP/login.php");
+}
+if(isset($_GET["enter"])&&$_GET["enter"]){
+  $replace=addReplaceIniziali();
+  $url = "../HTML/Administrator.html";
+  echo UtilityFunctions::replacer($url, $replace);
 }
 
+    
 function addReplaceIniziali()
 {
     $add = array("<aggiungipizza/>" => 
@@ -71,21 +71,21 @@ function addReplaceIniziali()
                 "<disabilitaitem/>" =>
                 "<form id=\"disab-item-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
                 <fieldset>
-                  <label for=\"text\" lang=\"ITA\">Seleziona elemento da disabilitare: </label>
+                  <label for=\"text\" lang=\"ITA\">Seleziona elemento da cambiare: </label>
                   <messaggioElementoDisabilitato />
                   <div id=\"post\">
-                    <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Disabilita!\"/>
+                    <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
                   </div>
                 </fieldset>
               </form>",
               "<disabilitaingred/>" =>
               "<form id=\"disab-item-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
               <fieldset>
-                <label for=\"text\" lang=\"ITA\">Seleziona elemento da disabilitare: </label>
+                <label for=\"text\" lang=\"ITA\">Seleziona elemento da cambiare: </label>
                 <messaggioElementoDisabilitatoIng />
-                <input type=\"hidden\" id=\"DisabilitaIngred\" class=\"text-button\" name=\"DisabilitaIngred\" value=\"DisabilitaIngred!\" readonly/>
+                <input type=\"hidden\" id=\"DisabilitaIngred\" class=\"text-button\" name=\"DisabilitaIngred\" value=\"Cambia disponibilità!\" readonly/>
                 <div id=\"post\">
-                  <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Disabilita!\"/>
+                  <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
                 </div>
               </fieldset>
             </form>",
@@ -180,7 +180,7 @@ function addReplaceIniziali()
           <label for=\"text\" lang=\"ITA\">Nome Ingrediente:</label>
           <input type=\"text\" name=\"aggNomeingred\" id=\"aggNomeingred\" maxlength=\"30\" placeholder=\"Inserisci nome ingrediente:\" required/>
           <label for=\"number\" lang=\"ITA\">Categoria Allergene:</label>
-          <input type=\"number\" name=\"aggCategoriaDolce\" id=\"aggCategoriaDolce\" min=\"0\" step=\"1\" placeholder=\"Inserisci la categoria:\" required/>
+          <input type=\"number\" name=\"aggCategoriaIngrediente\" id=\"aggCategoriaIngrediente\" min=\"0\" step=\"1\" placeholder=\"Inserisci la categoria:\" required/>
           <div id=\"post\">
             <input type=\"submit\" id=\"AggiungiIngre\" class=\"text-button\" name=\"AggiungiIngre\" value=\"Aggiungi\"/>
           </div>

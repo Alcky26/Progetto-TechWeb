@@ -30,7 +30,24 @@ class UtilityFunctions {
         $string = "";
         if(self::loginCheck())
         {
-            $string="<div class=\"dropdown\">
+            if(isset($_SESSION["isAdmin"])&&$_SESSION["isAdmin"]){
+                $string="<div class=\"dropdown\">
+                <button type=\"button\" class=\"text-button dropbtn\">Il mio <span lang=\"en\">account</span></button>
+                <ul class=\"dropdown-content\">
+                    <li>
+                        <a href=\"../PHP/area_utente.php\">Area utente</a>
+                    </li>
+                    <li>
+                        <a href=\"../PHP/logout.php\">Effetua il <span lang=\"en\">logout</span></a>
+                    </li>
+                    <li>
+                        <a href=\"../PHP/Administrator.php?enter=1\">Gestione Pizzeria</a>
+                    </li>
+                </ul>
+            </div>";
+            }
+            else{
+                $string="<div class=\"dropdown\">
                         <button type=\"button\" class=\"text-button dropbtn\">Il mio <span lang=\"en\">account</span></button>
                         <ul class=\"dropdown-content\">
                             <li>
@@ -41,6 +58,8 @@ class UtilityFunctions {
                             </li>
                         </ul>
                     </div>";
+            }
+            
         }
         else
         {

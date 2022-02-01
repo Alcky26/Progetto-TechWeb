@@ -37,8 +37,7 @@
                 }
                 else
                 {
-                    require_once "Administrator.php";
-                    checkadmin();
+                    header("Location: ../PHP/Administrator.php?enter=1");
                 }
             }
             else

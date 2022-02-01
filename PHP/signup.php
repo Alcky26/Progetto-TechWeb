@@ -24,6 +24,9 @@ if(!isset($_POST["registrati"])){
     <div id=\"post\">
         <input type=\"submit\" id=\"registrati\" class=\"text-button\" name=\"registrati\" value=\"Registrati\" />
     </div>
+    <div id=\"post\">
+          <a href=\"../HTML/login.html\"><input type=\"button\" class=\"text-button\" value=\"Vai a Login\"/></a>
+    </div>
     </fieldset>
     </form>");
 }
