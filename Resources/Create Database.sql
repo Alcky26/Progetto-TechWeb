@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Gen 08, 2022 alle 18:57
+-- Creato il: Feb 01, 2022 alle 16:32
 -- Versione del server: 10.3.32-MariaDB-0ubuntu0.20.04.1
 -- Versione PHP: 7.4.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `zzheng`
+-- Database: `mvignaga`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,8 @@ CREATE TABLE `ACQUISTO` (
 --
 
 INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
-(2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it');
+(2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it'),
+(1, 'Calzone 2', '2022-01-23 16:58:32', 'mvignaga@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -51,27 +52,28 @@ INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
 CREATE TABLE `BEVANDA` (
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `categoria` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `gradiAlcolici` float NOT NULL
+  `gradiAlcolici` float NOT NULL,
+  `disponibile` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `BEVANDA`
 --
 
-INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici`) VALUES
-('Acqua frizzante 0.5l', 'bevande analcoliche', 0),
-('Acqua frizzante 1l', 'bevande analcoliche', 0),
-('Acqua naturale 0.5l', 'bevande analcoliche', 0),
-('Acqua naturale 1l', 'bevande analcoliche', 0),
-('Coca Cola 0.5l', 'bevande analcoliche', 0),
-('Fanta 0.5l', 'bevande analcoliche', 0),
-('Glossner Gold', 'birre', 5),
-('La Chouffe', 'birre', 8),
-('Namur Blache', 'birre', 4.5),
-('Pilsner Urquell', 'birre', 4.4),
-('Tennents Super', 'birre', 9),
-('The al limone', 'bevande analcoliche', 0),
-('The alla pesca', 'bevande analcoliche', 0);
+INSERT INTO `BEVANDA` (`nome`, `categoria`, `gradiAlcolici`, `disponibile`) VALUES
+('Acqua frizzante 0.5l', 'bevande analcoliche', 0, 1),
+('Acqua frizzante 1l', 'bevande analcoliche', 0, 1),
+('Acqua naturale 0.5l', 'bevande analcoliche', 0, 1),
+('Acqua naturale 1l', 'bevande analcoliche', 0, 1),
+('Coca Cola 0.5l', 'bevande analcoliche', 0, 1),
+('Fanta 0.5l', 'bevande analcoliche', 0, 1),
+('Glossner Gold', 'birre', 5, 1),
+('La Chouffe', 'birre', 8, 1),
+('Namur Blache', 'birre', 4.5, 1),
+('Pilsner Urquell', 'birre', 4.4, 1),
+('Tennents Super', 'birre', 9, 1),
+('The al limone', 'bevande analcoliche', 0, 1),
+('The alla pesca', 'bevande analcoliche', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -287,22 +289,23 @@ INSERT INTO `COMPOSIZIONE` (`id_ingrediente`, `nome`) VALUES
 --
 
 CREATE TABLE `DOLCE` (
-  `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `disponibile` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `DOLCE`
 --
 
-INSERT INTO `DOLCE` (`nome`) VALUES
-('Panna cotta ai frutti di bosco'),
-('Panna cotta al caramello'),
-('Panna cotta al cioccolato'),
-('Propfiterole'),
-('Sorbetto al limone'),
-('Sorbetto alla liquirizia'),
-('Tiramisù'),
-('Torta della nonna');
+INSERT INTO `DOLCE` (`nome`, `disponibile`) VALUES
+('Panna cotta ai frutti di bosco', 1),
+('Panna cotta al caramello', 1),
+('Panna cotta al cioccolato', 1),
+('Propfiterole', 1),
+('Sorbetto al limone', 1),
+('Sorbetto alla liquirizia', 1),
+('Tiramisù', 1),
+('Torta della nonna', 1);
 
 -- --------------------------------------------------------
 
@@ -388,59 +391,60 @@ INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES
 CREATE TABLE `INGREDIENTE` (
   `id_ingrediente` int(4) NOT NULL,
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `allergene` tinyint(1) NOT NULL DEFAULT 0
+  `allergene` tinyint(1) NOT NULL DEFAULT 0,
+  `disponibile` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `INGREDIENTE`
 --
 
-INSERT INTO `INGREDIENTE` (`id_ingrediente`, `nome`, `allergene`) VALUES
-(1, 'pomodoro', 0),
-(2, 'mozzarella', 7),
-(3, 'acciughe', 4),
-(4, 'aglio', 0),
-(5, 'asiago', 7),
-(6, 'basilico', 0),
-(7, 'bresaola', 0),
-(8, 'capperi', 0),
-(9, 'carciofi', 0),
-(10, 'cipolla', 0),
-(11, 'emmenthal', 7),
-(12, 'frutti di mare', 13),
-(13, 'funghi', 0),
-(14, 'gamberetti', 2),
-(15, 'gorgonzola', 7),
-(16, 'grana', 7),
-(17, 'melanzane grigliate', 0),
-(18, 'mozzarella di bufala', 7),
-(19, 'olive', 0),
-(20, 'origano', 0),
-(21, 'pancetta', 0),
-(22, 'patatine fritte', 0),
-(23, 'peperoni grigliati', 0),
-(24, 'philadelpia', 7),
-(25, 'polpa di granchio', 2),
-(26, 'pomodorini', 0),
-(27, 'porchetta', 0),
-(28, 'prosciutto cotto', 0),
-(29, 'prosciutto crudo', 0),
-(30, 'radicchio', 0),
-(31, 'ricotta', 7),
-(32, 'rucola', 0),
-(33, 'salamino piccante', 0),
-(34, 'salmone affumicato', 4),
-(35, 'salsiccia', 0),
-(36, 'sbrise', 0),
-(37, 'scamorza', 7),
-(38, 'speck', 0),
-(39, 'spinaci', 0),
-(40, 'stracchino', 7),
-(41, 'taleggio', 7),
-(42, 'tonno', 4),
-(43, 'uova', 3),
-(44, 'wurstel', 0),
-(45, 'zucchine grigliate', 0);
+INSERT INTO `INGREDIENTE` (`id_ingrediente`, `nome`, `allergene`, `disponibile`) VALUES
+(1, 'pomodoro', 0, 1),
+(2, 'mozzarella', 7, 1),
+(3, 'acciughe', 4, 1),
+(4, 'aglio', 0, 1),
+(5, 'asiago', 7, 1),
+(6, 'basilico', 0, 1),
+(7, 'bresaola', 0, 1),
+(8, 'capperi', 0, 1),
+(9, 'carciofi', 0, 1),
+(10, 'cipolla', 0, 1),
+(11, 'emmenthal', 7, 1),
+(12, 'frutti di mare', 13, 1),
+(13, 'funghi', 0, 1),
+(14, 'gamberetti', 2, 1),
+(15, 'gorgonzola', 7, 1),
+(16, 'grana', 7, 1),
+(17, 'melanzane grigliate', 0, 1),
+(18, 'mozzarella di bufala', 7, 1),
+(19, 'olive', 0, 1),
+(20, 'origano', 0, 1),
+(21, 'pancetta', 0, 1),
+(22, 'patatine fritte', 0, 1),
+(23, 'peperoni grigliati', 0, 1),
+(24, 'philadelpia', 7, 1),
+(25, 'polpa di granchio', 2, 1),
+(26, 'pomodorini', 0, 1),
+(27, 'porchetta', 0, 1),
+(28, 'prosciutto cotto', 0, 1),
+(29, 'prosciutto crudo', 0, 1),
+(30, 'radicchio', 0, 1),
+(31, 'ricotta', 7, 1),
+(32, 'rucola', 0, 1),
+(33, 'salamino piccante', 0, 1),
+(34, 'salmone affumicato', 4, 1),
+(35, 'salsiccia', 0, 1),
+(37, 'scamorza', 7, 1),
+(38, 'speck', 0, 1),
+(39, 'spinaci', 0, 1),
+(40, 'stracchino', 7, 1),
+(41, 'taleggio', 7, 1),
+(42, 'tonno', 4, 1),
+(43, 'uova', 3, 1),
+(44, 'wurstel', 0, 1),
+(45, 'zucchine grigliate', 0, 1),
+(190, 'sbrise', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -458,7 +462,9 @@ CREATE TABLE `ORDINAZIONE` (
 --
 
 INSERT INTO `ORDINAZIONE` (`dataOra`, `email`) VALUES
-('2021-12-22 11:31:52', 'mvignaga@unipd.it');
+('2021-12-22 11:31:52', 'mvignaga@unipd.it'),
+('2022-01-23 05:48:06', 'zzhenwei@unipd.it'),
+('2022-01-23 16:58:32', 'mvignaga@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -468,50 +474,51 @@ INSERT INTO `ORDINAZIONE` (`dataOra`, `email`) VALUES
 
 CREATE TABLE `PIZZA` (
   `nome` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `categoria` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `disponibile` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `PIZZA`
 --
 
-INSERT INTO `PIZZA` (`nome`, `categoria`) VALUES
-('4 formaggi', 'classiche'),
-('4 stagioni', 'classiche'),
-('Alla greppia', 'bianche'),
-('Altopiano', 'bianche'),
-('Calzone', 'calzoni'),
-('Calzone 2', 'calzoni'),
-('Calzone vegetariano', 'calzoni'),
-('Capricciosa', 'classiche'),
-('Carbonara', 'classiche'),
-('Carmine', 'speciali'),
-('Diavola', 'classiche'),
-('Estate', 'bianche'),
-('Frutti di mare', 'speciali'),
-('Margherita', 'classiche'),
-('Marinara', 'classiche'),
-('Mediterranea', 'speciali'),
-('Parigina', 'classiche'),
-('Parmigiana', 'classiche'),
-('Patatosa', 'classiche'),
-('Pizza dolce', 'bianche'),
-('Polpa di granchio', 'speciali'),
-('Prosciutto e funghi', 'classiche'),
-('Regina', 'speciali'),
-('Ritrovo', 'speciali'),
-('Romana', 'classiche'),
-('Salmone', 'speciali'),
-('Saporita', 'speciali'),
-('Stromboli', 'bianche'),
-('Svizzera', 'bianche'),
-('Tedesca', 'classiche'),
-('Texana', 'speciali'),
-('Tirolese', 'speciali'),
-('Tonno e cipolla', 'classiche'),
-('Vegetariana', 'classiche'),
-('Vesuviana', 'speciali'),
-('Viennese', 'classiche');
+INSERT INTO `PIZZA` (`nome`, `categoria`, `disponibile`) VALUES
+('4 formaggi', 'classiche', 1),
+('4 stagioni', 'classiche', 1),
+('Alla greppia', 'bianche', 1),
+('Altopiano', 'bianche', 1),
+('Calzone', 'calzoni', 1),
+('Calzone 2', 'calzoni', 1),
+('Calzone vegetariano', 'calzoni', 1),
+('Capricciosa', 'classiche', 1),
+('Carbonara', 'classiche', 1),
+('Carmine', 'speciali', 1),
+('Diavola', 'classiche', 1),
+('Estate', 'bianche', 1),
+('Frutti di mare', 'speciali', 1),
+('Margherita', 'classiche', 1),
+('Marinara', 'classiche', 1),
+('Mediterranea', 'speciali', 1),
+('Parigina', 'classiche', 1),
+('Parmigiana', 'classiche', 1),
+('Patatosa', 'classiche', 1),
+('Pizza dolce', 'bianche', 1),
+('Polpa di granchio', 'speciali', 1),
+('Prosciutto e funghi', 'classiche', 1),
+('Regina', 'speciali', 1),
+('Ritrovo', 'speciali', 1),
+('Romana', 'classiche', 1),
+('Salmone', 'speciali', 1),
+('Saporita', 'speciali', 1),
+('Stromboli', 'bianche', 1),
+('Svizzera', 'bianche', 1),
+('Tedesca', 'classiche', 1),
+('Texana', 'speciali', 1),
+('Tirolese', 'speciali', 1),
+('Tonno e cipolla', 'classiche', 1),
+('Vegetariana', 'classiche', 1),
+('Vesuviana', 'speciali', 1),
+('Viennese', 'classiche', 1);
 
 -- --------------------------------------------------------
 
@@ -533,7 +540,11 @@ CREATE TABLE `PRENOTAZIONE` (
 INSERT INTO `PRENOTAZIONE` (`persone`, `dataOra`, `numero`, `email`) VALUES
 (4, '2021-12-16 11:27:02', 3, 'zzhenwei@unipd.it'),
 (5, '2021-12-16 11:27:02', 4, 'gorlandi@unipd.it'),
-(10, '2021-12-16 11:27:02', 12, 'mmasetto@unipd.it');
+(10, '2021-12-16 11:27:02', 12, 'mmasetto@unipd.it'),
+(1, '2022-01-23 19:30:00', 1, 'zzhenwei@unipd.it'),
+(1, '2022-01-23 20:00:00', 1, 'zzhenwei@unipd.it'),
+(2, '2022-01-24 19:45:00', 1, 'zzhenwei@unipd.it'),
+(1, '2022-01-24 20:15:00', 1, 'zzhenwei@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -591,7 +602,6 @@ INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`, `isA
 ('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10, 0, 0),
 ('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55, 0, 0),
 ('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0, 0, 0),
-('prova@gmail.com', 'prova', '0000-00-00 00:00:00', 'prova', 0, 0, 0),
 ('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'testpw', 0, 1, 0),
 ('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100, 0, 0);
 
@@ -699,7 +709,7 @@ ALTER TABLE `COMPOSIZIONE`
 -- AUTO_INCREMENT per la tabella `INGREDIENTE`
 --
 ALTER TABLE `INGREDIENTE`
-  MODIFY `id_ingrediente` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id_ingrediente` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- Limiti per le tabelle scaricate
@@ -713,16 +723,16 @@ ALTER TABLE `ACQUISTO`
   ADD CONSTRAINT `ACQUISTO_ibfk_2` FOREIGN KEY (`nome`) REFERENCES `ELEMENTO_LISTINO` (`nome`);
 
 --
--- limiti per la tabella 'BONUS'
---
-ALTER TABLE `BONUS`
-  ADD CONSTRAINT `BONUS_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
-
---
 -- Limiti per la tabella `BEVANDA`
 --
 ALTER TABLE `BEVANDA`
   ADD CONSTRAINT `BEVANDA_ibfk_1` FOREIGN KEY (`nome`) REFERENCES `ELEMENTO_LISTINO` (`nome`);
+
+--
+-- Limiti per la tabella `BONUS`
+--
+ALTER TABLE `BONUS`
+  ADD CONSTRAINT `BONUS_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `COMPOSIZIONE`
@@ -741,7 +751,7 @@ ALTER TABLE `DOLCE`
 -- Limiti per la tabella `ORDINAZIONE`
 --
 ALTER TABLE `ORDINAZIONE`
-  ADD CONSTRAINT `ORDINAZIONE_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
+  ADD CONSTRAINT `ORDINAZIONE_ibfk_1` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `PIZZA`
@@ -754,7 +764,7 @@ ALTER TABLE `PIZZA`
 --
 ALTER TABLE `PRENOTAZIONE`
   ADD CONSTRAINT `PRENOTAZIONE_ibfk_1` FOREIGN KEY (`numero`) REFERENCES `TAVOLO` (`numero`),
-  ADD CONSTRAINT `PRENOTAZIONE_ibfk_2` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON UPDATE CASCADE ON DELETE CASCADE;
+  ADD CONSTRAINT `PRENOTAZIONE_ibfk_2` FOREIGN KEY (`email`) REFERENCES `UTENTE` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
