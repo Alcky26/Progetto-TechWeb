@@ -162,13 +162,13 @@ else{
     }
     else{
         if(isset($_POST["ModificaBev"])){
-            if(isset($_POST["aggNomebevanda"],$_POST["aggCategoriabevanda"],$_POST["aggGradi"],$_POST["aggDescbev"],$_POST["aggPrezzoBev"]))
+            if(isset($_POST["aggNomebevandaMod"],$_POST["aggCategoriabevandaMod"],$_POST["aggGradiMod"],$_POST["aggDescbevMod"],$_POST["aggPrezzoBevMod"]))
             {
-                $nbevanda = $_POST["aggNomebevanda"];
-                $catbevanda = $_POST["aggCategoriabevanda"];
-                $prez = $_POST["aggPrezzoBev"];
-                $des = $_POST["aggDescbev"];
-                $gradi = $_POST["aggGradi"];
+                $nbevanda = $_POST["aggNomebevandaMod"];
+                $catbevanda = $_POST["aggCategoriabevandaMod"];
+                $prez = $_POST["aggPrezzoBevMod"];
+                $des = $_POST["aggDescbevMod"];
+                $gradi = $_POST["aggGradiMod"];
 
                 $connessioneRiuscita = $dbAccess->openDBConnection();
                 $result=false;
@@ -268,11 +268,11 @@ else{
     }
     else{
         if(isset($_POST["ModificaDolce"])){
-            if(isset($_POST["aggNomedolce"],$_POST["aggPrezzodolce"],$_POST["aggDescdolce"]))
+            if(isset($_POST["aggNomedolceMod"],$_POST["aggPrezzodolceMod"],$_POST["aggDescdolceMod"]))
             {
-                $ndolce = $_POST["aggNomedolce"];
-                $prez = $_POST["aggPrezzodolce"];
-                $des = $_POST["aggDescdolce"];
+                $ndolce = $_POST["aggNomedolceMod"];
+                $prez = $_POST["aggPrezzodolceMod"];
+                $des = $_POST["aggDescdolceMod"];
 
                 $connessioneRiuscita = $dbAccess->openDBConnection();
                 $result=false;
@@ -371,11 +371,11 @@ else{
     }
     else{
         if(isset($_POST["ModificaIngrediente"])){
-            if(isset($_POST["aggNomeingrediente"],$_POST["aggCategoriaIngrediente"],$_POST["oldId"]))
+            if(isset($_POST["aggNomeingredienteMod"],$_POST["aggCategoriaIngredienteMod"],$_POST["oldIdMod"]))
             {
-                $ningred = $_POST["aggNomeingrediente"];
-                $catallerg = $_POST["aggCategoriaIngrediente"];
-                $idvecchio = $_POST["oldId"];
+                $ningred = $_POST["aggNomeingredienteMod"];
+                $catallerg = $_POST["aggCategoriaIngredienteMod"];
+                $idvecchio = $_POST["oldIdMod"];
 
                 $connessioneRiuscita = $dbAccess->openDBConnection();
                 $result=false;

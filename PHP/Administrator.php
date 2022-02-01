@@ -28,19 +28,19 @@ function addReplaceIniziali()
                     "<form id=\"add-pizza-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
                     <fieldset>
                     <messaggioPizzaAggiunta />
-                    <label for=\"text\" lang=\"ITA\">Nome Pizza:</label>
+                    <label for=\"aggNomepizza\" lang=\"ITA\">Nome Pizza:</label>
                     <input type=\"text\" name=\"aggNomepizza\" id=\"aggNomepizza\" maxlength=\"30\" placeholder=\"Inserisci nome pizza:\" />
-                    <label for=\"text\" lang=\"ITA\">Categoria:</label>
+                    <label for=\"aggCategoriapizza\" lang=\"ITA\">Categoria:</label>
                     <input type=\"text\" name=\"aggCategoriapizza\" id=\"aggCategoriapizza\" maxlength=\"30\" placeholder=\"Inserisci catergoria:\"/>
-                    <label for=\"number\" lang=\"ITA\">Prezzo:</label>
+                    <label for=\"aggPrezzo\" lang=\"ITA\">Prezzo:</label>
                     <input type=\"number\" name=\"aggPrezzo\" id=\"aggPrezzo\" min=\"0.0\" step=\"0.1\" placeholder=\"Inserisci il prezzo:\"/>
-                    <label for=\"text\" lang=\"ITA\">Descrizione: </label>
+                    <label for=\"aggDesc\" lang=\"ITA\">Descrizione: </label>
                     <input type=\"text\" name=\"aggDesc\" id=\"aggDesc\" maxlenght=\"500\" placeholder=\"Inserisci la descrizione:\"/>
-                    <label for=\"text\" lang=\"ITA\">Ingredienti: </label>
+                    <label for=\"aggIngre\" lang=\"ITA\">Ingredienti: </label>
                     <input type=\"text\" name=\"aggIngre\" id=\"aggIngre\" placeholder=\"Seleziona un ingrediente per inserirlo:\" readonly/>
                     <input type=\"text\" name=\"aggIngreId\" id=\"aggIngreId\" class=\"invIdIng\" readonly/>
-                    <div id=\"post\">
-                        <input type=\"submit\" id=\"AggiungiIngre\" class=\"text-button\" name=\"AggiungiIngre\" value=\"Lista Ingredienti\"/>
+                    <div class=\"post\">
+                        <input type=\"submit\"  class=\"text-button\" name=\"AggiungiIngre\" value=\"Lista Ingredienti\"/>
                     </div>
                     </fieldset>
                   </form>",
@@ -48,9 +48,9 @@ function addReplaceIniziali()
                   "<form id=\"delete-pizza-form\"  action=\"../PHP/adminListShow.php\" method=\"post\">
                   <fieldset>
                   <messaggioPizzaEliminata />
-                  <label for=\"text\" lang=\"ITA\">Seleziona pizza da eliminare: </label>
+                  <p>Seleziona pizza da eliminare: </p>
                   <input type=\"text\" name=\"delPiz\" id=\"delPiz\" placeholder=\"Seleziona una pizza per eliminarla:\" readonly/>
-                  <div id=\"post\">
+                  <div class=\"post\">
                     <input type=\"submit\" id=\"SelezionaDelete\" class=\"text-button\" name=\"SelezionaDelete\" value=\"Lista Pizze\"/>
                   </div>
                   </fieldset>
@@ -59,9 +59,8 @@ function addReplaceIniziali()
                 "<form id=\"upd-pizza-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
                   <fieldset>
                     <messaggioPizzaModificata />
-                    <label for=\"text\" lang=\"ITA\">Seleziona pizza da modificare: </label>
-                    <interfacciaModifica/>
-                    <div id=\"post\">
+                    <p>Seleziona pizza da modificare: </p>
+                    <div class=\"post\">
                       <input type=\"submit\" id=\"SelezionaModifica\" class=\"text-button\" name=\"SelezionaModifica\" value=\"Seleziona pizza!\"/>
                     </div>
                   </fieldset>
@@ -69,23 +68,23 @@ function addReplaceIniziali()
 
 
                 "<disabilitaitem/>" =>
-                "<form id=\"disab-item-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
+                "<form id=\"disab-elem-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
                 <fieldset>
-                  <label for=\"text\" lang=\"ITA\">Seleziona elemento da cambiare: </label>
+                  <p>Seleziona elemento da cambiare: </p>
                   <messaggioElementoDisabilitato />
-                  <div id=\"post\">
-                    <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
+                  <div class=\"post\">
+                    <input type=\"submit\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
                   </div>
                 </fieldset>
               </form>",
               "<disabilitaingred/>" =>
               "<form id=\"disab-item-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
               <fieldset>
-                <label for=\"text\" lang=\"ITA\">Seleziona elemento da cambiare: </label>
+                <p>Seleziona elemento da cambiare: </p>
                 <messaggioElementoDisabilitatoIng />
-                <input type=\"hidden\" id=\"DisabilitaIngred\" class=\"text-button\" name=\"DisabilitaIngred\" value=\"Cambia disponibilità!\" readonly/>
-                <div id=\"post\">
-                  <input type=\"submit\" id=\"Disabilita\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
+                <input type=\"hidden\"  class=\"text-button\" name=\"DisabilitaIngred\" value=\"Cambia disponibilità!\"/>
+                <div class=\"post\">
+                  <input type=\"submit\" class=\"text-button\" name=\"Disabilita\" value=\"Cambia disponibilità!\"/>
                 </div>
               </fieldset>
             </form>",
@@ -95,17 +94,17 @@ function addReplaceIniziali()
                 "<form id=\"add-bevanda-form\"  action=\"../PHP/adminEventHandler.php\" name=\"formsub\" method=\"post\">
                 <fieldset>
                 <messaggioBevandaAggiunta />
-                <label for=\"text\" lang=\"ITA\">Nome Bevanda:</label>
+                <label for=\"aggNomebevanda\" lang=\"ITA\">Nome Bevanda:</label>
                 <input type=\"text\" name=\"aggNomebevanda\" id=\"aggNomebevanda\" maxlength=\"30\" placeholder=\"Inserisci nome bevanda:\" required/>
-                <label for=\"text\" lang=\"ITA\">Categoria:</label>
+                <label for=\"aggCategoriabevanda\" lang=\"ITA\">Categoria:</label>
                 <input type=\"text\" name=\"aggCategoriabevanda\" id=\"aggCategoriabevanda\" maxlength=\"30\" placeholder=\"Inserisci catergoria:\" required/>
-                <label for=\"number\" lang=\"ITA\">Gradi Alcolici:</label>
+                <label for=\"aggGradi\" lang=\"ITA\">Gradi Alcolici:</label>
                 <input type=\"number\" name=\"aggGradi\" id=\"aggGradi\" min=\"0.0\" step=\"0.1\" placeholder=\"Inserisci il grado alcolico:\" required/>
-                <label for=\"number\" lang=\"ITA\">Prezzo:</label>
+                <label for=\"aggPrezzoBev\" lang=\"ITA\">Prezzo:</label>
                 <input type=\"number\" name=\"aggPrezzoBev\" id=\"aggPrezzoBev\" min=\"0.0\" step=\"0.1\" placeholder=\"Inserisci il prezzo:\" required/>
-                <label for=\"text\" lang=\"ITA\">Descrizione: </label>
+                <label for=\"aggDescbev\" lang=\"ITA\">Descrizione: </label>
                 <input type=\"text\" name=\"aggDescbev\" id=\"aggDescbev\" maxlenght=\"500\" placeholder=\"Inserisci la descrizione:\"/>
-                <div id=\"post\">
+                <div class=\"post\">
                 <input type=\"submit\" id=\"AggiungiBev\" class=\"text-button\" name=\"AggiungiBev\" value=\"Aggiungi\"/>
                 </div>
                 </fieldset>
@@ -114,9 +113,9 @@ function addReplaceIniziali()
                 "<form id=\"delete-bevanda-form\"  action=\"../PHP/adminListShow.php\" method=\"post\">
                 <fieldset>
                 <messaggioBevandaEliminata />
-                <label for=\"text\" lang=\"ITA\">Seleziona bevanda da eliminare: </label>
+                <p>Seleziona bevanda da eliminare: </p>
                   <input type=\"text\" name=\"delBev\" id=\"delBev\" placeholder=\"Seleziona una bevanda per eliminarla:\" readonly/>
-                  <div id=\"post\">
+                  <div class=\"post\">
                     <input type=\"submit\" id=\"SelezionaDeleteBev\" class=\"text-button\" name=\"SelezionaDeleteBev\" value=\"Lista Bevande\"/>
                   </div>
                 </fieldset>
@@ -125,9 +124,8 @@ function addReplaceIniziali()
               "<form id=\"upd-bevanda-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
                 <fieldset>
                   <messaggioBevandaModificata />
-                  <label for=\"text\" lang=\"ITA\">Seleziona bevanda da modificare: </label>
-                  <interfacciaModificaBev/>
-                  <div id=\"post\">
+                  <p>Seleziona bevanda da modificare: </p>
+                  <div class=\"post\">
                     <input type=\"submit\" id=\"SelezionaModificaBev\" class=\"text-button\" name=\"SelezionaModificaBev\" value=\"Modifica\"/>
                   </div>
                 </fieldset>
@@ -138,13 +136,13 @@ function addReplaceIniziali()
               "<form id=\"add-dolce-form\"  action=\"../PHP/adminEventHandler.php\" name=\"formsub\" method=\"post\">
                     <fieldset>
                     <messaggioDolceAggiunta />
-                    <label for=\"text\" lang=\"ITA\">Nome Dolce:</label>
+                    <label for=\"aggNomedolce\" lang=\"ITA\">Nome Dolce:</label>
                     <input type=\"text\" name=\"aggNomedolce\" id=\"aggNomedolce\" maxlength=\"30\" placeholder=\"Inserisci nome dolce:\" required/>
-                    <label for=\"number\" lang=\"ITA\">Prezzo:</label>
+                    <label for=\"aggPrezzoDolce\" lang=\"ITA\">Prezzo:</label>
                     <input type=\"number\" name=\"aggPrezzoDolce\" id=\"aggPrezzoDolce\" min=\"0.0\" step=\"0.1\" placeholder=\"Inserisci il prezzo:\" required/>
-                    <label for=\"text\" lang=\"ITA\">Descrizione: </label>
+                    <label for=\"aggDescdolce\" lang=\"ITA\">Descrizione: </label>
                     <input type=\"text\" name=\"aggDescdolce\" id=\"aggDescdolce\" maxlenght=\"500\" placeholder=\"Inserisci la descrizione:\"/>
-                    <div id=\"post\">
+                    <div class=\"post\">
                         <input type=\"submit\" id=\"AggiungiDolce\" class=\"text-button\" name=\"AggiungiDolce\" value=\"Aggiungi\"/>
                     </div>
                     </fieldset>
@@ -153,9 +151,9 @@ function addReplaceIniziali()
                 "<form id=\"delete-dolci-form\"  action=\"../PHP/adminListShow.php\" method=\"post\">
                 <fieldset>
                 <messaggioDolceEliminata />
-                <label for=\"text\" lang=\"ITA\">Seleziona dolce da eliminare: </label>
+                <p>Seleziona dolce da eliminare: </p>
                 <input type=\"text\" name=\"delDolce\" id=\"delDolce\" placeholder=\"Seleziona un dolce per eliminarlo:\"  readonly/>
-                <div id=\"post\">
+                <div class=\"post\">
                     <input type=\"submit\" id=\"SelezionaDeleteDolce\" class=\"text-button\" name=\"SelezionaDeleteDolce\" value=\"Elimina\"/>
                 </div>
                 </fieldset>
@@ -164,9 +162,8 @@ function addReplaceIniziali()
             "<form id=\"upd-dolci-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
             <fieldset>
               <messaggioDolceModificata />
-                <label for=\"text\" lang=\"ITA\">Seleziona dolce da modificare: </label>
-              <interfacciaModificaDolce/>
-              <div id=\"post\">
+                <p>Seleziona dolce da modificare: </p>
+              <div class=\"post\">
                 <input type=\"submit\" id=\"SelezionaModificaDolce\" class=\"text-button\" name=\"SelezionaModificaDolce\" value=\"Modifica\"/>
               </div>
             </fieldset>
@@ -177,12 +174,12 @@ function addReplaceIniziali()
           "<form id=\"add-ingrediente-form\"  action=\"../PHP/adminEventHandler.php\" name=\"formsub\" method=\"post\">
           <fieldset>
           <messaggioIngredienteAggiunta />
-          <label for=\"text\" lang=\"ITA\">Nome Ingrediente:</label>
+          <label for=\"aggNomeingred\" lang=\"ITA\">Nome Ingrediente:</label>
           <input type=\"text\" name=\"aggNomeingred\" id=\"aggNomeingred\" maxlength=\"30\" placeholder=\"Inserisci nome ingrediente:\" required/>
-          <label for=\"number\" lang=\"ITA\">Categoria Allergene:</label>
+          <label for=\"aggCategoriaIngrediente\" lang=\"ITA\">Categoria Allergene:</label>
           <input type=\"number\" name=\"aggCategoriaIngrediente\" id=\"aggCategoriaIngrediente\" min=\"0\" step=\"1\" placeholder=\"Inserisci la categoria:\" required/>
-          <div id=\"post\">
-            <input type=\"submit\" id=\"AggiungiIngre\" class=\"text-button\" name=\"AggiungiIngre\" value=\"Aggiungi\"/>
+          <div class=\"post\">
+            <input type=\"submit\"  class=\"text-button\" name=\"AggiungiIngre\" value=\"Aggiungi\"/>
           </div>
           </fieldset>
         </form>",
@@ -190,10 +187,10 @@ function addReplaceIniziali()
         "<form id=\"delete-ingrediente-form\"  action=\"../PHP/adminListShow.php\" method=\"post\">
         <fieldset>
         <messaggioIngredienteEliminata />
-        <label for=\"text\" lang=\"ITA\">Seleziona ingrediente da eliminare: </label>
+        <label for=\"delIngrediente\" lang=\"ITA\">Seleziona ingrediente da eliminare: </label>
         <input type=\"text\" name=\"delIngrediente\" id=\"delIngrediente\" placeholder=\"Seleziona un ingrediente per eliminarlo:\"  readonly/>
         <input type=\"text\" name=\"oldIdIngr\" id=\"oldIdIngr\" class=\"invIdIng\" readonly/>
-        <div id=\"post\">
+        <div class=\"post\">
           <input type=\"submit\" id=\"SelezionaDeleteIngrediente\" class=\"text-button\" name=\"SelezionaDeleteIngrediente\" value=\"Elimina\"/>
         </div>
         </fieldset>
@@ -202,9 +199,8 @@ function addReplaceIniziali()
       "<form id=\"upd-ingrediente-form\"  action=\"../PHP/adminListShow.php\" name=\"formsub\" method=\"post\">
       <fieldset>
         <messaggioIngredienteModificata />
-        <label for=\"text\" lang=\"ITA\">Seleziona ingrediente da modificare: </label>
-        <interfacciaModificaIngrediente/>
-        <div id=\"post\">
+        <p>Seleziona ingrediente da modificare: </p>
+        <div class=\"post\">
           <input type=\"submit\" id=\"SelezionaModificaIngrediente\" class=\"text-button\" name=\"SelezionaModificaIngrediente\" value=\"Modifica\"/>
         </div>
       </fieldset>

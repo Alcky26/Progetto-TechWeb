@@ -1109,9 +1109,10 @@ p.subcontainer {
   text-decoration: none;
 }
 
-#slidePizza, #slideBevande, #aggiungiPizza, #aggiungiBevanda, #aggiungiDolce, #aggiungiIngrediente, #eliminaPizza, #eliminaBevanda, #eliminaDolce, #eliminaIngrediente, #modificaPizza, #modificaBevanda, #modificaDolce, #modificaIngrediente {
+.slidePizza, .slideBevanda, .aggiungiPizza, .aggiungiBevanda, .aggiungiDolce, .aggiungiIngrediente, .eliminaPizza, .eliminaBevanda, .eliminaDolce, .eliminaIngrediente, .modificaPizza, .modificaBevanda, .modificaDolce, .modificaIngrediente {
   padding: 16px;
 }
+
 
 div.idIng, input[type = "text"].idIng, input[type = "text"].invIdIng, div.idIngUpd, input[type = "text"].idIngUpd, div.idIngdel, input[type = "text"].idIngdel,  input[type = "text"].invisibile{
   display: none;
@@ -1160,6 +1161,19 @@ div.idIng, input[type = "text"].idIng, input[type = "text"].invIdIng, div.idIngU
   -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   overflow-x: scroll;
+}
+
+.post {
+  width: 80%;
+  margin: 4rem 10%;
+}
+.post {
+  width: 80%;
+  margin: 4rem 10%;
+}
+
+.post a {
+  text-decoration: none;
 }
 
 /*----------pagina area utente----------*/
