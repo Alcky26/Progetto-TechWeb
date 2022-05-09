@@ -40,7 +40,7 @@ else{
                 foreach ($result as $i) {
                     $string = $string."<div class=\"subsubcontaineradmin\">";
                     if(!in_array($i["nome"], $_SESSION["Ingredienti"])&&!in_array($i["id_ingrediente"], $_SESSION["IdIngredienti"])){
-                        $string = $string."<input type=\"text\" name=\"itemName[]\" value='".$i["nome"]."' readonly />
+                        $string = $string."<input type=\"text\" pattern=\"[^'\x22]+\"  name=\"itemName[]\" value='".$i["nome"]."' readonly />
                         <input type=\"hidden\"  name=\"itemSelection[".$i["id_ingrediente"]."]\"  value=\"0\" />
                         <input type=\"checkbox\"  name=\"itemSelection[".$i["id_ingrediente"]."]\"  value=\"1\" />
                         <input type=\"hidden\" name=\"idIng[]\" class=\"idIng\" value='".$i["id_ingrediente"]."'  />";
