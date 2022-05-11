@@ -1,86 +1,62 @@
-/* Dimensione della pagina stampata */
-
 @page {
   size: 210mm 297mm;
   margin: 30mm;
 }
 
+* {
+  background-color: white;
+  border-color: black;
+  color: black;
+  z-index: 0;
+  border-bottom-width: 0 !important;
+}
+
+#logo {
+  background: none;
+}
+
+#nav {
+  flex-direction: column;
+}
+
+.dropdown-content > * {
+  display: block;
+}
 
 .allergene {
-  color: black;
+  text-decoration-color: black;
 }
 
-#logo , #menu-botton {
+.text-button, .button {
   display: none;
-}
-
-#top-header {
-  border-bottom:1mm solid black;
-  border-top:1mm solid black;
-}
-
-.text-button * {
-  display: none;
-}
-
-.button {
-  display:none;
-}
-
-.navigation {
-  display: none;
-}
-
-a:link, a:visited {
-  font-weight:bold;
-  text-decoration: underline;
-  color:#009;
 }
 
 a:link:after, a:visited:after {
   content: " [ " attr(href) "]";
 }
 
-/*page-break-after;*/
-
 body {
   font-size: 12pt;
 }
 
-#breadcrumb{
-  display:none;
-}
-
-.container {
-  width: auto;
-}
-
-#menu, #links {
-  display:none;
-}
-
-#menu, #news {
-  position: static;
-  float: none;
-}
-
-* {
-  background: transparent !important;
-  color: black;
-}
-
-a, a:visited {
-  color: var(--link_color) !important;
-}
-
 a[href]::after{content: "(" attr(href) ")"}
 
-.first.container {
-  padding-top: calc(73px + 3rem);
+#top-header, #breadcrumb {
+  position: static;
 }
 
-.subtitle-panel {
+#content-wrapper, #content-wrapper + #footer {
+  top: 64px;
+}
+
+#breadcrumb{
+  left: 0;
+  width: 100%;
+}
+
+.subtitle-panel, .subtitle-fixed-panel {
   position: static;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -89,13 +65,31 @@ a[href]::after{content: "(" attr(href) ")"}
   border-bottom-width: 5px;
 }
 
+.subtitle-fixed-panel {
+  padding-top: 0;
+}
+
+.subtitle-fixed-panel > h2 {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.subtitle-fixed-panel li {
+  display: inline;
+}
+
+.fake-subtitle {
+  display: none;
+}
+
 .subcontainers {
   position: static;
   width: 100%;
 }
 
-.first.container > .subcontainers {
-  padding-top: 16px;
+.subcontainer {
+  border-width: 0;
+  padding: 0;
 }
 
 .grid-subcontainer {

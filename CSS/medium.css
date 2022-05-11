@@ -25,3 +25,7 @@
 #nav > :not(#logo, #login-logout) {
   padding: 0.25rem;
 }
+
+.container {
+  min-height: calc(100vh - 79px);
+}

@@ -42,7 +42,7 @@ echo UtilityFunctions::replacer($url, $replace);
 function fill($array, $listino) {
     $string = "<div class=\"subcontainer grid-subcontainer\">";
     foreach ($array as $i) {
-        $string = $string."<div class=\"subsubcontainer\"><h3>".$i['nome']." (".$i['prezzo']."&euro;)</h3>";
+        $string = $string."<div class=\"subsubcontainer\"><h3>{$i['nome']} ({$i['prezzo']}&euro;)</h3>";
         switch ($listino) {
             case "pizza":
                 $ingredienti = $GLOBALS['connessione']->getIngredients($i['nome']);
@@ -66,17 +66,22 @@ function fill($array, $listino) {
             case "dolce":
                 break;
         }
-        if ($i['descrizione'] != null) {
-            $string = $string."<p>".$i['descrizione']."</p>";
+        if ($i['descrizione'] !== NULL) {
+            $string = $string."<p>{$i['descrizione']}</p>";
         }
-        $string = $string."</div>";
+        $id = str_replace([' ', '.'], ['-', ','], "{$i["nome"]}#{$i["prezzo"]}");
+        $value = isset($_SESSION["order"][$id]) ? $_SESSION["order"][$id] : 0;
+        $string = $string."
+                <label for=\"$id\">Quantità {$i["nome"]}: </label>
+                <input id=\"$id\" name=\"$id\" type=\"number\" value=\"$value\" min=\"0\" max=\"10\" pattern=\"(10|[0-9])\" title=\"Inserisci un numero compreso tra 1 e 10\" />
+            </div>";
     }
     return $string."</div>";
 }
 
 function classiche() {
     $result = $GLOBALS['connessione']->getClassiche();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "pizza");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -84,7 +89,7 @@ function classiche() {
 
 function speciali() {
     $result = $GLOBALS['connessione']->getSpeciali();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "pizza");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -92,7 +97,7 @@ function speciali() {
 
 function bianche() {
     $result = $GLOBALS['connessione']->getBianche();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "pizza");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -100,7 +105,7 @@ function bianche() {
 
 function calzoni() {
     $result = $GLOBALS['connessione']->getCalzoni();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "pizza");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -108,7 +113,7 @@ function calzoni() {
 
 function bevande() {
     $result = $GLOBALS['connessione']->getBevande();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "bevanda");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -116,7 +121,7 @@ function bevande() {
 
 function birre() {
     $result = $GLOBALS['connessione']->getBirre();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "bevanda");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -124,7 +129,7 @@ function birre() {
 
 function vini() {
     $result = $GLOBALS['connessione']->getVini();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "bevanda");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";
@@ -132,7 +137,7 @@ function vini() {
 
 function dolci() {
     $result = $GLOBALS['connessione']->getDolci();
-    if ($result != null) {
+    if (!empty($result)) {
         return fill($result, "dolce");
     }
     return "<div class=\"subcontainer\"><p>Al momento non è disponibile nessun articolo.</p></div>";

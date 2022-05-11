@@ -5,14 +5,23 @@ $(document).ready(function() {
     {},
     function(response) {
       button.html(response);
-      $(".dropbtn").attr("aria-haspopup", "true");
-      $(".dropbtn").attr("aria-expanded", "false");
-      $(".dropbtn").click(function(event) {
-        $(event.target).parent(".dropdown").toggleClass("focus-within");
-        $(event.target).attr("aria-expanded", ($(event.target).attr("aria-expanded") === "false" ? "true" : "false"));
+      button.attr("aria-haspopup", "true");
+      button.attr("aria-expanded", "false");
+      $("#login-logout > *").click(function(event) {
+        $("#login-logout .dropdown").toggleClass("focus-within");
+        $("#login-logout button").attr("aria-expanded", ($("#login-logout button").attr("aria-expanded") === "true" ? "false" : "true"));
       });
     }
   );
+});
+
+$(document).ready(function() {
+  $(".dropbtn").attr("aria-haspopup", "true");
+  $(".dropbtn").attr("aria-expanded", "false");
+  $(".dropbtn").click(function(event) {
+    $(event.target).parent(".dropdown").toggleClass("focus-within");
+    $(event.target).attr("aria-expanded", ($(event.target).attr("aria-expanded") === "false" ? "true" : "false"));
+  });
 });
 
 $(document).ready(function() {

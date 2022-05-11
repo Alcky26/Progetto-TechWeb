@@ -9,7 +9,7 @@ use UtilityFunctions\UtilityFunctions;
 session_start();
 if(!isset($_POST["registrati"])){
     $replace=array("<registrazione/>" => 
-    "<form id=\"signup-form\" class=\"subcontainer\" action=\"../PHP/signupHandler.php\" method=\"post\">
+    "<form id=\"signup-form\" action=\"../PHP/signupHandler.php\" method=\"post\">
     <fieldset>
     <legend>
         <h2>Registrati</h2>

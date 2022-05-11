@@ -21,7 +21,7 @@ if (isset($_SESSION["email"], $_POST["email"], $_POST["username"], $_POST["pwd"]
     }
 }
 
-if ($GLOBALS["result"] === NULL)
+if ($result === NULL)
     header("Location: area_utente.php");
 else
     header("Location: area_utente.php?result=$result");

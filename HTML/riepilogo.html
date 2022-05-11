@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+		<meta charset="utf-8" />
+		<meta name="title" content="Pagamento - Pizzeria Ai 4 Laureandi" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="pagamento" />
+		<meta name="author" content="Zhen Wei Zheng" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Riepilogo ordine</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
+		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../JavaScript/custom.js"></script>
+	</head>
+    <body>
+        <header id="top-header">
+            <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+            <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+            <nav class="dropdown">
+                <button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
+                <ul id="nav" class="dropdown-content">
+                    <li id="logo">
+                        <a href="../HTML/index.html">
+                            <picture>
+                                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+                                <img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
+                            </picture>
+                        </a>
+                    </li
+                    ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+                ><li><a href="../PHP/menu.php">MENÙ</a></li
+                ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+                ><li><a href="../HTML/contatti.html">CONTATTI</a></li
+                ><li id="login-logout" class="dropdown">
+                    <button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
+                    <ul class="dropdown-content">
+                        <li><a href="../PHP/area_utente.php">Area utente</a></li>
+                        <li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
+                    </ul>
+                </li>
+                </ul>
+            </nav>
+        </header>
+        <main id="content-wrapper">
+            <div class="container">
+                <div class="subtitle-panel">
+                    <h2 class="subtitle">Il tuo ordine</h2>
+                </div>
+                <div class="subcontainers">
+                    <div class="subcontainer"><order /></div>
+                    <div class="subcontainer"><tot /></div>
+                </div>
+            </div>
+            <form action="../PHP/menuPagamento.php" method="POST">
+                <div id="delivery-takeaway" class="container">
+                    <div class="subtitle-panel">
+                        <h2 class="subtitle">Modalità di ritiro</h2>
+                    </div>
+                    <div class="subcontainers">
+                        <fieldset class="subcontainer">
+                            <legend>Modalità di ritiro</legend>
+                            <input type="radio" id="delivery" name="delivery" value="delivery" />
+                            <label for="delivery">Consegna a domicilio</label>
+                            <input type="radio" id="takeaway" name="takeaway" value="takeaway" />
+                            <label for="takeaway">Ritiro in loco</label>
+                            <label for="time">Scegli un'orario: </label>
+                            <select id="time" name="time" required>
+                                <option value="12:00">12:00</option>
+                                <option value="12:15">12:15</option>
+                                <option value="12:30">12:30</option>
+                                <option value="12:45">12:45</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:15">13:15</option>
+                                <option value="13:30">13:30</option>
+                                <option value="13:45">13:45</option>
+                                <option value="14:00">14:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:15">19:15</option>
+                                <option value="19:30">19:30</option>
+                                <option value="19:45">19:45</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:15">20:15</option>
+                                <option value="20:30">20:30</option>
+                                <option value="20:45">20:45</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:15">21:15</option>
+                                <option value="21:30">21:30</option>
+                                <option value="21:45">21:45</option>
+                                <option value="22:00">22:00</option>
+                            </select>
+                            <label for="address">Inserisci l'indirizzo di consegna: </label>
+                            <input type="text" id="address" name="address" placeholder="Numero, via, città, provincia" required />
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="purchase" class="container">
+                    <div class="subtitle-panel">
+                        <h2 class="subtitle">Metodi di pagamento</h2>
+                    </div>
+                    <div class="subcontainers">
+                        <fieldset class="subcontainer">
+                            <legend>Pagamento con carta di credito</legend>
+                            <label for="cc-owner">Titolare della carta</label>
+                            <input type="text" id="cc-owner" name="cc-owner" placeholder="Mario Rossi" required />
+                            <label for="cc-number">Numero della carta</label>
+                            <input type="text" id="cc-number" name="cc-number" placeholder="1111-2222-3333-4444" required>
+                            <label for="cc-exp-month">Mese di scadenza</label>
+                            <input type="text" id="cc-exp-month" name="cc-exp-month" placeholder="settembre" required>
+                            <label for="cc-exp-year">Anno di scadenza</label>
+                            <input type="text" id="cc-exp-year" name="cc-exp-year" placeholder="2018" required>
+                            <label for="cc-cvv"><span lang="en">CVV</span></label>
+                            <input type="text" id="cc-cvv" name="cc-cvv" placeholder="352" required>
+                        </fieldset>
+                        <fieldset class="subcontainer">
+                            <legend>Pagamento con bonus</legend>
+                            <bonuses />
+                        </fieldset>
+                        <div class="subcontainer">
+                            <input type="submit" value="PAGA" class="text-button" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <footer id="footer">
+            <div>
+                <nav id="sitemap">
+                    <h4>Navigazione</h4>
+                    <ul class="list">
+                        <li><a href="../HTML/index.html" lang="en">Home</a></li
+                        ><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+                        ><li><a href="../PHP/menu.php">Menù</a></li
+                        ><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+                        ><li><a href="../HTML/contatti.html">Contatti</a></li
+                        ><li><a href="../HTML/login.html">Accedi</a></li
+                        ><li><a href="../HTML/signup.html">Registrati</a></li
+                        ><li><a href="../PHP/area_utente.php">Area utente</a></li
+                        ><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h4>Informazioni</h4>
+                    Progetto didattico del corso di Tecnologie Web prodotto da:
+                    <ul class="list">
+                        <li>Giacomo Orlandi - 1122253</li
+                        ><li>Matteo Vignaga - 1201147</li
+                        ><li>Michele Masetto - 1224457</li
+                        ><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
+                    </ul>
+                </div>
+                <div><h4>Certificazioni</h4></div>
+            </div>
+            <p id="copyright">
+                &copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
+            </p>
+        </footer>
+    </body>
+</html>

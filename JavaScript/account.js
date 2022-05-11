@@ -1,16 +1,5 @@
-var info = {
-  "email": "",
-  "username": "",
-  "pwd": "",
-  "birthday": ""
-};
-var code;
 
 $(document).ready(function() {
-    info["email"] = $("#email").val();
-    info["username"] = $("#username").val();
-    info["pwd"] = $("#password").val();
-    info["birthday"] = $("#birthday").val();
     $("#set-info").text("Modifica");
     $("#email").prop("disabled", true);
     $("#username").prop("disabled", true);
@@ -43,13 +32,28 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
+    $.get(
+        "../PHP/utenteInfo.php",
+        {},
+        function(response) {
+            var obj = $.parseJSON(response);
+            $("#email").val(obj["email"]);
+            $("#username").val(obj["username"]);
+            $("#pwd").val(obj["password"]);
+            $("#birthday").val(obj["birthday"].substring(0, 10));
+        }
+    );
+});
+
+$(document).ready(function() {
     var bonus = $("#bonus .subcontainer:nth-child(2)");
-    $("#scadenza, #valore").change(function() {
+    $("#scadenza, #valore-min, #valore-max").change(function() {
         $.get(
-            "../PHP/bonus.php",
+            "../PHP/utenteBonus.php",
             {
                 scadenza: $("#scadenza").val(),
-                persone: $("#valore").val()
+                "valore-min": $("#valore-min").val(),
+                "valore-max": $("#valore-max").val()
             },
             function(response) {
                 bonus.html(response);
@@ -62,16 +66,16 @@ $(document).ready(function() {
     var prenotazioni = $("#prenotazioni .subcontainer:nth-child(2)");
     $("#periodo, #persone").change(function() {
         $.get(
-            "../PHP/prenotazioni.php",
+            "../PHP/utentePrenotazioni.php",
             {
                 periodo: $("#periodo").val(),
                 persone: $("#persone").val()
             },
             function(response) {
                 prenotazioni.html(response);
-                $(".show-code").closest(".list-item").find(".qr-code").css("display", "none");
+                $(".qr-code").css("display", "none");
                 $(".show-code").click(function(event) {
-                  showQRCode(event);
+                    showQRCode(event);
                 });
             }
         );
@@ -85,18 +89,18 @@ $(document).ready(function() {
 });
 
 function showQRCode(event) {
-  code = $(event.target).closest(".list-item").find(".qr-code");
-  code.css("display", code.css("display") === "none" ? "block" : "none");
-  $(event.target).text(code.css("display") === "none" ? "Mostra codice QR" : "Nascondi codice QR");
+    var code = $(event.target).closest(".list-item").find(".qr-code");
+    code.css("display", code.css("display") === "none" ? "block" : "none");
+    $(event.target).text(code.css("display") === "none" ? "Mostra codice QR" : "Nascondi codice QR");
 }
 
 $(document).ready(function() {
     var acquisti = $("#acquisti .subcontainer:nth-child(2)");
     $("#data-acquisto, #spesa").change(function() {
         $.get(
-            "../PHP/acquisti.php",
+            "../PHP/utenteAcquisti.php",
             {
-                data: $("#data-acquisto").val(),
+                "data-acquisto": $("#data-acquisto").val(),
                 spesa: $("#spesa").val()
             },
             function(response) {

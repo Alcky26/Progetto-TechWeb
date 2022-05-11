@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 :root {
-  --orange: #FFAE42;
-  --light_orange: #FCD299;
-  --brown: #80471C;
-  --dark_brown: #65350F;
-  --yellow: #F5EF42;
-  --white: #FFFFFF;
-  --gray: #B5AB9E;
-  --font: 'Poppins', sans-serif, 'Arial', sans-serif;
-  --link_color: #1C2833;
-  --link_visited: #360000;
   font-size: 100%;
 }
 
@@ -18,9 +8,9 @@
   margin: 0;
   box-sizing: border-box;
   border-width: 0;
-  border-color: var(--brown);
+  border-color: #80471C;
   border-style: solid;
-  font-family: var(--font);
+  font-family: 'Poppins', sans-serif, 'Arial', sans-serif;
 }
 
 h2, h3, h3, h5 {
@@ -55,16 +45,11 @@ li ul, li ol, li dl {
   margin: 0;
 }
 
-fieldset, legend {
-  padding: 0;
-}
-
-fieldset > legend {
-  width: 100%;
-}
-
-fieldset > legend * {
-  text-align: center;
+fieldset.subcontainer legend {
+  position: relative;
+  background-color: white;
+  border-width: 1px;
+  border-radius: 0.5rem;
 }
 
 form .submit {
@@ -114,7 +99,7 @@ input[type = "text"], input[type = "password"], input[type = "email"], input[typ
 
 input[type = "text"]:focus, input[type = "email"]:focus, input[type = "number"]:focus, input[type = "password"]:focus, input[type = "date"]:focus {
   background-color: rgba(0, 0, 0, 0.075);
-  outline: 2px solid var(--orange);
+  outline: 2px solid #FFAE42;
   outline-offset: 5px;
 }
 
@@ -127,20 +112,20 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 }
 
 * a{
-  color: var(--link_color);
+  color: #1C2833;
 }
 
 * a:visited {
-  color: var(--link_visited);
+  color: #360000;
 }
 
 #content-wrapper {
-  background-color: var(--light_orange);
+  background-color: #FCD299;
 }
 
 #content-wrapper, #content-wrapper + #footer {
   position: relative;
-  top: 93px;
+  top: calc(5.5rem + 5px);
 }
 
 /*----------regole classi generiche----------*/
@@ -162,7 +147,7 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 .link {
   padding: 0;
   background: transparent;
-  color: var(--link_color);
+  color: #1C2833;
   text-decoration: underline;
 }
 
@@ -171,7 +156,7 @@ input[disabled], input:disabled, button[disabled], button:disabled {
   padding: 1.25em;
   margin: 1em 0;
   border-radius: 1.75em;
-  background-color: var(--brown);
+  background-color: #80471C;
   line-height: 1;
   text-align: center;
   transition: background-color .25s;
@@ -180,11 +165,11 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 }
 
 .text-button:hover {
-  background-color: var(--dark_brown);
+  background-color: #65350F;
 }
 
 .text-button, .text-button * {
-  color: var(--white) !important;
+  color: white !important;
   text-decoration: none;
 }
 
@@ -193,7 +178,7 @@ input.text-button, button.text-button {
 }
 
 input[disabled].text-button, input:disabled.text-button, button[disabled].text-button, button:disabled.text-button {
-  background-color: var(--gray);
+  background-color: #B5AB9E;
 }
 
 .button {
@@ -228,7 +213,7 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   border-bottom-width: 1px;
 }
 
-.dropdown-content > :hover {background-color: var(--light_orange);}
+.dropdown-content > :hover {background-color: #FCD299;}
 
 .dropdown.focus-within > .dropdown-content > * {
   display: block;
@@ -245,19 +230,20 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   border-width: 1px;
   border-radius: 10px;
   text-align: center;
+  background-color: #FFAE42;
+}
+
+.success, .danger {
+  text-align: center;
   color: white;
 }
 
-.alert-box a {
-  color: white;
-}
-
-.success {
+.success, .success.subcontainer {
   background-color: #00B226;
   border-color: #89FFA3;
 }
 
-.danger {
+.danger, .danger.subcontainer {
   background-color: #DC0000;
   border-color: #FEB1B1;
 }
@@ -267,14 +253,14 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
   list-style: none;
 }
 
-.canceled {
+.disabled {
   text-decoration: line-through;
   color: #A3A3A3;
 }
 
 .allergene {
   font-weight: bold;
-  text-decoration: underline 2px;
+  text-decoration: underline 0.25em;
 }
 
 dt.allergene {width: 25%;}
@@ -384,8 +370,8 @@ dt.allergene-14 {background-color: #F7DF65;}
   height: auto;
   padding: 0 16px;
   border-bottom-width: 5px;
-  background-color: var(--orange);
-  font-size: 16px;
+  background-color: #FFAE42;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 1080px) {
@@ -424,13 +410,14 @@ dt.allergene-14 {background-color: #F7DF65;}
 }
 
 #breadcrumb {
+  display: inline-block;
   position: relative;
   left: 25%;
   width: 75%;
   z-index: 2;
   padding: 0.001rem 1rem;
   border-bottom-width: 1px;
-  background-color: var(--orange);
+  background-color: #FFAE42;
   text-align: right;
 }
 
@@ -459,7 +446,7 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .container {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 93px);
   border-bottom-width: 1px;
   background-size: cover;
 }
@@ -477,7 +464,7 @@ dt.allergene-14 {background-color: #F7DF65;}
   flex-wrap: nowrap;
   align-items: center;
   border-right-width: 5px;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .fake-subtitle {
@@ -487,7 +474,7 @@ dt.allergene-14 {background-color: #F7DF65;}
   bottom: 0;
   left: 0;
   border-right-width: 5px;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .subtitle-panel h2, .subtitle-fixed-panel h2 {
@@ -529,13 +516,7 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .subcontainer {
   margin: 1rem 0;
-  background-color: var(--white);
-}
-
-p.subcontainer {
-  margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  background-color: white;
 }
 
 :not(.subcontainer) > .subcontainer:nth-child(1) {
@@ -561,7 +542,7 @@ p.subcontainer {
 .subsubcontainer {
   position: relative;
   padding-bottom: 41px;
-  background-color: var(--orange);
+  background-color: #FFAE42;
 }
 
 /*----------pagina index----------*/
@@ -604,426 +585,14 @@ p.subcontainer {
   display: table-cell;
 }
 
-/*-------parte prenotazione tavolo------------*/
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  color: #262626;
-  border-radius: 10px;
-  font-weight: 600;
-  min-width: 100px;
-  transition: 0.2s ease;
-  outline: 0;
-  width: 324px;
-}
-
-.btn:hover {
-  color: #FFF;
-  background: #455AF7;
-}
-
-.btn-small {
-  min-width: 50px;
-}
-
-
-.btn-day {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  width: 100%;
-  height: 100%;
-  outline: 0;
-  border-radius: 10px;
-  transition: 0.4s all;
-}
-
-.btn-day.active {
-  color: #FFF;
-  font-weight: 600;
-  z-index: 1;
-}
-
-#today {
-	position: absolute;
-  content: '';
-  width: 40px;
-  height: 40px;
-  background: blue;
-	color: #FFF;
-  font-weight: 600;
-}
-
-.btn-day.active::before {
-  position: absolute;
-  content: '';
-  width: 40px;
-  height: 40px;
-  background: #455AF7;
-  border-radius: 10px;
-  z-index: -1;
-}
-
-.text-field {
-  padding: 10px;
-  height: 50px;
-  width: 200px;
-  border: 1px solid #f0f0f0;
-  border-radius: 10px;
-  margin: 0px 10px 0 0;
-}
-
-/* Calendar */
-
-.calendario  {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  background: #ecf1f8;
-}
-
-.calendar-assets {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-}
-
-#currentDate{
-  text-align:center;
-  font-size:20px;
-  padding: 1em;
-}
-
-.field {
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.field label {
-  margin: 2px;
-}
-
-.form-input {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar {
-  height: 370px;
-  width: 324px;
-  border-radius: 18px;
-  background: #ffffff;
-  padding: 10px;
-  user-select: none;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 18px 18px 0px 0px;
-  height: 50px;
-  width: 100%;
-  color: #262626;
-}
-
-.month {
-  font-size: 0.7em;
-}
-
-.icon {
-  padding: 10px;
-  font-size: 1em;
-  margin: 0 0 0 5px;
-  background: #ffffff;
-  color: #455af7;
-  border: none;
-  outline: 0;
-}
-
-#calendar {
-  width: 100%;
-}
-
-.weekends th {
-  font-size: 1em;
-  color: red;
-  font-weight: 400;
-  width: 40px;
-  margin: 10px 0;
-}
-
-#calendar tr {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    margin: 3px;
-}
-
-#calendar td {
-    display: flex;
-    height: 40px;
-    width: 40px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-}
-
-#numeroPersone, #orario {
-	text-align: center;
-}
-
-#titoloPrenotaT {
-  position: relative;
-  left: -1em;
-  width: calc(100% + 2em);
-	background-color: #FFAE42;
-	border-radius: 1rem;
-}
-
-.buttons{display: flex;}
-
-/*-------fine prenotazione tavolo------------*/
-
-/*-------inizio ordina online------------*/
-#contenutiNonVisibili .nonVisibile ,.PnonVisibile, .flipP, .nonVisibile, .product .nonVisibile{
-  display: none;
-}
-#inpFinalTotal{border: none;}
-
-#orderPanel{justify-content: initial;}
-
-#inpFinalTotal:focus{outline: none; background-color: white;}
-
-.total {
-	box-shadow: 2px 2px 4px black;
-	text-align: right;
-  width: 100%;
-}
-
-#totale{
-  margin: 0;
-  align-items: center;
-  padding: 1em;
-}
-
-.total h2{
-  margin: 0;
-  align-items: center;
-  padding: 1em;
-  float: left;
-  padding-right: 0;
-  padding-left: 10px;
-}
-
-.scelta {
-	padding-bottom: 15em;
-	border-style: none;
-	border-bottom-style: solid;
-	border-width: 2px;
-	border-color: #c3c3c3;
-}
-
-.scelta h2 , .listino h2 {
-	text-align: center;
-}
-
-.scelta h2 {
-	margin: 0em;
-	padding-top: 1em;
-}
-
-#ritiroBox, #consegnaBox {
-	float: left;
-  width: 50%;
-  text-align: center;
-}
-
-#ritiroBox img, #consegnaBox img {
-	background-position: top center;
-  margin-bottom: 10px;
-	height: 5em;
-	width: 5em;;
-}
-
-#scegliOrario, #inserisciIndirizzo {
-  margin: 1em;
-}
-
-.tipiPrincipali {
-	box-shadow: 2px 2px 4px black;
-}
-
-.tipiPrincipali, .tipiPrincipali ul {
-  padding: 0;
-	list-style-type: none;
-}
-
-.tipi > h3 {
-	margin: 0;
-  padding: 1.25rem;
-	background-color: #bf7b21;
-}
-
-.tipi li {
-  padding-left: 16px;
-}
-
-.tipi li, #dolciFlip {
-	cursor: pointer;
-}
-
-.tipi li:hover, #dolciFlip:hover {
-	color: #bfb721;
-	text-decoration: underline;
-}
-
-#classiche, #speciali, #bianche, #calzoni, #bevande, #birre, #vini, #dolci {
-  padding: 16px;
-}
-
-#riepilogo, #riepilogoP {
-  width: 100%;
-  height: 100%;
-  display: inline;
-  background: #EEEEEE;
-  overflow-y: auto;
-}
-
-.item_add {
-  position: absolute;
-  left: 16px;
-  bottom: 0;
-  width: 25px;
-  height: 25px;
-  background-image: url(../images/add_icon.png);
-}
-
-.remove-product {
-  width: 20px;
-  height: 20px;
-  background-image: url(../images/delete_icon.png);
-}
-
-.product, .headerP {
-  width: 100%;
-  float: left;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #a73131;
-}
-
-.product > *, .headerP > * {
-  display: inline-block;
-}
-
-
-
-.productName, .productNameP {
-  width: 100%;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.productNameP{width: 25%}
-
-.productPrice{
-  width: 25%;
-}
-
-.productLinePrice, .productLinePriceP {
-  width: 25%;
-  text-align: center;
-}
-
-.productRemoval {
-  width: 25%;
-  text-align: center;
-
-}
-
-.productRemoval button {
-  margin: 0;
-}
-
-.productQuantity, .productQuantityP {
-  width: 15%;
-  text-align: center;
-
-}
-
-.productQuantity input {
-  width: 40px;
-  margin: 0;
-}
-
-.segno, .segnoP {
-  width: 10%;
-}
-
-/*-------fine ordina online------------*/
-
-/*-------inizio pagamento------------*/
-
-.containerP, #mainMex {
-  border-width: 1px;
-  border-radius: 16px;
-  background: #EEEEEE;
-  padding: 1em;
-  text-align: center;
-  width: 75%;
-  margin: auto;
-  margin-bottom: 1em;
-
-}
-
-#riepilogoP{
-  margin-top: 0;
-  margin-bottom: 1em;
-  border-bottom: 3px solid #000000;
-}
-
-.headerP {
-  font-weight: bold;
-  font-size: 18px;
-  color: #a73131;
-}
-
-#logoP img {
-  display: block;
-  margin: 2em auto;
-}
-
-.bonus label {
-  display: inline-block;
-}
-#mainMex {
+#payment {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 50px;
+  right: 50px;
+  width: 300px;
 }
 
-.productQuantityP {overflow-x:hidden;}
-/*-------fine pagamento------------*/
-
-/*----------pagina login----------*/
+/*----------pagina login e signup----------*/
 
 #login-container {
   display: flex;
@@ -1034,19 +603,19 @@ p.subcontainer {
   background-image: url("../images/login_background.jpg");
 }
 
-#login-form {
+#login-form, #signup-form {
   height: 100%;
   width: 480px;
   padding: 3rem;
-  background-color: var(--yellow);
+  background-color: #F5EF42;
+  border-width: 1px;
+  border-radius: 1rem;
 }
 
 #post {
   width: 80%;
   margin: 4rem 10%;
 }
-
-/*----------pagina signup----------------*/
 
 #signup-container {
   display: flex;
@@ -1055,13 +624,6 @@ p.subcontainer {
   justify-content: center;
   align-items: center;
   background-image: url("../images/login_background.jpg");
-}
-
-#signup-form {
-  height: 100%;
-  width: 480px;
-  padding: 3rem;
-  background-color: var(--yellow);
 }
 
 #post {
@@ -1139,7 +701,7 @@ div.idIng, input[type = "text"].idIng, input[type = "text"].invIdIng, div.idIngU
   padding: 0 1rem;
   border-width: 1px;
   border-radius: 1rem;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .subsubcontaineradmin input[type = "text"]{

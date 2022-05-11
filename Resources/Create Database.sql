@@ -94,21 +94,21 @@ CREATE TABLE `BONUS` (
 --
 
 INSERT INTO `BONUS` (`codiceBonus`, `dataScadenza`, `valore`, `dataRiscatto`, `email`) VALUES
-(1, '2021-10-13 18:36:37', 4, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
-(2, '2021-04-05 10:45:11', 4, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
-(3, '2021-10-17 05:56:00', 3, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
-(4, '2021-12-07 23:59:54', 5, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
+(1, '2021-10-13 18:36:37', 4, '2021-10-5 12:21:31', 'mvignaga@unipd.it'),
+(2, '2021-04-05 10:45:11', 4, '2021-04-04 12:21:31', 'gorlandi@unipd.it'),
+(3, '2021-10-17 05:56:00', 3, '2021-10-15 12:21:31', 'gorlandi@unipd.it'),
+(4, '2021-12-07 23:59:54', 5, '2021-11-25 12:21:31', 'zzhenwei@unipd.it'),
 (5, '2021-12-18 19:26:17', 9, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
-(6, '2021-05-31 22:32:17', 10, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
-(7, '2021-06-18 08:01:52', 5, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
+(6, '2021-05-31 22:32:17', 10, '2021-05-12 12:21:31', 'mvignaga@unipd.it'),
+(7, '2021-06-18 08:01:52', 5, '2021-05-31 12:21:31', 'mmasetto@unipd.it'),
 (8, '2022-01-20 12:23:22', 10, '2021-12-16 12:21:31', 'gorlandi@unipd.it'),
-(9, '2021-10-19 05:34:33', 4, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
-(10, '2021-04-02 06:00:47', 5, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
-(11, '2022-02-18 17:38:53', 10, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
-(12, '2021-10-24 04:34:39', 10, '2021-12-16 12:21:31', 'zzhenwei@unipd.it'),
-(13, '2021-08-07 14:03:34', 8, '2021-12-16 12:21:31', 'mvignaga@unipd.it'),
+(9, '2021-10-19 05:34:33', 4, '2021-10-02 12:21:31', 'mmasetto@unipd.it'),
+(10, '2021-04-02 06:00:47', 5, '2021-03-28 12:21:31', 'mvignaga@unipd.it'),
+(11, '2022-02-18 17:38:53', 10, '2021-12-30 12:21:31', 'zzhenwei@unipd.it'),
+(12, '2021-10-24 04:34:39', 10, '2021-10-01 12:21:31', 'zzhenwei@unipd.it'),
+(13, '2021-08-07 14:03:34', 8, '2021-07-07 12:21:31', 'mvignaga@unipd.it'),
 (14, '2021-12-16 14:11:36', 10, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
-(15, '2021-05-23 06:25:41', 10, '2021-12-16 12:21:31', 'mmasetto@unipd.it');
+(15, '2021-05-23 06:25:41', 10, '2021-05-16 12:21:31', 'mmasetto@unipd.it');
 
 -- --------------------------------------------------------
 
@@ -589,7 +589,6 @@ CREATE TABLE `UTENTE` (
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `birthday` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `punti` int(15) NOT NULL DEFAULT 0,
   `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
   `birthdayModified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -598,12 +597,12 @@ CREATE TABLE `UTENTE` (
 -- Dump dei dati per la tabella `UTENTE`
 --
 
-INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `punti`, `isAdmin`, `birthdayModified`) VALUES
-('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'password', 10, 0, 0),
-('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'password', 55, 0, 0),
-('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'password', 0, 0, 0),
-('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'testpw', 0, 1, 0),
-('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'password', 100, 0, 0);
+INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `isAdmin`, `birthdayModified`) VALUES
+('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'Password1', 0, 0),
+('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'Password2', 0, 0),
+('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'Password3', 0, 0),
+('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'Password4', 1, 0),
+('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'Password5', 0, 0);
 
 --
 -- Indici per le tabelle scaricate

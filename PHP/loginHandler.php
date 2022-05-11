@@ -31,21 +31,15 @@
                 $_SESSION["email"] = $result["email"];
                 $_SESSION["username"] = $dbAccess->getUserInfo($result["email"])[0]["username"];
                 $dbAccess->closeDBConnection();
-                if(!$_SESSION["isAdmin"])
-                {
-                    header("Location: ../PHP/area_utente.php");
-                }
-                else
-                {
-                    header("Location: ../PHP/Administrator.php?enter=1");
-                }
+                header("Location: ".(isset($_SESSION["redirect"]) ? $_SESSION["redirect"] : ($_SESSION["isAdmin"] ? "../PHP/Administrator.php?enter=1" : "area_utente.php")));
+                unset($_SESSION["redirect"]);
             }
             else
             {
                 require_once "UtilityFunctions.php";
                 $messaggio = "<p class=\"alert-box danger\" id=\"datiNonCorretti\">Dati non corretti</p>";
                 $nuovo = array(
-                    "<msgErrore/>" => $messaggio
+                    "<msgErrore />" => $messaggio
                 );
 
                 echo UtilityFunctions::replacer("../HTML/login.html", $nuovo);

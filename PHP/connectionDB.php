@@ -5,9 +5,9 @@ namespace DB;
 class DBAccess {
 
     private const HOST_DB = "localhost";
-    private const USERNAME = "mvignaga";
-    private const PASSWORD = "ohthohXie5aichah";
-    private const DATABASE_NAME = "mvignaga";
+    private const USERNAME = "mmasetto";
+    private const PASSWORD = "iyuyiSohS5oochu3";
+    private const DATABASE_NAME = "mmasetto";
 
     private $connection;
 
@@ -32,16 +32,14 @@ class DBAccess {
 
     private function execQuery($query) {
         $queryResult = mysqli_query($this->connection, $query) or die("Errore: ".mysqli_error($this->connection));
+        $result = array();
 
-        if ($queryResult && mysqli_num_rows($queryResult) > 0) {
-
-            $result = array();
+        if ($queryResult) {
             while ($row = mysqli_fetch_assoc($queryResult)) {
                 array_push($result, $row);
             }
-            return $result;
         }
-        return null;
+        return $result;
     }
 
     /*
@@ -184,7 +182,7 @@ class DBAccess {
                                                              FROM `COMPOSIZIONE` JOIN `INGREDIENTE` on `INGREDIENTE`.`id_ingrediente`=`COMPOSIZIONE`.`id_ingrediente`)";
                 return $this->execQuery($sql);
             }
-            
+
             /*
                 FINE DISABILITA
             */
@@ -236,7 +234,7 @@ class DBAccess {
 
                 $sql = "INSERT INTO `ELEMENTO_LISTINO` (`nome`, `prezzo`, `descrizione`) VALUES ('$txtNome', '$txtPrezzo', '$txtDescrizione');";
                 $sql2 = "INSERT INTO `BEVANDA` (`nome`, `categoria` , `gradiAlcolici`) VALUES ('$txtNome', '$txtCategoria', '$txtGradi');";
-                
+
                 mysqli_query($this->connection, $sql);
                 $result=mysqli_affected_rows($this->connection);
                 if ($result) {
@@ -312,7 +310,7 @@ class DBAccess {
                 $query = "SELECT * FROM `INGREDIENTE` WHERE `INGREDIENTE`.`disponibile` = FALSE";
                 return $this->execQuery($query);
             }
-            
+
 
             public function getPizze() {
                 $query = "SELECT * FROM `PIZZA`";
@@ -330,7 +328,7 @@ class DBAccess {
                 $query = "SELECT * FROM `INGREDIENTE`";
                 return $this->execQuery($query);
             }
-            
+
 
             public function delPizza($pizza) {
                 $txtpizza = mysqli_real_escape_string($this->connection, $pizza);
@@ -600,80 +598,87 @@ class DBAccess {
     public function getClassiche() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, descrizione
                   FROM PIZZA INNER JOIN ELEMENTO_LISTINO ON PIZZA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'classiche'";
+                  WHERE categoria = 'classiche'AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getSpeciali() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, descrizione
                   FROM PIZZA INNER JOIN ELEMENTO_LISTINO ON PIZZA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'speciali'";
+                  WHERE categoria = 'speciali' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getBianche() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, descrizione
                   FROM PIZZA INNER JOIN ELEMENTO_LISTINO ON PIZZA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'bianche'";
+                  WHERE categoria = 'bianche' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getCalzoni() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, descrizione
                   FROM PIZZA INNER JOIN ELEMENTO_LISTINO ON PIZZA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'calzoni'";
+                  WHERE categoria = 'calzoni' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getBevande() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, gradiAlcolici, descrizione
                   FROM BEVANDA INNER JOIN ELEMENTO_LISTINO ON BEVANDA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'bevande analcoliche'";
+                  WHERE categoria = 'bevande analcoliche' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getBirre() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, gradiAlcolici, descrizione
                   FROM BEVANDA INNER JOIN ELEMENTO_LISTINO ON BEVANDA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'birre'";
+                  WHERE categoria = 'birre' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getVini() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, categoria, gradiAlcolici, descrizione
                   FROM BEVANDA INNER JOIN ELEMENTO_LISTINO ON BEVANDA.nome = ELEMENTO_LISTINO.nome
-                  WHERE categoria = 'vini'";
+                  WHERE categoria = 'vini' AND disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getDolci() {
         $query = "SELECT ELEMENTO_LISTINO.nome, prezzo, descrizione
-                  FROM DOLCE INNER JOIN ELEMENTO_LISTINO ON DOLCE.nome = ELEMENTO_LISTINO.nome";
+                  FROM DOLCE INNER JOIN ELEMENTO_LISTINO ON DOLCE.nome = ELEMENTO_LISTINO.nome
+                  WHERE disponibile = 1";
         return $this->execQuery($query);
     }
 
     public function getBonus($email, $dataScadenza, $minValore, $maxValore) {
-        $query = "SELECT dataScadenza, valore, dataRiscatto, codiceBonus
+        $query = "SELECT codiceBonus, dataScadenza, valore, dataRiscatto
                   FROM BONUS
-                  WHERE email = '$email' AND dataScadenza <= '$dataScadenza' AND valore >= '$minValore' AND valore <= '$maxValore'
+                  WHERE email = '$email'
+                  AND dataScadenza >= ".($dataScadenza !== NULL ? "'$dataScadenza'" : "dataScadenza")."
+                  AND valore >= ".($minValore !== NULL ? "$minValore" : "valore")."
+                  AND valore <= ".($maxValore !== NULL ? "$maxValore" : "valore")."
                   ORDER BY dataScadenza DESC";
         return $this->execQuery($query);
     }
 
-    public function getPrenotazioni($email, $periodo, $minPersone, $maxPersone) {
+    public function getPrenotazioni($email, $periodo, $persone) {
         $query = "SELECT dataOra, numero, persone
                   FROM PRENOTAZIONE
-                  WHERE email = '$email' AND dataOra >= '$periodo' AND persone >= '$minPersone' AND persone <= '$maxPersone'
+                  WHERE email = '$email'
+                  AND dataOra >= ".($periodo !== NULL ? "'$periodo'" : "dataOra")."
+                  AND persone = ".($persone !== NULL ? "'$persone'" : "persone")."
                   ORDER BY dataOra DESC";
         return $this->execQuery($query);
     }
 
-    public function getAcquisti($email, $data, $minSpesa, $maxSpesa) {
-        $query = "SELECT ORDINAZIONE.email, ORDINAZIONE.dataOra, ACQUISTO.quantita * ELEMENTO_LISTINO.prezzo AS spesa
+    public function getAcquisti($email, $data, $spesa) {
+        $query = "SELECT ORDINAZIONE.email, ORDINAZIONE.dataOra, ELEMENTO_LISTINO.nome, ACQUISTO.quantita, ELEMENTO_LISTINO.prezzo, ACQUISTO.quantita * ELEMENTO_LISTINO.prezzo AS spesa
                   FROM ELEMENTO_LISTINO JOIN ACQUISTO ON ELEMENTO_LISTINO.nome = ACQUISTO.nome
                   JOIN ORDINAZIONE ON ACQUISTO.dataOra = ORDINAZIONE.dataOra AND ACQUISTO.email = ORDINAZIONE.email
-                  WHERE ORDINAZIONE.email = '$email' AND ORDINAZIONE.dataOra > '$data'
-                  HAVING spesa >= '$minSpesa' AND spesa <= '$maxSpesa'
+                  WHERE ORDINAZIONE.email = '$email'
+                  AND ORDINAZIONE.dataOra <= ".($data !== NULL ? "'$data'" : "ORDINAZIONE.dataOra")."
+                  HAVING spesa >= ".($spesa !== NULL ? "$spesa" : "spesa")."
                   ORDER BY dataOra DESC";
         return $this->execQuery($query);
     }
@@ -693,8 +698,8 @@ class DBAccess {
         $query = "UPDATE UTENTE
                   SET email = '$_new_email', username = '$_new_username', password = '$_new_pwd'
                   WHERE email = '$email'";
-        $result1 = mysqli_query($this->connection, $query);;
-        $result2 = 1;
+        $result1 = mysqli_query($this->connection, $query);
+        $result2 = true;
         if (substr($this->getUserInfo($_SESSION["email"])[0]["birthday"], 0, 10) != $_new_birthday) {
             $query = "UPDATE UTENTE
                       SET birthday = '$_new_birthday', birthdayModified = 1
@@ -702,12 +707,7 @@ class DBAccess {
             mysqli_query($this->connection, $query);
             $result2 = mysqli_affected_rows($this->connection);
         }
-        if($result1 && $result2)
-            return "Modifiche salvate.";
-        else if (!$result1)
-            return "Errore nell'inserimento dei dati.";
-        else
-            return "ATTENZIONE: non è possibile modificare il giorno del compleanno più di una volta.";
+        return $result1 && $result2;
     }
 
     public function deleteAccount($email) {
@@ -715,58 +715,43 @@ class DBAccess {
         return mysqli_query($this->connection, $query);
     }
 
-    public function getTavoli($dataora) {
-      $tavoliDisp = "SELECT TAVOLO.numero FROM TAVOLO WHERE TAVOLO.numero NOT IN (
-        SELECT TAVOLO.numero FROM TAVOLO INNER JOIN PRENOTAZIONE ON TAVOLO.numero = PRENOTAZIONE.numero
-        WHERE TIMEDIFF ('$dataora',dataOra) >= '02:00:00')
-        LIMIT 1";
-
-      return $this->execQuery($tavoliDisp);
+    public function getTavoli($dataora, $nPersone) {
+        $tavoliDisp = "SELECT TAVOLO.numero FROM TAVOLO WHERE TAVOLO.numero NOT IN (
+                           SELECT TAVOLO.numero FROM TAVOLO INNER JOIN PRENOTAZIONE ON TAVOLO.numero = PRENOTAZIONE.numero
+                           WHERE TIMEDIFF ('$dataora',dataOra) >= '02:00:00')
+                       AND TAVOLO.posti >= '$nPersone'
+                       ORDER BY TAVOLO.posti
+                       LIMIT 1";
+        return $this->execQuery($tavoliDisp);
     }
 
     public function insertPrenotazioni ($nPersone, $dataOra, $nTavolo,$email){
-      $query = "INSERT INTO `PRENOTAZIONE` (`persone`,`dataOra`,`numero`,`email`)
-                VALUES ('$nPersone','$dataOra','$nTavolo','$email')";
-      $risultato = mysqli_query($this->connection, $query);
-      if(mysqli_affected_rows($this->connection) > 0) {
-        return true;
-      } else {
-        return false;
-      }
+        $query = "INSERT INTO `PRENOTAZIONE` (`persone`,`dataOra`,`numero`,`email`)
+                  VALUES ('$nPersone','$dataOra','$nTavolo','$email')";
+        $risultato = mysqli_query($this->connection, $query);
+        return mysqli_affected_rows($this->connection) > 0;
     }
 
     public function insertOrdinazioni ($dataora, $email){
-      $query = "INSERT INTO `ORDINAZIONE` (`dataOra`,`email`)
-                VALUES ('$dataora','$email')";
-      $risultato = mysqli_query($this->connection, $query);
-      if(mysqli_affected_rows($this->connection) > 0) {
-        return true;
-      } else {
-        return false;
-      }
+        $query = "INSERT INTO `ORDINAZIONE` (`dataOra`,`email`)
+                  VALUES ('$dataora','$email')";
+        $risultato = mysqli_query($this->connection, $query);
+        return mysqli_affected_rows($this->connection) > 0;
     }
 
     public function insertAcquisto ($quantita,$nome,$dataora,$email){
-      $query = "INSERT INTO `ACQUISTO` (`quantita`,`nome`,`dataOra`,`email`)
-                VALUES ('$quantita','$nome','$dataora','$email')";
-      $risultato = mysqli_query($this->connection, $query);
-      if(mysqli_affected_rows($this->connection) > 0) {
-        return true;
-      } else {
-        return false;
-      }
+        $query = "INSERT INTO `ACQUISTO` (`quantita`,`nome`,`dataOra`,`email`)
+                  VALUES ('$quantita','$nome','$dataora','$email')";
+        $risultato = mysqli_query($this->connection, $query);
+        return mysqli_affected_rows($this->connection) > 0;
     }
 
-    public function useBonus($codice,$dataR){
+    public function useBonus($bonus, $dataR) {
       $query = "UPDATE `BONUS`
                 SET `dataRiscatto` = '$dataR'
-                WHERE `codiceBonus` = '$codice'";
+                WHERE `codiceBonus` IN $bonus AND `dataScadenza` >= NOW() AND `dataRiscatto` = '0000-00-00 00:00:00'";
       $risultato = mysqli_query($this->connection, $query);
-      if(mysqli_affected_rows($this->connection) > 0) {
-        return true;
-      } else {
-          return false;
-        }
+      return mysqli_affected_rows($this->connection) > 0;
     }
 }
 

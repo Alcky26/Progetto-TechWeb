@@ -3,27 +3,7 @@
 }
 
 #content-wrapper, #content-wrapper + #footer {
-  top: 64px;
-}
-
-.menu {
-  flex-direction: row;
-}
-
-.menu li {
-  padding: 0.5em;
-  text-align: center;
-}
-
-.list-image.menu li {
-  background-position: top;
-}
-
-.list-image.menu li::before {
-  display: block;
-  width: 40px;
-  height: 50px;
-  margin: auto;
+  top: 62px;
 }
 
 #nav-button {
@@ -62,6 +42,10 @@
 
 .fake-subtitle {
   display: none;
+}
+
+.container {
+  min-height: calc(100vh - 64px);
 }
 
 .subcontainers {

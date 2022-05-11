@@ -7,20 +7,20 @@ use UtilityFunctions\UtilityFunctions;
 
 if (isset($_SESSION["email"])) {
 
-    $info = $bonus = $prenotazioni = $acquisti = "";
+    $result = $bonus = $prenotazioni = $acquisti = "";
 
     ob_start();
-    $info = include "info.php";
-    $bonus = include "bonus.php";
-    $prenotazioni = include "prenotazioni.php";
-    $acquisti = include "acquisti.php";
+    if (isset($_GET["result"]))
+        $result = "<div class=\"subcontainer ".($_GET["result"] ? "success\"><p>Modifiche salvate." : "danger\"><p>Errore nell' inserimento dei dati. Ricordati che non puoi modificare la data del tuo compleanno più di una volta.")."</p></div>";
+    $bonus = include "utenteBonus.php";
+    $prenotazioni = include "utentePrenotazioni.php";
+    $acquisti = include "utenteAcquisti.php";
     ob_end_clean();
     $url = "../HTML/area_utente.html";
-
-    $replace = array("<info />" => $info,
+    $replace = array("<result />" => $result,
                      "<bonus />" => $bonus,
                      "<prenotazioni />" => $prenotazioni,
-                     "acquisti />" => $acquisti);
+                     "<acquisti />" => $acquisti);
 
     echo UtilityFunctions::replacer($url, $replace);
 

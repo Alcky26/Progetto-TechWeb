@@ -1,190 +1,146 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-		<meta charset="utf-8" />
-		<meta name="title" content="Prenotazione - Pizzeria Ai 4 Laureandi" />
-		<meta name="keywords" content="pizzeria, pizzeria padova, pizzeria ai 4 laureandi, pizzeria ai 4 laureandi prenota tavolo" />
-		<meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
-		<meta name="author" content="Zhen Wei Zheng" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Prenotazione - Pizzeria Ai 4 Laureandi</title>
-		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
-		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
-		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
-		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../JavaScript/custom.js"></script>
-
-	</head>
-  <body>
-    <header id="top-header">
-      <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
-      <nav class="dropdown">
-        <button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
-        <ul id="nav" class="dropdown-content">
-          <li id="logo">
-            <a href="../HTML/index.html">
-              <picture>
-                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
-                <img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
-              </picture>
-            </a>
-          </li
-          ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
-          ><li><a href="../PHP/menu.php">MENÙ</a></li
-          ><li><a href="../PHP/menuOrdinazione.php">ORDINA <span lang="en">ONLINE</span></a></li
-          ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
-          ><li><a href="../HTML/contatti.html">CONTATTI</a></li
-					><li id="login-logout" class="dropdown">
-            <button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
-            <ul class="dropdown-content">
-              <li><a href="../PHP/area_utente.php">Area utente</a></li>
-              <li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main id="content-wrapper">
-      <div class="fake-subtitle"></div>
-      <div id="breadcrumb">
-        <p>Ti trovi in: <span lang="en">Home</span> / Prenota tavolo</p>
-      </div>
-		  <div id="prenotazione" class="container">
-			  <div class="subtitle-panel">
-			    <h2 class="subtitle">Prenotazione</h2>
-			  </div>
-			  <div class="subcontainers">
-          <noscript>
-            <style type="text/css">
-              .jsCheck {display:none;}
-            </style>
-            <div class="noscriptmsg">
-              Sembra che hai JavaScript non compattibile/disattivo. Prova a prenotare via telefono
+        <meta charset="utf-8" />
+        <meta name="title" content="Prenotazione - Pizzeria Ai 4 Laureandi" />
+        <meta name="keywords" content="pizzeria, pizzeria padova, pizzeria ai 4 laureandi, pizzeria ai 4 laureandi prenota tavolo" />
+        <meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
+        <meta name="author" content="Zhen Wei Zheng" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prenotazione - Pizzeria Ai 4 Laureandi</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
+        <link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../JavaScript/custom.js"></script>
+    </head>
+    <body>
+        <header id="top-header">
+            <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+            <a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+            <nav class="dropdown">
+                <button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
+                <ul id="nav" class="dropdown-content">
+                    <li id="logo">
+                        <a href="../HTML/index.html">
+                            <picture>
+                                <source media="(max-width:600px)" srcset="../images/logo_small.png" />
+                                <img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
+                            </picture>
+                        </a>
+                    </li
+                    ><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+                    ><li><a href="../PHP/menu.php">MENÙ</a></li
+                    ><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+                    ><li><a href="../HTML/contatti.html">CONTATTI</a></li
+                    ><li id="login-logout" class="dropdown">
+                        <button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
+                        <ul class="dropdown-content">
+                            <li><a href="../PHP/area_utente.php">Area utente</a></li>
+                            <li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main id="content-wrapper">
+            <div class="fake-subtitle"></div>
+            <div id="breadcrumb">
+                <p>Ti trovi in: <span lang="en"><a href="../HTML/index.html">Home</a></span> / Prenota tavolo</p>
             </div>
-          </noscript>
-          <div class="jsCheck">
-				  <form class="subcontainer" action="../PHP/prenotaT.php" method="POST">
-					  <fieldset>
-              <legend id="titoloPrenotaT">
-                <h2>Prenota il tuo posto</h2>
-                <error />
-              </legend>
-  						<div id="numeroPersone">
-  							<label for="numPersone">Persone:</label>
-  							<select id="numPersone" name="numPersone">
-  								<option value="seleziona">Seleziona</option>
-  								<option value="1">1</option>
-  								<option value="2">2</option>
-  								<option value="3">3</option>
-  								<option value="4">4</option>
-  								<option value="5">5</option>
-  								<option value="6">6</option>
-  								<option value="7">7</option>
-  								<option value="8">8</option>
-  							</select>
-  						</div>
-              <h5>Nota bene:</h5><p> è possibile prenotare solo per i giorni successivi ad oggi.</p>
-              <div class="screenreader">
-                <label for="data" class="nonVisibile">Seleziona una data</label>
-                <input type="date" id="calAlt" onchange="inserisci(this)">
-              </div>
-  						<div class="calendario" aria-hidden="true">
-  							<div class="calendar-assets">
-  									<button type="button" class="btn" onclick="resetDate()" title="Giorno attuale"> Oggi</button>
-  							</div>
-  							<div class="calendar" id="table">
-  								<div class="header">
-  									<div class="month" id="month-header"></div>
-  									<div class="buttons">
-  										<button type="button" class="icon" onclick="prevMonth()" title="Mese precendente">&#10094;</button>
-  										<button type="button" class="icon" onclick="nextMonth()" title="Prossimo mese">&#10095;</button>
-  									</div>
-  								</div>
-  							</div>
-  							<h1 id="currentDate"></h1>
-  						</div >
-              <div aria-hidden="true" class="nonVisibile"><input id="dataS" type="text" name="data"></div>
-
-  						<div id="orario">
-  							<label for="ora">Ora:</label>
-  							<select id="ora" name="ora">
-  								<option value="seleziona">Seleziona:</option>
-                  <option value="12:00">12:00</option>
-                  <option value="12:15">12:15</option>
-                  <option value="12:30">12:30</option>
-                  <option value="12:45">12:45</option>
-                  <option value="13:00">13:00</option>
-                  <option value="13:15">13:15</option>
-                  <option value="13:30">13:30</option>
-                  <option value="13:45">13:45</option>
-                  <option value="14:00">14:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="19:15">19:15</option>
-                  <option value="19:30">19:30</option>
-                  <option value="19:45">19:45</option>
-                  <option value="20:00">20:00</option>
-                  <option value="20:15">20:15</option>
-                  <option value="20:30">20:30</option>
-                  <option value="20:45">20:45</option>
-                  <option value="21:00">21:00</option>
-                  <option value="21:15">21:15</option>
-                  <option value="21:30">21:30</option>
-                  <option value="21:45">21:45</option>
-                  <option value="22:00">22:00</option>
-  							</select>
-  						</div>
-              <div class="submit">
-    						<input type="reset" class="text-button" value="Resetta" aria-label="resetta valori">
-    					  <input type="submit" class="text-button" value="Conferma" aria-label="conferma prenotazione">
-              </div>
-					  </fieldset>
-
-			    </form>
-        </div>
-          <div class="subcontainer">
-            <p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
-          </div>
+		    <div id="prenotazione" class="container">
+			    <div class="subtitle-panel">
+			        <h2 class="subtitle">Prenotazione</h2>
+			    </div>
+			    <div class="subcontainers">
+                    <error />
+                    <form class="subcontainer" action="../PHP/prenota.php" method="post">
+                        <label for="data">Scegli un giorno (compreso nell'intervallo tra oggi e tra 14 giorni):</label
+                        ><input id="data" type="date" name="data" pattern="\d{4}-\d{2}-\d{2}" required />
+                        <label for="ora">Ora:</label
+                        ><select id="ora" name="ora" required>
+                            <option value="">--Seleziona--</option>
+                            <option value="12:00">12:00</option>
+                            <option value="12:15">12:15</option>
+                            <option value="12:30">12:30</option>
+                            <option value="12:45">12:45</option>
+                            <option value="13:00">13:00</option>
+                            <option value="13:15">13:15</option>
+                            <option value="13:30">13:30</option>
+                            <option value="13:45">13:45</option>
+                            <option value="14:00">14:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:15">19:15</option>
+                            <option value="19:30">19:30</option>
+                            <option value="19:45">19:45</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:15">20:15</option>
+                            <option value="20:30">20:30</option>
+                            <option value="20:45">20:45</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:15">21:15</option>
+                            <option value="21:30">21:30</option>
+                            <option value="21:45">21:45</option>
+                            <option value="22:00">22:00</option>
+                        </select>
+                        <label for="numPersone">Persone:</label
+                        ><select id="numPersone" name="numPersone" required>
+                            <option value="">--Seleziona--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <div class="submit">
+                            <input type="reset" class="text-button" value="Resetta" aria-label="resetta valori" />
+                            <input type="submit" class="text-button" value="Conferma" aria-label="conferma prenotazione" />
+                        </div>
+			        </form>
+                    <div class="subcontainer">
+                        <p>Vuoi prenotare via telefono? Clicca <a href="contatti.html">qui</a>.</p>
+                    </div>
+                </div>
 		    </div>
-		  </div>
-	  </main>
-    <footer id="footer">
-      <div>
-  			<nav id="sitemap">
-          <h4>Navigazione</h4>
-          <ul class="list">
-            <li><a href="../HTML/index.html" lang="en">Home</a></li
-            ><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
-  					><li><a href="../PHP/menu.php">Menù</a></li
-  					><li><a href="../PHP/menuOrdinazione.php">Ordina <span lang="en">online</span></a></li
-  					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
-  					><li><a href="../HTML/contatti.html">Contatti</a></li
-  					><li><a href="../HTML/login.html">Accedi</a></li
-            ><li><a href="../HTML/signup.html">Registrati</a></li
-            ><li><a href="../PHP/area_utente.php">Area utente</a></li
-            ><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
-  				</ul>
-  			</nav>
-        <div>
-          <h4>Informazioni</h4>
-          Progetto didattico del corso di Tecnologie Web prodotto da:
-          <ul class="list">
-            <li>Giacomo Orlandi - </li
-            ><li>Matteo Vignaga - 1201147</li
-            ><li>Michele Masetto - 1224457</li
-            ><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Certificazioni</h4>
-        </div>
-      </div>
-			<p id="copyright">
-				&copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
-			</p>
-		</footer>
-    <script src="../JavaScript/calendario.js"></script>
-  </body>
+        </main>
+        <footer id="footer">
+            <div>
+                <nav id="sitemap">
+                    <h4>Navigazione</h4>
+                    <ul class="list">
+                        <li><a href="../HTML/index.html" lang="en">Home</a></li
+                        ><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+                        ><li><a href="../PHP/menu.php">Menù</a></li
+                        ><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+                        ><li><a href="../HTML/contatti.html">Contatti</a></li
+                        ><li><a href="../HTML/login.html">Accedi</a></li
+                        ><li><a href="../HTML/signup.html">Registrati</a></li
+                        ><li><a href="../PHP/area_utente.php">Area utente</a></li
+                        ><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
+                    </ul>
+  		        </nav>
+                <div>
+                    <h4>Informazioni</h4>
+                    Progetto didattico del corso di Tecnologie Web prodotto da:
+                    <ul class="list">
+                        <li>Giacomo Orlandi - 1122253</li
+                        ><li>Matteo Vignaga - 1201147</li
+                        ><li>Michele Masetto - 1224457</li
+                        ><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Certificazioni</h4>
+                </div>
+            </div>
+            <p id="copyright">
+                &copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
+            </p>
+	    </footer>
+    </body>
 </html>

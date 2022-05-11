@@ -1,64 +1,95 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
+	<head>
 		<meta charset="utf-8" />
-		<meta name="title" content="Pagamento - Pizzeria Ai 4 Laureandi" />
+		<meta name="title" content="Messaggio di risposta" />
 		<meta name="keywords" content="" />
-		<meta name="description" content="pagamento" />
+		<meta name="description" content="Una certezza per studenti universitari e non solo, siamo aperti sia a pranzo che a cena per offrirti la migliore qualità a prezzi contenuti." />
 		<meta name="author" content="Zhen Wei Zheng" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Pagamento</title>
+		<title>Esito pagamento</title>
 		<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
 		<link rel="stylesheet" type="text/css" media="print" href="../CSS/print.css" />
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1080px), only screen and (max-width: 1080px)" href="../CSS/medium.css" />
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px), only screen and (max-width: 600px)" href="../CSS/mini.css" />
 		<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../JavaScript/custom.js"></script>
-    <script src="../JavaScript/applyBonus.js"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="../JavaScript/custom.js"></script>
 	</head>
-  <body>
-    <div id="logoP">
-      <h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
-      <img src="../images/logo.png" alt="logo della pizzeria">
-    </div>
-    <form action="../PHP/paga.php" method="POST">
-    <div class="containerP">
-      <riepilogo />
-  </div>
-  <div class="containerP">
-
-
-        <div class="row">
-          <div><Informazioni /></div>
-          <div><bonus /></div>
-
-          <div class="col-50">
-            <h3>Dati della carta</h3>
-            <label for="cname">Titolare della carta</label>
-            <input type="text" id="cname" name="cardname" placeholder="Mario Rossi" required>
-            <label for="ccnum">Numero della carta</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
-            <label for="expmonth">Mese di scadenza</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="settembre" required>
-
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Anno di scadenza</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018" required>
-              </div>
-              <div class="col-50">
-                <label for="cvv"><span lang="en">CVV</span></label>
-                <input type="text" id="cvv" name="cvv" placeholder="352" required>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <input type="submit" value="PAGA" class="text-button">
-
-    </div>
-    </form>
-  </body>
-</html>
+	<body>
+		<header id="top-header">
+			<h1 class="screenreader"><strong>PIZZERIA AI 4 LAUREANDI</strong></h1>
+			<a class="screenreader" href="#content-wrapper">Vai al contenuto</a>
+			<nav class="dropdown">
+				<button type="button" id="nav-button" class="mobile-only button dropbtn">Apri menù</button>
+				<ul id="nav" class="dropdown-content">
+					<li id="logo">
+						<a href="../HTML/index.html">
+							<picture>
+								<source media="(max-width:600px)" srcset="../images/logo_small.png" />
+								<img src="../images/logo.png" alt="VAI ALLA PAGINA PRINCIPALE" />
+							</picture>
+						</a>
+					</li
+					><li><a href="../HTML/chisiamo.html">CHI SIAMO</a></li
+					><li><a href="../PHP/menu.php">MENÙ</a></li
+					><li><a href="../HTML/prenotazione.html">PRENOTA TAVOLO</a></li
+					><li><a href="../HTML/contatti.html">CONTATTI</a></li
+					><li id="login-logout" class="dropdown">
+						<button type="button" class="text-button dropbtn">Il mio <span lang="en">account</span></button>
+						<ul class="dropdown-content">
+							<li><a href="../PHP/area_utente.php">Area utente</a></li>
+							<li><a href="../PHP/logout.php">Effettua il <span lang="en">logout</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main id="content-wrapper">
+			<div class="container">
+				<div class="subtitle-panel">
+					<h2 class="subtitle">Esito pagamento</h2>
+				</div>
+				<div class="subcontainers">
+					<div class="subcontainer">
+						<messaggio />
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<div>
+				<nav id="sitemap">
+					<h4>Navigazione</h4>
+					<ul class="list">
+						<li><a href="../HTML/index.html" lang="en">Home</a></li
+						><li><a href="../HTML/chisiamo.html">Chi siamo</a></li
+					><li><a href="../PHP/menu.php">Menù</a></li
+					><li><a href="../HTML/prenotazione.html">Prenota tavolo</a></li
+					><li><a href="../HTML/contatti.html">Contatti</a></li
+					><li><a href="../HTML/login.html">Accedi</a></li
+					><li><a href="../HTML/signup.html">Registrati</a></li
+					><li><a href="../PHP/area_utente.php">Area utente</a></li
+					><li><a href="../PHP/logout.php">Effetua il <span lang="en">logout</span></a></li>
+					</ul>
+				</nav>
+				<div>
+					<h4>Informazioni</h4>
+					Progetto didattico del corso di Tecnologie Web prodotto da:
+					<ul class="list">
+						<li>Giacomo Orlandi - 1122253</li
+						><li>Matteo Vignaga - 1201147</li
+					><li>Michele Masetto - 1224457</li
+					><li><span lang="zh">Zhen Wei Zheng</span> - 1229141</li>
+					</ul>
+				</div>
+				<div>
+					<h4>Certificazioni</h4>
+				</div>
+			</div>
+			<p id="copyright">
+				&copy; 2022 <span lang="en">Copyright - All Rights Reserved</span>
+			</p>
+		</footer>
+	</body>
+	</html>
