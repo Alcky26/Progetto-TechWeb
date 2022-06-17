@@ -20,7 +20,7 @@ if(!isset($_POST["registrati"])){
     <label for=\"username\" lang=\"en\">Username:</label>
     <input type=\"text\" name=\"username\" id=\"username\" autocomplete=\"username\" placeholder=\"Inserisci il tuo username:\" required />
     <label for=\"pwd\" lang=\"en\">password: </label>
-    <input type=\"password\" name=\"pwd\" id=\"pwd\" autocomplete=\"current-password\" pattern=\"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}\" title=\"Deve contentenere almeno un numero, una lettera maiuscola, una lettera minuscola, minimo 8 caratteri\" placeholder=\"Inserisci la tua password:\" required />
+    <input type=\"password\" name=\"pwd\" id=\"pwd\" autocomplete=\"current-password\" placeholder=\"Inserisci la tua password:\" required />
     <div id=\"post\">
         <input type=\"submit\" id=\"registrati\" class=\"text-button\" name=\"registrati\" value=\"Registrati\" />
     </div>

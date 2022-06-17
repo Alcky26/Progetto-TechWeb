@@ -152,7 +152,7 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 }
 
 .text-button {
-  display: block;
+  display: inline-block;
   padding: 1.25em;
   margin: 1em 0;
   border-radius: 1.75em;
@@ -171,10 +171,6 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 .text-button, .text-button * {
   color: white !important;
   text-decoration: none;
-}
-
-input.text-button, button.text-button {
-  width: 100%;
 }
 
 input[disabled].text-button, input:disabled.text-button, button[disabled].text-button, button:disabled.text-button {
@@ -587,9 +583,15 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 #payment {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
-  width: 300px;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#payment > * {
+  width: 49%;
 }
 
 /*----------pagina login e signup----------*/

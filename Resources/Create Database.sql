@@ -602,7 +602,9 @@ INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `isAdmin`, `b
 ('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'Password2', 0, 0),
 ('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'Password3', 0, 0),
 ('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'Password4', 1, 0),
-('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'Password5', 0, 0);
+('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'Password5', 0, 0),
+('admin@admin.com', 'admin', '0000-00-00 00:00:00', 'admin', 1, 0),
+('user@user.com', 'user', '0000-00-00 00:00:00', 'user', 0, 0);
 
 --
 -- Indici per le tabelle scaricate
