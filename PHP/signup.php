@@ -21,11 +21,9 @@ if(!isset($_POST["registrati"])){
     <input type=\"text\" name=\"username\" id=\"username\" autocomplete=\"username\" placeholder=\"Inserisci il tuo username:\" required />
     <label for=\"pwd\" lang=\"en\">password: </label>
     <input type=\"password\" name=\"pwd\" id=\"pwd\" autocomplete=\"current-password\" placeholder=\"Inserisci la tua password:\" required />
-    <div id=\"post\">
+    <div class=\"submit\">
         <input type=\"submit\" id=\"registrati\" class=\"text-button\" name=\"registrati\" value=\"Registrati\" />
-    </div>
-    <div id=\"post\">
-          <a href=\"../HTML/login.html\"><input type=\"button\" class=\"text-button\" value=\"Vai a Login\"/></a>
+        <a class=\"text-button\" href=\"../HTML/login.html\">Vai alla login</a>
     </div>
     </fieldset>
     </form>");

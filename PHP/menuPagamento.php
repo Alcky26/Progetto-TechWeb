@@ -34,7 +34,7 @@ if (isset($_SESSION["email"])) {
                 $connessione->insertAcquisto($quantity, $name, $today, $_SESSION["email"]);
             }
             unset($_SESSION["order"]);
-            $messaggio = "<p>Pagamento andato a buon fine.</p>";
+            $messaggio = "<p>Pagamento andato a buon fine. Puoi consultare gli acquisti che hai effettuato cliccando <a href=\"../PHP/area_utente.php#acquisti\">qui</a>.</p>";
         } else {
             header("Refresh: 5; URL=menuRiepilogo.php");
             $messaggio = "<p>Pagamento annullato: i bonus selezionati non sono più validi/disponibili, oppure il loro importo non è sufficiente a coprire la spesa. Tra poco verrai reindirizzato alla pagina di riepilogo del tuo ordine.</p>";

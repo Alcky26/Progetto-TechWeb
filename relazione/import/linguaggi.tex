@@ -5,17 +5,21 @@ Il gruppo ha utilizzato il linguaggio di markup \textit{HTML5} per la modellazio
 Seguendo quanto imparato durante il corso di Tecnologie Web, l'attenzione si è focalizzata sulle
 seguenti peculiarità:
 \begin{itemize}
+	\item \textit{Chiusura dei tag}: per aderire pienamente allo standard ogni tag è chiuso 
+	({\textless}tag{\textgreater}{\textless}/tag{\textgreater} oppure {\textless}tag /{\textgreater});
 	\item \textit{Meta-tag}: nella sezione head dei documenti sono stati inseriti meta-tag necessari per
 	migliorare l'accessibilità verso i motori di ricerca. Questo permette al sito di avere una buona
 	visibilità nelle SERP;
 	\item \textit{Separazione tra struttura, presentazione e comportamento}: il codice HTML non contiene
 	codice CSS embedded, stili inline o codice di scripting (\textit{JS} o \textit{PHP}). Questi devono
 	essere codificati in file separati e importati nella sezione head dei documenti \textit{HTML} che
-	li richiedono.
+	li richiedono;
+	\item \textit{Tabelle}: le tabelle devono essere utilizzate quanto meno possibile.
 \end{itemize}
 
 \subsection{PHP}
-Il lato server è stato sviluppato utilizzando il linguaggio di programmazione \textit{PHP}.\\
+Il lato server è stato sviluppato utilizzando il linguaggio di programmazione \textit{PHP}, che oltre
+ad essere usato per il backend è anche usato per la composizione di codice \textit{HTML}.\\
 \\
 É stata codificata una classe di supporto che funge da intermediaria tra gli script \textit{PHP} e le
 chiamate al database, che si occupa di:
@@ -65,20 +69,44 @@ Occorre precisare però che la sua disabilitazione o il suo mancato funzionament
 modo l'impossibilità di fruire dei servizi offerti dal sito.\\
 \\
 In primo luogo, viene utilizzato al caricamento delle pagine del sito per verificare tramite una
-chiamata \textit{AJAX} se c'è un utente loggato, e nel caso modificare il funzionamento del pulsante
-\textit{"Accedi"} in modo tale che, oltre a mostrare la scritta \textit{"Il mio account"}, al suo click
-mostri un menù a tendina con vari servizi che l'utente ha a sua disposizione. Se \textit{JavaScript} non
-è presente, tali servizi saranno fruibili attraverso la navigazione del sito, e nel caso in cui non sia
-stato fatto l'accesso l'utente verrà indirizzato alla pagina di login.\\
+chiamata \textit{AJAX (Asynchronous JavaScript and XML)} se c'è un utente loggato, e nel caso modificare
+il funzionamento del pulsante \textit{"Accedi"} in modo tale che, oltre a mostrare la scritta \textit{"Il
+mio account"}, al suo click mostri un menù a tendina con vari servizi che l'utente ha a sua disposizione.
+Se \textit{JavaScript} non è presente, tali servizi saranno fruibili attraverso la navigazione del sito,
+e nel caso in cui non sia stato fatto l'accesso l'utente verrà indirizzato automaticamente alla pagina di
+login.\\
 \\
-Un altro suo scopo è quello di settare dinamicamente degli attributi \textit{ARIA} per migliorare
-l'accessibilità del sito, in particolare per fornire maggiori informazioni allo screen reader e quindi
-all'utente.\\
+Un altro suo scopo è quello di settare dinamicamente degli attributi \textit{ARIA (Accessible Rich
+Internet Applications)} per migliorare l'accessibilità del sito, in particolare per fornire maggiori
+informazioni allo screen reader e quindi all'utente.\\
 \\
 Un suo altro utilizzo è quello di fornire la funzionalità mostra/nascondi password. Ovviamente la sua
 mancanza non comporta alcun disagio all'utente.\\
 \\
 Infine viene utilizzato per effettuare chiamate \textit{AJAX} che restituiscono per l'utente loggato le
-sue prenotazioni, i suoi acquisti e i suoi bonus, filtrati. Nel caso di non funzionamento di
-\textit{Javascript}, non verrà effettuata alcuna chiamata \textit{AJAX}, ma semplicemente si mostreranno
-tutti i dati dell'utente.
+sue prenotazioni, i suoi acquisti e i suoi bonus, filtrati secondo parametri predefiniti. Nel caso di non
+funzionamento di \textit{Javascript}, non verrà effettuata alcuna chiamata \textit{AJAX}, ma
+semplicemente si mostreranno tutti i dati dell'utente.
+
+\newpage
+\section{Separazione componenti}
+Per quanto riguarda la separazione tra struttura/contenuto, presentazione e comportamento il gruppo ha
+applicato le seguenti decisioni:
+\begin{itemize}
+	\item \textit{JavaScript non intrusivo}: non è stato utilizzato codice \textit{JavaScript}
+	all'interno di pagine \textit{HTML}, né in modalità embedded (cioè compreso tra i tag 
+	\texttt{{\textless}script{\textgreater}{\textless}/script{\textgreater}}) né in modalità inline;
+	\item \textit{CSS non intrusivo}: non è stato utilizzato codice \textit{CSS}
+	all'interno di pagine \textit{HTML}, né in modalità embedded (cioè compreso tra i tag 
+	\texttt{{\textless}style{\textgreater}{\textless}/style{\textgreater}}) né in modalità inline;
+	\item \textit{PHP non intrusivo}: anche se una parte del codice \textit{PHP} genera codice
+	\textit{HTML}, la pagina finale non contiene elementi \textit{PHP}. Inoltre, tutto il codice
+	\textit{HTML} che non proviene da un file viene scritto attraverso il comando \texttt{echo};
+	\item \textit{HTML solo per la struttura}: i file \textit{HTML} non contengono elementi di stile.
+	Infatti non viene usato per:
+	\begin{itemize}
+		\item impostare il layout tramite tabelle;
+		\item modificare il font;
+		\item aggiungere intestazioni diverse a seconda della dimensione del testo.
+	\end{itemize}
+\end{itemize}

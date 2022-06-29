@@ -25,3 +25,160 @@ conoscano; potrebbe anzi essere che l'utente approdi nel sito dopo aver effettua
 per scegliere un ristorante in cui cenare ad esempio. Ê quindi importante che il sito abbia
 un buon posizionamento sui motori di ricerca per battere la concorrenza. Sicuramente il sito dovrebbe
 rispondere a tutte le query che contengono le parole \textit{pizzeria, Padova, pizzeria Padova}.
+
+\subsection{Casi d'uso}
+\subsubsection{Utente generico}
+Si definisce generico un utente che:
+\begin{itemize}
+	\item Visita il sito senza possedere un account;
+	\item Visita il sito senza effettuare il login.
+\end{itemize}
+I casi d'uso relativi all'utente generico sono:
+\begin{itemize}
+	\item \textit{Visualizzazione homepage del sito (UC1)}: l'utente accede alla pagina principale
+	recandosi alla pagina apposita collegandosi al sito, cliccando il logo del locale posto nell'header,
+	oppure cliccando il link corrispondente presente nel menù di navigazione secondario posto nel footer;
+	\item \textit{Visualizzazione informazioni sul locale (UC2)}: l'utente consulta le informazioni circa
+	il locale recandosi alla pagina apposita cliccando sul link corrispondente presente nell'header o in
+	alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Visualizzazione elementi del listino (UC3)}: l'utente visualizza gli elementi del
+	listino che è possibile consumare o acquistare presso il locale, recandosi alla pagina apposita
+	cliccando sul link corrispondente presente nell'header o in alternativa nel menù di navigazione
+	secondario posto nel footer;
+	\begin{itemize}
+		\item \textit{Visualizzazione singolo elemento (UC3.1)}: l'utente visualizza un singolo elemento
+		del listino;
+		\begin{itemize}
+			\item \textit{Visualizzazione nome singolo elemento (UC3.1.1)}: l'utente visualizza il nome
+			di un singolo elemento del listino;
+		\end{itemize}
+		\item \textit{Visualizzazione pizza (UC3.2)}: l'utente visualizza le informazioni inerenti ad
+		una pizza;
+		\begin{itemize}
+			\item \textit{Visualizzazione ingredienti pizza (UC3.2.1)}: l'utente visualizza gli
+			ingredienti di cui è composta una pizza, e per ognuno la categoria di allergene a cui
+			appartiene;
+		\end{itemize}
+		\item \textit{Visualizzazione pizza classica (UC3.3)}: l'utente visualizza le informazioni
+		inerenti ad una pizza classica;
+		\item \textit{Visualizzazione pizza speciale (UC3.4)}: l'utente visualizza le informazioni
+		inerenti ad una pizza speciale;
+		\item \textit{Visualizzazione calzone (UC3.5)}: l'utente visualizza le informazioni
+		inerenti ad un calzone;
+		\item \textit{Visualizzazione bevanda (UC3.6)}: l'utente visualizza le informazioni inerenti ad
+		una bevanda;
+		\item \textit{Visualizzazione bevanda analcolica (UC3.7)}: l'utente visualizza le informazioni
+		inerenti ad una bevanda analcolica;
+		\item \textit{Visualizzazione bevanda alcolica (UC3.8)}: l'utente visualizza le informazioni
+		inerenti ad una bevanda alcolica;
+		\begin{itemize}
+			\item \textit{Visualizzazione grado alcolico bevanda (UC3.8.1)}: l'utente visualizza il
+			grado alcolico della bevanda;
+			\item \textit{Visualizzazione descrizione bevanda (UC3.8.2)}: l'utente visualizza una breve
+			descrizione della bevanda in termini di gusto e sapori;
+		\end{itemize}
+		\item \textit{Visualizzazione birra (UC3.9)}: l'utente visualizza le informazioni inerenti ad
+		una birra;
+		\item \textit{Visualizzazione vino (UC3.10)}: l'utente visualizza le informazioni inerenti ad
+		un vino;
+		\item \textit{Visualizzazione dolce (UC3.11)}: l'utente visualizza le informazioni inerenti ad
+		un dolce;
+	\end{itemize}
+	\item \textit{Visualizzazione orari locale (UC4)}: l'utente consulta i giorni e gli orari in
+	cui il locale è aperto recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Visualizzazione ubicazione locale (UC5)}: l'utente visualizza su una mappa dove si
+	trova fisicamente la pizzeria recandosi alla pagina apposita cliccando sul link corrispondente
+	presente nell'header o in alternativa
+	nel menù di navigazione secondario posto nel footer;
+	\item \textit{Registrazione (UC6)}: l'utente registra un proprio account nel sito recandosi alla
+	pagina apposita cliccando sul link corrispondente presente nell'header o in alternativa nel menù di
+	navigazione secondario posto nel footer e successivamente inserendo credenziali valide;
+	\item \textit{Login (UC7)}: l'utente effettua l'accesso con il proprio account nel sito recandosi
+	alla pagina apposita cliccando sul link corrispondente presente nell'header, o venendoci
+	reindirizzato nel caso si voglia usufruire di un servizio che richiede l'aver effettuato l'accesso, o
+	in alternativa cliccando sul link presente nel menù di
+	navigazione secondario posto nel footer. Successivamente l'utente inserisce le sue credenziali. Nel
+	caso in cui il login va a buon fine l'utente viene indirizzato alla pagina "area utente". Nel
+	caso in cui il login fallisce l'utente viene reindirizzato alla pagina di login e verrà mostrato un
+	messaggio di errore del tipo "Credenziali non valide".
+\end{itemize}
+\subsubsection{Utente loggato}
+Un utente loggato è colui che ha effettuato correttamente l'accesso nel sito. Oltre ad ereditare i casi
+d'uso dell'utente generico tranne \textit{(UC6)} ed \textit{(UC7)}, dispone anche dei seguenti:
+\begin{itemize}
+	\item \textit{Ordinazione d'asporto (UC8)}: l'utente ordina d'asporto recandosi alla pagina apposita
+	cliccando sul link corrispondente presente nell'header o in alternativa nel menù di navigazione
+	secondario posto nel footer;
+	\begin{itemize}
+		\item \textit{Scelta quantità elementi listino (UC8.1)}: l'utente per ogni
+		elemento del listino sceglie la quantità che desidera acquistarne;
+		\begin{itemize}
+			\item \textit{Scelta quantità singolo elemento (UC8.1.1)}: l'utente sceglie la quantità che
+			desidera acquistare di un elemento del listino;
+			\item \textit{Visualizzazione importo totale (UC8.1.2)}: l'utente visualizza l'importo totale
+			di quello che intende ordinare;
+		\end{itemize}
+		\item \textit{Scelta modalità di ritiro (UC8.2)}: l'utente sceglie se ritirare in loco o se
+		utilizzare il servizio di delivery;
+		\begin{itemize}
+			\item \textit{Scelta orario di ritiro (UC8.3)}: l'utente sceglie l'ora in cui ritirare
+			l'ordine;
+		\end{itemize}
+		\item \textit{Scelta ritiro in loco (UC8.3)}: l'utente sceglie di ritirare l'ordine presso il
+		locale;
+		\item \textit{Scelta delivery (UC8.4)}: l'utente sceglie di usufruire del servizio di delivery;
+		\begin{itemize}
+			\item \textit{Scelta ubicazione ritiro (UC8.4.1)}: l'utente fornendo un indirizzo di
+			domicilio valido sceglie dove ricevere l'ordine effettuato;
+		\end{itemize}
+		\item \textit{Pagamento (UC8.5)}: l'utente paga la somma dovuta;
+		\item \textit{Pagamento tramite carta di credito (UC8.6)}: l'utente paga la somma dovuta
+		inserendo i dati relativi ad una carta di credito valida;
+		\item \textit{Pagamento tramite bonus (UC8.7)}: l'utente paga la somma dovuta spendendo un bonus
+		il cui valore sia sufficiente a coprire l'acquisto;
+	\end{itemize}
+	\item \textit{Prenotazione tavolo (UC9)}: l'utente prenota un tavolo presso la pizzeria recandosi
+	alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\begin{itemize}
+		\item \textit{Scelta giorno ed ora (UC9.1)}: l'utente sceglie giorno ed ora per cui intende
+		prenotare un tavolo;
+		\item \textit{Scelta numero persone (UC9.2)}: l'utente sceglie quante persone occuperanno
+		il tavolo;
+	\end{itemize}
+	\item \textit{Visualizzazione informazioni personali (UC10)}: l'utente visualizza le sue informazioni
+	recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Modifica informazioni personali (UC11)}: l'utente modifica le sue informazioni
+	recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer.
+\end{itemize}
+\subsubsection{Utente amministratore}
+Un utente amministratore è colui che ha effettuato correttamente l'accesso al sito e possiede i permessi
+di amministratore. Oltre ad ereditare i casi d'uso di utente generico ed utente loggato tranne
+\textit{(UC6)} ed \textit{(UC7)}, dispone anche dei seguenti:
+\begin{itemize}
+	\item \textit{Aggiunta elementi al listino (UC12)}: l'utente aggiunge nuovi elementi al listino
+	recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Rimozione elementi dal listino (UC13)}: l'utente rimuove elementi dal listino
+	recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Modifica elementi del listino (UC14)}: l'utente modifica le informazioni relative agli
+	elementi del listino recandosi alla pagina apposita cliccando sul link corrispondente presente
+	nell'header o in alternativa nel menù di navigazione secondario posto nel footer;
+	\item \textit{Modifica disponibilità elementi del listino (UC15)}: l'utente rende non disponibili
+	degli elementi del listino in modo che non compaiano nell'elenco, recandosi alla pagina apposita
+	cliccando sul link corrispondente presente nell'header o in alternativa nel menù di navigazione
+	secondario posto nel footer;
+	\item \textit{Aggiunta ingredienti (16)}: l'utente aggiunge nuovi ingredienti recandosi alla pagina
+	apposita cliccando sul link corrispondente presente nell'header o in alternativa nel menù di
+	navigazione secondario posto nel footer;
+	\item \textit{Rimozione ingredienti (17)}: l'utente rimuove ingredienti recandosi alla pagina
+	apposita cliccando sul link corrispondente presente nell'header o in alternativa nel menù di
+	navigazione secondario posto nel footer;
+	\item \textit{Modifica ingredienti (18)}: l'utente modifica le informazioni relative ad ingredienti
+	recandosi alla pagina apposita cliccando sul link corrispondente presente nell'header o in
+	alternativa nel menù di navigazione secondario posto nel footer;
+\end{itemize}

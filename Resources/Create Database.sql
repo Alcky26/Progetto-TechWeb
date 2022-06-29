@@ -41,7 +41,9 @@ CREATE TABLE `ACQUISTO` (
 
 INSERT INTO `ACQUISTO` (`quantita`, `nome`, `dataOra`, `email`) VALUES
 (2, '4 Formaggi', '2021-12-22 11:31:52', 'mvignaga@unipd.it'),
-(1, 'Calzone 2', '2022-01-23 16:58:32', 'mvignaga@unipd.it');
+(1, 'Calzone 2', '2022-01-23 16:58:32', 'mvignaga@unipd.it'),
+(2, 'Margherita', '2022-06-12 19:02:11', 'user@user.com'),
+(2, 'Coca Cola 0.5l', '2022-06-12 19:02:11', 'user@user.com');
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,10 @@ INSERT INTO `BONUS` (`codiceBonus`, `dataScadenza`, `valore`, `dataRiscatto`, `e
 (12, '2021-10-24 04:34:39', 10, '2021-10-01 12:21:31', 'zzhenwei@unipd.it'),
 (13, '2021-08-07 14:03:34', 8, '2021-07-07 12:21:31', 'mvignaga@unipd.it'),
 (14, '2021-12-16 14:11:36', 10, '2021-12-16 12:21:31', 'mmasetto@unipd.it'),
-(15, '2021-05-23 06:25:41', 10, '2021-05-16 12:21:31', 'mmasetto@unipd.it');
+(15, '2021-05-23 06:25:41', 10, '2021-05-16 12:21:31', 'mmasetto@unipd.it'),
+(16, '2022-10-23 06:25:41', 15, NULL, 'user@user.com'),
+(17, '2022-12-12 15:06:30', 5, NULL, 'user@user.com'),
+(18, '2022-10-23 06:25:41', 25, NULL, 'admin@admin.com');
 
 -- --------------------------------------------------------
 
@@ -463,8 +468,8 @@ CREATE TABLE `ORDINAZIONE` (
 
 INSERT INTO `ORDINAZIONE` (`dataOra`, `email`) VALUES
 ('2021-12-22 11:31:52', 'mvignaga@unipd.it'),
-('2022-01-23 05:48:06', 'zzhenwei@unipd.it'),
-('2022-01-23 16:58:32', 'mvignaga@unipd.it');
+('2022-01-23 16:58:32', 'mvignaga@unipd.it'),
+('2022-06-12 19:02:11', 'user@user.com');
 
 -- --------------------------------------------------------
 

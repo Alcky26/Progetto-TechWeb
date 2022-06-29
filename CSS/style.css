@@ -13,6 +13,10 @@
   font-family: 'Poppins', sans-serif, 'Arial', sans-serif;
 }
 
+body {
+  position: relative;
+}
+
 h2, h3, h3, h5 {
   font-weight: bold;
 }
@@ -111,16 +115,12 @@ input[disabled], input:disabled, button[disabled], button:disabled {
   cursor: default;
 }
 
-* a{
+a {
   color: #1C2833;
 }
 
-* a:visited {
+a:visited {
   color: #360000;
-}
-
-#content-wrapper {
-  background-color: #FCD299;
 }
 
 #content-wrapper, #content-wrapper + #footer {
@@ -153,6 +153,7 @@ input[disabled], input:disabled, button[disabled], button:disabled {
 
 .text-button {
   display: inline-block;
+  width: 100%;
   padding: 1.25em;
   margin: 1em 0;
   border-radius: 1.75em;
@@ -164,12 +165,16 @@ input[disabled], input:disabled, button[disabled], button:disabled {
   text-overflow: ellipsis;
 }
 
+#nav .text-button {
+  display: block;
+}
+
 .text-button:hover {
   background-color: #65350F;
 }
 
-.text-button, .text-button * {
-  color: white !important;
+.text-button, a:visited.text-button {
+  color: white;
   text-decoration: none;
 }
 
@@ -216,8 +221,9 @@ input[disabled].text-button, input:disabled.text-button, button[disabled].text-b
 }
 
 .dropbtn.text-button + .dropdown-content {
-  top: 3.5rem;
-  left: 1.25em;
+  top: 4.5rem;
+  right: 1.25em;
+  text-align: right;
 }
 
 .alert-box {
@@ -427,11 +433,28 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 #footer > :nth-child(1) {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
 }
 
 #footer > :nth-child(1) > * {
   padding: .8rem;
+}
+
+#sitemap {
+  grid-column: 1;
+  -ms-grid-column: 1;
+}
+
+#info {
+  grid-column: 2;
+  -ms-grid-column: 2;
+}
+
+#cert {
+  grid-column: 3;
+  -ms-grid-column: 3;
 }
 
 #copyright {
@@ -445,6 +468,7 @@ dt.allergene-14 {background-color: #F7DF65;}
   min-height: calc(100vh - 93px);
   border-bottom-width: 1px;
   background-size: cover;
+  background-color: #FCD299;
 }
 
 .subtitle-panel, .subtitle-fixed-panel {
@@ -525,7 +549,6 @@ dt.allergene-14 {background-color: #F7DF65;}
 
 .grid-subcontainer {
   display: grid;
-  display: ms-grid;
   height: 100%;
   padding: 16px;
   column-gap: 16px;
@@ -614,11 +637,6 @@ dt.allergene-14 {background-color: #F7DF65;}
   border-radius: 1rem;
 }
 
-#post {
-  width: 80%;
-  margin: 4rem 10%;
-}
-
 #signup-container {
   display: flex;
   min-height: 750px;
@@ -626,15 +644,6 @@ dt.allergene-14 {background-color: #F7DF65;}
   justify-content: center;
   align-items: center;
   background-image: url("../images/login_background.jpg");
-}
-
-#post {
-  width: 80%;
-  margin: 4rem 10%;
-}
-
-#post a {
-  text-decoration: none;
 }
 
 /*----------pagina admin----------------*/
