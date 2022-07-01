@@ -726,7 +726,7 @@ div.idIng, input[type = "text"].idIng, input[type = "text"].invIdIng, div.idIngU
 
 .grid-subcontaineradmin {
   display: grid;
-  display: ms-grid;
+  display: -ms-grid;
   height: 100%;
   padding: 16px;
   column-gap: 3px;
